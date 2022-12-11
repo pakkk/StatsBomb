@@ -1,4 +1,4 @@
-# Welcome to StatsBomb repository!
+# Welcome to our StatsBomb repository!
 
 This is a repository for tracking StatsBomb data which is divided in three parts: models, statistics and webservices. 
 
