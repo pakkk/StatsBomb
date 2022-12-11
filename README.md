@@ -2,9 +2,13 @@
 
 This is a repository for tracking StatsBomb data which is divided in three parts: models, statistics and webservices. 
 
+### Common project
+
+*StatsBombCommon*: common code for the most of projects of this repository.
+
 ### Model project
 
-*StatsBombModels* contains the source code of every model defined in the official specifications (competitions, matches, lineups, events and three-sixty)
+*StatsBombModels* contains the source code of every model defined in the official specifications (competitions, matches, lineups, events and three-sixty).
 
 ### Statistics projects
 
