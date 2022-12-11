@@ -12,7 +12,7 @@ This is a repository for tracking StatsBomb data which is divided in three parts
 
 ### Statistics projects
 
-The following projects calculate useful statistics for the specific files. Also, they can provide utilities to be referenced by other projects: *StatsBombCompetitionsStats*, *StatsBombMatchesStats*, *StatsBombLineupsStats*, *StatsBombEventsStats*, *StatsBombThreeSixtyStats*.
+The following projects calculate useful statistics for the specific files. Also, they can provide utilities to be referenced by other projects in this repository: *StatsBombCompetitionsStats*, *StatsBombMatchesStats*, *StatsBombLineupsStats*, *StatsBombEventsStats*, *StatsBombThreeSixtyStats*.
 
 ### Web services projects
 
