@@ -4,7 +4,7 @@ This is a repository for tracking StatsBomb data which is divided in three parts
 
 ### Common project
 
-*Common*: common code for the most of projects of this repository.
+*Commons*: common code for the most of projects of this repository.
 
 ### Model project
 
