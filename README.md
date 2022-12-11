@@ -1,18 +1,15 @@
-# StatsBomb
-This is a repository for tracking StatsBomb data. 
+# Welcome to StatsBomb repository!
 
-# Projects description
-This repository is divided in three parts: models, statistics and webservices. 
+This is a repository for tracking StatsBomb data which is divided in three parts: models, statistics and webservices. 
 
-## Model project
+### Model project
 
 *StatsBombModels* contains the source code of every model defined in the official specifications (competitions, matches, lineups, events and three-sixty)
 
-## Statistics projects
+### Statistics projects
 
 The following projects calculate useful statistics for the specific files. Also, they can provide utilities to be referenced by other projects: *StatsBombCompetitionsStats*, *StatsBombMatchesStats*, *StatsBombLineupsStats*, *StatsBombEventsStats*, *StatsBombThreeSixtyStats*.
 
-## Web services projects
+### Web services projects
 
 The following projects are useful for retrieving statistics by REST (Spring Boot technology): *StatsBombCompetitionsRest*, *StatsBombMatchesRest*, *StatsBombLineupsRest*, *StatsBombEventsRest*, *StatsBombThreeSixtyRest*.
-
