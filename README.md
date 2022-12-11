@@ -2,7 +2,7 @@
 
 This is a repository for tracking StatsBomb data which is divided in three parts: models, statistics and webservices. 
 
-### Common project
+### Common project
 
 *StatsBombCommon*: common code for the most of projects of this repository.
 
