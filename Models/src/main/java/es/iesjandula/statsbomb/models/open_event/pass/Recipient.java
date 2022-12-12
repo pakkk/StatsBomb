@@ -1,5 +1,10 @@
 package es.iesjandula.statsbomb.models.open_event.pass;
 
+/**
+ * @author Neil Hdez
+ * @version 1.0.0
+ * @since 30/11/2022
+ */
 public class Recipient
 {
     private int id; // id

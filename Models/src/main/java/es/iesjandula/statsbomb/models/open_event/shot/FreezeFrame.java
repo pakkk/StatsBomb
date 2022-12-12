@@ -4,6 +4,11 @@ import es.iesjandula.statsbomb.models.open_event.Position;
 
 import java.util.List;
 
+/**
+ * @author Neil Hdez
+ * @version 1.0.0
+ * @since 30/11/2022
+ */
 public class FreezeFrame
 {
 

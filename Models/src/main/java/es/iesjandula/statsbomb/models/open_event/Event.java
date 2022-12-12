@@ -12,6 +12,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * @author Neil Hdez
+ * @version 1.0.0
+ * @since 30/11/2022
+ */
 public class Event
 {
 
