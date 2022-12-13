@@ -51,6 +51,22 @@ public class RestHandlerCompetition
     }
 
     /**
+     * This endpoint returns competitions that are played by women.
+     * @return Json of competitions played by women
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "/competitions/male"	)
+    public ResponseEntity<?> getCompetitionsMale()
+    {
+        int status = 0;
+
+        String resultJson = this.competitionsStats.getCompetitionsMale();
+        status = 200;
+
+        return ResponseEntity.status(status).body(resultJson);
+
+    }
+
+    /**
      * Method return Instance of CompetitionsStats
      * @return Instance of CompetitionsStats
      */
