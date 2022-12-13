@@ -1,4 +1,4 @@
-package es.iesjandula.statsbomb.common.date_utils;
+package es.iesjandula.statsbomb.common.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
