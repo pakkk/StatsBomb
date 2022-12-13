@@ -22,7 +22,7 @@ public class RestHandlerCompetition
     {
         int status = 0;
 
-        String resultJson = this.competitionsStats.getCompetitionsalphabeticalOrder();
+        String resultJson = this.competitionsStats.getCompetitionsAlphabeticalOrder();
         status = 200;
 
         return ResponseEntity.status(200).body(resultJson);

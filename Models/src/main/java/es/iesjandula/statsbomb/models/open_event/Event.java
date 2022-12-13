@@ -1,6 +1,6 @@
 package es.iesjandula.statsbomb.models.open_event;
 
-import es.iesjandula.statsbomb.common.date_utils.DateUtils;
+import es.iesjandula.statsbomb.common.utils.DateUtils;
 import es.iesjandula.statsbomb.models.open_event.foul_commited.Carry;
 import es.iesjandula.statsbomb.models.open_event.foul_commited.FoulCommited;
 import es.iesjandula.statsbomb.models.open_event.pass.Pass;
@@ -128,10 +128,14 @@ public class Event
         return this.timestamp;
     }
 
+    /**
+     * Format timeStamp HHmmssSSS
+     * @param timestamp Date in Format String
+     */
     public void setTimestamp(String timestamp)
     {
         DateUtils utils = new DateUtils();
-        this.timestampDate = utils.convertStringToDate(timestamp);
+        this.timestampDate = utils.convertStringToDateFormatHHmmssSSS(timestamp);
         this.timestamp = timestamp;
     }
 
