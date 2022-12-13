@@ -15,8 +15,13 @@ import org.springframework.web.bind.annotation.*;
 public class RestHandlerCompetition
 {
 
-    private CompetitionsStats competitionsStats = this.getCompetitionsStats(); // Clase Estadisticas Competitions
+    // New Instance of CompetitionStats
+    private final CompetitionsStats competitionsStats = this.getCompetitionsStats();
 
+    /**
+     * This endPoint return all the competitions in order ascending by competition_name
+     * @return Json of competitions in order ascending
+     */
     @RequestMapping(method = RequestMethod.GET, value = "/competitions/order"	)
     public ResponseEntity<?> getCompetitionsAlphabeticalOrder()
     {
@@ -25,10 +30,30 @@ public class RestHandlerCompetition
         String resultJson = this.competitionsStats.getCompetitionsAlphabeticalOrder();
         status = 200;
 
-        return ResponseEntity.status(200).body(resultJson);
+        return ResponseEntity.status(status).body(resultJson);
 
     }
 
+    /**
+     * This endpoint returns competitions that are played by women.
+     * @return Json of competitions played by women
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "/competitions/female"	)
+    public ResponseEntity<?> getCompetitionsFemale()
+    {
+        int status = 0;
+
+        String resultJson = this.competitionsStats.getCompetitionsFemale();
+        status = 200;
+
+        return ResponseEntity.status(status).body(resultJson);
+
+    }
+
+    /**
+     * Method return Instance of CompetitionsStats
+     * @return Instance of CompetitionsStats
+     */
     @Bean
     public CompetitionsStats getCompetitionsStats()
     {
