@@ -39,8 +39,8 @@
 							<goal>compile</goal>
 						</goals>
 						<configuration>
-							<source>11</source>
-							<target>11</target>
+							<source>19</source>
+							<target>19</target>
 						</configuration>
 					</execution>
 				</executions>
