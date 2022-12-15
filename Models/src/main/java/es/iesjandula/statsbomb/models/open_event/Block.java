@@ -3,10 +3,8 @@ package es.iesjandula.statsbomb.models.open_event;
 /**
  * @author Neil Hdez
  * @author Jesus Guerrero
- * @version 1.0.0
- * @since 01/12/2022
  *
- *
+ * Block describe if ball was blocked
  */
 public class Block
 {

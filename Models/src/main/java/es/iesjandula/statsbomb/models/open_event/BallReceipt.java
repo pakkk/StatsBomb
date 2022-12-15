@@ -3,8 +3,6 @@ package es.iesjandula.statsbomb.models.open_event;
 /**
  * @author Neil Hdez
  * @author Jesus Guerrero
- * @version 1.0.0
- * @since 30/11/2022
  *
  * Events describe the location of a pass and who that recipient was
  */

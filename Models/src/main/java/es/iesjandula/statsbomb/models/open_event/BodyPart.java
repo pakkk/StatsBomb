@@ -2,40 +2,60 @@ package es.iesjandula.statsbomb.models.open_event;
 
 /**
  * @author Neil Hdez
- * @version 1.0.0
- * @since 30/11/2022
+ * @author Jesus Guerrero
+ *
+ * Bodypart define with what body part
+ * a player touch the ball
  */
 public class BodyPart
 {
 
-    private int id; // id
+    /**
+     * Attribute -
+     * id of the body part
+     */
+    private int id;
+    /**
+     * Attribute -
+     * name of the body part used to an event
+     */
     private String name; // name of the body part
 
+    /**
+     * Default Constructor
+     */
     public BodyPart()
     {
 
     }
 
+    /**
+     * @return the id of the body part
+     */
     public int getId()
     {
         return this.id;
     }
 
-    public void setId(int id)
-    {
-        this.id = id;
-    }
-
+    /**
+     * @return the name of the body part used on an event
+     */
     public String getName()
     {
         return this.name;
     }
 
+    /**
+     * @param name of the body part used on an event
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * @return the instance of bodyPart as String
+     */
     @Override
     public String toString()
     {
