@@ -10,77 +10,213 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Este es la clase principal del modelo matches
  * @author David Armijo Ramos
+ * The match information for each they collect
  */
 public class Match
 {
+
     private final Logger logger = LogManager.getLogger();
 
+    /**
+     * Attribute -
+     * The unique identifier for the match (required to request
+     * events)
+     */
     private int match_id;
+
+    /**
+     * Attribute -
+     * The ID is the unique identifier for the competition and the
+     * name is the name of the competition
+     */
     private Competition competition;
+
+    /**
+     * Attribute -
+     * The name of the country the competition relates to (or region
+     * for international competitions)
+     */
     private String country_name;
+
+    /**
+     * Attribute -
+     * The ID is the unique identifier for the season and the name is
+     * the name of the season
+     */
     private Season season;
-    private String match_date; // Es un Date en Json
+
+    /** Attribute - The date of the Match */
+    private String match_date;
     private Date match_date_javaUtilDate;
-    private String kick_off; // Es un Date en Json
+
+    /** Attribute - The time of the Match  */
+    private String kick_off;
     private Date kick_off_javaUtilDate;
+
+    /**
+     * Attribute -
+     * The ID is the unique identifier for the stadium and the name is
+     * the name of the stadium
+     */
     private Stadium stadium;
+
+    /** Attribute - The name of the country the stadium is in */
     private String stadium_country;
+
+    /** Attribute -
+     * The ID is the unique identifier for the referee and the name is
+     * the name of the referee
+     */
     private RefereeName referee_name;
+
+    /** Attribute -
+     * The ID is the unique identifier for the country and the name is
+     * the name of the country
+     */
     private RefereeCountry referee_country;
+
+    /** Attribute -
+     * The unique identifier integer and the name for the home team
+     * in this match
+     */
     private HomeTeam home_team;
+
+    /** Attribute - Gender of the home team in the match */
     private String home_team_gender;
+
+    /** Attribute -
+     * Data frame of the manager for the home team with information
+     * about the manager described with the variables listed below
+     */
     private HomeTeamManager home_team_manager;
+
+    /** Attribute - Name of the group/conference of the team in the match */
+    private String home_team_group;
+
+    /** Attribute -
+     * ID number and name corresponding to the origin country for
+     * the home team in the match
+     */
     private HomeTeamCountry home_team_country;
+
+    /** Attribute -
+     * The unique identifier integer and the name for the away team
+     * in this match
+     */
     private AwayTeam away_team;
+
+    /** Attribute - Gender of the away team in the match */
     private String away_team_gender;
+
+    /** Attribute -
+     * Data frame of the manager for the away team with information
+     * about the manager described with the variables listed below
+     */
     private AwayTeamManager away_team_manager;
+
+    /** Attribute - Name of the group/conference of the team in the match */
     private String away_team_group;
+
+
+    /** Attribute -
+     * ID number and name corresponding to the origin country for
+     * the away team in the match
+     */
+    private AwayTeamCountry away_team_country;
+
+    /** Attribute - The final score of the home team */
     private int home_score;
+
+    /** Attribute - The final score of the away team  */
     private int away_score;
+
+    /** Attribute -
+     * The current status of collection for this match. Only “available”
+     * matches are present in the Open Data repository
+     */
     private String match_status;
+
+    /** Attribute -
+     * Number corresponding to the weeks into the competition this
+     * match is
+     */
     private int match_week;
+
+    /** Attribute - id/name pair of the phase of the competition this match is in  */
     private CompetitionStage competition_stage;
-    private String last_updated; // Es un Date en Json
+
+    /** Attribute -
+     * The date and time at which this match information was last
+     * updated
+     */
+    private String last_updated;
     private Date last_updated_javaUtilDate;
+
+    /** Attribute -
+     * Contains a list of tags detailing the versions of various parts of
+     * the event data for this match
+     */
     private Metadata metadata;
+
+    /** Attribute -
+     * The version number for the method in which the data was
+     * collected
+     */
     private String data_version;
 
     /**
-     * Constructor vacio para la clase
+     * Empty Constructor
      */
     public Match()
     {
 
     }
 
-
+    /**
+     * @return the identification of the match
+     */
     public int getMatch_id()
     {
         return this.match_id;
     }
 
+    /**
+     * @param match_id with the identification of the match
+     */
     public void setMatch_id(int match_id)
     {
         this.match_id = match_id;
     }
 
+    /**
+     * @return the information about competition
+     */
     public Competition getCompetition()
     {
         return this.competition;
     }
 
+    /**
+     * @param competition with the information about competition
+     */
     public void setCompetition(Competition competition)
     {
         this.competition = competition;
     }
 
+    /**
+     * @return the name of Country
+     */
     public String getCountry_name()
     {
         return this.country_name;
     }
 
+    /**
+     *
+     * @param country_name with the name of Country
+     */
     public void setCountry_name(String country_name)
     {
         this.country_name = country_name;
@@ -219,6 +355,14 @@ public class Match
         this.home_team_manager = home_team_manager;
     }
 
+    public String getHome_team_group() {
+        return home_team_group;
+    }
+
+    public void setHome_team_group(String home_team_group) {
+        this.home_team_group = home_team_group;
+    }
+
     public HomeTeamCountry getHome_team_country()
     {
         return this.home_team_country;
@@ -267,6 +411,14 @@ public class Match
     public void setAway_team_group(String away_team_group)
     {
         this.away_team_group = away_team_group;
+    }
+
+    public AwayTeamCountry getAway_team_country() {
+        return away_team_country;
+    }
+
+    public void setAway_team_country(AwayTeamCountry away_team_country) {
+        this.away_team_country = away_team_country;
     }
 
     public int getHome_score()
@@ -363,5 +515,45 @@ public class Match
     public void setData_version(String data_version)
     {
         this.data_version = data_version;
+    }
+
+    /**
+     * @return the instance of Match as String
+     */
+    @Override
+    public String toString() {
+        return "Match{" +
+                "match_id=" + match_id +
+                ", competition=" + competition +
+                ", country_name='" + country_name + '\'' +
+                ", season=" + season +
+                ", match_date='" + match_date + '\'' +
+                ", match_date_javaUtilDate=" + match_date_javaUtilDate +
+                ", kick_off='" + kick_off + '\'' +
+                ", kick_off_javaUtilDate=" + kick_off_javaUtilDate +
+                ", stadium=" + stadium +
+                ", stadium_country='" + stadium_country + '\'' +
+                ", referee_name=" + referee_name +
+                ", referee_country=" + referee_country +
+                ", home_team=" + home_team +
+                ", home_team_gender='" + home_team_gender + '\'' +
+                ", home_team_manager=" + home_team_manager +
+                ", home_team_group='" + home_team_group + '\'' +
+                ", home_team_country=" + home_team_country +
+                ", away_team=" + away_team +
+                ", away_team_gender='" + away_team_gender + '\'' +
+                ", away_team_manager=" + away_team_manager +
+                ", away_team_group='" + away_team_group + '\'' +
+                ", away_team_country=" + away_team_country +
+                ", home_score=" + home_score +
+                ", away_score=" + away_score +
+                ", match_status='" + match_status + '\'' +
+                ", match_week=" + match_week +
+                ", competition_stage=" + competition_stage +
+                ", last_updated='" + last_updated + '\'' +
+                ", last_updated_javaUtilDate=" + last_updated_javaUtilDate +
+                ", metadata=" + metadata +
+                ", data_version='" + data_version + '\'' +
+                '}';
     }
 }
