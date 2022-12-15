@@ -12,5 +12,6 @@ public final class Constants
     /* Constants - Base Url for Stats Bombs Data - Competitions */
     public static final String COMPETITIONS_URL = BASE_URL + "competitions.json";
 
-
+    /* Constants - Base Url for Stats Bombs Data - Three-sixty */
+    public static final String THREE_SIXTY_URL = BASE_URL + "three-sixty/";
 }
