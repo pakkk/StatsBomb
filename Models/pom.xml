@@ -12,6 +12,51 @@
 			<email>paco.benitez.chico@gmail.com</email>
 			<url>https://www.linkedin.com/in/franciscobenitezchico/</url>
 		</contributor>
+		<contributor>
+			<name>Ignacio Belda Lupión</name>
+			<email>ignaciobeldalupion@gmail.com</email>
+			<url>https://github.com/nachoblwh</url>
+		</contributor>
+		<contributor>
+			<name>Jesús Guerrrero González</name>
+			<email>jesusguerrerogonzalez2@gmail.com</email>
+			<url>https://github.com/jguegon966</url>
+		</contributor>
+		<contributor>
+			<name>Neil Hernández Salvador</name>
+			<email>hernandezsalvadorneil@gmail.com</email>
+			<url>https://www.linkedin.com/in/neilhdez</url>
+		</contributor>
+		<contributor>
+			<name>Manuel Martín</name>
+			<email>manuelmartinmurillo@gmail.com</email>
+			<url></url>
+		</contributor>
+		<contributor>
+			<name>David Armijo Ramos</name>
+			<email>darmijoramos@gmail.com</email>
+			<url>https://github.com/darram1</url>
+		</contributor>
+		<contributor>
+			<name>Jesús García Puerto</name>
+			<email>jesusgp888@gmail.com</email>
+			<url></url>
+		</contributor>
+		<contributor>
+			<name>Alejandro Aljarilla Castro</name>
+			<email>alexaljarilla@gmail.com</email>
+			<url>https://github.com/Aljarilla11</url>
+		</contributor>
+		<contributor>
+			<name>Manuel Caño</name>
+			<email>mcangil786@g.educaand.es</email>
+			<url></url>
+		</contributor>
+		<contributor>
+			<name>Manuel de la Rosa</name>
+			<email>mdelarosacervera2000@gmail.com</email>
+			<url>https://github.com/Manueldlrc</url>
+		</contributor>
 	</contributors>
 
 	<licenses>
@@ -39,8 +84,8 @@
 							<goal>compile</goal>
 						</goals>
 						<configuration>
-							<source>11</source>
-							<target>11</target>
+							<source>19</source>
+							<target>19</target>
 						</configuration>
 					</execution>
 				</executions>
@@ -101,6 +146,12 @@
             <groupId>es.iesjandula.statsbomb</groupId>
             <artifactId>Commons</artifactId>
             <version>1.0.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.19.0</version>
             <scope>compile</scope>
         </dependency>
 
