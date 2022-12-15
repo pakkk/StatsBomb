@@ -13,6 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 /**
  * @author Neil Hdez This class is in charge of performing the Json reads
+ * @author Jesus Garcia Puerto
  */
 public class JsonLoaderImpl implements IJsonLoader
 {
@@ -126,6 +127,12 @@ public class JsonLoaderImpl implements IJsonLoader
 		return null;
 	}
 
+	/**
+	 * Current three-sixty on StatsBomb
+	 * 
+	 * @return current three-sixty in JSON format
+	 * @throws StatsBombException
+	 */
 	@Override
 	public String loadThreeSixty(int matchId) throws StatsBombException
 	{
