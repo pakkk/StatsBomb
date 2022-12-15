@@ -2,54 +2,50 @@ package es.iesjandula.statsbomb.models.open_event;
 
 /**
  * @author Neil Hdez
- * @version 1.0.0
- * @since 30/11/2022
+ * @author Jesus Guerrero
+ *
+ * Events describe the location of a pass and who that recipient was
  */
 public class BallReceipt
 {
-
-    private int id; // id
-    private String name; // name for the attribute option the outcome of the ball receipt
+    /**
+     * Attribute -
+     * Options specifying the outcome
+     * of the ball receipt
+     */
     private OutCome outcome;
 
+    /**
+     * Empty Constructor
+     */
     public BallReceipt()
     {
 
     }
 
-    public int getId()
-    {
-        return this.id;
-    }
-
-    public void setId(int id)
-    {
-        this.id = id;
-    }
-
-    public String getName()
-    {
-        return this.name;
-    }
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
+    /**
+     * @return the information about reception of the ball
+     */
     public OutCome getOutcome()
     {
         return outcome;
     }
 
+    /**
+     * @param outcome with the information about reception of the ball
+     */
     public void setOutcome(OutCome outcome)
     {
         this.outcome = outcome;
     }
 
+    /**
+     * @return the instance of BallReceipt as String
+     */
     @Override
-    public String toString()
-    {
-        return "BallReceipt{" + "id=" + id + ", name='" + name + '\'' + '}';
+    public String toString() {
+        return "BallReceipt{" +
+                "outcome=" + outcome +
+                '}';
     }
 }
