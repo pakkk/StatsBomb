@@ -54,14 +54,14 @@ public class JsonLoaderImpl implements IJsonLoader
 		catch (MalformedURLException malformedURLException)
 		{
 			String error = "Error in the URL";
-			LOGGER.error(error + malformedURLException);
+			LOGGER.error(error, malformedURLException);
 			throw new StatsBombException(error, malformedURLException);
 		}
 		catch (IOException ioException)
 		{
 			String error = "Error to read the file";
-			LOGGER.error(error + ioException);
-			throw new StatsBombException(error + ioException);
+			LOGGER.error(error, ioException);
+			throw new StatsBombException(error, ioException);
 		}
 		finally
 		{
@@ -75,8 +75,8 @@ public class JsonLoaderImpl implements IJsonLoader
 			catch (IOException ioException)
 			{
 				String error = "Error to close the BufferedReader";
-				LOGGER.error(error + ioException);
-				throw new StatsBombException(error + ioException);
+				LOGGER.error(error, ioException);
+				throw new StatsBombException(error, ioException);
 			}
 
 			try
@@ -89,8 +89,8 @@ public class JsonLoaderImpl implements IJsonLoader
 			catch (IOException ioException)
 			{
 				String error = "Error to close the InputStreamReader";
-				LOGGER.error(error + ioException);
-				throw new StatsBombException(error + ioException);
+				LOGGER.error(error, ioException);
+				throw new StatsBombException(error, ioException);
 			}
 		}
 
