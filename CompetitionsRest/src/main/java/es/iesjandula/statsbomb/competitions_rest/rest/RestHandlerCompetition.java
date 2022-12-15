@@ -1,5 +1,6 @@
 package es.iesjandula.statsbomb.competitions_rest.rest;
 
+import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.competitions_stats.CompetitionsStats;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +24,10 @@ public class RestHandlerCompetition
     /**
      * This endPoint return all the competitions in order ascending by competition_name
      * @return Json of competitions in order ascending
+     * @throws StatsBombException 
      */
     @RequestMapping(method = RequestMethod.GET, value = "/competitions/order"	)
-    public ResponseEntity<?> getCompetitionsAlphabeticalOrder()
+    public ResponseEntity<?> getCompetitionsAlphabeticalOrder() throws StatsBombException
     {
         int status = 0;
 
@@ -39,9 +41,10 @@ public class RestHandlerCompetition
     /**
      * This endpoint returns competitions that are played by women.
      * @return Json of competitions played by women
+     * @throws StatsBombException 
      */
     @RequestMapping(method = RequestMethod.GET, value = "/competitions/female"	)
-    public ResponseEntity<?> getCompetitionsFemale()
+    public ResponseEntity<?> getCompetitionsFemale() throws StatsBombException
     {
         int status = 0;
 
@@ -55,9 +58,10 @@ public class RestHandlerCompetition
     /**
      * This endpoint returns competitions that are played by women.
      * @return Json of competitions played by women
+     * @throws StatsBombException 
      */
     @RequestMapping(method = RequestMethod.GET, value = "/competitions/male"	)
-    public ResponseEntity<?> getCompetitionsMale()
+    public ResponseEntity<?> getCompetitionsMale() throws StatsBombException
     {
         int status = 0;
 

@@ -1,5 +1,6 @@
 package es.iesjandula.statsbomb.common;
 
+import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
 
 public class LauncherTemporal
@@ -8,7 +9,14 @@ public class LauncherTemporal
     {
         JsonLoaderImpl jsonLoader = new JsonLoaderImpl();
 
-        System.out.println(jsonLoader.loadCompetitions());
+        try
+		{
+			System.out.println(jsonLoader.loadThreeSixty(3788741));
+		}
+		catch (StatsBombException e)
+		{
+			e.printStackTrace();
+		}
 
     }
 }
