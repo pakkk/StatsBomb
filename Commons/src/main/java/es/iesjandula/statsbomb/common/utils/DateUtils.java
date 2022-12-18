@@ -28,7 +28,8 @@ public class DateUtils
         try
         {
             date = simpleDateFormat.parse(dateString);
-        } catch (ParseException parseException)
+        }
+        catch (ParseException parseException)
         {
             parseException.printStackTrace();
         }
@@ -50,7 +51,8 @@ public class DateUtils
             LocalDateTime localDateTime = LocalDateTime.parse(dateString);
             Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
             date = Date.from(instant);
-        } catch (DateTimeParseException dateTimeParseException)
+        }
+        catch (DateTimeParseException dateTimeParseException)
         {
             return null;
         }

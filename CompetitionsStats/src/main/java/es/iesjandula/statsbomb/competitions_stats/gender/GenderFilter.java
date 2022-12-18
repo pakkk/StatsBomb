@@ -1,12 +1,10 @@
 package es.iesjandula.statsbomb.competitions_stats.gender;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.utils.JsonUtils;
 import es.iesjandula.statsbomb.models.competition.Competition;
-import es.iesjandula.statsbomb.common.load_json.Json;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -22,7 +20,7 @@ public class GenderFilter
      *
      * @return String in format Json Pretty with competitions of female.
      */
-    public String getCompetitionsFemale(List<Competition> competitionList)
+    public String getCompetitionsFemale(List<Competition> competitionList) throws StatsBombException
     {
         // Result
         String jsonCompetitionsFemale = "";
@@ -41,7 +39,7 @@ public class GenderFilter
         // Convert List to Json Format
         JsonUtils jsonUtils = new JsonUtils();
 
-        jsonCompetitionsFemale = jsonUtils.writeJsonAsStringPretty(competitionListFemale);
+        jsonCompetitionsFemale = jsonUtils.writeObjectToJsonAsStringPretty(competitionListFemale);
 
         return jsonCompetitionsFemale;
 
@@ -52,7 +50,7 @@ public class GenderFilter
      *
      * @return String in format Json Pretty with competitions of male.
      */
-    public String getCompetitionsMale(List<Competition> competitionList)
+    public String getCompetitionsMale(List<Competition> competitionList) throws StatsBombException
     {
         // Result
         String jsonCompetitionsMale = "";
@@ -71,7 +69,7 @@ public class GenderFilter
         // Convert List to Json Format
         JsonUtils jsonUtils = new JsonUtils();
 
-        jsonCompetitionsMale = jsonUtils.writeJsonAsStringPretty(competitionListMale);
+        jsonCompetitionsMale = jsonUtils.writeObjectToJsonAsStringPretty(competitionListMale);
 
         return jsonCompetitionsMale;
 

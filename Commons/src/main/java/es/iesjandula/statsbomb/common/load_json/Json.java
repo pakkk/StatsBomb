@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+/**
+ * This class has the configuration for parsing JSON files.
+ */
 public class Json
 {
     private static ObjectMapper mapper;

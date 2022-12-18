@@ -7,9 +7,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.load_json.Json;
 import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
+import es.iesjandula.statsbomb.common.utils.Constants;
 import es.iesjandula.statsbomb.competitions_stats.gender.GenderFilter;
 import es.iesjandula.statsbomb.competitions_stats.order.OrderFilter;
 import es.iesjandula.statsbomb.models.competition.Competition;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,14 +25,16 @@ import java.util.List;
  */
 public class CompetitionsStats
 {
+    /* Attribute - Logger */
+    private final Logger LOGGER = LogManager.getLogger();
 
     /**
      * Return list with all competitions in json StatsBomb
      *
      * @return List of Competitions
-     * @throws StatsBombException 
+     * @throws StatsBombException
      */
-    protected List<Competition> getListCompetitions() throws StatsBombException
+    private List<Competition> getListCompetitions() throws StatsBombException
     {
 
         JsonLoaderImpl jsonLoader = new JsonLoaderImpl();
@@ -43,11 +48,11 @@ public class CompetitionsStats
         }
         catch (IOException ioException)
         {
-            ioException.printStackTrace();
+            LOGGER.error(Constants.E_PARSING_JSON_TO_OBJECT, ioException);
+            throw new StatsBombException(Constants.E_PARSING_JSON_TO_OBJECT, ioException);
         }
 
         return competitionList;
-
     }
 
 
@@ -55,7 +60,7 @@ public class CompetitionsStats
      * This method sorts the competitions in ascending alphabetical order by name.
      *
      * @return String in format Json Pretty with competitions order by name
-     * @throws StatsBombException 
+     * @throws StatsBombException
      */
     public String getCompetitionsAlphabeticalOrder() throws StatsBombException
     {
@@ -68,7 +73,7 @@ public class CompetitionsStats
      * This method show all competitions of female.
      *
      * @return String in format Json Pretty with competitions of female.
-     * @throws StatsBombException 
+     * @throws StatsBombException
      */
     public String getCompetitionsFemale() throws StatsBombException
     {
@@ -80,7 +85,7 @@ public class CompetitionsStats
      * This method show all competitions of male.
      *
      * @return String in format Json Pretty with competitions of male.
-     * @throws StatsBombException 
+     * @throws StatsBombException
      */
     public String getCompetitionsMale() throws StatsBombException
     {
