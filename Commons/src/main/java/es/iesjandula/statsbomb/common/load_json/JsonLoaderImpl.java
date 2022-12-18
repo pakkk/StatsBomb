@@ -15,6 +15,7 @@ import org.apache.logging.log4j.Logger;
 /**
  * @author Neil Hdez
  * @author Jesus Garcia Puerto
+ * @author Oscar Herruzo Montoya
  * This class is in charge of performing the JSON reads
  */
 public class JsonLoaderImpl implements IJsonLoader
@@ -114,9 +115,9 @@ public class JsonLoaderImpl implements IJsonLoader
      * @throws StatsBombException This error comes from loadJson
      */
     @Override
-    public String loadMatches(int competitionId, int seasonId)
+    public String loadMatches(int competitionId, int seasonId) throws StatsBombException
     {
-        return null;
+        return loadJson(Constants.MATCHES_URL + competitionId + "/" + seasonId + ".json");
     }
 
     /**

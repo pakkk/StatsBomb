@@ -33,7 +33,7 @@ public interface IJsonLoader
      * @return current Matches in JSON format
      * @throws StatsBombException This error comes from loadJson
      */
-    String loadMatches(int competitionId, int seasonId);
+    String loadMatches(int competitionId, int seasonId) throws StatsBombException;
 
     /**
      * Current Events on StatsBomb

@@ -35,5 +35,7 @@ public final class Constants
     /* Constants - Base Url for Stats Bombs Data - Three-sixty */
     public static final String THREE_SIXTY_URL          = BASE_URL + "three-sixty/";
 
-
+    /* Constants - Base Url for Stats Bombs Data - Matches */
+    public static final String MATCHES_URL 				= BASE_URL + "matches/";
+    
 }
