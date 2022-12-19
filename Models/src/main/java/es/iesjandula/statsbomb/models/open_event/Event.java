@@ -14,17 +14,41 @@ import java.util.UUID;
 
 /**
  * @author Neil Hdez
- * @version 1.0.0
- * @since 30/11/2022
+ * @author Joaquin Moreno
+ *
+ *
  */
 public class Event
 {
 
+    /** Attribute - The unique identifier for the competition. */
     private String id;
+    /**
+     * Attribute
+     * Sequence notation for the ordering of
+     * events within each match
+     */
     private int index;
+    /**
+     * Attribute - The part of the match the timestamp relates to. */
     private int period;
+    /**
+     * Attribute
+     * Time in the match the event takes
+     * place, recorded to the millisecond.
+     */
     private String timestamp;
+    /**
+     * Attribute
+     * Time in the match the event takes
+     * place, recorded to the millisecond.
+     */
     private Date timestampDate;
+    /**
+     * Attribute
+     * The minutes on the clock at the time
+     * of this event. Resets to 45 at halftime, 90 at the start of extra time etc.
+     */
     private int minute;
     private int second;
     private Type type;
@@ -58,6 +82,8 @@ public class Event
     private Block block;
     private Substitution substitution;
 
+
+    //NO TOCAR
     public Event()
     {
 
