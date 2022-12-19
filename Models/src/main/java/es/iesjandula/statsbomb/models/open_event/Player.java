@@ -9,8 +9,11 @@ public class Player
 {
     /**
      * Attributes -
-     * id -> Will be the identifier of the Player
-     * name -> Will be the name of the Player
+     * Id / Name of the player this
+     * event relates to (player
+     * object will only display if the
+     * event is tied to a specific
+     * player).
      */
     private int id; // id
     private String name; // name of the Player

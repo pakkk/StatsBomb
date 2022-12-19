@@ -10,8 +10,9 @@ public class Position
 {
     /**
      * Attributes -
-     * id -> Will be the identifier of the Position
-     * name -> Will be the name of the Position.
+     * Id / Name of the position the
+     * player was in at the time of
+     * this event..
      */
     private int id; // id
     private String name; // name of the Position

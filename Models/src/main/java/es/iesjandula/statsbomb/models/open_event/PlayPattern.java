@@ -9,8 +9,8 @@ public class PlayPattern
 {
     /**
      * Attributes -
-     * id -> Will be the identifier of the PlayPattern
-     * name-> Will be the name of the PlayPattern
+     * Id /name of the play pattern
+     * relevant to this event.
      */
     private int id; // id
     private String name; // name of the Play Pattern

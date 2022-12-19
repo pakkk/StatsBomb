@@ -9,8 +9,9 @@ public class Technique
 {
     /**
      * Attributes -
-     * id -> Will be the identifyer of the technique
-     * name -> Will be the name of the technique
+     * Id/ Name for the attribute
+     * option specifying the
+     * goalkeeper technique used.
      */
     private int id; // id
     private String name; // name of the Technique

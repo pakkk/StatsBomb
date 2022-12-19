@@ -14,8 +14,12 @@ public class Tactics
 {
     /**
      * Attributes -
-     * formation -> will be the formation of the tactic.
-     * lineup -> will be a list that will contain lineups of the tactic.
+     * For events of type (Starting
+     * XI or Tactical Shift), the
+     * “tactics” object is added.
+     * The formation item
+     * describes the formation
+     * being used.
      */
     public String formation;
     private List<Lineup> lineup;

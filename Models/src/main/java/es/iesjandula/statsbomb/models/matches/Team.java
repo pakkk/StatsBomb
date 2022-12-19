@@ -1,27 +1,25 @@
-package es.iesjandula.statsbomb.models.open_event;
+package es.iesjandula.statsbomb.models.matches;
 
 /**
- * @author Neil Hdez
  * @author Nacho Belda
- * This class will almacenates the Outcome
  */
-public class OutCome
+public class Team
 {
     /**
      * Attributes -
-     * Id / Name for the attribute
-     * option specifying the outcome
-     * of the shot.
+     * id/Name of the team this
+     * event relates to. Team object
+     * will only display if the event
+     * is tied to a specific team
      */
-    private int id; // id
-    private String name; // name of the Outcome
+    private int id;
+    private String name;
 
     /**
-     * Empty constructor
+     * Empty Constructor
      */
-    public OutCome()
+    public Team()
     {
-
     }
 
     /**
@@ -29,7 +27,7 @@ public class OutCome
      */
     public int getId()
     {
-        return this.id;
+        return id;
     }
 
     /**
@@ -45,7 +43,7 @@ public class OutCome
      */
     public String getName()
     {
-        return this.name;
+        return name;
     }
 
     /**
@@ -57,11 +55,14 @@ public class OutCome
     }
 
     /**
-     * @return an instance about the class Outcome as String
+     * @return an instance of the class Team as String
      */
     @Override
     public String toString()
     {
-        return "OutCome{" + "id=" + id + ", name='" + name + '\'' + '}';
+        return "AwayTeam{" +
+                "id=" + id +
+                ", name='" + name +
+                '}';
     }
 }
