@@ -37,13 +37,45 @@ public class DateUtils
         return date;
     }
 
+    public Date convertStringToDateFormatyyyyMMdd(final String dateString)
+    {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = null;
+        try
+        {
+            date = simpleDateFormat.parse(dateString);
+        }
+        catch (ParseException parseException)
+        {
+            parseException.printStackTrace();
+        }
+
+        return date;
+    }
+
+    public Date convertStringToDateFormatddMMyyyy(final String dateString)
+    {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = null;
+        try
+        {
+            date = simpleDateFormat.parse(dateString);
+        }
+        catch (ParseException parseException)
+        {
+            parseException.printStackTrace();
+        }
+
+        return date;
+    }
+
     /**
      * Convert Date in format yyyy-MM-ddTHH:mm:ss.SSS to String
      *
      * @param dateString Date in format String
      * @return Date in format Date
      */
-    private Date convertStringToDateFormatyyyyMMddTHHmmssSSS(String dateString)
+    public Date convertStringToDateFormatyyyyMMddTHHmmssSSS(String dateString)
     {
         Date date = null;
         try

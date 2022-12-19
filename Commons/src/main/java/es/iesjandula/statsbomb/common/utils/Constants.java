@@ -38,4 +38,10 @@ public final class Constants
     /* Constants - Base Url for Stats Bombs Data - Matches */
     public static final String MATCHES_URL 				= BASE_URL + "matches/";
     
+    /* Constants - Base Url for Stats Bombs Data - EVENTS */
+    public static final String EVENTS_URL 				= BASE_URL + "events/";
+    
+    /* Constants - Base Url for Stats Bombs Data - LINEUPS */
+    public static final String LINEUPS_URL 				= BASE_URL + "lineups/";
+    
 }

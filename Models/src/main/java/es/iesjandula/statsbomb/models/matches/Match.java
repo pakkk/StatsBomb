@@ -1,6 +1,7 @@
 package es.iesjandula.statsbomb.models.matches;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
+import es.iesjandula.statsbomb.common.utils.DateUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -74,13 +75,13 @@ public class Match
      * The ID is the unique identifier for the country and the name is
      * the name of the country
      */
-    private RefereeCountry referee_country;
+    private Country referee_country;
 
     /** Attribute -
      * The unique identifier integer and the name for the home team
      * in this match
      */
-    private HomeTeam home_team;
+    private Team home_team;
 
     /** Attribute - Gender of the home team in the match */
     private String home_team_gender;
@@ -89,7 +90,7 @@ public class Match
      * Data frame of the manager for the home team with information
      * about the manager described with the variables listed below
      */
-    private HomeTeamManager home_team_manager;
+    private Manager home_team_manager;
 
     /** Attribute - Name of the group/conference of the team in the match */
     private String home_team_group;
@@ -98,13 +99,13 @@ public class Match
      * ID number and name corresponding to the origin country for
      * the home team in the match
      */
-    private HomeTeamCountry home_team_country;
+    private Country home_team_country;
 
     /** Attribute -
      * The unique identifier integer and the name for the away team
      * in this match
      */
-    private AwayTeam away_team;
+    private Team away_team;
 
     /** Attribute - Gender of the away team in the match */
     private String away_team_gender;
@@ -113,7 +114,7 @@ public class Match
      * Data frame of the manager for the away team with information
      * about the manager described with the variables listed below
      */
-    private AwayTeamManager away_team_manager;
+    private Manager away_team_manager;
 
     /** Attribute - Name of the group/conference of the team in the match */
     private String away_team_group;
@@ -123,7 +124,7 @@ public class Match
      * ID number and name corresponding to the origin country for
      * the away team in the match
      */
-    private AwayTeamCountry away_team_country;
+    private Country away_team_country;
 
     /** Attribute - The final score of the home team */
     private int home_score;
@@ -214,13 +215,13 @@ public class Match
     }
 
     /**
-     *
      * @param country_name with the name of Country
      */
     public void setCountry_name(String country_name)
     {
         this.country_name = country_name;
     }
+
 
     public Season getSeason()
     {
@@ -240,18 +241,10 @@ public class Match
     public void setMatch_date(String match_date) throws StatsBombException
     {
         this.match_date = match_date;
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        DateUtils dateUtils = new DateUtils();
 
-        try
-        {
-            this.match_date_javaUtilDate = dateFormat.parse(this.match_date);
-        }
-        catch (ParseException parseException)
-        {
-            String errorMessage = "Cannot parse the field 'match_date' to java.util.Date";
-            logger.error(errorMessage, parseException);
-            throw new StatsBombException(errorMessage, parseException);
-        }
+        this.match_date_javaUtilDate = dateUtils.convertStringToDateFormatyyyyMMdd(this.match_date);
+
     }
 
     public Date getMatch_date_javaUtilDate()
@@ -267,18 +260,10 @@ public class Match
     public void setKick_off(String kick_off) throws StatsBombException
     {
         this.kick_off = kick_off;
-        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss.SSS");
+        DateUtils dateUtils = new DateUtils();
 
-        try
-        {
-            this.kick_off_javaUtilDate = dateFormat.parse(this.kick_off);
-        }
-        catch (ParseException parseException)
-        {
-            String errorMessage = "Cannot parse the field 'kick_off' to java.util.Date";
-            logger.error(errorMessage, parseException);
-            throw new StatsBombException(errorMessage, parseException);
-        }
+        this.kick_off_javaUtilDate = dateUtils.convertStringToDateFormatHHmmssSSS(this.kick_off);
+
     }
 
     public Date getKick_off_javaUtilDate() {
@@ -315,22 +300,22 @@ public class Match
         this.referee_name = referee_name;
     }
 
-    public RefereeCountry getReferee_country()
+    public Country getReferee_country()
     {
         return this.referee_country;
     }
 
-    public void setReferee_country(RefereeCountry referee_country)
+    public void setReferee_country(Country referee_country)
     {
         this.referee_country = referee_country;
     }
 
-    public HomeTeam getHome_team()
+    public Team getHome_team()
     {
         return this.home_team;
     }
 
-    public void setHome_team(HomeTeam home_team)
+    public void setHome_team(Team home_team)
     {
         this.home_team = home_team;
     }
@@ -345,12 +330,12 @@ public class Match
         this.home_team_gender = home_team_gender;
     }
 
-    public HomeTeamManager getHome_team_manager()
+    public Manager getHome_team_manager()
     {
         return this.home_team_manager;
     }
 
-    public void setHome_team_manager(HomeTeamManager home_team_manager)
+    public void setHome_team_manager(Manager home_team_manager)
     {
         this.home_team_manager = home_team_manager;
     }
@@ -363,22 +348,22 @@ public class Match
         this.home_team_group = home_team_group;
     }
 
-    public HomeTeamCountry getHome_team_country()
+    public Country getHome_team_country()
     {
         return this.home_team_country;
     }
 
-    public void setHome_team_country(HomeTeamCountry home_team_country)
+    public void setHome_team_country(Country home_team_country)
     {
         this.home_team_country = home_team_country;
     }
 
-    public AwayTeam getAway_team()
+    public Team getAway_team()
     {
         return this.away_team;
     }
 
-    public void setAway_team(AwayTeam away_team)
+    public void setAway_team(Team away_team)
     {
         this.away_team = away_team;
     }
@@ -393,12 +378,12 @@ public class Match
         this.away_team_gender = away_team_gender;
     }
 
-    public AwayTeamManager getAway_team_manager()
+    public Manager getAway_team_manager()
     {
         return this.away_team_manager;
     }
 
-    public void setAway_team_manager(AwayTeamManager away_team_manager)
+    public void setAway_team_manager(Manager away_team_manager)
     {
         this.away_team_manager = away_team_manager;
     }
@@ -413,11 +398,11 @@ public class Match
         this.away_team_group = away_team_group;
     }
 
-    public AwayTeamCountry getAway_team_country() {
+    public Country getAway_team_country() {
         return away_team_country;
     }
 
-    public void setAway_team_country(AwayTeamCountry away_team_country) {
+    public void setAway_team_country(Country away_team_country) {
         this.away_team_country = away_team_country;
     }
 
@@ -480,16 +465,9 @@ public class Match
         this.last_updated = last_updated;
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS");
 
-        try
-        {
-            this.last_updated_javaUtilDate = dateFormat.parse(this.last_updated);
-        }
-        catch (ParseException parseException)
-        {
-            String errorMessage = "Cannot parse the field 'last_updated' to java.util.Date";
-            logger.error(errorMessage, parseException);
-            throw new StatsBombException(errorMessage, parseException);
-        }
+        DateUtils dateUtils = new DateUtils();
+        this.last_updated_javaUtilDate = dateUtils.convertStringToDateFormatyyyyMMddTHHmmssSSS(this.last_updated);
+
 
     }
 
@@ -523,37 +501,37 @@ public class Match
     @Override
     public String toString() {
         return "Match{" +
-                "match_id=" + match_id +
-                ", competition=" + competition +
-                ", country_name='" + country_name + '\'' +
-                ", season=" + season +
-                ", match_date='" + match_date + '\'' +
-                ", match_date_javaUtilDate=" + match_date_javaUtilDate +
-                ", kick_off='" + kick_off + '\'' +
-                ", kick_off_javaUtilDate=" + kick_off_javaUtilDate +
-                ", stadium=" + stadium +
-                ", stadium_country='" + stadium_country + '\'' +
-                ", referee_name=" + referee_name +
-                ", referee_country=" + referee_country +
-                ", home_team=" + home_team +
-                ", home_team_gender='" + home_team_gender + '\'' +
-                ", home_team_manager=" + home_team_manager +
-                ", home_team_group='" + home_team_group + '\'' +
-                ", home_team_country=" + home_team_country +
-                ", away_team=" + away_team +
-                ", away_team_gender='" + away_team_gender + '\'' +
-                ", away_team_manager=" + away_team_manager +
-                ", away_team_group='" + away_team_group + '\'' +
-                ", away_team_country=" + away_team_country +
-                ", home_score=" + home_score +
-                ", away_score=" + away_score +
-                ", match_status='" + match_status + '\'' +
-                ", match_week=" + match_week +
-                ", competition_stage=" + competition_stage +
-                ", last_updated='" + last_updated + '\'' +
-                ", last_updated_javaUtilDate=" + last_updated_javaUtilDate +
-                ", metadata=" + metadata +
-                ", data_version='" + data_version + '\'' +
+                "match_id=" + this.match_id +
+                ", competition=" + this.competition +
+                ", country_name='" + this.country_name +
+                ", season=" + this.season +
+                ", match_date='" + this.match_date +
+                ", match_date_javaUtilDate=" + this.match_date_javaUtilDate +
+                ", kick_off='" + this.kick_off +
+                ", kick_off_javaUtilDate=" + this.kick_off_javaUtilDate +
+                ", stadium=" + this.stadium +
+                ", stadium_country='" + this.stadium_country +
+                ", referee_name=" + this.referee_name +
+                ", referee_country=" + this.referee_country +
+                ", home_team=" + this.home_team +
+                ", home_team_gender='" + this.home_team_gender +
+                ", home_team_manager=" + this.home_team_manager +
+                ", home_team_group='" + this.home_team_group +
+                ", home_team_country=" + this.home_team_country +
+                ", away_team=" + this.away_team +
+                ", away_team_gender='" + this.away_team_gender +
+                ", away_team_manager=" + this.away_team_manager +
+                ", away_team_group='" + this.away_team_group +
+                ", away_team_country=" + this.away_team_country +
+                ", home_score=" + this.home_score +
+                ", away_score=" + this.away_score +
+                ", match_status='" + this.match_status +
+                ", match_week=" + this.match_week +
+                ", competition_stage=" + this.competition_stage +
+                ", last_updated='" + this.last_updated +
+                ", last_updated_javaUtilDate=" + this.last_updated_javaUtilDate +
+                ", metadata=" + this.metadata +
+                ", data_version='" + this.data_version +
                 '}';
     }
 }
