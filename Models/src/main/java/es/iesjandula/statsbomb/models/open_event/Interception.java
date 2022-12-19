@@ -9,7 +9,9 @@ public class Interception
 {
     /**
      * Attributes -
-     * outcome-> Will almacenates the outcome
+     * Id / Name for the attribute
+     * option specifying the outcome
+     * of the interception
      */
     private OutCome outcome;
 

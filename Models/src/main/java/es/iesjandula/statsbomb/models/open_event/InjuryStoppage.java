@@ -9,7 +9,10 @@ public class InjuryStoppage
 {
     /**
      * Attributes -
-     * in_chain -> Will indicate if is in_chain
+     * Added if the ball was in the
+     * injured player’s team’s
+     * possession before the
+     * stoppage began.
      */
     private Boolean in_chain;
 

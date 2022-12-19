@@ -12,12 +12,9 @@ public class Goalkeeper
 {
     /**
      * Attributes -
-     * Position -> Will be the information about the position
-     * Technique -> Will be the information about the Technique
-     * Body_Part ->Will be the information about the BodyPart
-     * Type -> Will be the information about the Type
-     * Outcome -> Will be the information about the outcome
-     * End_Location -> Will be the information about the end_location
+     * Id / Name for the attribute
+     * option of goalkeeper’s
+     * positioning before a shot.
      */
     private Position position;
     private Technique technique;
