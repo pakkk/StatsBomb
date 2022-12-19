@@ -41,7 +41,7 @@ public interface IJsonLoader
      * @return current Events in JSON format
      * @throws StatsBombException This error comes from loadJson
      */
-    String loadEvents(int matchId);
+    String loadEvents(int matchId) throws StatsBombException;
 
     /**
      * Current LineUps on StatsBomb
@@ -49,7 +49,7 @@ public interface IJsonLoader
      * @return current LineUps in JSON format
      * @throws StatsBombException This error comes from loadJson
      */
-    String loadLineups(int matchId);
+    String loadLineups(int matchId) throws StatsBombException;
 
     /**
      * Current three-sixty on StatsBomb
