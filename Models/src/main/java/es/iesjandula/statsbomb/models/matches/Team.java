@@ -1,11 +1,11 @@
 package es.iesjandula.statsbomb.models.matches;
 
-public class Season
+public class Team
 {
     private int id;
     private String name;
 
-    public Season()
+    public Team()
     {
     }
 
@@ -30,8 +30,9 @@ public class Season
     }
 
     @Override
-    public String toString() {
-        return "Season{" +
+    public String toString()
+    {
+        return "AwayTeam{" +
                 "id=" + id +
                 ", name='" + name +
                 '}';
