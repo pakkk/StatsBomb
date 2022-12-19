@@ -222,6 +222,7 @@ public class Match
         this.country_name = country_name;
     }
 
+
     public Season getSeason()
     {
         return this.season;
@@ -240,18 +241,10 @@ public class Match
     public void setMatch_date(String match_date) throws StatsBombException
     {
         this.match_date = match_date;
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        DateUtils dateUtils = new DateUtils();
 
-        try
-        {
-            this.match_date_javaUtilDate = dateFormat.parse(this.match_date);
-        }
-        catch (ParseException parseException)
-        {
-            String errorMessage = "Cannot parse the field 'match_date' to java.util.Date";
-            logger.error(errorMessage, parseException);
-            throw new StatsBombException(errorMessage, parseException);
-        }
+        this.match_date_javaUtilDate = dateUtils.convertStringToDateFormatyyyyMMdd(this.match_date);
+
     }
 
     public Date getMatch_date_javaUtilDate()
@@ -268,8 +261,8 @@ public class Match
     {
         this.kick_off = kick_off;
         DateUtils dateUtils = new DateUtils();
-        this.kick_off_javaUtilDate = dateUtils.convertStringToDateFormatHHmmssSSS(this.kick_off);
 
+        this.kick_off_javaUtilDate = dateUtils.convertStringToDateFormatHHmmssSSS(this.kick_off);
 
     }
 

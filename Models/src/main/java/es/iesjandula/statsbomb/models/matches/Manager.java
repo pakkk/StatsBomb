@@ -1,6 +1,7 @@
 package es.iesjandula.statsbomb.models.matches;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
+import es.iesjandula.statsbomb.common.utils.DateUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,7 +18,7 @@ public class Manager
     private String name;
     private String nickname;
     private String dob;
-    private Date dob__javaUtilDate; //cambiar
+    private Date dob__javaUtilDate;
     private Country country;
 
     public Manager()
@@ -62,19 +63,10 @@ public class Manager
 
     public void setDob(String dob) throws StatsBombException {
         this.dob = dob;
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
-        try
-        {
-            this.dob__javaUtilDate = dateFormat.parse(this.dob);
-        }
-        catch (ParseException parseException)
-        {
-            String errorMessage = "Cannot parse the field 'dob' to java.util.Date";
-            logger.error(errorMessage, parseException);
-            throw new StatsBombException(errorMessage, parseException);
+        DateUtils dateUtils = new DateUtils();
+        this.dob__javaUtilDate = dateUtils.convertStringToDateFormatddMMyyyy(this.dob);
 
-        }
     }
 
     public Date getDob__javaUtilDate()
