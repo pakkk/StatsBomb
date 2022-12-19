@@ -2,28 +2,44 @@ package es.iesjandula.statsbomb.models.open_event;
 
 /**
  * @author Neil Hdez
- * @version 1.0.0
- * @since 30/11/2022
+ * @author Nacho Belda
+ * This class almacenates information about the interception
  */
 public class Interception
 {
+    /**
+     * Attributes -
+     * outcome-> Will almacenates the outcome
+     */
     private OutCome outcome;
 
+    /**
+     * Empty constructor
+     */
     Interception()
     {
 
     }
 
+    /**
+     * @return the information about the outcome
+     */
     public OutCome getOutcome()
     {
         return outcome;
     }
 
+    /**
+     * @param outcome with the information about the outcome
+     */
     public void setOutcome(OutCome outcome)
     {
         this.outcome = outcome;
     }
 
+    /**
+     * @return an instance of the class Interception as String
+     */
     @Override
     public String toString()
     {

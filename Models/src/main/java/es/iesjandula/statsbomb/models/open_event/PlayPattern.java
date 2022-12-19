@@ -2,41 +2,62 @@ package es.iesjandula.statsbomb.models.open_event;
 
 /**
  * @author Neil Hdez
- * @version 1.0.0
- * @since 29/11/2022
+ * @author Nacho Belda
  * This Class Storage the PlayPattern, Ej. Regular Play, From Corner, From Free Kick
  */
 public class PlayPattern
 {
-
+    /**
+     * Attributes -
+     * id -> Will be the identifier of the PlayPattern
+     * name-> Will be the name of the PlayPattern
+     */
     private int id; // id
     private String name; // name of the Play Pattern
 
+    /**
+     * Empty constructor
+     */
     public PlayPattern()
     {
 
     }
 
+    /**
+     * @return the information about the id
+     */
     public int getId()
     {
         return id;
     }
 
+    /**
+     * @param id with the information about the id
+     */
     public void setId(int id)
     {
         this.id = id;
     }
 
+    /**
+     * @return the information about the name
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * @param name with the information about the name
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * @return an instance of the class PlayPattern as String
+     */
     @Override
     public String toString()
     {

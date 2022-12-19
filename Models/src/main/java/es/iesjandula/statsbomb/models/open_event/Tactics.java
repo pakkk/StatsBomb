@@ -7,40 +7,62 @@ import java.util.List;
 
 /**
  * @author Neil Hdez
- * @version 1.0.0
- * @since 30/11/2022
+ * @author Nacho Belda
  * In this Class Storage the Position
  */
 public class Tactics
 {
+    /**
+     * Attributes -
+     * formation -> will be the formation of the tactic.
+     * lineup -> will be a list that will contain lineups of the tactic.
+     */
     public String formation;
     private List<Lineup> lineup;
 
+    /**
+     * Empty constructor
+     */
     public Tactics()
     {
 
     }
 
+    /**
+     * @return the information about the formation
+     */
     public String getFormation()
     {
         return this.formation;
     }
 
+    /**
+     * @param formation with the information about the information
+     */
     public void setFormation(String formation)
     {
         this.formation = formation;
     }
 
+    /**
+     * @return lineup with the information about the lineup
+     */
     public List<Lineup> getLineup()
     {
         return this.lineup;
     }
 
+    /**
+     * @param lineup with the information aboput the lineup
+     */
     public void setLineup(List<Lineup> lineup)
     {
         this.lineup = lineup;
     }
 
+    /**
+     * @return a instance of the class Tactics as String
+     */
     @Override
     public String toString()
     {

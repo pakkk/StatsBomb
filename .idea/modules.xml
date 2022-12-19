@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Commons/Commons.iml" filepath="$PROJECT_DIR$/Commons/Commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CompetitionsRest/CompetitionsRest.iml" filepath="$PROJECT_DIR$/CompetitionsRest/CompetitionsRest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CompetitionsStats/CompetitionsStats.iml" filepath="$PROJECT_DIR$/CompetitionsStats/CompetitionsStats.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EventsRest/EventsRest.iml" filepath="$PROJECT_DIR$/EventsRest/EventsRest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EventsStats/EventsStats.iml" filepath="$PROJECT_DIR$/EventsStats/EventsStats.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LineupsRest/LineupsRest.iml" filepath="$PROJECT_DIR$/LineupsRest/LineupsRest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LineupsStats/LineupsStats.iml" filepath="$PROJECT_DIR$/LineupsStats/LineupsStats.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MatchesRest/MatchesRest.iml" filepath="$PROJECT_DIR$/MatchesRest/MatchesRest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MatchesStats/MatchesStats.iml" filepath="$PROJECT_DIR$/MatchesStats/MatchesStats.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Models/Models.iml" filepath="$PROJECT_DIR$/Models/Models.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/StatsBomb.iml" filepath="$PROJECT_DIR$/.idea/StatsBomb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ThreeSixtyRest/ThreeSixtyRest.iml" filepath="$PROJECT_DIR$/ThreeSixtyRest/ThreeSixtyRest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ThreeSixtyStats/ThreeSixtyStats.iml" filepath="$PROJECT_DIR$/ThreeSixtyStats/ThreeSixtyStats.iml" />
+    </modules>
+  </component>
+</project>

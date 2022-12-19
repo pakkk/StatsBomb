@@ -2,40 +2,62 @@ package es.iesjandula.statsbomb.models.open_event;
 
 /**
  * @author Neil Hdez
- * @version 1.0.0
- * @since 30/11/2022
+ * @author Nacho Belda
+ * This class almacenates the technique
  */
 public class Technique
 {
-
+    /**
+     * Attributes -
+     * id -> Will be the identifyer of the technique
+     * name -> Will be the name of the technique
+     */
     private int id; // id
     private String name; // name of the Technique
 
+    /**
+     * Empty constructor
+     */
     public Technique()
     {
 
     }
 
+    /**
+     * @return the information about the id
+     */
     public int getId()
     {
         return this.id;
     }
 
+    /**
+     * @param id with the information about the id
+     */
     public void setId(int id)
     {
         this.id = id;
     }
 
+    /**
+     * @return the information about the name
+     */
     public String getName()
     {
         return this.name;
     }
 
+    /**
+     * @param name with the information about the name
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * @return a instamce of Technique as String
+     */
     @Override
     public String toString()
     {
