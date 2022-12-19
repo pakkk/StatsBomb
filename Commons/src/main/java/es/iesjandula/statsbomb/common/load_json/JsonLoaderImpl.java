@@ -11,6 +11,7 @@ import es.iesjandula.statsbomb.common.utils.Constants;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.yaml.snakeyaml.scanner.Constant;
 
 /**
  * @author Neil Hdez
@@ -127,9 +128,9 @@ public class JsonLoaderImpl implements IJsonLoader
      * @throws StatsBombException This error comes from loadJson
      */
     @Override
-    public String loadEvents(int matchId)
+    public String loadEvents(int matchId) throws StatsBombException
     {
-        return null;
+        return loadJson(Constants.EVENTS_URL + matchId + ".json");
     }
 
     /**
@@ -139,9 +140,9 @@ public class JsonLoaderImpl implements IJsonLoader
      * @throws StatsBombException This error comes from loadJson
      */
     @Override
-    public String loadLineups(int matchId)
+    public String loadLineups(int matchId) throws StatsBombException
     {
-        return null;
+        return loadJson(Constants.LINEUPS_URL + matchId + ".json");
     }
 
     /**
