@@ -46,7 +46,7 @@ public class Substitution
         return outcome;
     }
     /**
-     * @return set the object outcome
+     * @param set the object outcome
      */
     public void setOutcome(OutCome outcome)
     {
@@ -60,7 +60,7 @@ public class Substitution
         return outCome;
     }
     /**
-     * @return set the object outcome
+     * @param set the object outcome
      */
     public void setOutCome(OutCome outCome)
     {
@@ -74,7 +74,7 @@ public class Substitution
         return replacement;
     }
     /**
-     * @return set object replacement
+     * @param set object replacement
      */
     public void setReplacement(Replacement replacement)
     {
