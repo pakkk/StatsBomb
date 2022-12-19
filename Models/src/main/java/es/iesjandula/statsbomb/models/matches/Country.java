@@ -1,27 +1,17 @@
 package es.iesjandula.statsbomb.models.matches;
 
-public class Season
+public class Country
 {
     private int id;
     private String name;
 
-    public Season()
+    public Country()
     {
-    }
-
-    public int getId()
-    {
-        return id;
     }
 
     public void setId(int id)
     {
         this.id = id;
-    }
-
-    public String getName()
-    {
-        return name;
     }
 
     public void setName(String name)
@@ -30,8 +20,9 @@ public class Season
     }
 
     @Override
-    public String toString() {
-        return "Season{" +
+    public String toString()
+    {
+        return "Country{" +
                 "id=" + id +
                 ", name='" + name +
                 '}';

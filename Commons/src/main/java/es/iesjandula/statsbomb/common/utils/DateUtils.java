@@ -43,7 +43,7 @@ public class DateUtils
      * @param dateString Date in format String
      * @return Date in format Date
      */
-    private Date convertStringToDateFormatyyyyMMddTHHmmssSSS(String dateString)
+    public Date convertStringToDateFormatyyyyMMddTHHmmssSSS(String dateString)
     {
         Date date = null;
         try
