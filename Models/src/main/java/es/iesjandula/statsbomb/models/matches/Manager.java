@@ -2,12 +2,7 @@ package es.iesjandula.statsbomb.models.matches;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.utils.DateUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -17,12 +12,6 @@ import java.util.Date;
  */
 public class Manager
 {
-	/**
-     * Attribute -
-     * Logger
-     */
-    private final Logger logger = LogManager.getLogger();
-
 	/**
      * Attribute -
      * The unique identifier of the manager.
