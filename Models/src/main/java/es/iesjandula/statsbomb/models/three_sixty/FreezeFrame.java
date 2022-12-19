@@ -130,8 +130,8 @@ public class FreezeFrame
 	@Override
 	public String toString() 
 	{
-		return "FreezeFrame [location=" + location + ", teammate=" + teammate
-				+ ", actor=" + actor + ", keeper="
-				+ keeper + "]";
+		return "FreezeFrame [location=" + this.location + ", teammate=" + this.teammate
+				+ ", actor=" + this.actor + ", keeper="
+				+ this.keeper + "]";
 	}   
 }

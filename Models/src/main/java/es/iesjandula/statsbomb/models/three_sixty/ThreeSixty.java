@@ -119,8 +119,8 @@ public class ThreeSixty
 	@Override
 	public String toString() 
 	{
-		return "ThreeSixty [event_uuid=" + event_uuid + ", visible_area=" 
-	            + visible_area + ", freeze_frame="
-				+ freeze_frame + "]";
+		return "ThreeSixty [event_uuid=" + this.event_uuid + ", visible_area=" 
+	            + this.visible_area + ", freeze_frame="
+				+ this.freeze_frame + "]";
 	}	
 }
