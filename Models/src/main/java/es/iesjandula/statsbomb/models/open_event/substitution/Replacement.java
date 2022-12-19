@@ -34,21 +34,21 @@ public class Replacement
         return id;
     }
     /**
-     * @return set the id about the replacement
+     * @param with the id about the replacement
      */
     public void setId(int id)
     {
         this.id = id;
     }
     /**
-     * @return the information about the name
+     * @return the information, about the name
      */
     public String getName()
     {
         return name;
     }
     /**
-     * @return set the name about the replacement
+     * @param name, about the replacement
      */
     public void setName(String name)
     {
