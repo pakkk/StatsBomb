@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * ------------------------------------------------
+ *
  * @author API Rest Generator
  * ------------------------------------------------
  */
@@ -23,10 +24,11 @@ public class RestHandlerCompetition
 
     /**
      * This endPoint return all the competitions in order ascending by competition_name
+     *
      * @return Json of competitions in order ascending
-     * @throws StatsBombException 
+     * @throws StatsBombException
      */
-    @RequestMapping(method = RequestMethod.GET, value = "/competitions/order"	)
+    @RequestMapping(method = RequestMethod.GET, value = "/competitions/order")
     public ResponseEntity<?> getCompetitionsAlphabeticalOrder() throws StatsBombException
     {
         int status = 0;
@@ -35,15 +37,15 @@ public class RestHandlerCompetition
         status = 200;
 
         return ResponseEntity.status(status).body(resultJson);
-
     }
 
     /**
      * This endpoint returns competitions that are played by women.
+     *
      * @return Json of competitions played by women
-     * @throws StatsBombException 
+     * @throws StatsBombException
      */
-    @RequestMapping(method = RequestMethod.GET, value = "/competitions/female"	)
+    @RequestMapping(method = RequestMethod.GET, value = "/competitions/female")
     public ResponseEntity<?> getCompetitionsFemale() throws StatsBombException
     {
         int status = 0;
@@ -57,10 +59,11 @@ public class RestHandlerCompetition
 
     /**
      * This endpoint returns competitions that are played by women.
+     *
      * @return Json of competitions played by women
-     * @throws StatsBombException 
+     * @throws StatsBombException
      */
-    @RequestMapping(method = RequestMethod.GET, value = "/competitions/male"	)
+    @RequestMapping(method = RequestMethod.GET, value = "/competitions/male")
     public ResponseEntity<?> getCompetitionsMale() throws StatsBombException
     {
         int status = 0;
@@ -69,16 +72,16 @@ public class RestHandlerCompetition
         status = 200;
 
         return ResponseEntity.status(status).body(resultJson);
-
     }
 
     /**
      * Method return Instance of CompetitionsStats
+     *
      * @return Instance of CompetitionsStats
      */
     @Bean
     public CompetitionsStats getCompetitionsStats()
     {
-        return new CompetitionsStats() ;
+        return new CompetitionsStats();
     }
 }

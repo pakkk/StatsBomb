@@ -4,34 +4,62 @@ import es.iesjandula.statsbomb.models.open_event.Card;
 
 /**
  * @author Neil Hdez
- * @version 1.0.0
- * @since 01/12/2022
+ * @author Jesus Guerrero
+ *
+ * Any infringement that is penalised as foul play by a referee.
+ * Offside are not tagged as a foul committed
  */
 public class FoulCommited
 {
+    /**
+     * Attribute -
+     * Added when the referee calls
+     * advantage and allows play to
+     * continue
+     */
     private Boolean advantage;
+    /**
+     * Recorded only when a card is
+     * awarded. Class Card
+     */
     private Card card;
 
+    /**
+     * Default Constructor
+     */
     FoulCommited()
     {
 
     }
 
+    /**
+     * @return an instance of Card
+     */
     public Card getCard()
     {
         return card;
     }
 
+    /**
+     * @param card instance
+     */
     public void setCard(Card card)
     {
         this.card = card;
     }
 
+    /**
+     * @return referee calls advantage
+     * and allows play to continue
+     */
     public Boolean getAdvantage()
     {
         return advantage;
     }
 
+    /**
+     * @param advantage that allows play to continue
+     */
     public void setAdvantage(Boolean advantage)
     {
         this.advantage = advantage;
