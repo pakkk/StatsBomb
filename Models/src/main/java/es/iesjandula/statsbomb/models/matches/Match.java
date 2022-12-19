@@ -17,6 +17,8 @@ import java.util.Date;
 public class Match
 {
 
+    private final Logger logger = LogManager.getLogger();
+
     /**
      * Attribute -
      * The unique identifier for the match (required to request
