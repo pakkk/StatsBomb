@@ -2,6 +2,10 @@ package es.iesjandula.statsbomb.models.matches;
 
 public class Stadium
 {
+    /**
+     * Attributes -
+     *
+     */
     private int id;
     private String name;
 
