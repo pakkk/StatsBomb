@@ -9,8 +9,9 @@ public class OutCome
 {
     /**
      * Attributes -
-     * id -> Will be the identifier of the outcome
-     * name -> Will be the name of the Outcome
+     * Id / Name for the attribute
+     * option specifying the outcome
+     * of the shot.
      */
     private int id; // id
     private String name; // name of the Outcome

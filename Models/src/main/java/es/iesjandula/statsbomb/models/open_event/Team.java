@@ -9,8 +9,9 @@ public class Team
 {
     /**
      * Attributes -
-     * id -> will be the identifyer of the Team
-     * name -> will be the name of the Team
+     * Id / Name of the team this event relates to.
+     * Team object will only display if the event
+     * is tied to a specific team
      */
     private int id; // id
     private String name; // name of the Team

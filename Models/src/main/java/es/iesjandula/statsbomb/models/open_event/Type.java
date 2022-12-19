@@ -9,8 +9,14 @@ public class Type
 {
     /**
      * Attributes -
-     * id -> Will be the identifier of the type.
-     * name -> Will be the name of the type.
+     * Id / Name for the attribute
+     * option specifying the type of
+     * goalkeeper event. (Every shot
+     * will have a related goalkeeper
+     * event. If a goal is not
+     * conceded or a save is not
+     * made, the goalkeeper type will
+     * be “Shot Faced”).
      */
     private int id; // id
     private String name; // name of the event type
