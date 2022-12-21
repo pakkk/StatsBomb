@@ -1,8 +1,14 @@
 package es.iesjandula.statsbomb.models.matches;
 
-import java.util.Date;
-
+import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.utils.DateUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @author David Armijo Ramos
@@ -10,6 +16,9 @@ import es.iesjandula.statsbomb.common.utils.DateUtils;
  */
 public class Match
 {
+
+    private final Logger logger = LogManager.getLogger();
+
     /**
      * Attribute -
      * The unique identifier for the match (required to request
