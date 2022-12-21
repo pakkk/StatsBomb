@@ -1,6 +1,4 @@
 package es.iesjandula.statsbomb.competitions_stats;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -49,7 +47,7 @@ public class CompetitionsStats
         catch (IOException ioException)
         {
             LOGGER.error(Constants.E_PARSING_JSON_TO_OBJECT, ioException);
-            throw new StatsBombException(Constants.E_PARSING_JSON_TO_OBJECT, ioException);
+            throw new StatsBombException(Constants.E_PARSING_JSON_TO_OBJECT, "Error a la hora de parsear el Json" ,ioException);
         }
 
         return competitionList;

@@ -11,7 +11,6 @@ import es.iesjandula.statsbomb.common.utils.Constants;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.yaml.snakeyaml.scanner.Constant;
 
 /**
  * @author Neil Hdez
@@ -58,12 +57,12 @@ public class JsonLoaderImpl implements IJsonLoader
         catch (MalformedURLException malformedURLException)
         {
             LOGGER.error(Constants.MALFORMED_URL, malformedURLException);
-            throw new StatsBombException(Constants.MALFORMED_URL, malformedURLException);
+            throw new StatsBombException(Constants.MALFORMED_URL, "La URL indicada, tiene un error", malformedURLException);
         }
         catch (IOException ioException)
         {
             LOGGER.error(Constants.E_READ_JSON_WEB + urlString, ioException);
-            throw new StatsBombException(Constants.E_READ_JSON_WEB + urlString, ioException);
+            throw new StatsBombException(Constants.E_READ_JSON_WEB + urlString, "Error a la hora de leer el Json",ioException);
         }
         finally
         {
@@ -77,7 +76,7 @@ public class JsonLoaderImpl implements IJsonLoader
             catch (IOException ioException)
             {
                 LOGGER.error(Constants.E_CLOSING_DATA_STREAM + "BufferedReader", ioException);
-                throw new StatsBombException(Constants.E_CLOSING_DATA_STREAM + "BufferedReader", ioException);
+                throw new StatsBombException(Constants.E_CLOSING_DATA_STREAM + "BufferedReader", "Error a la hora de cerrar flujo de datos",ioException);
             }
 
             try
@@ -90,7 +89,7 @@ public class JsonLoaderImpl implements IJsonLoader
             catch (IOException ioException)
             {
                 LOGGER.error(Constants.E_CLOSING_DATA_STREAM + "InputStream", ioException);
-                throw new StatsBombException(Constants.E_CLOSING_DATA_STREAM + "InputStream", ioException);
+                throw new StatsBombException(Constants.E_CLOSING_DATA_STREAM + "InputStream","Error a la hora de cerrar flujo de datos" ,ioException);
             }
         }
 
