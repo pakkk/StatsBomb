@@ -1,6 +1,6 @@
 package es.iesjandula.statsbomb.models.lineups;
 
-import es.iesjandula.statsbomb.models.open_event.tactics.Lineup;
+import es.iesjandula.statsbomb.models.event.tactics.Lineup;
 
 import java.util.Arrays;
 

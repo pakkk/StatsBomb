@@ -43,18 +43,26 @@ public class RestHandlerCompetition
      * This endpoint returns competitions that are played by women.
      *
      * @return Json of competitions played by women
-     * @throws StatsBombException
      */
     @RequestMapping(method = RequestMethod.GET, value = "/competitions/female")
-    public ResponseEntity<?> getCompetitionsFemale() throws StatsBombException
+    public ResponseEntity<?> getCompetitionsFemale()
     {
-        int status = 0;
+        try
+        {
+            String resultJson = this.competitionsStats.getCompetitionsFemale();
 
-        String resultJson = this.competitionsStats.getCompetitionsFemale();
-        status = 200;
+            return ResponseEntity.ok().body(resultJson);
+        }
+        catch (StatsBombException statsBombException)
+        {
+            return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
+        }
+        catch (Exception exception)
+        {
+            StatsBombException statsBombException = new StatsBombException(exception);
 
-        return ResponseEntity.status(status).body(resultJson);
-
+            return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
+        }
     }
 
     /**

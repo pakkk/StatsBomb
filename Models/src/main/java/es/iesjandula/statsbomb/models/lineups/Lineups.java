@@ -1,6 +1,6 @@
 package es.iesjandula.statsbomb.models.lineups;
 
-import es.iesjandula.statsbomb.models.open_event.Position;
+import es.iesjandula.statsbomb.models.event.Position;
 
 import java.util.Arrays;
 

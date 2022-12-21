@@ -9,6 +9,7 @@ public final class Constants
     /* Error Constants - The URL si malformed */
     public static final String MALFORMED_URL            = "Error in the URL";
 
+
     /* Error Constants - Error while reading the JSON from the website, it is necessary to define the url */
     public static final String E_READ_JSON_WEB          = "Error to read the Json of Web -> ";
 
