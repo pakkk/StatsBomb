@@ -35,7 +35,7 @@ public class JsonUtils
         catch (JsonProcessingException jsonProcessingException)
         {
             LOGGER.error(Constants.E_PARSING_OBJECT_TO_JSON, jsonProcessingException);
-            throw new StatsBombException(Constants.E_PARSING_OBJECT_TO_JSON, jsonProcessingException);
+            throw new StatsBombException(Constants.E_PARSING_OBJECT_TO_JSON, "Error a la Hora de transformar el objeto a Json" ,jsonProcessingException);
         }
 
         return resultJsonAsString;
