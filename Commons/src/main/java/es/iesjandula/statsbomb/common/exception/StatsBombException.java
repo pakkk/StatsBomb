@@ -1,6 +1,7 @@
 package es.iesjandula.statsbomb.common.exception;
 
 import java.io.PrintWriter;
+import java.io.Serial;
 import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,17 +13,18 @@ import java.util.Map;
 public class StatsBombException extends Exception
 {
 	/** Constants - Default Error Code */
-	private static final String DEFAULT_ERROR_CODE    = "DEFAULT_ERROR_CODE" ;
+	private static final String DEFAULT_ERROR_CODE    = "UNEXPECTED_ERROR" ;
 
 	/** Constants - Default Error Message */
-	private static final String DEFAULT_ERROR_MESSAGE = "Default Error Message" ;
+	private static final String DEFAULT_ERROR_MESSAGE = "Unexpected error occurred" ;
 
 	/** Attribute - Code */
-	private String code ;
+	private final String code ;
 
 	/**
 	 * Serial version UID
 	 */
+	@Serial
 	private static final long serialVersionUID = -3863955452983684439L;
 
 	/**
@@ -54,7 +56,7 @@ public class StatsBombException extends Exception
 	}
 
 	/**
-	 * Constructor with a message and a exception
+	 * Constructor with a message and an exception
 	 * 
 	 * @param message, message to send to super class
 	 * @param exception, a sub-type of Exception with the info of the exception

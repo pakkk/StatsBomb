@@ -2,7 +2,7 @@ package es.iesjandula.statsbomb.events_stats.goalkeeper;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.utils.JsonUtils;
-import es.iesjandula.statsbomb.models.open_event.Event;
+import es.iesjandula.statsbomb.models.event.Event;
 
 
 import java.util.HashMap;

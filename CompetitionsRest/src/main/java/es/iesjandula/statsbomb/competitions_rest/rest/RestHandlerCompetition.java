@@ -1,5 +1,6 @@
 package es.iesjandula.statsbomb.competitions_rest.rest;
 
+
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.competitions_stats.CompetitionsStats;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author API Rest Generator
  * ------------------------------------------------
  */
-@RequestMapping(value = "/", produces = {"application/json"})
+@RequestMapping(value = "/competitions", produces = {"application/json"})
 @RestController //
 public class RestHandlerCompetition
 {
@@ -26,17 +27,25 @@ public class RestHandlerCompetition
      * This endPoint return all the competitions in order ascending by competition_name
      *
      * @return Json of competitions in order ascending
-     * @throws StatsBombException
      */
-    @RequestMapping(method = RequestMethod.GET, value = "/competitions/order")
-    public ResponseEntity<?> getCompetitionsAlphabeticalOrder() throws StatsBombException
+    @RequestMapping(method = RequestMethod.GET, value = "/order/ascent")
+    public ResponseEntity<?> getCompetitionsAlphabeticalOrder()
     {
-        int status = 0;
 
-        String resultJson = this.competitionsStats.getCompetitionsAlphabeticalOrder();
-        status = 200;
-
-        return ResponseEntity.status(status).body(resultJson);
+        try
+        {
+            String resultJson = this.competitionsStats.getCompetitionsAlphabeticalOrder();
+            return ResponseEntity.ok().body(resultJson);
+        }
+        catch (StatsBombException statsBombException)
+        {
+            return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
+        }
+        catch (Exception exception)
+        {
+            StatsBombException statsBombException = new StatsBombException(exception);
+            return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
+        }
     }
 
     /**
@@ -44,7 +53,7 @@ public class RestHandlerCompetition
      *
      * @return Json of competitions played by women
      */
-    @RequestMapping(method = RequestMethod.GET, value = "/competitions/female")
+    @RequestMapping(method = RequestMethod.GET, value = "/female")
     public ResponseEntity<?> getCompetitionsFemale()
     {
         try
@@ -60,7 +69,6 @@ public class RestHandlerCompetition
         catch (Exception exception)
         {
             StatsBombException statsBombException = new StatsBombException(exception);
-
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
     }
@@ -69,17 +77,25 @@ public class RestHandlerCompetition
      * This endpoint returns competitions that are played by women.
      *
      * @return Json of competitions played by women
-     * @throws StatsBombException
      */
-    @RequestMapping(method = RequestMethod.GET, value = "/competitions/male")
-    public ResponseEntity<?> getCompetitionsMale() throws StatsBombException
+    @RequestMapping(method = RequestMethod.GET, value = "/male")
+    public ResponseEntity<?> getCompetitionsMale()
     {
-        int status = 0;
 
-        String resultJson = this.competitionsStats.getCompetitionsMale();
-        status = 200;
-
-        return ResponseEntity.status(status).body(resultJson);
+        try
+        {
+            String resultJson = this.competitionsStats.getCompetitionsMale();
+            return ResponseEntity.ok().body(resultJson);
+        }
+        catch (StatsBombException statsBombException)
+        {
+            return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
+        }
+        catch (Exception exception)
+        {
+            StatsBombException statsBombException = new StatsBombException(exception);
+            return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
+        }
     }
 
     /**
