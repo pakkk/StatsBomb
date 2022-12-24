@@ -5,6 +5,7 @@ import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.competitions_stats.CompetitionsStats;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author API Rest Generator
  * ------------------------------------------------
  */
+@CrossOrigin(maxAge = 3600)
 @RequestMapping(value = "/competitions", produces = {"application/json"})
 @RestController //
 public class RestHandlerCompetition
@@ -22,6 +24,30 @@ public class RestHandlerCompetition
 
     // New Instance of CompetitionStats
     private final CompetitionsStats competitionsStats = this.getCompetitionsStats();
+
+    /**
+     * This endPoint return all the competitions
+     *
+     * @return Json of competitions in order ascending
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "/")
+    public ResponseEntity<?> getCompetitions()
+    {
+        try
+        {
+            String resultJson = this.competitionsStats.getCompetitions();
+            return ResponseEntity.ok().body(resultJson);
+        }
+        catch (StatsBombException statsBombException)
+        {
+            return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
+        }
+        catch (Exception exception)
+        {
+            StatsBombException statsBombException = new StatsBombException(exception);
+            return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
+        }
+    }
 
     /**
      * This endPoint return all the competitions in order ascending by competition_name
@@ -104,7 +130,7 @@ public class RestHandlerCompetition
      * @return Instance of CompetitionsStats
      */
     @Bean
-    public CompetitionsStats getCompetitionsStats()
+    private CompetitionsStats getCompetitionsStats()
     {
         return new CompetitionsStats();
     }

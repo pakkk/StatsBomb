@@ -146,7 +146,6 @@
             <groupId>es.iesjandula.statsbomb</groupId>
             <artifactId>Models</artifactId>
             <version>1.0.0-SNAPSHOT</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>es.iesjandula.statsbomb</groupId>

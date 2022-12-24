@@ -24,12 +24,31 @@ public class FoulCommited
      */
     private Card card;
 
+    /* Attribute - If de Foul is offensive */
+    private Boolean offensive;
+
     /**
      * Default Constructor
      */
     FoulCommited()
     {
 
+    }
+
+    /**
+     * @return if Foul is Offensive
+     */
+    public Boolean getOffensive()
+    {
+        return offensive;
+    }
+
+    /**
+     * @param offensive Information about of FoulCommited if is Offensive
+     */
+    public void setOffensive(Boolean offensive)
+    {
+        this.offensive = offensive;
     }
 
     /**

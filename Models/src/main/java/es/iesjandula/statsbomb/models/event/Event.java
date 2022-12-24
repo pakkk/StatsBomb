@@ -197,12 +197,32 @@ public class Event
     /** Attribute - describe the player coming on the pitch, the player coming off the pitch and the reason why. */
     private Substitution substitution;
 
+    /** Attribute - describe the bad behaviour **/
+    private BadBehaviour bad_behaviour;
+
     /**
      * empty constructor
      */
     public Event()
     {
 
+    }
+
+
+    /**
+     * @return the bad behaviour about of an event
+     */
+    public BadBehaviour getBad_behaviour()
+    {
+        return bad_behaviour;
+    }
+
+    /**
+     * @param bad_behaviour with the information about bad behaviour
+     */
+    public void setBad_behaviour(BadBehaviour bad_behaviour)
+    {
+        this.bad_behaviour = bad_behaviour;
     }
 
     /**

@@ -13,11 +13,15 @@ public class Block
      * boolean if the ball was blocked
      */
     private Boolean block;
+
     /**
      * Attribute -
      * boolean if the ball was defended
      */
     private Boolean offensive;
+
+    /* Attribute - boolean if the block has deflected the ball */
+    private Boolean deflection;
 
     /**
      * Default Constructor
@@ -25,6 +29,22 @@ public class Block
     Block ()
     {
 
+    }
+
+    /**
+     * @return if the block has deflected the ball
+     */
+    public Boolean getDeflection()
+    {
+        return deflection;
+    }
+
+    /**
+     * @param deflection with the information about of block if the block has deflected the ball
+     */
+    public void setDeflection(Boolean deflection)
+    {
+        this.deflection = deflection;
     }
 
     /**

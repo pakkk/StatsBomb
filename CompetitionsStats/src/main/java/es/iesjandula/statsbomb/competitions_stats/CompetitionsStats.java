@@ -1,4 +1,5 @@
 package es.iesjandula.statsbomb.competitions_stats;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -6,13 +7,13 @@ import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.load_json.Json;
 import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
 import es.iesjandula.statsbomb.common.utils.Constants;
+import es.iesjandula.statsbomb.common.utils.JsonUtils;
 import es.iesjandula.statsbomb.competitions_stats.gender.GenderFilter;
 import es.iesjandula.statsbomb.competitions_stats.order.OrderFilter;
 import es.iesjandula.statsbomb.models.competition.Competition;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,15 +45,31 @@ public class CompetitionsStats
         {
             competitionList = mapper.readValue(jsonCompetitions, new TypeReference<List<Competition>>(){});
         }
-        catch (IOException ioException)
+        catch (JsonProcessingException jsonProcessingException)
         {
-            LOGGER.error(Constants.E_PARSING_JSON_TO_OBJECT, ioException);
-            throw new StatsBombException(Constants.E_PARSING_JSON_TO_OBJECT, "Error a la hora de parsear el Json" ,ioException);
+            LOGGER.error(Constants.E_PARSING_JSON_TO_OBJECT, jsonProcessingException);
+            throw new StatsBombException(Constants.E_PARSING_JSON_TO_OBJECT, "Error a la hora de parsear el Json", jsonProcessingException);
         }
 
         return competitionList;
     }
 
+    /**
+     * This method return All Competitions
+     *
+     * @return String in format Json Pretty with competitions
+     * @throws StatsBombException
+     */
+    public String getCompetitions() throws StatsBombException
+    {
+        String resultJsonPrettyAllCompetition;
+        OrderFilter orderFilter = new OrderFilter();
+        // Convert List to Json Format
+        JsonUtils jsonUtils = new JsonUtils();
+        // Write Result in Pretty Format
+        resultJsonPrettyAllCompetition = jsonUtils.writeObjectToJsonAsStringPretty(getListCompetitions());
+        return resultJsonPrettyAllCompetition;
+    }
 
     /**
      * This method sorts the competitions in ascending alphabetical order by name.
