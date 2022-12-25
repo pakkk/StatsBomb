@@ -20,6 +20,12 @@ public class PossessionFilter
     /* Attribute - Logger */
     private final Logger LOGGER = LogManager.getLogger();
 
+    /**
+     * This method obtains a list of the possessions made during the selected match in a list by possession.
+     * @param eventListOfMatch List Of Events
+     * @return A list of the possessions made during possession
+     * @throws StatsBombException
+     */
     public String getListPosesion(List<Event> eventListOfMatch) throws StatsBombException
     {
         /* Reult of Posesion */

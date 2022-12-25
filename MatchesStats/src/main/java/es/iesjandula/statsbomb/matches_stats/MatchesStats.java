@@ -15,12 +15,21 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Neil Hdez
+ */
 public class MatchesStats
 {
 
     /* Attribute - Logger */
     private final Logger LOGGER = LogManager.getLogger();
 
+    /**
+     * Search all Events of a Match
+     * @param matchId Identifier unique of Match
+     * @return all Events of match
+     * @throws StatsBombException
+     */
     public List<Event> getEventsOfMatch(int matchId) throws StatsBombException
     {
 
@@ -42,6 +51,12 @@ public class MatchesStats
         return eventList;
     }
 
+    /**
+     * Call of Filter
+     * @param matchId Match
+     * @return a list of Possessions
+     * @throws StatsBombException
+     */
     public String getListOfPossessionOfMatch(int matchId) throws StatsBombException
     {
         PossessionFilter possessionFilter = new PossessionFilter();
