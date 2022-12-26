@@ -16,6 +16,7 @@ import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
 import es.iesjandula.statsbomb.common.utils.Constants;
 import es.iesjandula.statsbomb.models.three_sixty.ThreeSixty;
 import es.iesjandula.statsbomb.threesixty_stats.sort.SortFilter;
+import es.iesjandula.statsbomb.threesixty_stats.teammate.TeammateFilter;
 
 /**
  * In this class we create the list for the Json Three Sixty
@@ -64,5 +65,16 @@ public class ThreeSixtyStats
     {
         SortFilter sortFilter = new SortFilter();
         return sortFilter.getThreeSixtySorted(getListThreeSixty(matchId));
+    }
+    /**
+     * This method return a list of the number of the teammates corresponding of the event_uuid
+     * @param matchId
+     * @return A String with the list of the number of the teammates
+     * @throws StatsBombException
+     */
+    public String getTeammatesOfThreeSixty(int matchId) throws StatsBombException
+    {
+        TeammateFilter teammateFilter = new TeammateFilter();
+        return teammateFilter.getTeammateThreeSixty(getListThreeSixty(matchId));
     }
 }

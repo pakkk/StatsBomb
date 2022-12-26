@@ -45,6 +45,29 @@ public class RestHandlerThreeSixty
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
     }
+    /**
+     * This endpoint return the list of the number of the teammates corresponding the event_uuid
+     * 
+     * @return Json of the number of the teammates with the event_uuid
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "/teammates")
+    public ResponseEntity<?> getTeammatesOfThreeSixty(@RequestParam(value = "matchId", required = true) final Integer matchId)
+    {
+        try 
+        {
+            String resultJson = this.threesixty_stats.getTeammatesOfThreeSixty(matchId);
+            return ResponseEntity.ok().body(resultJson);
+        } 
+        catch (StatsBombException statsBombException) 
+        {
+            return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
+        }
+        catch (Exception exception)
+        {
+            StatsBombException statsBombException = new StatsBombException();
+            return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
+        }
+    }
 
     @Bean
     private ThreeSixtyStats getThreeSixtyStats()
