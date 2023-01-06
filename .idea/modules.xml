@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/LineupsRest/LineupsRest.iml" filepath="$PROJECT_DIR$/LineupsRest/LineupsRest.iml" />
       <module fileurl="file://$PROJECT_DIR$/LineupsStats/LineupsStats.iml" filepath="$PROJECT_DIR$/LineupsStats/LineupsStats.iml" />
       <module fileurl="file://$PROJECT_DIR$/MatchesRest/MatchesRest.iml" filepath="$PROJECT_DIR$/MatchesRest/MatchesRest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebPortalRest/MatchesRest (1).iml" filepath="$PROJECT_DIR$/WebPortalRest/MatchesRest (1).iml" />
       <module fileurl="file://$PROJECT_DIR$/MatchesStats/MatchesStats.iml" filepath="$PROJECT_DIR$/MatchesStats/MatchesStats.iml" />
       <module fileurl="file://$PROJECT_DIR$/Models/Models.iml" filepath="$PROJECT_DIR$/Models/Models.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/StatsBomb.iml" filepath="$PROJECT_DIR$/.idea/StatsBomb.iml" />
