@@ -1,13 +1,7 @@
 package es.iesjandula.statsbomb.models.matches;
 
-import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.utils.DateUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -16,8 +10,6 @@ import java.util.Date;
  */
 public class Match
 {
-
-    private final Logger logger = LogManager.getLogger();
 
     /**
      * Attribute -
@@ -33,12 +25,6 @@ public class Match
      */
     private Competition competition;
 
-    /**
-     * Attribute -
-     * The name of the country the competition relates to (or region
-     * for international competitions)
-     */
-    private String country_name;
 
     /**
      * Attribute -
@@ -66,69 +52,23 @@ public class Match
      */
     private Stadium stadium;
 
-    /** Attribute - The name of the country the stadium is in */
-    private String stadium_country;
-
     /** Attribute -
      * The ID is the unique identifier for the referee and the name is
      * the name of the referee
      */
-    private RefereeName referee_name;
-
-    /** Attribute -
-     * The ID is the unique identifier for the country and the name is
-     * the name of the country
-     */
-    private Country referee_country;
+    private Referee referee;
 
     /** Attribute -
      * The unique identifier integer and the name for the home team
      * in this match
      */
-    private Team home_team;
-
-    /** Attribute - Gender of the home team in the match */
-    private String home_team_gender;
-
-    /** Attribute -
-     * Data frame of the manager for the home team with information
-     * about the manager described with the variables listed below
-     */
-    private Manager home_team_manager;
-
-    /** Attribute - Name of the group/conference of the team in the match */
-    private String home_team_group;
-
-    /** Attribute -
-     * ID number and name corresponding to the origin country for
-     * the home team in the match
-     */
-    private Country home_team_country;
+    private HomeTeam home_Home_team;
 
     /** Attribute -
      * The unique identifier integer and the name for the away team
      * in this match
      */
-    private Team away_team;
-
-    /** Attribute - Gender of the away team in the match */
-    private String away_team_gender;
-
-    /** Attribute -
-     * Data frame of the manager for the away team with information
-     * about the manager described with the variables listed below
-     */
-    private Manager away_team_manager;
-
-    /** Attribute - Name of the group/conference of the team in the match */
-    private String away_team_group;
-
-
-    /** Attribute -
-     * ID number and name corresponding to the origin country for
-     * the away team in the match
-     */
-    private Country away_team_country;
+    private AwayTeam away_Home_team;
 
     /** Attribute - The final score of the home team */
     private int home_score;
@@ -213,22 +153,6 @@ public class Match
     public void setCompetition(Competition competition)
     {
         this.competition = competition;
-    }
-
-    /**
-     * @return the name of Country
-     */
-    public String getCountry_name()
-    {
-        return this.country_name;
-    }
-
-    /**
-     * @param country_name with the name of Country
-     */
-    public void setCountry_name(String country_name)
-    {
-        this.country_name = country_name;
     }
 
     /**
@@ -320,208 +244,52 @@ public class Match
     }
 
     /**
-     * @return the name of the country
-     */
-    public String getStadium_country()
-    {
-        return this.stadium_country;
-    }
-
-    /**
-     * @param stadium_country with the name of the country
-     */
-    public void setStadium_country(String stadium_country)
-    {
-        this.stadium_country = stadium_country;
-    }
-
-    /**
      * @return the information about referee_name
      */
-    public RefereeName getReferee_name()
+    public Referee getReferee()
     {
-        return this.referee_name;
+        return this.referee;
     }
 
     /**
      *
-     * @param referee_name with the information about referee_name
+     * @param referee with the information about referee_name
      */
-    public void setReferee_name(RefereeName referee_name)
+    public void setReferee(Referee referee)
     {
-        this.referee_name = referee_name;
-    }
-
-    /**
-     * @return the information about referee_country
-     */
-    public Country getReferee_country()
-    {
-        return this.referee_country;
-    }
-
-    /**
-     * @param referee_country with the information about referee_country
-     */
-    public void setReferee_country(Country referee_country)
-    {
-        this.referee_country = referee_country;
+        this.referee = referee;
     }
 
     /**
      * @return the information about home_team
      */
-    public Team getHome_team()
+    public HomeTeam getHome_team()
     {
-        return this.home_team;
+        return this.home_Home_team;
     }
 
     /**
-     * @param home_team with the information about home_team
+     * @param home_Home_team with the information about home_team
      */
-    public void setHome_team(Team home_team)
+    public void setHome_team(HomeTeam home_Home_team)
     {
-        this.home_team = home_team;
-    }
-
-    /**
-     * @return the gender of the home team
-     */
-    public String getHome_team_gender()
-    {
-        return this.home_team_gender;
-    }
-
-    /**
-     * @param home_team_gender with the gender of the home team
-     */
-    public void setHome_team_gender(String home_team_gender)
-    {
-        this.home_team_gender = home_team_gender;
-    }
-
-    /**
-     * @return the information about home_team_manager
-     */
-    public Manager getHome_team_manager()
-    {
-        return this.home_team_manager;
-    }
-
-    /**
-     * @param home_team_manager with the information about home_team_manager
-     */
-    public void setHome_team_manager(Manager home_team_manager)
-    {
-        this.home_team_manager = home_team_manager;
-    }
-
-    /**
-     * @return the name of the group/conference of the home team
-     */
-    public String getHome_team_group() {
-        return home_team_group;
-    }
-
-    /**
-     * @param home_team_group with the name of the group/conference of the home team
-     */
-    public void setHome_team_group(String home_team_group) {
-        this.home_team_group = home_team_group;
-    }
-
-    /**
-     * @return the information about home_team_country
-     */
-    public Country getHome_team_country()
-    {
-        return this.home_team_country;
-    }
-
-    /**
-     * @param home_team_country with the information about home_team_country
-     */
-    public void setHome_team_country(Country home_team_country)
-    {
-        this.home_team_country = home_team_country;
+        this.home_Home_team = home_Home_team;
     }
 
     /**
      * @return the information about away_team
      */
-    public Team getAway_team()
+    public AwayTeam getAway_team()
     {
-        return this.away_team;
+        return this.away_Home_team;
     }
 
     /**
-     * @param away_team with the information about away_team
+     * @param away_Home_team with the information about away_team
      */
-    public void setAway_team(Team away_team)
+    public void setAway_team(AwayTeam away_Home_team)
     {
-        this.away_team = away_team;
-    }
-
-    /**
-     * @return the gender of the away team
-     */
-    public String getAway_team_gender()
-    {
-        return this.away_team_gender;
-    }
-
-    /**
-     * @param away_team_gender with the gender of the away team
-     */
-    public void setAway_team_gender(String away_team_gender)
-    {
-        this.away_team_gender = away_team_gender;
-    }
-
-    /**
-     * @return the information about away_team_manager
-     */
-    public Manager getAway_team_manager()
-    {
-        return this.away_team_manager;
-    }
-
-    /**
-     * @param away_team_manager with the information about away_team_manager
-     */
-    public void setAway_team_manager(Manager away_team_manager)
-    {
-        this.away_team_manager = away_team_manager;
-    }
-
-    /**
-     * @return the name of the group/conference of the away team
-     */
-    public String getAway_team_group()
-    {
-        return this.away_team_group;
-    }
-
-    /**
-     * @param away_team_group with the name of the group/conference of the away team
-     */
-    public void setAway_team_group(String away_team_group)
-    {
-        this.away_team_group = away_team_group;
-    }
-
-    /**
-     * @return the information about away_team_country
-     */
-    public Country getAway_team_country() {
-        return away_team_country;
-    }
-
-    /**
-     * @param away_team_country with the information about away_team_country
-     */
-    public void setAway_team_country(Country away_team_country) {
-        this.away_team_country = away_team_country;
+        this.away_Home_team = away_Home_team;
     }
 
     /**
@@ -668,37 +436,26 @@ public class Match
     @Override
     public String toString() {
         return "Match{" +
-                "match_id=" + this.match_id +
-                ", competition=" + this.competition +
-                ", country_name='" + this.country_name +
-                ", season=" + this.season +
-                ", match_date='" + this.match_date +
-                ", match_date_javaUtilDate=" + this.match_date_javaUtilDate +
-                ", kick_off='" + this.kick_off +
-                ", kick_off_javaUtilDate=" + this.kick_off_javaUtilDate +
-                ", stadium=" + this.stadium +
-                ", stadium_country='" + this.stadium_country +
-                ", referee_name=" + this.referee_name +
-                ", referee_country=" + this.referee_country +
-                ", home_team=" + this.home_team +
-                ", home_team_gender='" + this.home_team_gender +
-                ", home_team_manager=" + this.home_team_manager +
-                ", home_team_group='" + this.home_team_group +
-                ", home_team_country=" + this.home_team_country +
-                ", away_team=" + this.away_team +
-                ", away_team_gender='" + this.away_team_gender +
-                ", away_team_manager=" + this.away_team_manager +
-                ", away_team_group='" + this.away_team_group +
-                ", away_team_country=" + this.away_team_country +
-                ", home_score=" + this.home_score +
-                ", away_score=" + this.away_score +
-                ", match_status='" + this.match_status +
-                ", match_week=" + this.match_week +
-                ", competition_stage=" + this.competition_stage +
-                ", last_updated='" + this.last_updated +
-                ", last_updated_javaUtilDate=" + this.last_updated_javaUtilDate +
-                ", metadata=" + this.metadata +
-                ", data_version='" + this.data_version +
+                "match_id=" + match_id +
+                ", competition=" + competition +
+                ", season=" + season +
+                ", match_date='" + match_date + '\'' +
+                ", match_date_javaUtilDate=" + match_date_javaUtilDate +
+                ", kick_off='" + kick_off + '\'' +
+                ", kick_off_javaUtilDate=" + kick_off_javaUtilDate +
+                ", stadium=" + stadium +
+                ", referee=" + referee +
+                ", home_Home_team=" + home_Home_team +
+                ", away_Home_team=" + away_Home_team +
+                ", home_score=" + home_score +
+                ", away_score=" + away_score +
+                ", match_status='" + match_status + '\'' +
+                ", match_week=" + match_week +
+                ", competition_stage=" + competition_stage +
+                ", last_updated='" + last_updated + '\'' +
+                ", last_updated_javaUtilDate=" + last_updated_javaUtilDate +
+                ", metadata=" + metadata +
+                ", data_version='" + data_version + '\'' +
                 '}';
     }
 }
