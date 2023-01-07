@@ -30,26 +30,26 @@ public class GoalkeeperFilter
         // Filter
         for (Event event : eventList)
         {
-            if (event.getPosition().getName().equals("Goalkeeper") && event.getPass().getBody_part().getName().equals("Right Foot"))
+            if(event.getPosition() != null && event.getPass() != null)
             {
-                if(!mapGoalkeeperPass.containsKey(event))
+                if (event.getPosition().getName().equals("Goalkeeper") && event.getPass().getBody_part().getName().equals("Right Foot"))
                 {
-                    mapGoalkeeperPass.put(event,1);
-                }
-                else
+                    if (!mapGoalkeeperPass.containsKey(event))
+                    {
+                        mapGoalkeeperPass.put(event, 1);
+                    } else
+                    {
+                        mapGoalkeeperPass.put(event, mapGoalkeeperPass.get(event) + 1);
+                    }
+                } else if (event.getPosition().getName().equals("Goalkeeper") && event.getPass().getBody_part().getName().equals("Left Foot"))
                 {
-                    mapGoalkeeperPass.put(event,mapGoalkeeperPass.get(event) + 1);
-                }
-            }
-            else if(event.getPosition().getName().equals("Goalkeeper") && event.getPass().getBody_part().getName().equals("Left Foot"))
-            {
-                if(!mapGoalkeeperPass.containsKey(event))
-                {
-                    mapGoalkeeperPass.put(event,1);
-                }
-                else
-                {
-                    mapGoalkeeperPass.put(event,mapGoalkeeperPass.get(event)+ 1);
+                    if (!mapGoalkeeperPass.containsKey(event))
+                    {
+                        mapGoalkeeperPass.put(event, 1);
+                    } else
+                    {
+                        mapGoalkeeperPass.put(event, mapGoalkeeperPass.get(event) + 1);
+                    }
                 }
             }
         }

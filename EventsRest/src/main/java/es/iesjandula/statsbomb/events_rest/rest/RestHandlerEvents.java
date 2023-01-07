@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController //
 public class RestHandlerEvents
 {
-
     private final EventsStats eventsStats = this.getEventsStats();
 
     /**
