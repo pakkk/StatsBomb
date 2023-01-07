@@ -32,7 +32,7 @@ public class ScorerFilter
         // Convert the duel list to a json
         JsonUtils jsonUtils = new JsonUtils();
 
-        jsonScorers = jsonUtils.writeObjectToJsonAsStringPretty(jsonScorers);
+        jsonScorers = jsonUtils.writeObjectToJsonAsStringPretty(scorerResultList);
 
         return jsonScorers;
 
