@@ -9,8 +9,8 @@ public class Season
      * Attributes -
      * The ID is the unique identifier for the stadium and the name is the name of the stadium
      */
-    private int id;
-    private String name;
+    private int season_id;
+    private String season_name;
 
     /**
      * Empty constructor
@@ -22,33 +22,33 @@ public class Season
     /**
      * @return the information about the id
      */
-    public int getId()
+    public int getSeason_id()
     {
-        return id;
+        return season_id;
     }
 
     /**
-     * @param id with the information about the id
+     * @param season_id with the information about the id
      */
-    public void setId(int id)
+    public void setSeason_id(int season_id)
     {
-        this.id = id;
+        this.season_id = season_id;
     }
 
     /**
      * @return the name with the information about the name
      */
-    public String getName()
+    public String getSeason_name()
     {
-        return name;
+        return season_name;
     }
 
     /**
-     * @param name with the informatio about the name
+     * @param season_name with the informatio about the name
      */
-    public void setName(String name)
+    public void setSeason_name(String season_name)
     {
-        this.name = name;
+        this.season_name = season_name;
     }
 
     /**
@@ -57,8 +57,8 @@ public class Season
     @Override
     public String toString() {
         return "Season{" +
-                "id=" + id +
-                ", name='" + name +
+                "id=" + season_id +
+                ", name='" + season_name +
                 '}';
     }
 }
