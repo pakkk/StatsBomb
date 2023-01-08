@@ -7,6 +7,8 @@ import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.load_json.Json;
 import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
 import es.iesjandula.statsbomb.common.utils.Constants;
+import es.iesjandula.statsbomb.events_stats.duel.DuelFilter;
+import es.iesjandula.statsbomb.events_stats.duel.DuelResult;
 import es.iesjandula.statsbomb.events_stats.goalkeeper.GoalkeeperFilter;
 import es.iesjandula.statsbomb.models.event.Event;
 import org.apache.logging.log4j.LogManager;
@@ -61,6 +63,18 @@ public class EventsStats
     {
         GoalkeeperFilter goalkeeperFilter = new GoalkeeperFilter();
         return goalkeeperFilter.getPlayerGoalkeeper(getListEvents(matchId));
+    }
+
+    /**
+     * Metod that show the players that won more duels
+     *
+     * @return String in json format that contains the players that won more duels
+     * @throws StatsBombException
+     */
+    public String getPlayerDuels(int matchId) throws StatsBombException
+    {
+        DuelFilter duelFilter = new DuelFilter();
+        return duelFilter.getPlayersDuels(getListEvents(matchId));
     }
 
 }

@@ -49,4 +49,29 @@ public class RestHandlerEvents
         }
 
     }
+
+    /**
+     * Method return Instance of EventStats that returns duels
+     *
+     * @return Instance of EventStats that returns duels
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "/duels/")
+    public ResponseEntity<?> getPlayerDuels(@RequestParam(value="matchId", required=true) final Integer matchId)
+    {
+        try
+        {
+            String resultJson = this.eventsStats.getPlayerDuels(matchId);
+            return ResponseEntity.ok().body(resultJson) ;
+        }
+        catch (StatsBombException statsBombException)
+        {
+            return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
+        }
+        catch (Exception exception)
+        {
+            StatsBombException statsBombException = new StatsBombException(exception);
+            return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
+        }
+
+    }
 }
