@@ -43,6 +43,27 @@ public class RestHandlerMatches
 
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/list_matches_date/")
+    public ResponseEntity<?> getListOfMatchesbyDate(@RequestParam(value="competitionId", required=true) final Integer competitionId,@RequestParam(value="seasonId", required=true) final Integer seasonId)
+    {
+        try
+        {
+            String resultJson = this.matchesStats.getListOfMatchesByDate(competitionId,seasonId);
+            return ResponseEntity.ok().body(resultJson) ;
+        }
+        catch (StatsBombException statsBombException)
+        {
+            return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
+        }
+        catch (Exception exception)
+        {
+            StatsBombException statsBombException = new StatsBombException(exception);
+            return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
+        }
+
+    }
+
+
     @Bean
     private MatchesStats getMatchesStats()
     {
