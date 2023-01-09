@@ -2,6 +2,8 @@ package es.iesjandula.statsbomb.matches_rest.rest;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.matches_stats.MatchesStats;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,11 @@ import org.springframework.web.bind.annotation.*;
 
 public class RestHandlerMatches
 {
+
+    /**
+     * Logger
+     */
+    private final Logger LOGGER = LogManager.getLogger();
 
     // New Instance of MatchesStats
     private final MatchesStats matchesStats = this.getMatchesStats();
@@ -38,6 +45,7 @@ public class RestHandlerMatches
         catch (Exception exception)
         {
             StatsBombException statsBombException = new StatsBombException(exception);
+            LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
 
@@ -58,6 +66,7 @@ public class RestHandlerMatches
         catch (Exception exception)
         {
             StatsBombException statsBombException = new StatsBombException(exception);
+            LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
 
