@@ -25,7 +25,7 @@ public class GoalkeeperFilter
         String jsonPlayerGoalkeeper = "";
 
 
-        Map<Event,Integer>mapGoalkeeperPass = new HashMap<>();
+        Map<String,Integer>mapGoalkeeperPass = new HashMap<>();
 
         // Filter
         for (Event event : eventList)
@@ -34,29 +34,30 @@ public class GoalkeeperFilter
             {
                 if (event.getPosition().getName().equals("Goalkeeper") && event.getPass().getBody_part().getName().equals("Right Foot"))
                 {
-                    if (!mapGoalkeeperPass.containsKey(event))
+                    if (!mapGoalkeeperPass.containsKey(event.getPlayer().getName()))
                     {
-                        mapGoalkeeperPass.put(event, 1);
+                        mapGoalkeeperPass.put(event.getPlayer().getName(), 1);
                     } else
                     {
-                        mapGoalkeeperPass.put(event, mapGoalkeeperPass.get(event) + 1);
+                        mapGoalkeeperPass.put(event.getPlayer().getName(), mapGoalkeeperPass.get(event.getPlayer().getName()) + 1);
                     }
                 } else if (event.getPosition().getName().equals("Goalkeeper") && event.getPass().getBody_part().getName().equals("Left Foot"))
                 {
-                    if (!mapGoalkeeperPass.containsKey(event))
+                    if (!mapGoalkeeperPass.containsKey(event.getPlayer().getName()))
                     {
-                        mapGoalkeeperPass.put(event, 1);
+                        mapGoalkeeperPass.put(event.getPlayer().getName(), 1);
                     } else
                     {
-                        mapGoalkeeperPass.put(event, mapGoalkeeperPass.get(event) + 1);
+                        mapGoalkeeperPass.put(event.getPlayer().getName(), mapGoalkeeperPass.get(event.getPlayer().getName()) + 1);
                     }
                 }
             }
         }
 
         int maxPassGoalkeeper = 0;
-        Event goalkeeper = new Event();
-        for(Map.Entry<Event,Integer> recipient : mapGoalkeeperPass.entrySet())
+        String goalkeeper = "";
+
+        for(Map.Entry<String,Integer> recipient : mapGoalkeeperPass.entrySet())
         {
 
             if(recipient.getValue() > maxPassGoalkeeper)
@@ -68,10 +69,25 @@ public class GoalkeeperFilter
 
         ResultGoalkeeper resultGoalkeeper = new ResultGoalkeeper();
 
-        resultGoalkeeper.setNombre(goalkeeper.getPlayer().getName());
-        resultGoalkeeper.setEquipo(goalkeeper.getTeam().getName());
+        resultGoalkeeper.setNombre(goalkeeper);
         resultGoalkeeper.setPases(maxPassGoalkeeper);
 
+        //Search the team of the playergoalkeeper
+
+        String teamGoalkeeper = "";
+
+        for (Event event : eventList)
+        {
+            if(event.getPlayer()!=null && event.getPlayer().getName()!=null){
+
+                if(event.getPlayer().getName().equals(goalkeeper))
+                {
+                    resultGoalkeeper.setEquipo(event.getTeam().getName());
+
+                }
+            }
+
+        }
 
         // Convert List to Json Format
         JsonUtils jsonUtils = new JsonUtils();
