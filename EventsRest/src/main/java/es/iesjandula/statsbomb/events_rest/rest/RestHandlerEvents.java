@@ -95,7 +95,7 @@ public class RestHandlerEvents
     {
         try
         {
-            String resultJson = this.eventsStats.getPlayerDuels(matchId);
+            String resultJson = this.eventsStats.getPlayerScorers(matchId);
             return ResponseEntity.ok().body(resultJson) ;
         }
         catch (StatsBombException statsBombException)
