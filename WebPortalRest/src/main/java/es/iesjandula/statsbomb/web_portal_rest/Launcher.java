@@ -1,9 +1,7 @@
-package es.iesjandula.statsbomb.matches_rest;
+package es.iesjandula.statsbomb.web_portal_rest;
 
 import org.springframework.boot.SpringApplication ;
 import org.springframework.boot.autoconfigure.SpringBootApplication ;
-import org.springframework.context.annotation.ComponentScan ;
-import org.springframework.context.annotation.Configuration ;
 
 /**
  * This class starts the application
@@ -11,6 +9,7 @@ import org.springframework.context.annotation.Configuration ;
 @SpringBootApplication
 public class Launcher
 {
+
     /**
      * Main method
      * @param args with the input arguments
