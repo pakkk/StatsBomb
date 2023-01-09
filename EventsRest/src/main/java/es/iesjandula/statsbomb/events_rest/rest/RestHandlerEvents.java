@@ -2,6 +2,8 @@ package es.iesjandula.statsbomb.events_rest.rest;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.events_stats.EventsStats;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController //
 public class RestHandlerEvents
 {
+
+    /**
+     * Logger
+     */
+    private final Logger LOGGER = LogManager.getLogger();
+
     private final EventsStats eventsStats = this.getEventsStats();
 
     /**
@@ -45,6 +53,7 @@ public class RestHandlerEvents
         catch (Exception exception)
         {
             StatsBombException statsBombException = new StatsBombException(exception);
+            LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
 
@@ -70,6 +79,7 @@ public class RestHandlerEvents
         catch (Exception exception)
         {
             StatsBombException statsBombException = new StatsBombException(exception);
+            LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
 
@@ -85,16 +95,18 @@ public class RestHandlerEvents
     {
         try
         {
-            String resultJson = this.eventsStats.getPlayerDuels(matchId);
+            String resultJson = this.eventsStats.getPlayerScorers(matchId);
             return ResponseEntity.ok().body(resultJson) ;
         }
         catch (StatsBombException statsBombException)
         {
+            LOGGER.error(statsBombException.getBodyExceptionMessage());
             return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
         }
         catch (Exception exception)
         {
             StatsBombException statsBombException = new StatsBombException(exception);
+            LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
 

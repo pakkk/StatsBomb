@@ -10,6 +10,7 @@ import es.iesjandula.statsbomb.common.utils.Constants;
 import es.iesjandula.statsbomb.events_stats.duel.DuelFilter;
 import es.iesjandula.statsbomb.events_stats.duel.DuelResult;
 import es.iesjandula.statsbomb.events_stats.goalkeeper.GoalkeeperFilter;
+import es.iesjandula.statsbomb.events_stats.scorer.ScorerFilter;
 import es.iesjandula.statsbomb.models.event.Event;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -75,6 +76,12 @@ public class EventsStats
     {
         DuelFilter duelFilter = new DuelFilter();
         return duelFilter.getPlayersDuels(getListEvents(matchId));
+    }
+
+    public String getPlayerScorers(int matchId) throws StatsBombException {
+        ScorerFilter scorerFilter = new ScorerFilter();
+        return scorerFilter.getScorers(getListEvents(matchId));
+
     }
 
 }

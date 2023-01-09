@@ -61,7 +61,7 @@ public class MatchesStats
      * @return all Matches of competition and season
      * @throws StatsBombException
      */
-    public List<Match> getMatches(int competitionId,int seasonId) throws StatsBombException
+    public List<Match> getMatches(int competitionId, int seasonId) throws StatsBombException
     {
 
         JsonLoaderImpl jsonLoader = new JsonLoaderImpl();
