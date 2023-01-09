@@ -7,8 +7,8 @@ import java.util.Map;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.utils.JsonUtils;
-import es.iesjandula.statsbomb.models.matches.Match;
 import es.iesjandula.statsbomb.common.utils.DateUtils;
+import es.iesjandula.statsbomb.models.matches.Match;
 
 /**
  * @author Aljarilla11
@@ -22,21 +22,22 @@ public class DateFilter
      * @throws StatsBombException
      */
 
-    public String getListMatchesByDate(List<Match> listOfMatch) throws StatsBombException
+    public String getListMatchesByDate(List<Match> listOfMatch,String dateStart) throws StatsBombException
     {
         DateUtils dateUtils = new DateUtils();
         String jsonListMatchesByDate = "";
 
 
         Map<String,String> mapMatches = new HashMap<>();
+        String fechaEmpezar = dateStart;
+        Date fechaEmpezarDate = dateUtils.convertStringToDateFormatyyyyMMdd(fechaEmpezar);
 
         for(int i=0;i<listOfMatch.size();i++)
         {
-            String fechaEjemplo = "2020-04-01";
-            Date fechaEjemploDate = dateUtils.convertStringToDateFormatyyyyMMdd(fechaEjemplo);
+
             Date matchDate = dateUtils.convertStringToDateFormatyyyyMMdd(listOfMatch.get(i).getMatch_date());
 
-            if (matchDate.after(fechaEjemploDate))
+            if (matchDate.after(fechaEmpezarDate))
             {
                 mapMatches.put(listOfMatch.get(i).getMatch_date(),listOfMatch.get(i).getHome_team().getHome_team_name()+" vs "+listOfMatch.get(i).getAway_team().getAway_team_name());
             }

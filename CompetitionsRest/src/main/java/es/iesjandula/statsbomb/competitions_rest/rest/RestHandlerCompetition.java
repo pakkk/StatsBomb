@@ -3,6 +3,8 @@ package es.iesjandula.statsbomb.competitions_rest.rest;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.competitions_stats.CompetitionsStats;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,6 +23,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController //
 public class RestHandlerCompetition
 {
+
+    /**
+     * Logger
+     */
+    private final Logger LOGGER = LogManager.getLogger();
 
     // New Instance of CompetitionStats
     private final CompetitionsStats competitionsStats = this.getCompetitionsStats();
@@ -45,6 +52,7 @@ public class RestHandlerCompetition
         catch (Exception exception)
         {
             StatsBombException statsBombException = new StatsBombException(exception);
+            LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
     }
@@ -70,6 +78,7 @@ public class RestHandlerCompetition
         catch (Exception exception)
         {
             StatsBombException statsBombException = new StatsBombException(exception);
+            LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
     }
@@ -95,6 +104,7 @@ public class RestHandlerCompetition
         catch (Exception exception)
         {
             StatsBombException statsBombException = new StatsBombException(exception);
+            LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
     }
@@ -120,6 +130,7 @@ public class RestHandlerCompetition
         catch (Exception exception)
         {
             StatsBombException statsBombException = new StatsBombException(exception);
+            LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
     }

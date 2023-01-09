@@ -12,19 +12,26 @@ import java.util.List;
  */
 public class ScorerFilter
 {
-    public String getScorers(List<Event> eventList) throws StatsBombException {
+    public String getScorers(List<Event> eventList) throws StatsBombException
+    {
 
         // result of the scorers
         String jsonScorers = "";
 
         List<ScorerResult> scorerResultList = new ArrayList<>();
 
-        for(Event event : eventList){
-            if(event.getShot() != null){
-                if(event.getShot().getOutcome().getName().equalsIgnoreCase("goal")){
-                    scorerResultList.add(new ScorerResult( event.getTeam().getName(),
-                            event.getPlayer().getName(), event.getMinute(), event.getSecond()));
+        for(Event event : eventList)
+        {
+            if(event.getShot() != null && event.getShot().getOutcome() != null)
+            {
+                if (event.getShot().getOutcome().getName() != null)
+                {
+                    if (event.getShot().getOutcome().getName().equalsIgnoreCase("goal"))
+                    {
+                        scorerResultList.add(new ScorerResult(event.getTeam().getName(),
+                                event.getPlayer().getName(), event.getMinute(), event.getSecond()));
 
+                    }
                 }
             }
         }

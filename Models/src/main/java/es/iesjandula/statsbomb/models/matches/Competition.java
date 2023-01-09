@@ -11,13 +11,13 @@ public class Competition
      * Attribute -
      * The unique identifier for the competition.
      */
-    private int id;
+    private int competition_id;
 
     /**
      * Attribute -
      * The name of the competition.
      */
-    private String name;
+    private String competition_name;
 
     /**
      * Attribute -
@@ -36,33 +36,33 @@ public class Competition
     /**
      * @return The unique identifier for the competition.
      */
-    public int getId()
+    public int getCompetition_id()
     {
-        return id;
+        return competition_id;
     }
 
     /**
-     * @param id, of the competition.
+     * @param competition_id, of the competition.
      */
-    public void setId(int id)
+    public void setCompetition_id(int competition_id)
     {
-        this.id = id;
+        this.competition_id = competition_id;
     }
 
     /**
      * @return The name of the competition.
      */
-    public String getName()
+    public String getCompetition_name()
     {
-        return name;
+        return competition_name;
     }
 
     /**
-     * @param name, name of the competition.
+     * @param competition_name, name of the competition.
      */
-    public void setName(String name)
+    public void setCompetition_name(String competition_name)
     {
-        this.name = name;
+        this.competition_name = competition_name;
     }
 
     /**
@@ -85,8 +85,8 @@ public class Competition
     @Override
     public String toString() {
         return "Competition{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "id=" + competition_id +
+                ", name='" + competition_name + '\'' +
                 ", country_name='" + country_name + '\'' +
                 '}';
     }
