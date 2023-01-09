@@ -100,6 +100,7 @@ public class RestHandlerEvents
         }
         catch (StatsBombException statsBombException)
         {
+            LOGGER.error(statsBombException.getBodyExceptionMessage());
             return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
         }
         catch (Exception exception)
