@@ -62,13 +62,13 @@ public class Match
      * The unique identifier integer and the name for the home team
      * in this match
      */
-    private HomeTeam home_Home_team;
+    private HomeTeam home_team;
 
     /** Attribute -
      * The unique identifier integer and the name for the away team
      * in this match
      */
-    private AwayTeam away_Home_team;
+    private AwayTeam away_team;
 
     /** Attribute - The final score of the home team */
     private int home_score;
@@ -265,7 +265,7 @@ public class Match
      */
     public HomeTeam getHome_team()
     {
-        return this.home_Home_team;
+        return this.home_team;
     }
 
     /**
@@ -273,7 +273,7 @@ public class Match
      */
     public void setHome_team(HomeTeam home_Home_team)
     {
-        this.home_Home_team = home_Home_team;
+        this.home_team = home_Home_team;
     }
 
     /**
@@ -281,7 +281,7 @@ public class Match
      */
     public AwayTeam getAway_team()
     {
-        return this.away_Home_team;
+        return this.away_team;
     }
 
     /**
@@ -289,7 +289,7 @@ public class Match
      */
     public void setAway_team(AwayTeam away_Home_team)
     {
-        this.away_Home_team = away_Home_team;
+        this.away_team = away_Home_team;
     }
 
     /**
@@ -445,8 +445,8 @@ public class Match
                 ", kick_off_javaUtilDate=" + kick_off_javaUtilDate +
                 ", stadium=" + stadium +
                 ", referee=" + referee +
-                ", home_Home_team=" + home_Home_team +
-                ", away_Home_team=" + away_Home_team +
+                ", home_Home_team=" + home_team +
+                ", away_Home_team=" + away_team +
                 ", home_score=" + home_score +
                 ", away_score=" + away_score +
                 ", match_status='" + match_status + '\'' +
