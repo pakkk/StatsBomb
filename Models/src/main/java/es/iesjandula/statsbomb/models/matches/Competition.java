@@ -19,6 +19,7 @@ public class Competition
      */
     private String competition_name;
 
+
     /**
      * Attribute -
      * The name of the country the competition relates to (or region
