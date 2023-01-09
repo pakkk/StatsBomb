@@ -7,8 +7,10 @@ import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.load_json.Json;
 import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
 import es.iesjandula.statsbomb.common.utils.Constants;
+import es.iesjandula.statsbomb.matches_stats.date.DateFilter;
 import es.iesjandula.statsbomb.matches_stats.possession.PossessionFilter;
 import es.iesjandula.statsbomb.models.event.Event;
+import es.iesjandula.statsbomb.models.matches.Match;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -59,7 +61,7 @@ public class MatchesStats
      * @return all Matches of competition and season
      * @throws StatsBombException
      */
-    public List<Match> getMatches(int competitionId,int seasonId) throws StatsBombException
+    public List<Match> getMatches(int competitionId, int seasonId) throws StatsBombException
     {
 
         JsonLoaderImpl jsonLoader = new JsonLoaderImpl();
