@@ -2,6 +2,8 @@ package es.iesjandula.statsbomb.threesixty_rest.rest;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.threesixty_stats.ThreeSixtyStats;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RestHandlerThreeSixty 
 {
+
+    /**
+     * Logger
+     */
+    private final Logger LOGGER = LogManager.getLogger();
+
     //New Instance of the Three Sixty
     private final ThreeSixtyStats threesixty_stats = this.getThreeSixtyStats();
 
@@ -42,6 +50,7 @@ public class RestHandlerThreeSixty
         catch (Exception exception)
         {
             StatsBombException statsBombException = new StatsBombException();
+            LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
     }
@@ -65,6 +74,7 @@ public class RestHandlerThreeSixty
         catch (Exception exception)
         {
             StatsBombException statsBombException = new StatsBombException();
+            LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
     }
