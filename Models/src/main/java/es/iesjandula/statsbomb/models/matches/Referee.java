@@ -9,14 +9,14 @@ public class Referee
      * Attributes -
      * The ID is the unique identifier for the stadium and the name is the name of the stadium
      */
-    private int competition_id;
-    private String country_name;
+    private int id;
+    private String name;
 
     /** Attribute -
      * The ID is the unique identifier for the country and the name is
      * the name of the country
      */
-    private Country competition_name;
+    private Country country;
 
     /**
      * Empty Constructor
@@ -28,47 +28,47 @@ public class Referee
     /**
      * @return the information about the id
      */
-    public int getCompetition_id()
+    public int getId()
     {
-        return competition_id;
+        return id;
     }
 
     /**
-     * @param competition_id with the information about the id
+     * @param id with the information about the id
      */
-    public void setCompetition_id(int competition_id)
+    public void setId(int id)
     {
-        this.competition_id = competition_id;
+        this.id = id;
     }
 
     /**
      * @return the information about the name
      */
-    public String getCountry_name()
+    public String getName()
     {
-        return country_name;
+        return name;
     }
 
     /**
-     * @param country_name with the information about the name
+     * @param name with the information about the name
      */
-    public void setCountry_name(String country_name)
+    public void setName(String name)
     {
-        this.country_name = country_name;
+        this.name = name;
     }
 
     /**
      * @return the information about the country
      */
-    public Country getCompetition_name() {
-        return competition_name;
+    public Country getCountry() {
+        return country;
     }
 
     /**
-     * @param competition_name with the information about the country
+     * @param country with the information about the country
      */
-    public void setCompetition_name(Country competition_name) {
-        this.competition_name = competition_name;
+    public void setCountry(Country country) {
+        this.country = country;
     }
 
     /**
@@ -77,9 +77,9 @@ public class Referee
     @Override
     public String toString() {
         return "Referee{" +
-                "id=" + competition_id +
-                ", name='" + country_name + '\'' +
-                ", country=" + competition_name +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", country=" + country +
                 '}';
     }
 }
