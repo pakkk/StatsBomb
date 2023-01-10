@@ -101,10 +101,10 @@ public class MatchesStats
      * @return a list of Matches
      * @throws StatsBombException
      */
-    public String getListOfMatchesByDate(int competitionId,int seasonId) throws StatsBombException
+    public String getListOfMatchesByDate(int competitionId,int seasonId,String dateStart) throws StatsBombException
     {
         DateFilter dateFilter = new DateFilter();
-        return dateFilter.getListMatchesByDate(getMatches(competitionId,seasonId));
+        return dateFilter.getListMatchesByDate(getMatches(competitionId,seasonId), dateStart);
     }
 
 
