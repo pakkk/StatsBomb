@@ -10,7 +10,7 @@ public class Stadium
     private String name;
 
     /** Attribute - The name of the country the stadium is in */
-    private String stadium_country;
+    private String country;
 
     /**
      * Empty constrcutor
@@ -54,15 +54,15 @@ public class Stadium
     /**
      * @return name with the information about the stadium_country
      */
-    public String getStadium_country() {
-        return stadium_country;
+    public String getCountry() {
+        return country;
     }
 
     /**
-     * @param stadium_country with the information about the stadium_country
+     * @param country with the information about the stadium_country
      */
-    public void setStadium_country(String stadium_country) {
-        this.stadium_country = stadium_country;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     /**
@@ -73,7 +73,7 @@ public class Stadium
         return "Stadium{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", stadium_country='" + stadium_country + '\'' +
+                ", stadium_country='" + country + '\'' +
                 '}';
     }
 }
