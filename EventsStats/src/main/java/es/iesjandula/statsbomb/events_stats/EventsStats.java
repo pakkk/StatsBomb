@@ -8,8 +8,8 @@ import es.iesjandula.statsbomb.common.load_json.Json;
 import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
 import es.iesjandula.statsbomb.common.utils.Constants;
 import es.iesjandula.statsbomb.events_stats.duel.DuelFilter;
-import es.iesjandula.statsbomb.events_stats.duel.DuelResult;
 import es.iesjandula.statsbomb.events_stats.goalkeeper.GoalkeeperFilter;
+import es.iesjandula.statsbomb.events_stats.possession.PossessionFilter;
 import es.iesjandula.statsbomb.events_stats.scorer.ScorerFilter;
 import es.iesjandula.statsbomb.models.event.Event;
 import org.apache.logging.log4j.LogManager;
@@ -27,10 +27,11 @@ public class EventsStats
 {
     private final Logger LOGGER = LogManager.getLogger();
 
+
     /**
-     * Return list with all events in json StatsBomb
-     *
-     * @return List of Events
+     * Search all Events of a Match
+     * @param matchId Identifier unique of Match
+     * @return all Events of match
      * @throws StatsBombException
      */
     private List<Event> getListEvents(int matchId) throws StatsBombException
@@ -39,7 +40,7 @@ public class EventsStats
         JsonLoaderImpl jsonLoader = new JsonLoaderImpl();
         String jsonEvents = jsonLoader.loadEvents(matchId);
         ObjectMapper mapper = Json.mapper();
-        List<Event> eventsList = new ArrayList<>();
+        List<Event> eventsList;
 
         try
         {
@@ -82,6 +83,18 @@ public class EventsStats
         ScorerFilter scorerFilter = new ScorerFilter();
         return scorerFilter.getScorers(getListEvents(matchId));
 
+    }
+
+    /**
+     * Call of Filter
+     * @param matchId Match
+     * @return a list of Possessions
+     * @throws StatsBombException
+     */
+    public String getListOfPossessionOfMatch(int matchId) throws StatsBombException
+    {
+        PossessionFilter possessionFilter = new PossessionFilter();
+        return possessionFilter.getListPosesion(getListEvents(matchId));
     }
 
 }

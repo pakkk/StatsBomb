@@ -1,4 +1,4 @@
-package es.iesjandula.statsbomb.matches_stats.possession;
+package es.iesjandula.statsbomb.events_stats.possession;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.utils.JsonUtils;
@@ -30,7 +30,7 @@ public class PossessionFilter
     public String getListPosesion(List<Event> eventListOfMatch) throws StatsBombException
     {
         /* Reult of Posesion */
-        String jsonListPosesionOfMatch = "";
+        String jsonListPosesionOfMatch;
 
         Map<Integer, ResultListPosesionFilter> mapPossesion = new HashMap<>(); // Storage of possesión and Result
 
