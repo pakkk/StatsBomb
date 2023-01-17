@@ -10,7 +10,7 @@ public class Stadium
     private String name;
 
     /** Attribute - The name of the country the stadium is in */
-    private String country;
+    private Country country;
 
     /**
      * Empty constrcutor
@@ -54,14 +54,14 @@ public class Stadium
     /**
      * @return name with the information about the stadium_country
      */
-    public String getCountry() {
+    public Country getCountry() {
         return country;
     }
 
     /**
      * @param country with the information about the stadium_country
      */
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 
