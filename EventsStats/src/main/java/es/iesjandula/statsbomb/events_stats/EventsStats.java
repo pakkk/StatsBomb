@@ -10,6 +10,8 @@ import es.iesjandula.statsbomb.common.utils.Constants;
 import es.iesjandula.statsbomb.events_stats.duel.DuelFilter;
 import es.iesjandula.statsbomb.events_stats.goalkeeper.GoalkeeperFilter;
 import es.iesjandula.statsbomb.events_stats.possession.PossessionFilter;
+import es.iesjandula.statsbomb.events_stats.reference.ReferenceFilter;
+import es.iesjandula.statsbomb.events_stats.reference.ResultReference;
 import es.iesjandula.statsbomb.events_stats.scorer.ScorerFilter;
 import es.iesjandula.statsbomb.models.event.Event;
 import org.apache.logging.log4j.LogManager;
@@ -95,6 +97,18 @@ public class EventsStats
     {
         PossessionFilter possessionFilter = new PossessionFilter();
         return possessionFilter.getListPosesion(getListEvents(matchId));
+    }
+    
+    /**
+     * Call of Filter
+     * @param matchId Match
+     * @return a list of Possessions
+     * @throws StatsBombException
+     */
+    public List<ResultReference> getListOfReferencesPlayers(String matchId) throws StatsBombException
+    {
+        ReferenceFilter reference = new ReferenceFilter();
+        return reference.referencia(matchId);
     }
 
 }

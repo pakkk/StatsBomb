@@ -2,6 +2,10 @@ package es.iesjandula.statsbomb.events_rest.rest;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.events_stats.EventsStats;
+import es.iesjandula.statsbomb.events_stats.reference.ResultReference;
+
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Bean;
@@ -117,6 +121,31 @@ public class RestHandlerEvents
         try
         {
             String resultJson = this.eventsStats.getListOfPossessionOfMatch(matchId);
+            return ResponseEntity.ok().body(resultJson) ;
+        }
+        catch (StatsBombException statsBombException)
+        {
+            return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
+        }
+        catch (Exception exception)
+        {
+            StatsBombException statsBombException = new StatsBombException(exception);
+            LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
+            return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
+        }
+
+    }
+    /**
+     * Method return Instance of EventStats that returns reference players
+     *
+     * @return Instance of EventStats that returns reference players
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "/reference_player/")
+    public ResponseEntity<?> getListOfReferencePlayer(@RequestParam(value="jsonNombre", required=true)final String jsonNombre )
+    {
+        try
+        {
+            List<ResultReference> resultJson = this.eventsStats.getListOfReferencesPlayers(jsonNombre);
             return ResponseEntity.ok().body(resultJson) ;
         }
         catch (StatsBombException statsBombException)
