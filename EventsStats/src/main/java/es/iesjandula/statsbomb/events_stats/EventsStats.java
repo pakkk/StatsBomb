@@ -105,10 +105,10 @@ public class EventsStats
      * @return a list of Possessions
      * @throws StatsBombException
      */
-    public List<ResultReference> getListOfReferencesPlayers(String matchId) throws StatsBombException
+    public String getListOfReferencesPlayers(int matchId) throws StatsBombException
     {
         ReferenceFilter reference = new ReferenceFilter();
-        return reference.referencia(matchId);
+        return reference.referencia(getListEvents(matchId));
     }
 
 }
