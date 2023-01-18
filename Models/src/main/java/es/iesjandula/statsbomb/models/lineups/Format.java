@@ -1,26 +1,37 @@
 package es.iesjandula.statsbomb.models.lineups;
 
 import es.iesjandula.statsbomb.models.event.tactics.Lineup;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.util.Arrays;
 
 /**
  *@author Manuel Martin Murillo
+ * @author Alejandro Aljarilla
  * Lineup files in the data/lineups directory will be in JSON format. Filenames will be in the
 format 1234.json where 1234 is a match ID. The contents are an array containing lineup
 information for both teams:
  */
+@Entity
+@Table(name = "format")
 public class Format
 {
     /**
      * Attribute
      * The unique identifier for each team.
      */
+    @Id
+    @Column(length = 10)
     private Integer team_id;
     /**
      * Attribute
      * The name of the team
      */
+
+    @Column(length = 20)
     private String team_name;
     /**
      * Attribute

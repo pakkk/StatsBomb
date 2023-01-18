@@ -1,45 +1,58 @@
 package es.iesjandula.statsbomb.models.lineups;
 
 import es.iesjandula.statsbomb.models.event.Position;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.util.Arrays;
-
+@Entity
+@Table(name = "lineups")
 public class Lineups
 {
     /**
      * Attribute
      * The unique identifier for this player
      */
+    @Id
+    @Column(length = 10)
     private Integer player_id;
     /**
      * Attribute
      * The name of the player
      */
+    @Column(length = 25)
     private String player_name;
     /**
      * Attribute
      * The nickname of the player on the team
      */
+    @Column(length = 25)
     private String player_nickname;
     /**
      * Attribute
      * The number on the player’s shirt for this match
      */
+    @Column(length = 4)
     private Integer jersey_number;
     /**
      * Attribute
      * The player’s nationality, a country object with ID and name attributes.
      */
+
     private Country country;
     /**
      * Attribute
      * An array of cards that the player has received
      */
+
     private Cards [] cards;
     /**
      * Attribute
      * An array of positions that the player had during the match
      */
+
     private Position[] positions;
     /**
      * Default constructor

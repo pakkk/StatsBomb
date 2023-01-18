@@ -2,11 +2,16 @@ package es.iesjandula.statsbomb.models.event.shot;
 
 import es.iesjandula.statsbomb.models.event.Player;
 import es.iesjandula.statsbomb.models.event.Position;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.util.List;
 
 /**
  * @author Neil Hdez
+ * @author Alejandro Aljarilla
  * @version 1.0.0
  * @since 30/11/2022
  *
@@ -21,10 +26,14 @@ import java.util.List;
  * team, id, name and position id
  * and name.
  */
+@Entity
+@Table(name = "freeze_frame")
 public class FreezeFrame
 {
 
     /** Attribute - With coordinate of player */
+    @Id
+    @Column(length = 20)
     private List<Integer> location;
 
     /** Attribute - With Information about Player */
@@ -34,6 +43,7 @@ public class FreezeFrame
     private Position position;
 
     /** Attribute - With information about teammate */
+    @Column(length = 7)
     private Boolean teammate;
 
     FreezeFrame()

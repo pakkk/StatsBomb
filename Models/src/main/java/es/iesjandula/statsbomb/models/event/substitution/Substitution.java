@@ -1,9 +1,12 @@
 package es.iesjandula.statsbomb.models.event.substitution;
 
 import es.iesjandula.statsbomb.models.event.OutCome;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 /**
  * @author Neil Hdez
+ * @author Alejandro Aljarilla
  * @author Oscar Herruzo
  * @version 1.0.0
  * @since 01/12/2022
@@ -12,6 +15,8 @@ import es.iesjandula.statsbomb.models.event.OutCome;
  * Class about the substitution
  * and the replacement
  */
+@Entity
+@Table(name = "substitution")
 public class Substitution
 {
     /**
@@ -46,7 +51,7 @@ public class Substitution
         return outcome;
     }
     /**
-     * @param set the object outcome
+     * @param outcome set the object outcome
      */
     public void setOutcome(OutCome outcome)
     {
@@ -60,7 +65,7 @@ public class Substitution
         return outCome;
     }
     /**
-     * @param set the object outcome
+     * @param outCome set the object outcome
      */
     public void setOutCome(OutCome outCome)
     {
@@ -74,7 +79,7 @@ public class Substitution
         return replacement;
     }
     /**
-     * @param set object replacement
+     * @param replacement set object replacement
      */
     public void setReplacement(Replacement replacement)
     {

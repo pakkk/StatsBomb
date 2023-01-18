@@ -1,9 +1,16 @@
 package es.iesjandula.statsbomb.models.lineups;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 /**
  *
  * @author Manuel Martin Murillo
+ * @author Alejandro Aljarilla
  *
  */
+@Entity
+@Table(name = "cards")
 public class Cards
 {
     /**

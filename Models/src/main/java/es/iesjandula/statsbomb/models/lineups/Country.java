@@ -1,22 +1,33 @@
 package es.iesjandula.statsbomb.models.lineups;
 
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  *
  * @author Manuel Martin Murillo
+ * @author Alejandro Aljarilla
  *
  */
+@Entity
+@Table(name = "country")
 public class Country
 {
     /**
      * Attribute
      * The id of the country
      */
+    @Id
+    @Column(length = 10)
     private Integer id;
     /**
      * Attribute
      * The name of the country
      */
+    @Column(length = 20)
     private String name;
     /**
      * Default constructor

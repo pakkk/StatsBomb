@@ -4,22 +4,32 @@ import es.iesjandula.statsbomb.models.event.BodyPart;
 import es.iesjandula.statsbomb.models.event.OutCome;
 import es.iesjandula.statsbomb.models.event.Technique;
 import es.iesjandula.statsbomb.models.event.Type;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.util.List;
 import java.util.UUID;
 
 /**
  * @author Neil Hdez
+ * @author Alejandro Aljarilla
  * @version 1.0.0
  * @since 30/11/2022
  */
+@Entity
+@Table(name = "shot")
 public class Shot
 {
 
     /* Attribute - Unique pass identifier */
+    @Id
+    @Column(length = 10)
     private UUID key_pass_id;
 
     /* Attribute - Where the shot ends */
+    @Column(length = 20)
     private List<Integer> end_location;
 
     /**
@@ -27,6 +37,7 @@ public class Shot
      * Added if the shot was an
      * aerial won
      */
+    @Column(length = 7)
     private Boolean aerial_won;
 
     /**
@@ -34,6 +45,7 @@ public class Shot
      * Added if the shot followed a
      * dribble
      */
+    @Column(length = 7)
     private Boolean follows_dribble;
 
     /**
@@ -41,6 +53,7 @@ public class Shot
      * Added if the shot was first
      * touch.
      */
+    @Column(length = 7)
     private Boolean first_time;
 
     /**
@@ -48,6 +61,7 @@ public class Shot
      * Added if the shot was
      * one-on-one
      */
+    @Column(length = 7)
     private Boolean one_on_one;
 
     /**
@@ -71,6 +85,7 @@ public class Shot
      * goals value calculated for the
      * shot.
      */
+    @Column(length = 15)
     private Double statsbomb_xg;
 
     /**
@@ -78,6 +93,7 @@ public class Shot
      * Added if the shot was
      * deflected
      */
+    @Column(length = 7)
     private Boolean deflected;
 
     /**
@@ -109,13 +125,17 @@ public class Shot
      */
     private BodyPart body_part;
 
+
     /* Attribute - saved_to_post of Shot */
+    @Column(length = 7)
     private Boolean saved_to_post;
 
     /* Attribute - saved_to_post of Shot */
+    @Column(length = 7)
     private Boolean saved_off_target;
 
     /* Attribute - saved_to_post of Shot */
+    @Column(length = 7)
     private Boolean open_goal;
 
     /**
