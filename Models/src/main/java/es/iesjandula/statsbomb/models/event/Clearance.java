@@ -42,6 +42,12 @@ public class Clearance
     private Boolean head;
 
     /**
+     * Attribute -
+     *
+     */
+    private Boolean other;
+
+    /**
      * Default Constructor
      */
     public Clearance()
@@ -148,11 +154,32 @@ public class Clearance
     }
 
     /**
+     * @return
+     */
+    public Boolean getOther() {
+        return other;
+    }
+
+    /**
+     * @param other
+     */
+    public void setOther(Boolean other) {
+        this.other = other;
+    }
+
+    /**
      * @return the instance of Clearance as String
      */
     @Override
-    public String toString()
-    {
-        return "Clearance{" + "aerial_won=" + aerial_won + ", body_part=" + body_part + '}';
+    public String toString() {
+        return "Clearance{" +
+                "aerial_won=" + aerial_won +
+                ", body_part=" + body_part +
+                ", clearance=" + clearance +
+                ", right_foot=" + right_foot +
+                ", left_foot=" + left_foot +
+                ", head=" + head +
+                ", other=" + other +
+                '}';
     }
 }

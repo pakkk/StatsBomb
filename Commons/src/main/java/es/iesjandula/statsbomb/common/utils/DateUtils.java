@@ -69,6 +69,22 @@ public class DateUtils
         return date;
     }
 
+    public Date convertStringToDateFormatddMMyyyyWithHyphen(final String dateString)
+    {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = null;
+        try
+        {
+            date = simpleDateFormat.parse(dateString);
+        }
+        catch (ParseException parseException)
+        {
+            parseException.printStackTrace();
+        }
+
+        return date;
+    }
+
     /**
      * Convert Date in format yyyy-MM-ddTHH:mm:ss.SSS to String
      *

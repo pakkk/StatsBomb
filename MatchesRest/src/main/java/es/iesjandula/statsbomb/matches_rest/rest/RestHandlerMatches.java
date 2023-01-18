@@ -63,7 +63,6 @@ public class RestHandlerMatches
 			LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
 			return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
 		}
-
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/list_manager_score/{competitionId}/{seasonId}")
@@ -86,14 +85,16 @@ public class RestHandlerMatches
 			return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
 		}
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/list_manager_with_same_nationality/{competitionId}/{seasonId}")
-	public ResponseEntity<?> getManagerWithSameNationality(@PathVariable(value = "competitionId") final Integer competitionId,
+	public ResponseEntity<?> getManagerWithSameNationality(
+			@PathVariable(value = "competitionId") final Integer competitionId,
 			@PathVariable(value = "seasonId") final Integer seasonId)
 	{
 		try
 		{
-			String resultJson = this.managerNationalityFilter.managersWithDifferentNationalityThatCountry(competitionId, seasonId);
+			String resultJson = this.managerNationalityFilter.managersWithDifferentNationalityThatCountry(competitionId,
+					seasonId);
 			return ResponseEntity.ok().body(resultJson);
 		}
 		catch (StatsBombException statsBombException)
