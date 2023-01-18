@@ -200,6 +200,9 @@ public class Event
     /** Attribute - describe the bad behaviour **/
     private BadBehaviour bad_behaviour;
 
+    /** Attribute -  **/
+    private Miscontrol miscontrol;
+
     /**
      * empty constructor
      */

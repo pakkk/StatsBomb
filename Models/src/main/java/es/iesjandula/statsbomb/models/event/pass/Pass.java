@@ -23,22 +23,26 @@ public class Pass {
      * recipient of the pass is clear.
      */
     private Recipient recipient;
+
     /**
      * Attribute -
      * The length in yards of the pass,
      * from its origin to its destination.
      */
     private double length;
+
     /**
      * Attribute -
      * The angle of the pass in radians
      */
     private double angle;
+
     /**
      * Attribute -
      * specifying the height of the pass.
      */
     private Heigth height;
+
     /**
      * Attribute -
      * Array containing two integer
@@ -47,33 +51,39 @@ public class Pass {
      * ended
      */
     private List<Integer> end_location;
+
     /**
      * Attribute -
      * Reference to the shot this
      * pass assisted.
      */
     private UUID assisted_shot_id;
+
     /**
      * Attribute -
      * Added if the pass was made
      * by using a backheel
      */
     private Boolean backheel;
+
     /**
      * Attribute -
      * Added if the pass was deflected
      */
     private Boolean deflected;
+
     /**
      * Attribute -
      * Added if the pass was a miscommunication.
      */
     private Boolean miscommunication;
+
     /**
      * Attribute -
      * Added if the pass was a cross.
      */
     private Boolean cross;
+
     /**
      * Attribute -
      * Added if the pass was a "cut
@@ -82,6 +92,7 @@ public class Pass {
      * opposition's penalty box).
      */
     private Boolean cut_back;
+
     @JsonProperty("switch")
     /**
      * Attribute -
@@ -90,6 +101,7 @@ public class Pass {
      * of the pitch vertically).
      */
     private Boolean switchParam;
+
     /**
      * Attribute -
      * Added if the pass was an
@@ -97,48 +109,58 @@ public class Pass {
      * score a goal).
      */
     private Boolean shot_assist;
+
     /**
      * Attribute -
      * Added if the pass was an
      * assist to a goal.
      */
     private Boolean goal_assist;
+
     /**
      * Attribute -
      * the body part used to make this pass
      */
     private BodyPart body_part;
+
     /**
      * Attribute -
      * specifying the type of pass.
      */
     private Type type;
+
     /**
      * Attribute -
      * the outcome of the pass.
      */
     private OutCome outcome;
+
+
     /**
      * Attribute -
      * the technique of the pass.
      */
     private Technique technique;
+
     /**
      * Attribute -
      * Pass cuts last line of defence
      */
     private Boolean through_ball;
+
     /**
      * Attribute -
      * For outswinging corner kicks.
      */
     private Boolean outswinging;
+
     /**
      * Attribute -
      * Added if the shot resulted
      * from an aerial win
      */
     private Boolean aerial_won;
+
     /**
      * Attribute -
      * A player deliberately let the pass
@@ -146,11 +168,18 @@ public class Pass {
      * to deliver it to a teammate behind him.
      */
     private Boolean no_touch;
+
     /**
      * Attribute -
      * For inswinging corner kicks.
      */
     private Boolean inswinging;
+
+    /**
+     * Attribute -
+     *
+     */
+    private Boolean straight;
 
     /**
      * Default constructor
@@ -489,5 +518,52 @@ public class Pass {
      */
     public void setThrough_ball(Boolean through_ball) {
         this.through_ball = through_ball;
+    }
+
+    /**
+     * @return
+     */
+    public Boolean getStraight() {
+        return straight;
+    }
+
+    /**
+     * @param straight
+     */
+    public void setStraight(Boolean straight) {
+        this.straight = straight;
+    }
+
+    /**
+     * @return the instance of Pass as String
+     */
+    @Override
+    public String toString() {
+        return "Pass{" +
+                "recipient=" + recipient +
+                ", length=" + length +
+                ", angle=" + angle +
+                ", height=" + height +
+                ", end_location=" + end_location +
+                ", assisted_shot_id=" + assisted_shot_id +
+                ", backheel=" + backheel +
+                ", deflected=" + deflected +
+                ", miscommunication=" + miscommunication +
+                ", cross=" + cross +
+                ", cut_back=" + cut_back +
+                ", switchParam=" + switchParam +
+                ", shot_assist=" + shot_assist +
+                ", goal_assist=" + goal_assist +
+                ", body_part=" + body_part +
+                ", type=" + type +
+                ", outcome=" + outcome +
+                ", technique=" + technique +
+                ", through_ball=" + through_ball +
+                ", outswinging=" + outswinging +
+                ", aerial_won=" + aerial_won +
+                ", no_touch=" + no_touch +
+                ", inswinging=" + inswinging +
+                ", straight=" + straight +
+                '}';
     }
 }
