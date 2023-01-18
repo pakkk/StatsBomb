@@ -29,6 +29,26 @@ public class RestHandlerMatches
     // New Instance of MatchesStats
     private final MatchesStats matchesStats = this.getMatchesStats();
 
+    @RequestMapping(method = RequestMethod.GET, value = "/porcentage_possesions/")
+    public ResponseEntity<?> getPorcentageOfPossesions(@RequestParam(value="matchId", required=true) final Integer matchId)
+    {
+        try
+        {
+            String resultJson = this.matchesStats.getPorcentageOfPossesions(matchId);
+            return ResponseEntity.ok().body(resultJson) ;
+        }
+        catch (StatsBombException statsBombException)
+        {
+            return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
+        }
+        catch (Exception exception)
+        {
+            StatsBombException statsBombException = new StatsBombException(exception);
+            LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
+            return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
+        }
+
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/list_possession/")
     public ResponseEntity<?> getListOfPosesionOfMatch(@RequestParam(value="matchId", required=true) final Integer matchId)

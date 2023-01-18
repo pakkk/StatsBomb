@@ -1,5 +1,8 @@
 package es.iesjandula.statsbomb.models.matches;
 
+/**
+ * @author Nacho Belda
+ */
 public class Stadium
 {
     /**
