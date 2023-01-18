@@ -57,4 +57,68 @@ public class PossessionFilter
         return jsonListPosesionOfMatch;
     }
 
+    public String getPorcentageOfPossesion(List<Event> eventListOfMatch)  throws StatsBombException
+    {
+        String jsonListPosesionOfMatch = "";
+        ResultadoPorcentajesPossesion resultado = new ResultadoPorcentajesPossesion();
+
+        double primerTiempoSpain = 0.0;
+        double segundoTiempoSpain = 0.0;
+        double primerTiempoItaly = 0.0;
+        double segundoTiempoItaly = 0.0;
+
+        for(Event event:eventListOfMatch)
+        {
+            if(event.getTeam().getName().equals("Spain"))
+            {
+                if(event.getPeriod() == 1)
+                {
+                    primerTiempoSpain += event.getDuration();
+
+                }
+                else if(event.getPeriod() == 2)
+                {
+                    segundoTiempoSpain += event.getDuration();
+                }
+            }
+            else
+            {
+                if(event.getPeriod() == 1)
+                {
+                    primerTiempoItaly += event.getDuration();
+
+                }
+                else if(event.getPeriod() == 2)
+                {
+                    segundoTiempoItaly += event.getDuration();
+                }
+            }
+            PrimerTiempo primerTiempo = new PrimerTiempo();
+            primerTiempo.setEspana(100 / ((primerTiempoSpain + primerTiempoItaly) / primerTiempoSpain));
+            primerTiempo.setItalia(100 / ((primerTiempoSpain + primerTiempoItaly) / primerTiempoItaly));
+
+            resultado.setPrimer_tiempo(primerTiempo);
+
+
+            SegundoTiempo segundoTiempo = new SegundoTiempo();
+            segundoTiempo.setEspana(100 / ((segundoTiempoSpain + segundoTiempoItaly) / segundoTiempoSpain));
+            segundoTiempo.setItalia(100 / ((segundoTiempoSpain + segundoTiempoItaly) / segundoTiempoItaly));
+
+            resultado.setSegundo_tiempo(segundoTiempo);
+
+            PartidoCompleto partidoCompleto = new PartidoCompleto();
+            partidoCompleto.setEspana((primerTiempo.getEspana()+segundoTiempo.getEspana())/2);
+            partidoCompleto.setItalia((primerTiempo.getItalia()+segundoTiempo.getItalia())/2);
+
+            resultado.setPartido_completo(partidoCompleto);
+
+
+        }
+        JsonUtils jsonUtils = new JsonUtils();
+
+        jsonListPosesionOfMatch = jsonUtils.writeObjectToJsonAsStringPretty(resultado);
+
+        return jsonListPosesionOfMatch;
+    }
+
 }
