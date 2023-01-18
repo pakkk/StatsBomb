@@ -89,7 +89,7 @@ public class ThreeSixty
 	}
 
 	/**
-	 * @param with the coordinates describing the polygon visible camera
+	 * @param visible_area with the coordinates describing the polygon visible camera
 	 */
 	public void setVisible_area(List<Double> visible_area) 
 	{

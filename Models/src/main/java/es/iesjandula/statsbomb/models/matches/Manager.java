@@ -121,7 +121,7 @@ public class Manager
         this.dob = dob;
 
         DateUtils dateUtils = new DateUtils();
-        this.dob__javaUtilDate = dateUtils.convertStringToDateFormatddMMyyyy(this.dob);
+        this.dob__javaUtilDate = dateUtils.convertStringToDateFormatyyyyMMdd(this.dob);
 
     }
 
