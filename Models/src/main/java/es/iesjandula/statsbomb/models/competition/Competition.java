@@ -2,23 +2,33 @@ package es.iesjandula.statsbomb.models.competition;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 /**
  * @author Neil Hdez
  * @author Joaquín Moreno
+ * @author Manuel Canio Gil
  *
  * Competition information is included for all matches collected.
  * The competition data contains the following information.
  */
+@Entity
+@Table(name = "competition")
 public class Competition
 {
 
     /** Attribute - The unique identifier for the competition. */
+    @Column(length = 10)
     private Integer competition_id;
 
     /** Attribute - The unique identifier for the season. */
+    @Column(length = 10)
     private Integer season_id;
 
     /** Attribute - The name of the competition. */
+    @Column(name = "country_name", nullable = false)
     private String country_name;
 
     /**
@@ -26,6 +36,7 @@ public class Competition
      * The name of the country the competition relates
      * to (or region for international competitions).
      */
+    @Column(name = "competition_name", nullable = false)
     private String competition_name;
 
     /**
@@ -33,15 +44,19 @@ public class Competition
      * The gender of the players competing in the
      * competition.
      */
+    @Column(name = "competition_gender", nullable = false)
     private String competition_gender;
 
     /** Attribute - Indicates if the competition is young or not. */
+    @Column(name = "competition_youth", nullable = false)
     private Boolean competition_youth;
 
     /** Attribute - Indicates if the competition is international or not. */
+    @Column(name = "competition_international", nullable = false)
     private Boolean competition_international;
 
     /** Attribute - The name of the season. */
+    @Column(name = "season_name", nullable = false)
     private String season_name;
 
     /**
@@ -49,6 +64,7 @@ public class Competition
      * The date and time at which a match within this competition
      * and season was last updated.
      */
+    @Column(name = "match_updated", nullable = false)
     private String match_updated;
 
     /**
@@ -63,6 +79,7 @@ public class Competition
      * The date and time at which a match within this competition
      * and season was last updated from three-sixty
      */
+    @Column(name = "match_updated_360", nullable = false)
     private String match_updated_360;
 
     /**
@@ -78,6 +95,7 @@ public class Competition
      * was updated, or a match was made available
      * (whichever is more recent) from three-sixty.
      */
+    @Column(name = "match_available_360")
     private String match_available_360;
 
     /**
@@ -94,6 +112,7 @@ public class Competition
      * was updated, or a match was made available
      * (whichever is more recent).
      */
+    @Column(name = "match_available", nullable = false)
     private String match_available;
 
     /**

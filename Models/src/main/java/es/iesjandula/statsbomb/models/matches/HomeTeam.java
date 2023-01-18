@@ -4,9 +4,17 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * @author Nacho Belda
+ * @author Manuel Canio Gil
  */
+@Entity
+@Table(name = "home_team")
 public class HomeTeam
 {
     /**
@@ -16,14 +24,19 @@ public class HomeTeam
      * will only display if the event
      * is tied to a specific team
      */
+    @Id
+    @Column(length = 10)
     private int home_team_id;
+    @Column(name = "home_team_name", length = 30)
     private String home_team_name;
 
     /** Attribute - Gender of the home team in the match */
+    @Column(name = "home_team_gender", length = 20)
     private String home_team_gender;
 
 
     /** Attribute - Name of the group/conference of the team in the match */
+    @Column(name = "home_team_group", length = 40)
     private String home_team_group;
 
     /** Attribute -

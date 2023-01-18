@@ -3,10 +3,18 @@ package es.iesjandula.statsbomb.models.matches;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * @author Nacho Belda
  * @author David Armijo
+ * @author Manuel Canio Gil
  */
+@Entity
+@Table(name = "away_team")
 public class AwayTeam
 {
     /**
@@ -16,13 +24,18 @@ public class AwayTeam
      * will only display if the event
      * is tied to a specific team
      */
+    @Id
+    @Column(length = 10)
     private int away_team_id;
+    @Column(name = "away_team_name", length = 50, nullable = false)
     private String away_team_name;
 
     /** Attribute - Gender of the away team in the match */
+    @Column(name = "away_team_gender", length = 20, nullable = false)
     private String away_team_gender;
 
     /** Attribute - Name of the group/conference of the team in the match */
+    @Column(name = "away_team_group", length = 50)
     private String away_team_group;
 
     /** Attribute -

@@ -2,7 +2,10 @@ package es.iesjandula.statsbomb.models.matches;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.utils.DateUtils;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.util.Date;
 
@@ -10,33 +13,41 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @author Oscar Herruzo
+ * @author Manuel Canio Gil
  * Manager class to save
  * the managers information
  */
+@Entity
+@Table(name = "manager")
 public class Manager
 {
 	/**
      * Attribute -
      * The unique identifier of the manager.
      */
+    @Id
+    @Column(length = 10)
     private int id;
     
 	/**
      * Attribute -
      * The name of the country.
      */
+    @Column(name = "name", nullable = false, length = 70)
     private String name;
     
 	/**
      * Attribute -
      * Nickname of the manager.
      */
+    @Column(name = "nickname", length = 50)
     private String nickname;
     
 	/**
      * Attribute -
      * Date of birth
      */
+    @Column(name = "dob", nullable = false, length = 10)
     private String dob;
     
 	/**

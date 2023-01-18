@@ -1,20 +1,32 @@
 package es.iesjandula.statsbomb.models.matches;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * @author Oscar Herruzo
+ * @author Manuel Canio Gil
  * Added to reference the phase of the competition this particular match is in
  */
+@Entity
+@Table(name = "competition_stage")
 public class CompetitionStage
 {
 	 /**
      * Attribute -
      * The unique identifier for the competition.
      */
+    @Id
+    @Column(length = 10)
     private int id;
     
 	 /**
      * Attribute -
      * The name of the competition.
      */
+    @Column(name = "name", nullable = false, length = 50)
     private String name;
     
 	 /**

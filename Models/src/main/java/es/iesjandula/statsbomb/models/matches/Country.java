@@ -1,21 +1,33 @@
 package es.iesjandula.statsbomb.models.matches;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * @author Oscar Herruzo
+ * @author Manuel Canio Gil
  * A country object with unique
  * country ID and country name.
  */
+@Entity
+@Table(name = "country")
 public class Country
 {
 	/**
      * Attribute -
      * The unique identifier of the country.
      */
+    @Id
+    @Column(length = 10)
     private int id;
 	
     /**
      * Attribute -
      * The name of the country 
      */
+    @Column(name = "name", nullable = false, length = 20)
     private String name;
     
     /**
