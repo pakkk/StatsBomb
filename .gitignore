@@ -1,0 +1,11 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+target/
+
+### VS Code ###
+.vscode/
+
+*.iml
+
+.idea/
