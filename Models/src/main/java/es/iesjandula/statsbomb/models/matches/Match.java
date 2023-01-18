@@ -1,6 +1,7 @@
 package es.iesjandula.statsbomb.models.matches;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import es.iesjandula.statsbomb.common.utils.DateUtils;
 
 import java.util.Date;
@@ -38,12 +39,14 @@ public class Match
     private String match_date;
 
     /** Attribute - The date of the Match in type Date*/
+    @JsonIgnore
     private Date match_date_javaUtilDate;
 
     /** Attribute - The time of the Match in type String*/
     private String kick_off;
 
     /** Attribute - The time of the Match in type Date*/
+    @JsonIgnore
     private Date kick_off_javaUtilDate;
 
     /**
@@ -83,6 +86,9 @@ public class Match
      */
     private String match_status;
 
+
+    private String match_status_360;
+
     /** Attribute -
      * Number corresponding to the weeks into the competition this
      * match is
@@ -102,7 +108,13 @@ public class Match
      * The date and time at which this match information was last
      * updated in type Date
      */
+    @JsonIgnore
     private Date last_updated_javaUtilDate;
+
+    private String last_updated_360;
+
+    @JsonIgnore
+    private Date last_updated_360_javaUtilDate;
 
     /** Attribute -
      * Contains a list of tags detailing the versions of various parts of
@@ -357,6 +369,14 @@ public class Match
         this.match_week = match_week;
     }
 
+    public String getMatch_status_360() {
+        return match_status_360;
+    }
+
+    public void setMatch_status_360(String match_status_360) {
+        this.match_status_360 = match_status_360;
+    }
+
     /**
      * @return the information about competition_stage
      */
@@ -397,6 +417,21 @@ public class Match
      */
     public Date getLast_updated_javaUtilDate() {
         return last_updated_javaUtilDate;
+    }
+
+    public String getLast_updated_360() {
+        return last_updated_360;
+    }
+
+    public void setLast_updated_360(String last_updated_360) {
+        this.last_updated_360 = last_updated_360;
+
+        DateUtils dateUtils = new DateUtils();
+        this.last_updated_360_javaUtilDate = dateUtils.convertStringToDateFormatyyyyMMddTHHmmssSSS(this.last_updated_360);
+    }
+
+    public Date getLast_updated_360_javaUtilDate() {
+        return last_updated_360_javaUtilDate;
     }
 
     /**
@@ -446,8 +481,8 @@ public class Match
                 ", kick_off_javaUtilDate=" + kick_off_javaUtilDate +
                 ", stadium=" + stadium +
                 ", referee=" + referee +
-                ", home_Home_team=" + home_team +
-                ", away_Home_team=" + away_team +
+                ", home_team=" + home_team +
+                ", away_team=" + away_team +
                 ", home_score=" + home_score +
                 ", away_score=" + away_score +
                 ", match_status='" + match_status + '\'' +

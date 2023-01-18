@@ -23,6 +23,9 @@ public class Block
     /* Attribute - boolean if the block has deflected the ball */
     private Boolean deflection;
 
+    /* Attribute - if the block is Save_block */
+    private Boolean save_block;
+
     /**
      * Default Constructor
      */
@@ -77,5 +80,15 @@ public class Block
     public void setBlock(Boolean block)
     {
         this.block = block;
+    }
+
+    public Boolean getSave_block()
+    {
+        return this.save_block;
+    }
+
+    public void setSave_block(Boolean save_block)
+    {
+        this.save_block = save_block;
     }
 }

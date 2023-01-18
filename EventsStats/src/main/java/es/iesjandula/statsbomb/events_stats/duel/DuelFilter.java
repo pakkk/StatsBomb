@@ -32,20 +32,12 @@ public class DuelFilter
         Map<String, Integer> mapDuelsTeam2 = new HashMap<String, Integer>();
         List<DuelResult> listDuels = new ArrayList<DuelResult>();
 
-        List<Team> listTeam = new ArrayList<Team>();
+        teamName1 = eventList.get(0).getTeam().getName();
+        teamName2 = eventList.get(1).getTeam().getName();
 
-        for (Event event : eventList)
-        {
-            listTeam.add(event.getTeam());
-        }
+        TakeDuels(eventList, teamName1, mapDuelsTeam1, listDuels);
 
-        teamName1 = listTeam.get(0).getName();
-        teamName2 = listTeam.get(1).getName();
-
-        takeDuelsFromMap(eventList, teamName1, teamName2, mapDuelsTeam1, listDuels);
-
-        takeDuelsFromMap(eventList, teamName2, teamName2, mapDuelsTeam2, listDuels);
-
+        TakeDuels(eventList, teamName2, mapDuelsTeam2, listDuels);
 
         // Convert the duel list to a json
         JsonUtils jsonUtils = new JsonUtils();
@@ -58,37 +50,48 @@ public class DuelFilter
 
     /**
      * method in charge of taking from the map the player who wins the most duels
+     *
      * @param eventList listEvents
-     * @param teamName1 name of the team1
-     * @param teamName2 name of the team2
+     * @param teamName name of the team
      * @param mapDuelsTeam map of duels
      * @param listDuels list of final duels
      */
-    private void takeDuelsFromMap(List<Event> eventList, String teamName1, String teamName2, Map<String, Integer> mapDuelsTeam, List<DuelResult> listDuels)
-    {
-        for (Event event : eventList) {
+    private void TakeDuels(List<Event> eventList, String teamName, Map<String, Integer> mapDuelsTeam, List<DuelResult> listDuels) {
+        for(int i = 0; i < eventList.size(); i++)
+        {
 
-            if (event.getTeam().getName().equals(teamName1) && event.getType().getName().equals("Duel") && event.getDuel().getOutcome().getName().equals("Won")) {
+            if(eventList.get(i).getDuel() != null && eventList.get(i).getDuel().getOutcome() != null && eventList.get(i).getDuel().getOutcome().getName() != null &&
+                    eventList.get(i).getTeam().getName().equals(teamName) && eventList.get(i).getType().getName().equals("Duel") && eventList.get(i).getDuel().getOutcome().getName().equals("Won"))
+            {
 
-                if (!mapDuelsTeam.containsKey(event.getPlayer().getName())) {
+                if(!mapDuelsTeam.containsKey(eventList.get(i).getPlayer().getName()))
+                {
 
-                    mapDuelsTeam.put(event.getPlayer().getName(), 1);
+                    mapDuelsTeam.put(eventList.get(i).getPlayer().getName(), 1);
 
-                } else {
+                }
+                else
+                {
 
-                    mapDuelsTeam.put(event.getPlayer().getName(), mapDuelsTeam.get(event.getPlayer().getName()) + 1);
+                    mapDuelsTeam.put(eventList.get(i).getPlayer().getName(), mapDuelsTeam.get(eventList.get(i).getPlayer().getName()) + 1);
 
                 }
 
-            } else if (event.getTeam().getName().equals(teamName2) && event.getType().getName().equals("Duel") && event.getDuel().getOutcome().getName().equals("Success In Play")) {
+            }
+            else if(eventList.get(i).getDuel() != null && eventList.get(i).getDuel().getOutcome() != null && eventList.get(i).getDuel().getOutcome().getName() != null &&
+                    eventList.get(i).getTeam().getName().equals(teamName) && eventList.get(i).getType().getName().equals("Duel") && eventList.get(i).getDuel().getOutcome().getName().equals("Success In Play"))
+            {
 
-                if (!mapDuelsTeam.containsKey(event.getPlayer().getName())) {
+                if(!mapDuelsTeam.containsKey(eventList.get(i).getPlayer().getName()))
+                {
 
-                    mapDuelsTeam.put(event.getPlayer().getName(), 1);
+                    mapDuelsTeam.put(eventList.get(i).getPlayer().getName(), 1);
 
-                } else {
+                }
+                else
+                {
 
-                    mapDuelsTeam.put(event.getPlayer().getName(), mapDuelsTeam.get(event.getPlayer().getName()) + 1);
+                    mapDuelsTeam.put(eventList.get(i).getPlayer().getName(), mapDuelsTeam.get(eventList.get(i).getPlayer().getName()) + 1);
 
                 }
 
@@ -96,13 +99,13 @@ public class DuelFilter
 
         }
 
-        DuelResult duelResultTeam1 = new DuelResult();
+        DuelResult duelResultTeam = new DuelResult();
 
-        duelResultTeam1.setEquipo(teamName1);
-        duelResultTeam1.setNombre(getMayor(mapDuelsTeam).getKey());
-        duelResultTeam1.setDuelos_ganados(getMayor(mapDuelsTeam).getValue());
+        duelResultTeam.setEquipo(teamName);
+        duelResultTeam.setNombre(getMayor(mapDuelsTeam).getKey());
+        duelResultTeam.setDuelos_ganados(getMayor(mapDuelsTeam).getValue());
 
-        listDuels.add(duelResultTeam1);
+        listDuels.add(duelResultTeam);
     }
 
     /**

@@ -1,13 +1,10 @@
 package es.iesjandula.statsbomb.threesixty_stats.teammate;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.utils.JsonUtils;
-import es.iesjandula.statsbomb.models.event.shot.FreezeFrame;
 import es.iesjandula.statsbomb.models.three_sixty.ThreeSixty;
 import es.iesjandula.statsbomb.threesixty_stats.teammate.result.ResultTeammate;
 
@@ -27,48 +24,43 @@ public class TeammateFilter
         //Result
         String jsonTeammateThreeSixty = "";
 
-        Map<ThreeSixty, Integer> mapTeammateFilter = new HashMap<>();
-        List<FreezeFrame> freezeFrameList = new ArrayList<>();
-
         //Filter
+        List<ResultTeammate> listOfResultTeammates = new ArrayList<ResultTeammate>() ;
+        
+
         for(ThreeSixty threeSixty : threeSixtyList)
         {
+            ResultTeammate resultTeammate = new ResultTeammate(threeSixty.getEvent_uuid());
+            int teamMate = 0 ;
+            int noTeamMate = 0 ;
+
             if(threeSixty.getFreeze_frame() != null)
             {
-                for(FreezeFrame freezeFrame : freezeFrameList)
+                for(int i = 0; i < threeSixty.getFreeze_frame().size(); i++)
                 {
-                    if(freezeFrame.getTeammate().equals(true))
+                    if(threeSixty.getFreeze_frame().get(i).getTeammate() != null)
                     {
-                        if(!mapTeammateFilter.containsKey(threeSixty))
+                        if (threeSixty.getFreeze_frame().get(i).getTeammate())
                         {
-                            mapTeammateFilter.put(threeSixty, 1);
+                            teamMate ++ ;
                         }
                         else
                         {
-                            mapTeammateFilter.put(threeSixty, mapTeammateFilter.get(threeSixty) + 1);
+                            noTeamMate ++ ;
                         }
                     }
                 }
             }
-        }
 
-        int numTeammates = 0;
-        ThreeSixty teammates = new ThreeSixty();
-        for(Map.Entry<ThreeSixty,Integer> recipient : mapTeammateFilter.entrySet())
-        {
-            if(recipient.getValue() > numTeammates)
-            {
-                numTeammates = recipient.getValue();
-            }
+            resultTeammate.setTeam_mate(teamMate) ;
+            resultTeammate.setNo_team_mate(noTeamMate) ;
+
+            listOfResultTeammates.add(resultTeammate) ;
         }
-        //Write the result of the teammates
-        ResultTeammate resultTeammate = new ResultTeammate();
-        resultTeammate.setEvent_uuid(teammates.getEvent_uuid());
-        resultTeammate.setTeammates(numTeammates);
 
         JsonUtils jsonUtils = new JsonUtils();
         //Convert the List to the Json Pretty
-        jsonTeammateThreeSixty = jsonUtils.writeObjectToJsonAsStringPretty(resultTeammate);
+        jsonTeammateThreeSixty = jsonUtils.writeObjectToJsonAsStringPretty(listOfResultTeammates);
 
         return jsonTeammateThreeSixty;
     }

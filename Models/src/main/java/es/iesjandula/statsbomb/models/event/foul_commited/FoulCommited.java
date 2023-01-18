@@ -1,6 +1,7 @@
 package es.iesjandula.statsbomb.models.event.foul_commited;
 
 import es.iesjandula.statsbomb.models.event.Card;
+import es.iesjandula.statsbomb.models.event.Type;
 
 /**
  * @author Neil Hdez
@@ -24,8 +25,14 @@ public class FoulCommited
      */
     private Card card;
 
-    /* Attribute - If de Foul is offensive */
+    /* Attribute - If the Foul is offensive */
     private Boolean offensive;
+
+    /* Attribute - Type of FoulCommited */
+    private Type type;
+
+    /* Attribute - If the Foul is Penalty */
+    private Boolean penalty;
 
     /**
      * Default Constructor
@@ -82,5 +89,33 @@ public class FoulCommited
     public void setAdvantage(Boolean advantage)
     {
         this.advantage = advantage;
+    }
+
+    /**
+     * @return the type of FoulCommited
+     */
+    public Type getType()
+    {
+        return this.type;
+    }
+
+    /**
+     * @param type of FoulCommited
+     */
+    public void setType(Type type)
+    {
+        this.type = type;
+    }
+
+    /* @return if the Foul is Penalty */
+    public Boolean isPenalty()
+    {
+        return this.penalty;
+    }
+
+    /* @param penalty if the Foul is Penalty */
+    public void setPenalty(Boolean penalty)
+    {
+        this.penalty = penalty;
     }
 }

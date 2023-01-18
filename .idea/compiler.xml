@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="CompetitionsRest" />
+        <module name="EventsRest" />
+        <module name="MatchesStats" />
+        <module name="LineupsRest" />
+        <module name="WebPortal" />
+        <module name="EventsStats" />
+        <module name="ThreeSixtyStats" />
+        <module name="ThreeSixtyRest" />
+        <module name="Commons" />
+        <module name="MatchesRest" />
+        <module name="LineupsStats" />
+        <module name="Models" />
+        <module name="CompetitionsStats" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Commons" target="19" />
+      <module name="CompetitionsRest" target="19" />
+      <module name="CompetitionsStats" target="19" />
+      <module name="EventsRest" target="19" />
+      <module name="EventsStats" target="19" />
+      <module name="LineupsRest" target="19" />
+      <module name="LineupsStats" target="19" />
+      <module name="MatchesRest" target="19" />
+      <module name="MatchesStats" target="19" />
+      <module name="Models" target="19" />
+      <module name="ThreeSixtyRest" target="19" />
+      <module name="ThreeSixtyStats" target="19" />
+      <module name="WebPortal" target="19" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="CompetitionsRest" options="-parameters" />
+      <module name="EventsRest" options="-parameters" />
+      <module name="LineupsRest" options="-parameters" />
+      <module name="MatchesRest" options="-parameters" />
+      <module name="ThreeSixtyRest" options="-parameters" />
+      <module name="WebPortal" options="-parameters" />
+    </option>
+  </component>
+</project>

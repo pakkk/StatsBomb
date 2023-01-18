@@ -1,5 +1,6 @@
 package es.iesjandula.statsbomb.models.event;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import es.iesjandula.statsbomb.common.utils.DateUtils;
 import es.iesjandula.statsbomb.models.event.foul_commited.Carry;
 import es.iesjandula.statsbomb.models.event.foul_commited.FoulCommited;
@@ -178,14 +179,10 @@ public class Event
     /** Attribute - An attempt to score a goal, made with any (legal) part of the body */
     private Shot shot;
 
-    /**
-     * Attribute
-     * Pressing actions within 5 seconds
-     * of an open play turnover
-     */
+    /* Attribute - Pressing actions within 5 seconds  of an open play turnover */
     private Boolean counterpress;
 
-    /** Attribute - Describe the scenario when a player wins a foul */
+    /* Attribute - Describe the scenario when a player wins a foul */
     private FoulWon foul_won;
 
     /** Attribute - describe who committed a foul resulting in a free kick or penalty kick. */
@@ -199,6 +196,13 @@ public class Event
 
     /** Attribute - describe the bad behaviour **/
     private BadBehaviour bad_behaviour;
+
+    /* Attribute - misscontrol of Event */
+    private MisControl miscontrol;
+
+    /* Attribute - 50_50 of Event */
+    @JsonProperty("50_50")
+    private FiftyFifty fifty_fifty;
 
     /**
      * empty constructor
@@ -837,6 +841,34 @@ public class Event
     public void setFoul_won(FoulWon foul_won)
     {
         this.foul_won = foul_won;
+    }
+
+    /**
+     * @return the instance of MisControl
+     */
+    public MisControl getMiscontrol()
+    {
+        return this.miscontrol;
+    }
+
+    /**
+     * @param miscontrol with the instance of MisControl
+     */
+    public void setMiscontrol(MisControl miscontrol)
+    {
+        this.miscontrol = miscontrol;
+    }
+
+    @JsonProperty("50_50")
+    public FiftyFifty getFifty_fifty()
+    {
+        return this.fifty_fifty;
+    }
+
+    @JsonProperty("50_50")
+    public void setFifty_fifty(FiftyFifty fifty_fifty)
+    {
+        this.fifty_fifty = fifty_fifty;
     }
 
     /**

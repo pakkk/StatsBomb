@@ -8,8 +8,6 @@ import es.iesjandula.statsbomb.common.load_json.Json;
 import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
 import es.iesjandula.statsbomb.common.utils.Constants;
 import es.iesjandula.statsbomb.matches_stats.date.DateFilter;
-import es.iesjandula.statsbomb.matches_stats.possession.PossessionFilter;
-import es.iesjandula.statsbomb.models.event.Event;
 import es.iesjandula.statsbomb.models.matches.Match;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,32 +25,7 @@ public class MatchesStats
     /* Attribute - Logger */
     private final Logger LOGGER = LogManager.getLogger();
 
-    /**
-     * Search all Events of a Match
-     * @param matchId Identifier unique of Match
-     * @return all Events of match
-     * @throws StatsBombException
-     */
-    public List<Event> getEventsOfMatch(int matchId) throws StatsBombException
-    {
 
-        JsonLoaderImpl jsonLoader = new JsonLoaderImpl();
-        String jsonEventsOfMatch = jsonLoader.loadEvents(matchId);
-        ObjectMapper mapper = Json.mapper();
-        List<Event> eventList = new ArrayList<>();
-
-        try
-        {
-            eventList = mapper.readValue(jsonEventsOfMatch, new TypeReference<List<Event>>(){});
-        }
-        catch (JsonProcessingException jsonProcessingException)
-        {
-            LOGGER.error(Constants.E_PARSING_JSON_TO_OBJECT, jsonProcessingException);
-            throw new StatsBombException(Constants.E_PARSING_JSON_TO_OBJECT, "Error a la hora de parsear el Json", jsonProcessingException);
-        }
-
-        return eventList;
-    }
 
     /**
      * Search all Matches of a Competition and Season
@@ -67,7 +40,7 @@ public class MatchesStats
         JsonLoaderImpl jsonLoader = new JsonLoaderImpl();
         String jsonMatches = jsonLoader.loadMatches(competitionId, seasonId);
         ObjectMapper mapper = Json.mapper();
-        List<Match> matchesList = new ArrayList<>();
+        List<Match> matchesList;
 
         try
         {
@@ -80,18 +53,6 @@ public class MatchesStats
         }
 
         return matchesList;
-    }
-
-    /**
-     * Call of Filter
-     * @param matchId Match
-     * @return a list of Possessions
-     * @throws StatsBombException
-     */
-    public String getListOfPossessionOfMatch(int matchId) throws StatsBombException
-    {
-        PossessionFilter possessionFilter = new PossessionFilter();
-        return possessionFilter.getListPosesion(getEventsOfMatch(matchId));
     }
 
     /**
