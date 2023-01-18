@@ -1,30 +1,31 @@
 package es.iesjandula.statsbomb.models.event;
 
-public class Miscontrol {
+public class MisControl
+{
 
     /**
      * Attribute -
      *
      */
-    private boolean aerial_won;
+    private Boolean aerial_won;
 
     /**
      * Default Constructor
      */
-    public Miscontrol() {
+    public MisControl() {
     }
 
     /**
      * @return
      */
-    public boolean isAerial_won() {
+    public Boolean isAerial_won() {
         return aerial_won;
     }
 
     /**
      * @param aerial_won
      */
-    public void setAerial_won(boolean aerial_won) {
+    public void setAerial_won(Boolean aerial_won) {
         this.aerial_won = aerial_won;
     }
 

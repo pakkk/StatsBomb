@@ -6,6 +6,7 @@ import es.iesjandula.statsbomb.events_stats.reference.ResultReference;
 
 import java.util.List;
 
+import jakarta.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Bean;
@@ -95,8 +96,11 @@ public class RestHandlerEvents
      * @return Instance of EventStats that returns scorers
      */
     @RequestMapping(method = RequestMethod.GET, value = "/scorers/")
-    public ResponseEntity<?> getScorers(@RequestParam(value="matchId", required=true) final Integer matchId)
+    public ResponseEntity<?> getScorers(HttpSession httpSession, @RequestParam(value="matchId", required=true) final Integer matchId)
     {
+
+
+
         try
         {
             String resultJson = this.eventsStats.getPlayerScorers(matchId);

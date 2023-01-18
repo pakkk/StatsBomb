@@ -109,6 +109,15 @@ public class Shot
      */
     private BodyPart body_part;
 
+    /* Attribute - saved_to_post of Shot */
+    private Boolean saved_to_post;
+
+    /* Attribute - saved_to_post of Shot */
+    private Boolean saved_off_target;
+
+    /* Attribute - saved_to_post of Shot */
+    private Boolean open_goal;
+
     /**
      * Default constructor
      */
@@ -325,6 +334,47 @@ public class Shot
     public void setStatsbomb_xg(Double statsbomb_xg)
     {
         this.statsbomb_xg = statsbomb_xg;
+    }
+
+    /*
+     * @return the saved_to_post Information
+     */
+    public Boolean isSaved_to_post()
+    {
+        return this.saved_to_post;
+    }
+
+    /**
+     * @param saved_to_post With the information about Shot is saved_to_post
+     */
+    public void setSaved_to_post(Boolean saved_to_post)
+    {
+        this.saved_to_post = saved_to_post;
+    }
+
+    public Boolean getSaved_to_post()
+    {
+        return this.saved_to_post;
+    }
+
+    public Boolean getSaved_off_target()
+    {
+        return this.saved_off_target;
+    }
+
+    public void setSaved_off_target(Boolean saved_off_target)
+    {
+        this.saved_off_target = saved_off_target;
+    }
+
+    public Boolean getOpen_goal()
+    {
+        return this.open_goal;
+    }
+
+    public void setOpen_goal(Boolean open_goal)
+    {
+        this.open_goal = open_goal;
     }
 
     /**
