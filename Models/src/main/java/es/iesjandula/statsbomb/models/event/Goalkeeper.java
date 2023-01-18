@@ -23,6 +23,13 @@ public class Goalkeeper
     private OutCome outcome;
     private List<Integer> end_location;
 
+    /* Attribute - shot_saved_to_post of Goalkeeper */
+    private Boolean shot_saved_to_post;
+
+    /* Attribute - shot_saved_to_post of Goalkeeper */
+    private Boolean shot_saved_off_target;
+
+
     /**
      * Empty constructor
      */
@@ -125,6 +132,37 @@ public class Goalkeeper
     public void setOutcome(OutCome outcome)
     {
         this.outcome = outcome;
+    }
+
+    /**
+     * @return the information about the shot_saved_to_post
+     */
+    public Boolean isShot_saved_to_post()
+    {
+        return this.shot_saved_to_post;
+    }
+
+    /**
+     * @param shot_saved_to_post with the information about the shot_saved_to_post
+     */
+    public void setShot_saved_to_post(Boolean shot_saved_to_post)
+    {
+        this.shot_saved_to_post = shot_saved_to_post;
+    }
+
+    public Boolean getShot_saved_to_post()
+    {
+        return this.shot_saved_to_post;
+    }
+
+    public Boolean getShot_saved_off_target()
+    {
+        return this.shot_saved_off_target;
+    }
+
+    public void setShot_saved_off_target(Boolean shot_saved_off_target)
+    {
+        this.shot_saved_off_target = shot_saved_off_target;
     }
 
     /**

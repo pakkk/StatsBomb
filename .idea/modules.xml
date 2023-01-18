@@ -16,6 +16,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/StatsBomb.iml" filepath="$PROJECT_DIR$/.idea/StatsBomb.iml" />
       <module fileurl="file://$PROJECT_DIR$/ThreeSixtyRest/ThreeSixtyRest.iml" filepath="$PROJECT_DIR$/ThreeSixtyRest/ThreeSixtyRest.iml" />
       <module fileurl="file://$PROJECT_DIR$/ThreeSixtyStats/ThreeSixtyStats.iml" filepath="$PROJECT_DIR$/ThreeSixtyStats/ThreeSixtyStats.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebPortal/WebPortal.iml" filepath="$PROJECT_DIR$/WebPortal/WebPortal.iml" />
       <module fileurl="file://$PROJECT_DIR$/WebPortalRest/WebPortalRest.iml" filepath="$PROJECT_DIR$/WebPortalRest/WebPortalRest.iml" />
     </modules>
   </component>

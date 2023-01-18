@@ -16,6 +16,9 @@ public class FoulWon
     private Boolean defensive;
     private Boolean advantage;
 
+    /* Attribute - If the Foul is Penalty */
+    private boolean penalty;
+
     /**
      * Empty Constructor
      */
@@ -55,6 +58,18 @@ public class FoulWon
     public void setDefensive(Boolean defensive)
     {
         this.defensive = defensive;
+    }
+
+    /* @return the information about the penalty */
+    public Boolean isPenalty()
+    {
+        return this.penalty;
+    }
+
+    /* @param penalty with the information about the penalty */
+    public void setPenalty(Boolean penalty)
+    {
+        this.penalty = penalty;
     }
 
     /**

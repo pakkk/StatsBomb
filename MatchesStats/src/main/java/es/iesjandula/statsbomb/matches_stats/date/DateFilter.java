@@ -38,7 +38,7 @@ public class DateFilter
 
             if (listOfMatch.get(i).getMatch_date() != null )
             {
-                Date matchDate = dateUtils.convertStringToDateFormatddMMyyyyWithHyphen(listOfMatch.get(i).getMatch_date());
+                Date matchDate = dateUtils.convertStringToDateFormatyyyyMMdd(listOfMatch.get(i).getMatch_date());
                 if (matchDate.after(fechaEmpezarDate))
                 {
                     mapMatches.put(listOfMatch.get(i).getMatch_date(),listOfMatch.get(i).getHome_team().getHome_team_name()+" vs "+listOfMatch.get(i).getAway_team().getAway_team_name());

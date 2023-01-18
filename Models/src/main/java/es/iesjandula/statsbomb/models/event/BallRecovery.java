@@ -15,6 +15,9 @@ public class BallRecovery
      */
     private Boolean recovery_failure;
 
+    /* Attribute - if is offensive Ball Recovery */
+    private Boolean offensive;
+
     /**
      * Empty Constructor
      */
@@ -38,6 +41,16 @@ public class BallRecovery
     public void setRecovery_failure(Boolean recovery_failure)
     {
         this.recovery_failure = recovery_failure;
+    }
+
+    public Boolean getOffensive()
+    {
+        return this.offensive;
+    }
+
+    public void setOffensive(Boolean offensive)
+    {
+        this.offensive = offensive;
     }
 
     /**

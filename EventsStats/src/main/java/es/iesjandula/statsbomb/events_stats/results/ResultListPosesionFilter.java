@@ -1,4 +1,4 @@
-package es.iesjandula.statsbomb.models.results;
+package es.iesjandula.statsbomb.events_stats.results;
 
 import java.util.ArrayList;
 import java.util.List;
