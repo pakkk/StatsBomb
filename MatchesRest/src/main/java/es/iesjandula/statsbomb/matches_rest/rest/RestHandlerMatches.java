@@ -30,7 +30,9 @@ public class RestHandlerMatches
     private final MatchesStats matchesStats = this.getMatchesStats();
 
     @RequestMapping(method = RequestMethod.GET, value = "/list_matches_date/")
-    public ResponseEntity<?> getListOfMatchesbyDate(@RequestParam(value="competitionId", required=true) final Integer competitionId,@RequestParam(value="seasonId", required=true) final Integer seasonId,@RequestParam(value="dateStart", required=true) final String dateStart)
+    public ResponseEntity<?> getListOfMatchesbyDate(@RequestParam(value="competitionId", required=true) final Integer competitionId,
+                                                    @RequestParam(value="seasonId", required=true) final Integer seasonId,
+                                                    @RequestParam(value="dateStart", required=true) final String dateStart)
     {
         try
         {
