@@ -1,2 +1,16 @@
 server:
   port: 8082
+spring:
+  jpa.hibernate.ddl-auto: create
+  datasource:
+    url: jdbc:mysql://localhost:3306/events
+    username: root
+    password: toor
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  hikari:
+    connection-timeout: 60000
+    maximum-pool-size: 5
+  logging:
+    pattern.console: '%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n'
+    level.org.hibernate.SQL: debug
+    level: debug  
