@@ -6,6 +6,8 @@ import es.iesjandula.statsbomb.common.utils.DateUtils;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @author Oscar Herruzo
  * Manager class to save
@@ -41,6 +43,7 @@ public class Manager
      * Attribute -
      * Date of birth
      */
+    @JsonIgnore
     private Date dob__javaUtilDate;
     
     /**
@@ -121,7 +124,7 @@ public class Manager
         this.dob = dob;
 
         DateUtils dateUtils = new DateUtils();
-        this.dob__javaUtilDate = dateUtils.convertStringToDateFormatddMMyyyy(this.dob);
+        this.dob__javaUtilDate = dateUtils.convertStringToDateFormatyyyyMMdd(this.dob);
 
     }
 
