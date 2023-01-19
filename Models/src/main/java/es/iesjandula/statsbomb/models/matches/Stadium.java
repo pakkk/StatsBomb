@@ -1,15 +1,25 @@
 package es.iesjandula.statsbomb.models.matches;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * @author Nacho Belda
  */
+@Entity
+@Table(name = "stadium")
 public class Stadium
 {
     /**
      * Attributes -
      * The ID is the unique identifier for the stadium and the name is the name of the stadium
      */
+    @Id
+    @Column(length = 10)
     private int id;
+    @Column(length = 25)
     private String name;
 
     /** Attribute - The name of the country the stadium is in */

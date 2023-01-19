@@ -43,7 +43,7 @@ public class FreezeFrame
     private Position position;
 
     /** Attribute - With information about teammate */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean teammate;
 
     FreezeFrame()
