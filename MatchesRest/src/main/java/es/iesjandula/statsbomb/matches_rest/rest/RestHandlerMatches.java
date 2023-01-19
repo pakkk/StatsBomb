@@ -1,7 +1,5 @@
 package es.iesjandula.statsbomb.matches_rest.rest;
 
-import es.iesjandula.statsbomb.common.exception.StatsBombException;
-import es.iesjandula.statsbomb.matches_stats.MatchesStats;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Bean;
@@ -21,47 +19,47 @@ import es.iesjandula.statsbomb.matches_stats.manager_filters.ManagerScoreFilter;
 /**
  * ------------------------------------------------
  *
- * @author API Rest Generator
- * ------------------------------------------------
+ * @author API Rest Generator ------------------------------------------------
  */
 @CrossOrigin(maxAge = 3600)
-@RequestMapping(value = "/matches", produces = {"application/json"})
+@RequestMapping(value = "/matches", produces = { "application/json" })
 @RestController //
 
 public class RestHandlerMatches
 {
 
-    /**
-     * Logger
-     */
-    private final Logger LOGGER = LogManager.getLogger();
+	/**
+	 * Logger
+	 */
+	private final Logger LOGGER = LogManager.getLogger();
 
-    // New Instance of MatchesStats
-    private final MatchesStats matchesStats = this.getMatchesStats();
-
-    @RequestMapping(method = RequestMethod.GET, value = "/porcentage_possesions/")
-    public ResponseEntity<?> getPorcentageOfPossesions(@RequestParam(value="matchId", required=true) final Integer matchId)
-    {
-        try
-        {
-            String resultJson = this.matchesStats.getPorcentageOfPossesions(matchId);
-            return ResponseEntity.ok().body(resultJson) ;
-        }
-        catch (StatsBombException statsBombException)
-        {
-            return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
-        }
-        catch (Exception exception)
-        {
-            StatsBombException statsBombException = new StatsBombException(exception);
-            LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
-            return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
-        }
-
-    }
-
-	// New Instance of ManagerScoreFilter
+	// New Instance of MatchesStats
+	private final MatchesStats matchesStats = this.getMatchesStats();
+	// New Instance of ManagerNationalityFilter
 	private final ManagerNationalityFilter managerNationalityFilter = this.getManagerWithSameNationality();
+	// New Instance of ManagerScoreFilter
+	private final ManagerScoreFilter managerScoreFilter = this.getManagerScoreFilter();
+
+	@RequestMapping(method = RequestMethod.GET, value = "/porcentage_possesions/")
+	public ResponseEntity<?> getPorcentageOfPossesions(
+			@RequestParam(value = "matchId", required = true) final Integer matchId)
+	{
+		try
+		{
+			String resultJson = this.matchesStats.getPorcentageOfPossesions(matchId);
+			return ResponseEntity.ok().body(resultJson);
+		}
+		catch (StatsBombException statsBombException)
+		{
+			return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
+		}
+		catch (Exception exception)
+		{
+			StatsBombException statsBombException = new StatsBombException(exception);
+			LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
+			return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
+		}
+	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/list_matches_date/")
 	public ResponseEntity<?> getListOfMatchesbyDate(
