@@ -18,13 +18,12 @@ import es.iesjandula.statsbomb.models.event.Event;
 
 public class ReferenceFilter
 {
-	 /**
-     * method to take reference playters in each match
-     *
-     * @param eventList listEvents
-     * @return the players who are the more referent based to
-     * pass they do in match
-     */
+	/**
+	 * method to take reference playters in each match
+	 *
+	 * @param eventList listEvents
+	 * @return the players who are the more referent based to pass they do in match
+	 */
 	public String referencia(List<Event> eventList) throws StatsBombException
 	{
 		// VARIABLES TO GET SAVE THE RESULTS
@@ -32,12 +31,7 @@ public class ReferenceFilter
 		ResultReference referencia2;
 		// Create the object mapper
 		ObjectMapper mapper = Json.mapper();
-		// IGNORA LOS ELEMENTOS DEL JSON QUE NO ESTEN DEFINIDOS COMO ATRIBUTOS EN MI
-		// OBJECT MAPPER AND JSON CONFIGURATIONS
-		mapper.configure(JsonParser.Feature.IGNORE_UNDEFINED, true);
-		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-		mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, true);
-		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
 		// LIST WHATH TAKES THE JSON FILE
 		List<EventJson> eventoPases = new ArrayList<EventJson>();
 
@@ -70,7 +64,7 @@ public class ReferenceFilter
 			int cantidadUno = 0;
 			for (int k = y; k < eventoPases.size(); k++)
 			{
-				if (eventoPases.get(y).getTeam().getName().equalsIgnoreCase(eventoPases.get(k).getTeam().getName()))
+				if (eventoPases.get(y).getTeam().getName().equalsIgnoreCase(eventoPases.get(1).getTeam().getName()))
 				{
 					if (eventoPases.get(y).getPlayer().getName()
 							.equalsIgnoreCase(eventoPases.get(k).getPlayer().getName()))
@@ -100,17 +94,25 @@ public class ReferenceFilter
 		}
 		// RESULTS FOR SPAIN AND ITALY
 		List<ResultReference> jugadores = new ArrayList<ResultReference>();
-		referencia = new ResultReference(jugadorConMasPasesUno.getTeam().getName(),
-				jugadorConMasPasesUno.getPlayer().getName(), maximoDos);
-		referencia2 = new ResultReference(jugadorConMasPasesDos.getTeam().getName(),
-				jugadorConMasPasesDos.getPlayer().getName(), maximoUno);
-		jugadores.add(referencia);
-		jugadores.add(referencia2);
+		if (jugadorConMasPasesUno.getTeam() != null)
+		{
+			referencia = new ResultReference(jugadorConMasPasesUno.getTeam().getName(),
+					jugadorConMasPasesUno.getPlayer().getName(), maximoDos);
+			jugadores.add(referencia);
+		}
+
+		if (jugadorConMasPasesDos.getTeam() != null)
+		{
+			referencia2 = new ResultReference(jugadorConMasPasesDos.getTeam().getName(),
+					jugadorConMasPasesDos.getPlayer().getName(), maximoUno);
+			jugadores.add(referencia2);
+		}
+
 		// RETURN ARRAYLIST
 		JsonUtils jsonUtils = new JsonUtils();
-		
+
 		String jsonReferencia = jsonUtils.writeObjectToJsonAsStringPretty(jugadores);
-		
+
 		return jsonReferencia;
 	}
 }
