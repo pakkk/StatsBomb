@@ -138,6 +138,9 @@ public class Shot
     @Column(length = 7)
     private Boolean open_goal;
 
+    /* Attribute - redirect of Shot */
+    private Boolean redirect;
+
     /**
      * Default constructor
      */
@@ -395,6 +398,16 @@ public class Shot
     public void setOpen_goal(Boolean open_goal)
     {
         this.open_goal = open_goal;
+    }
+
+    public Boolean getRedirect()
+    {
+        return this.redirect;
+    }
+
+    public void setRedirect(Boolean redirect)
+    {
+        this.redirect = redirect;
     }
 
     /**
