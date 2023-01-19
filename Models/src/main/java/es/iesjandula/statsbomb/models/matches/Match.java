@@ -3,6 +3,10 @@ package es.iesjandula.statsbomb.models.matches;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import es.iesjandula.statsbomb.common.utils.DateUtils;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.util.Date;
 
@@ -10,6 +14,8 @@ import java.util.Date;
  * @author David Armijo Ramos
  * The match information for each they collect
  */
+@Entity
+@Table(name = "match")
 public class Match
 {
 
@@ -18,6 +24,8 @@ public class Match
      * The unique identifier for the match (required to request
      * events)
      */
+    @Id
+    @Column(length = 10)
     private int match_id;
 
     /**
@@ -36,6 +44,7 @@ public class Match
     private Season season;
 
     /** Attribute - The date of the Match in type String*/
+    @Column(length = 10)
     private String match_date;
 
     /** Attribute - The date of the Match in type Date*/
@@ -43,6 +52,7 @@ public class Match
     private Date match_date_javaUtilDate;
 
     /** Attribute - The time of the Match in type String*/
+    @Column(length = 20)
     private String kick_off;
 
     /** Attribute - The time of the Match in type Date*/
@@ -75,24 +85,28 @@ public class Match
     private AwayTeam away_team;
 
     /** Attribute - The final score of the home team */
+    @Column(length = 2)
     private int home_score;
 
     /** Attribute - The final score of the away team  */
+    @Column(length = 2)
     private int away_score;
 
     /** Attribute -
      * The current status of collection for this match. Only “available”
      * matches are present in the Open Data repository
      */
+    @Column(length = 20)
     private String match_status;
 
-
+    @Column(length = 20)
     private String match_status_360;
 
     /** Attribute -
      * Number corresponding to the weeks into the competition this
      * match is
      */
+    @Column(length = 5)
     private int match_week;
 
     /** Attribute - id/name pair of the phase of the competition this match is in  */
@@ -102,6 +116,7 @@ public class Match
      * The date and time at which this match information was last
      * updated in type String
      */
+    @Column(length = 20)
     private String last_updated;
 
     /** Attribute -
@@ -111,6 +126,7 @@ public class Match
     @JsonIgnore
     private Date last_updated_javaUtilDate;
 
+    @Column(length = 20)
     private String last_updated_360;
 
     @JsonIgnore
@@ -126,6 +142,7 @@ public class Match
      * The version number for the method in which the data was
      * collected
      */
+    @Column(length = 20)
     private String data_version;
 
     /**

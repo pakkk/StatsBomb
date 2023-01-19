@@ -1,4 +1,9 @@
 package es.iesjandula.statsbomb.models.matches;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 /**
  * @author David Armijo
  * @author Jesus Guerrero
@@ -6,6 +11,8 @@ package es.iesjandula.statsbomb.models.matches;
  * Contains a list of tags detailing the versions of various parts of
  * the event data for this match.
  */
+@Entity
+@Table(name = "metadata")
 public class Metadata
 {
 
@@ -14,16 +21,19 @@ public class Metadata
      * The version number for the method in
      * which the data was collected.
      */
+
     private String data_version;
     /**
      * Attribute -
      * version of the shot fidelity
      */
+
     private String shot_fidelity_version;
     /**
      * Attribute -
      * version of the xy fidelity
      */
+
     private String xy_fidelity_version;
 
     /**

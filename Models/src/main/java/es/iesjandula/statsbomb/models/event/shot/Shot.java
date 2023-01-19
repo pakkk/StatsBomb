@@ -37,7 +37,7 @@ public class Shot
      * Added if the shot was an
      * aerial won
      */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean aerial_won;
 
     /**
@@ -45,7 +45,7 @@ public class Shot
      * Added if the shot followed a
      * dribble
      */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean follows_dribble;
 
     /**
@@ -53,7 +53,7 @@ public class Shot
      * Added if the shot was first
      * touch.
      */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean first_time;
 
     /**
@@ -61,7 +61,7 @@ public class Shot
      * Added if the shot was
      * one-on-one
      */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean one_on_one;
 
     /**
@@ -93,7 +93,7 @@ public class Shot
      * Added if the shot was
      * deflected
      */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean deflected;
 
     /**
@@ -127,15 +127,15 @@ public class Shot
 
 
     /* Attribute - saved_to_post of Shot */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean saved_to_post;
 
     /* Attribute - saved_to_post of Shot */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean saved_off_target;
 
     /* Attribute - saved_to_post of Shot */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean open_goal;
 
     /**
