@@ -1,9 +1,16 @@
 package es.iesjandula.statsbomb.models.event;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 /**
  * @author Neil Hdez
  * @author Nacho Belda
+ * @author Manuel Canio Gil
  */
+@Entity
+@Table(name = "foul_won")
 public class FoulWon
 {
     /**
@@ -13,10 +20,13 @@ public class FoulWon
      * Advantage: Added if play continued
      * (referee called advantage)
      */
+    @Column(name = "defensive")
     private Boolean defensive;
+    @Column(name = "advantage")
     private Boolean advantage;
 
     /* Attribute - If the Foul is Penalty */
+    @Column(name = "penalty")
     private boolean penalty;
 
     /**

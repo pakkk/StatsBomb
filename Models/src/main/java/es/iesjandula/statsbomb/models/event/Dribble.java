@@ -1,10 +1,17 @@
 package es.iesjandula.statsbomb.models.event;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 /**
  * @author Neil Hdez
  * @author Nacho Belda
+ * @author Manuel Canio Gil
  *
  */
+@Entity
+@Table(name = "dribble")
 public class Dribble
 {
     /**
@@ -25,9 +32,12 @@ public class Dribble
      * receiving it.
      *
      */
+    @Column(name = "overrun")
     private Boolean overrun;
+    @Column(name = "nutmeg")
     private Boolean nutmeg;
     private OutCome outcome;
+    @Column(name = "not_touch")
     private Boolean not_touch;
 
     /**

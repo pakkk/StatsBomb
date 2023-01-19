@@ -1,29 +1,40 @@
 package es.iesjandula.statsbomb.models.event;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 /**
  * @author Neil Hdez
  * @author Jesus Guerrero
+ * @author Manuel Canio Gil
  *
  * Block describe if ball was blocked
  */
+@Entity
+@Table(name = "block")
 public class Block
 {
     /**
      * Attribute -
      * boolean if the ball was blocked
      */
+    @Column(name = "block")
     private Boolean block;
 
     /**
      * Attribute -
      * boolean if the ball was defended
      */
+    @Column(name = "offensive")
     private Boolean offensive;
 
     /* Attribute - boolean if the block has deflected the ball */
+    @Column(name = "deflection")
     private Boolean deflection;
 
     /* Attribute - if the block is Save_block */
+    @Column(name = "save_block")
     private Boolean save_block;
 
     /**

@@ -1,18 +1,26 @@
 package es.iesjandula.statsbomb.models.event;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 /**
  * @author Neil Hdez
  * @author Jesus Guerrero
+ * @author Manuel Canio Gil
  *
  * Action by a defending player to clear the danger
  * without an intention to deliver it to a teammate
  */
+@Entity
+@Table(name = "clearance")
 public class Clearance
 {
     /**
      * Attribute -
      * if the ball was won in the air
      */
+    @Column(name = "aerial_won")
     private Boolean aerial_won;
     /**
      * Attribute -
@@ -29,22 +37,26 @@ public class Clearance
      * Attribute -
      * if the ball was touch with right foot
      */
+    @Column(name = "right_foot")
     private Boolean right_foot;
     /**
      * Attribute -
      * if the ball was touch with left foot
      */
+    @Column(name = "left_foot")
     private Boolean left_foot;
     /**
      * Attribute -
      * if the ball was touch with head
      */
+    @Column(name = "head")
     private Boolean head;
 
     /**
      * Attribute -
      *
      */
+    @Column(name = "other")
     private Boolean other;
 
     /**

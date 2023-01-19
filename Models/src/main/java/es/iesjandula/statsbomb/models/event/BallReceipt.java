@@ -1,11 +1,17 @@
 package es.iesjandula.statsbomb.models.event;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 /**
  * @author Neil Hdez
  * @author Jesus Guerrero
+ * @author Manuel Canio Gil
  *
  * Events describe the location of a pass and who that recipient was
  */
+@Entity
+@Table(name = "ball_receipt")
 public class BallReceipt
 {
     /**

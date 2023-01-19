@@ -3,9 +3,17 @@ package es.iesjandula.statsbomb.models.three_sixty;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * @author Alejandro Aljarilla
+ * @author Manuel Canio Gil
  */
+@Entity
+@Table(name = "three_sixty")
 public class ThreeSixty 
 {
 	/**
@@ -13,6 +21,8 @@ public class ThreeSixty
 	 * The unique identifier for the event matching this
 	   freeze frame.
 	 */
+	@Id
+	@Column(name = "event_uuid", length = 120)
 	private String event_uuid;
 	/**
 	 * Attribute
