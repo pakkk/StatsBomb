@@ -29,7 +29,7 @@ public class Shot
     private UUID key_pass_id;
 
     /* Attribute - Where the shot ends */
-    @Column(length = 20)
+
     private List<Integer> end_location;
 
     /**

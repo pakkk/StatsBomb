@@ -1,5 +1,11 @@
 package es.iesjandula.statsbomb.models.event;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "mis_control")
 public class MisControl
 {
 
@@ -7,6 +13,7 @@ public class MisControl
      * Attribute -
      *
      */
+    @Column(length = 1)
     private Boolean aerial_won;
 
     /**

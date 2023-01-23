@@ -21,19 +21,21 @@ public class Metadata
      * The version number for the method in
      * which the data was collected.
      */
-
+    @Column(length = 4)
     private String data_version;
     /**
      * Attribute -
      * version of the shot fidelity
      */
 
+    @Column(length = 10)
     private String shot_fidelity_version;
     /**
      * Attribute -
      * version of the xy fidelity
      */
 
+    @Column(length = 10)
     private String xy_fidelity_version;
 
     /**

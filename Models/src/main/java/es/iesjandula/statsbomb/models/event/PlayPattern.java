@@ -1,10 +1,17 @@
 package es.iesjandula.statsbomb.models.event;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * @author Neil Hdez
  * @author Nacho Belda
  * This Class Storage the PlayPattern, Ej. Regular Play, From Corner, From Free Kick
  */
+@Entity
+@Table(name = "play_pattern")
 public class PlayPattern
 {
     /**
@@ -12,7 +19,10 @@ public class PlayPattern
      * Id /name of the play pattern
      * relevant to this event.
      */
+    @Id
+    @Column(length = 10)
     private int id; // id
+    @Column(length = 25)
     private String name; // name of the Play Pattern
 
     /**
