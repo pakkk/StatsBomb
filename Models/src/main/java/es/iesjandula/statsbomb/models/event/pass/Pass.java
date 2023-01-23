@@ -5,6 +5,7 @@ import es.iesjandula.statsbomb.models.event.*;
 import es.iesjandula.statsbomb.models.event.BodyPart;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 
@@ -64,7 +65,9 @@ public class Pass {
      * Reference to the shot this
      * pass assisted.
      */
-    private UUID assisted_shot_id;
+    @Id
+    @Column(length = 15)
+    private String assisted_shot_id;
 
     /**
      * Attribute -
@@ -345,14 +348,14 @@ public class Pass {
      * return Reference to the shot this pass assisted.
 
      */
-    public UUID getAssisted_shot_id() {
+    public String getAssisted_shot_id() {
         return this.assisted_shot_id;
     }
 
     /**
      * @param assisted_shot_id, with the reference to the shot this pass assisted
      */
-    public void setAssisted_shot_id(UUID assisted_shot_id) {
+    public void setAssisted_shot_id(String assisted_shot_id) {
         this.assisted_shot_id = assisted_shot_id;
     }
 

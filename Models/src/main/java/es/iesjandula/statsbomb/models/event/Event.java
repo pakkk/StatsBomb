@@ -147,7 +147,7 @@ public class Event
      * of the shot in their related_events
      * column.
      */
-    private List<UUID> related_events;
+    private List<String> related_events;
 
     /**
      *  Attribute
@@ -599,7 +599,7 @@ public class Event
     /**
      * @return a list of events
      */
-    public List<UUID> getRelated_events()
+    public List<String> getRelated_events()
     {
         return this.related_events;
     }
@@ -607,7 +607,7 @@ public class Event
     /**
      * @param related_events with the information about list of the Ids of related events
      */
-    public void setRelated_events(List<UUID> related_events)
+    public void setRelated_events(List<String> related_events)
     {
         this.related_events = related_events;
     }

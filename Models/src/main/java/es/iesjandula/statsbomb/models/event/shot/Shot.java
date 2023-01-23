@@ -25,8 +25,8 @@ public class Shot
 
     /* Attribute - Unique pass identifier */
     @Id
-    @Column(length = 10)
-    private UUID key_pass_id;
+    @Column(length = 15)
+    private String key_pass_id;
 
     /* Attribute - Where the shot ends */
 
@@ -248,7 +248,7 @@ public class Shot
     /**
      * @return the Key Pass ID Information
      */
-    public UUID getKey_pass_id()
+    public String getKey_pass_id()
     {
         return this.key_pass_id;
     }
@@ -256,7 +256,7 @@ public class Shot
     /**
      * @param key_pass_id With the information of the Identifier unique of the Shoot
      */
-    public void setKey_pass_id(UUID key_pass_id)
+    public void setKey_pass_id(String key_pass_id)
     {
         this.key_pass_id = key_pass_id;
     }
