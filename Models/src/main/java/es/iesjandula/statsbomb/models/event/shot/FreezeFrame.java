@@ -32,7 +32,7 @@ public class FreezeFrame
 {
 
     /** Attribute - With coordinate of player */
-    @Id
+
     @Column(length = 20)
     private List<Integer> location;
 
