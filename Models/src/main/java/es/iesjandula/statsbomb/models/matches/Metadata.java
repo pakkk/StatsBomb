@@ -1,8 +1,6 @@
 package es.iesjandula.statsbomb.models.matches;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author David Armijo
@@ -15,6 +13,9 @@ import jakarta.persistence.Table;
 @Table(name = "metadata")
 public class Metadata
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     /**
      * Attribute -
