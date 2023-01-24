@@ -141,7 +141,6 @@ public class RestHandlerEvents
 
 	/**
 	 * Method return Instance of EventStats that returns reference players
-	 *
 	 * @return Instance of EventStats that returns reference players
 	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/reference_player/{matchId}")
@@ -164,5 +163,26 @@ public class RestHandlerEvents
 			return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
 		}
 
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/porcentage_possesions/")
+	public ResponseEntity<?> getPorcentageOfPossesions(
+			@RequestParam(value = "matchId", required = true) final Integer matchId)
+	{
+		try
+		{
+			String resultJson = this.eventsStats.getPorcentageOfPossesions(matchId);
+			return ResponseEntity.ok().body(resultJson);
+		}
+		catch (StatsBombException statsBombException)
+		{
+			return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
+		}
+		catch (Exception exception)
+		{
+			StatsBombException statsBombException = new StatsBombException(exception);
+			LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
+			return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
+		}
 	}
 }

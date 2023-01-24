@@ -111,4 +111,10 @@ public class EventsStats
         return reference.referencia(getListEvents(matchId));
     }
 
+    public String getPorcentageOfPossesions(int matchId) throws StatsBombException
+    {
+        PossessionFilter possessionFilter = new PossessionFilter();
+        return possessionFilter.getPorcentageOfPossesion(getListEvents(matchId));
+    }
+
 }

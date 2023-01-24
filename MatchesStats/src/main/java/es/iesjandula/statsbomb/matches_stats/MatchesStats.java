@@ -67,18 +67,7 @@ public class MatchesStats
         DateFilter dateFilter = new DateFilter();
         return dateFilter.getListMatchesByDate(getMatches(competitionId,seasonId), dateStart);
     }
-
-    /**
-     * Call of Filter
-     * @param matchId Match
-     * @return the porcentage of possesions
-     * @throws StatsBombException
-     */
-    public String getPorcentageOfPossesions(int matchId) throws StatsBombException
-    {
-        PossessionFilter possessionFilter = new PossessionFilter();
-        return possessionFilter.getPorcentageOfPossesion(getEventsOfMatch(matchId));
-    }
+    
 
 
 }

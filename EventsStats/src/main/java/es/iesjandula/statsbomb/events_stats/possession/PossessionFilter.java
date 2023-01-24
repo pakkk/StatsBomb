@@ -67,30 +67,42 @@ public class PossessionFilter
         double primerTiempoItaly = 0.0;
         double segundoTiempoItaly = 0.0;
 
-        for(Event event:eventListOfMatch)
+        for(int i = 0; i < eventListOfMatch.size(); i++)
         {
-            if(event.getTeam().getName().equals("Spain"))
+            if(eventListOfMatch.get(i).getTeam().getName().equals("Spain"))
             {
-                if(event.getPeriod() == 1)
+                if(eventListOfMatch.get(i).getPeriod() == 1)
                 {
-                    primerTiempoSpain += event.getDuration();
+                    if (eventListOfMatch.get(i).getDuration()!=null)
+                    {
+                        primerTiempoSpain += eventListOfMatch.get(i).getDuration();
+                    }
 
                 }
-                else if(event.getPeriod() == 2)
+                else if(eventListOfMatch.get(i).getPeriod() == 2)
                 {
-                    segundoTiempoSpain += event.getDuration();
+                    if (eventListOfMatch.get(i).getDuration()!=null)
+                    {
+                        segundoTiempoSpain += eventListOfMatch.get(i).getDuration();
+                    }
                 }
             }
             else
             {
-                if(event.getPeriod() == 1)
+                if(eventListOfMatch.get(i).getPeriod() == 1)
                 {
-                    primerTiempoItaly += event.getDuration();
+                    if (eventListOfMatch.get(i).getDuration()!=null)
+                    {
+                        primerTiempoItaly += eventListOfMatch.get(i).getDuration();
+                    }
 
                 }
-                else if(event.getPeriod() == 2)
+                else if(eventListOfMatch.get(i).getPeriod() == 2)
                 {
-                    segundoTiempoItaly += event.getDuration();
+                    if (eventListOfMatch.get(i).getDuration()!=null)
+                    {
+                        segundoTiempoItaly += eventListOfMatch.get(i).getDuration();
+                    }
                 }
             }
             PrimerTiempo primerTiempo = new PrimerTiempo();
