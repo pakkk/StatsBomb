@@ -1,10 +1,17 @@
 package es.iesjandula.statsbomb.models.event;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * @author Neil Hdez
  * @author Nacho Belda
  * This class almacenates the type of event
  */
+@Entity
+@Table(name = "type")
 public class Type
 {
     /**
@@ -18,7 +25,10 @@ public class Type
      * made, the goalkeeper type will
      * be “Shot Faced”).
      */
+    @Id
+    @Column(length = 10)
     private int id; // id
+    @Column(length = 25)
     private String name; // name of the event type
 
     /**

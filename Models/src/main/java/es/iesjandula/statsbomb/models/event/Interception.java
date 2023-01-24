@@ -1,10 +1,16 @@
 package es.iesjandula.statsbomb.models.event;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 /**
  * @author Neil Hdez
  * @author Nacho Belda
  * This class almacenates information about the interception
  */
+@Entity
+@Table(name = "interception")
 public class Interception
 {
     /**

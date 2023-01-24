@@ -2,13 +2,20 @@ package es.iesjandula.statsbomb.models.event.tactics;
 
 import es.iesjandula.statsbomb.models.event.Player;
 import es.iesjandula.statsbomb.models.event.Position;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 /**
  * @author Neil Hdez
  * @author Jesus Garcia Puerto
+ * @author Manuel Canio Gil
  * @version 1.0.0
  * @since 30/11/2022
  */
+@Entity
+@Table(name = "lineup")
 public class Lineup
 {
 	/**
@@ -22,6 +29,8 @@ public class Lineup
     /**
      * Attribute - The number on the player's shirt for the match
      */
+    @Id
+    @Column(name = "jersey_number", length = 3)
     private int jersey_number;
     
     /**

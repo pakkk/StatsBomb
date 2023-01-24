@@ -3,9 +3,16 @@ package es.iesjandula.statsbomb.models.three_sixty;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 /** 
  * @author Alejandro Aljarilla
+ * @author Manuel Canio Gil
  */
+@Entity
+@Table(name = "freeze_frame")
 public class FreezeFrame 
 {
    /**
@@ -21,16 +28,19 @@ public class FreezeFrame
     * Indicates the player plays on the same team as the
 	  'actor' in this event.
     */
+	@Column(name = "teammate", nullable = false)
    private Boolean teammate;
    /**
     * Attribute
     * Indicates the current player is the same as the one
       performing the associated event.
     */
+	@Column(name = "actor", nullable = false)
    private Boolean actor;
    /**
     * Attribute - Indicates this player is a keeper.
     */
+	@Column(name = "keeper", nullable = false)
    private Boolean keeper;
    
    /**

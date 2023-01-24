@@ -2,9 +2,7 @@ package es.iesjandula.statsbomb.models.competition;
 
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -18,6 +16,9 @@ import jakarta.persistence.Table;
 @Table(name = "competition")
 public class Competition
 {
+
+    @EmbeddedId
+    private CompetitionId competitionId;
 
     /** Attribute - The unique identifier for the competition. */
     @Column(length = 10)
@@ -122,6 +123,23 @@ public class Competition
      * (whichever is more recent).
      */
     private Date match_available_date;
+
+
+    /**
+     * @return the competitionId KEY_PRIMARY
+     */
+    public CompetitionId getCompetitionId()
+    {
+        return this.competitionId;
+    }
+
+    /**
+     * @param competitionId the competitionId to set KEY_PRIMARY
+     */
+    public void setCompetitionId(CompetitionId competitionId)
+    {
+        this.competitionId = competitionId;
+    }
 
     /**
      * @return the competition identification.

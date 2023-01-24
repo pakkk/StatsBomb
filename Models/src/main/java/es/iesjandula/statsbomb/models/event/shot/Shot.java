@@ -25,11 +25,11 @@ public class Shot
 
     /* Attribute - Unique pass identifier */
     @Id
-    @Column(length = 10)
-    private UUID key_pass_id;
+    @Column(length = 15)
+    private String key_pass_id;
 
     /* Attribute - Where the shot ends */
-    @Column(length = 20)
+
     private List<Integer> end_location;
 
     /**
@@ -37,7 +37,7 @@ public class Shot
      * Added if the shot was an
      * aerial won
      */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean aerial_won;
 
     /**
@@ -45,7 +45,7 @@ public class Shot
      * Added if the shot followed a
      * dribble
      */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean follows_dribble;
 
     /**
@@ -53,7 +53,7 @@ public class Shot
      * Added if the shot was first
      * touch.
      */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean first_time;
 
     /**
@@ -61,7 +61,7 @@ public class Shot
      * Added if the shot was
      * one-on-one
      */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean one_on_one;
 
     /**
@@ -93,7 +93,7 @@ public class Shot
      * Added if the shot was
      * deflected
      */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean deflected;
 
     /**
@@ -127,16 +127,19 @@ public class Shot
 
 
     /* Attribute - saved_to_post of Shot */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean saved_to_post;
 
     /* Attribute - saved_to_post of Shot */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean saved_off_target;
 
     /* Attribute - saved_to_post of Shot */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean open_goal;
+
+    /* Attribute - redirect of Shot */
+    private Boolean redirect;
 
     /**
      * Default constructor
@@ -245,7 +248,7 @@ public class Shot
     /**
      * @return the Key Pass ID Information
      */
-    public UUID getKey_pass_id()
+    public String getKey_pass_id()
     {
         return this.key_pass_id;
     }
@@ -253,7 +256,7 @@ public class Shot
     /**
      * @param key_pass_id With the information of the Identifier unique of the Shoot
      */
-    public void setKey_pass_id(UUID key_pass_id)
+    public void setKey_pass_id(String key_pass_id)
     {
         this.key_pass_id = key_pass_id;
     }
@@ -395,6 +398,16 @@ public class Shot
     public void setOpen_goal(Boolean open_goal)
     {
         this.open_goal = open_goal;
+    }
+
+    public Boolean getRedirect()
+    {
+        return this.redirect;
+    }
+
+    public void setRedirect(Boolean redirect)
+    {
+        this.redirect = redirect;
     }
 
     /**

@@ -32,7 +32,7 @@ public class FreezeFrame
 {
 
     /** Attribute - With coordinate of player */
-    @Id
+
     @Column(length = 20)
     private List<Integer> location;
 
@@ -43,7 +43,7 @@ public class FreezeFrame
     private Position position;
 
     /** Attribute - With information about teammate */
-    @Column(length = 7)
+    @Column(length = 1)
     private Boolean teammate;
 
     FreezeFrame()

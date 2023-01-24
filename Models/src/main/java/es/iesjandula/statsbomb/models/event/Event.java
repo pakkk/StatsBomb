@@ -7,7 +7,10 @@ import es.iesjandula.statsbomb.models.event.foul_commited.FoulCommited;
 import es.iesjandula.statsbomb.models.event.pass.Pass;
 import es.iesjandula.statsbomb.models.event.shot.Shot;
 import es.iesjandula.statsbomb.models.event.substitution.Substitution;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.util.Date;
 import java.util.List;
@@ -17,12 +20,17 @@ import java.util.UUID;
  * @author Neil Hdez
  * @author Joaquin Moreno
  * @author Alejandro Aljarilla
+ * @author Manuel Canio Gil
  *
  */
+@Entity
+@Table(name = "event")
 public class Event
 {
 
     /** Attribute - The unique identifier for the competition. */
+    @Id
+    @Column(name = "id", length = 160)
     private String id;
 
     /**
@@ -30,9 +38,11 @@ public class Event
      * Sequence notation for the ordering of
      * events within each match
      */
+    @Column(name = "index", length = 10)
     private int index;
 
     /** Attribute - The part of the match the timestamp relates to. */
+    @Column(name = "period", length = 5)
     private int period;
 
     /**
@@ -40,6 +50,7 @@ public class Event
      * Time in the match the event takes
      * place, recorded to the millisecond.
      */
+    @Column(name = "timestap", length = 13)
     private String timestamp;
 
     /**
@@ -54,9 +65,11 @@ public class Event
      * The minutes on the clock at the time
      * of this event. Resets to 45 at halftime, 90 at the start of extra time etc.
      */
+    @Column(name = "minute", nullable = false)
     private int minute;
 
     /** Attribute - The second part of the timestamp */
+    @Column(name = "second", nullable = false)
     private int second;
 
     /** Attribute - The type of event the corresponds to.  */
@@ -68,6 +81,7 @@ public class Event
      * possession denotes a period of play in which the ball is in play
      * and a single team is in control of the ball.
      */
+    @Column(name = "possession", nullable = false)
     private int possession;
 
     /**
@@ -108,15 +122,19 @@ public class Event
     private List<Integer> location;
 
     /** Attribute - If relevant, the length in seconds the event lasted. */
+    @Column(name = "duration")
     private Double duration;
 
     /** Attribute - The action was performed while being pressured by an opponent. */
+    @Column(name = "under_pressure")
     private Boolean under_pressure;
 
     /** Attribute - The event occurred while the camera was off. */
+    @Column(name = "off_camera")
     private Boolean off_camera;
 
     /** Attribute - Added if the outcome of the event is the ball going out of bounds. */
+    @Column(name = "out")
     private Boolean out;
 
     /**
@@ -129,7 +147,7 @@ public class Event
      * of the shot in their related_events
      * column.
      */
-    private List<UUID> related_events;
+    private List<String> related_events;
 
     /**
      *  Attribute
@@ -581,7 +599,7 @@ public class Event
     /**
      * @return a list of events
      */
-    public List<UUID> getRelated_events()
+    public List<String> getRelated_events()
     {
         return this.related_events;
     }
@@ -589,7 +607,7 @@ public class Event
     /**
      * @param related_events with the information about list of the Ids of related events
      */
-    public void setRelated_events(List<UUID> related_events)
+    public void setRelated_events(List<String> related_events)
     {
         this.related_events = related_events;
     }

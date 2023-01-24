@@ -2,6 +2,9 @@ package es.iesjandula.statsbomb.models.event;
 
 
 import es.iesjandula.statsbomb.models.event.tactics.Lineup;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 import java.util.List;
 
@@ -10,6 +13,8 @@ import java.util.List;
  * @author Nacho Belda
  * In this Class Storage the Position
  */
+@Entity
+@Table(name = "tactics")
 public class Tactics
 {
     /**
@@ -21,6 +26,7 @@ public class Tactics
      * describes the formation
      * being used.
      */
+    @Column(length = 20)
     public String formation;
     private List<Lineup> lineup;
 

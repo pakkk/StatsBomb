@@ -1,10 +1,19 @@
 package es.iesjandula.statsbomb.models.event;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+import java.lang.invoke.LambdaConversionException;
+
 /**
  * @author Neil Hdez
  * @author Nacho Belda
  * This class almacenates the technique
  */
+@Entity
+@Table(name = "technique")
 public class Technique
 {
     /**
@@ -13,7 +22,10 @@ public class Technique
      * option specifying the
      * goalkeeper technique used.
      */
+    @Id
+    @Column(length = 10)
     private int id; // id
+    @Column(length = 25)
     private String name; // name of the Technique
 
     /**

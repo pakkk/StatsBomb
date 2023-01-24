@@ -2,14 +2,20 @@ package es.iesjandula.statsbomb.models.event.foul_commited;
 
 import es.iesjandula.statsbomb.models.event.Card;
 import es.iesjandula.statsbomb.models.event.Type;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 /**
  * @author Neil Hdez
  * @author Jesus Guerrero
+ * @author Manuel Canio Gil
  *
  * Any infringement that is penalised as foul play by a referee.
  * Offside are not tagged as a foul committed
  */
+@Entity
+@Table(name = "foul_commited")
 public class FoulCommited
 {
     /**
@@ -18,6 +24,7 @@ public class FoulCommited
      * advantage and allows play to
      * continue
      */
+    @Column(name = "advantage")
     private Boolean advantage;
     /**
      * Recorded only when a card is
@@ -26,12 +33,14 @@ public class FoulCommited
     private Card card;
 
     /* Attribute - If the Foul is offensive */
+    @Column(name = "offensive")
     private Boolean offensive;
 
     /* Attribute - Type of FoulCommited */
     private Type type;
 
     /* Attribute - If the Foul is Penalty */
+    @Column(name = "penalty")
     private Boolean penalty;
 
     /**

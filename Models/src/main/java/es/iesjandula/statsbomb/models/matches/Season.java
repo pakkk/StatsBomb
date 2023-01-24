@@ -1,15 +1,25 @@
 package es.iesjandula.statsbomb.models.matches;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * @author Nacho Belda
  */
+@Entity
+@Table(name = "season")
 public class Season
 {
     /**
      * Attributes -
      * The ID is the unique identifier for the stadium and the name is the name of the stadium
      */
+    @Id
+    @Column(length = 10)
     private int season_id;
+    @Column(length = 25)
     private String season_name;
 
     /**

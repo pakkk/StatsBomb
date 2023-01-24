@@ -1,10 +1,17 @@
 package es.iesjandula.statsbomb.models.event;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 /**
  * @author Neil Hdez
  * @author Nacho Belda
+ * @author Manuel Canio Gil
  * This class almacenates the InjuriesStoppage
  */
+@Entity
+@Table(name = "injury_stoppage")
 public class InjuryStoppage
 {
     /**
@@ -14,6 +21,7 @@ public class InjuryStoppage
      * possession before the
      * stoppage began.
      */
+    @Column(name = "in_chain")
     private Boolean in_chain;
 
     /**

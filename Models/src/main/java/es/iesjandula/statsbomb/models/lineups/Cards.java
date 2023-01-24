@@ -1,7 +1,6 @@
 package es.iesjandula.statsbomb.models.lineups;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  *
@@ -13,25 +12,32 @@ import jakarta.persistence.Table;
 @Table(name = "cards")
 public class Cards
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     /**
      * Attribute
      * The time when the card was given to the player
      */
+    @Column(length = 5)
     private String time;
     /**
      * Attribute
      * The type of the card
      */
+    @Column(length = 10)
     private String card_type;
     /**
      * Attribute
      * The reason of the card
      */
+    @Column(length = 25)
     private String reason;
     /**
      * Attribute
      * The period of the match that the card was given
      */
+    @Column(length = 2)
     private Integer period;
     /**
      * Default contructor

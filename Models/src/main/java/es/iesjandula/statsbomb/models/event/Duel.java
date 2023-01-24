@@ -1,9 +1,16 @@
 package es.iesjandula.statsbomb.models.event;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 /**
  * @author Neil Hdez
  * @author Nacho Belda
+ * @author Manuel Canio Gil
  */
+@Entity
+@Table(name = "duel")
 public class Duel
 {
     /**
@@ -17,6 +24,7 @@ public class Duel
      * option specifying the outcome
      * of the duel.
      */
+    @Column(name = "counterpress")
     private Boolean counterpress;
     private Type type;
     private OutCome outcome;

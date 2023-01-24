@@ -1,5 +1,10 @@
 package es.iesjandula.statsbomb.models.event;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "fifty_fifty")
 public class FiftyFifty
 {
 

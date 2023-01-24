@@ -1,12 +1,20 @@
 package es.iesjandula.statsbomb.models.event;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * @author Neil Hdez
  * @author Jesus Guerrero
+ * @author Manuel Canio Gil
  *
  * Bodypart define with what body part
  * a player touch the ball
  */
+@Entity
+@Table(name = "body_part")
 public class BodyPart
 {
 
@@ -14,11 +22,14 @@ public class BodyPart
      * Attribute -
      * id of the body part
      */
+    @Id
+    @Column(length = 10)
     private int id;
     /**
      * Attribute -
      * name of the body part used to an event
      */
+    @Column(name = "name", nullable = false)
     private String name; // name of the body part
 
     /**

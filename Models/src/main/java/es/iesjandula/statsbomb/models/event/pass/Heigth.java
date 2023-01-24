@@ -1,21 +1,32 @@
 package es.iesjandula.statsbomb.models.event.pass;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * @author Neil Hdez
  * @author Jesus Guerrero
  *
  * In this Class Storage the Position
  */
+@Entity
+@Table(name = "heigth")
 public class Heigth
 {
     /**
      * Attribute -
      * identifier of height
      */
+    @Id
+    @Column(length = 10)
     private int id;
     /**
      * Attribute -
      * specifying the height of the pass.
      */
+    @Column(length = 25)
     private String name;
 
     /**

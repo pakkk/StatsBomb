@@ -3,6 +3,10 @@ package es.iesjandula.statsbomb.models.event.pass;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import es.iesjandula.statsbomb.models.event.*;
 import es.iesjandula.statsbomb.models.event.BodyPart;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 
 import java.util.List;
@@ -16,6 +20,8 @@ import java.util.UUID;
  * When using passes it is important to look at the pass
  * type and the pass outcome to see what occurred.
  */
+@Entity
+@Table(name = "pass")
 public class Pass {
     /**
      * Attribute -
@@ -29,12 +35,14 @@ public class Pass {
      * The length in yards of the pass,
      * from its origin to its destination.
      */
+    @Column(length = 4)
     private double length;
 
     /**
      * Attribute -
      * The angle of the pass in radians
      */
+    @Column(length = 4)
     private double angle;
 
     /**
@@ -57,31 +65,37 @@ public class Pass {
      * Reference to the shot this
      * pass assisted.
      */
-    private UUID assisted_shot_id;
+    @Id
+    @Column(length = 15)
+    private String assisted_shot_id;
 
     /**
      * Attribute -
      * Added if the pass was made
      * by using a backheel
      */
+    @Column(length = 1)
     private Boolean backheel;
 
     /**
      * Attribute -
      * Added if the pass was deflected
      */
+    @Column(length = 1)
     private Boolean deflected;
 
     /**
      * Attribute -
      * Added if the pass was a miscommunication.
      */
+    @Column(length = 1)
     private Boolean miscommunication;
 
     /**
      * Attribute -
      * Added if the pass was a cross.
      */
+    @Column(length = 1)
     private Boolean cross;
 
     /**
@@ -91,6 +105,7 @@ public class Pass {
      * backwards, within the
      * opposition's penalty box).
      */
+    @Column(length = 1)
     private Boolean cut_back;
 
     @JsonProperty("switch")
@@ -100,6 +115,7 @@ public class Pass {
      * (ball transitioned at least 50%
      * of the pitch vertically).
      */
+    @Column(length = 1)
     private Boolean switchParam;
 
     /**
@@ -108,6 +124,7 @@ public class Pass {
      * assist to a shot (that did not
      * score a goal).
      */
+    @Column(length = 1)
     private Boolean shot_assist;
 
     /**
@@ -115,6 +132,7 @@ public class Pass {
      * Added if the pass was an
      * assist to a goal.
      */
+    @Column(length = 1)
     private Boolean goal_assist;
 
     /**
@@ -146,12 +164,14 @@ public class Pass {
      * Attribute -
      * Pass cuts last line of defence
      */
+    @Column(length = 1)
     private Boolean through_ball;
 
     /**
      * Attribute -
      * For outswinging corner kicks.
      */
+    @Column(length = 1)
     private Boolean outswinging;
 
     /**
@@ -159,6 +179,7 @@ public class Pass {
      * Added if the shot resulted
      * from an aerial win
      */
+    @Column(length = 1)
     private Boolean aerial_won;
 
     /**
@@ -167,18 +188,22 @@ public class Pass {
      * go past him instead of receiving it
      * to deliver it to a teammate behind him.
      */
+    @Column(length = 1)
     private Boolean no_touch;
 
     /**
      * Attribute -
      * For inswinging corner kicks.
      */
+    @Column(length = 1)
     private Boolean inswinging;
 
     /**
      * Attribute -
      *
+     *
      */
+    @Column(length = 1)
     private Boolean straight;
 
     /**
@@ -323,14 +348,14 @@ public class Pass {
      * return Reference to the shot this pass assisted.
 
      */
-    public UUID getAssisted_shot_id() {
+    public String getAssisted_shot_id() {
         return this.assisted_shot_id;
     }
 
     /**
      * @param assisted_shot_id, with the reference to the shot this pass assisted
      */
-    public void setAssisted_shot_id(UUID assisted_shot_id) {
+    public void setAssisted_shot_id(String assisted_shot_id) {
         this.assisted_shot_id = assisted_shot_id;
     }
 

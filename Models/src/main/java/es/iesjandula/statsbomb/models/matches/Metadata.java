@@ -1,4 +1,7 @@
 package es.iesjandula.statsbomb.models.matches;
+
+import jakarta.persistence.*;
+
 /**
  * @author David Armijo
  * @author Jesus Guerrero
@@ -6,24 +9,34 @@ package es.iesjandula.statsbomb.models.matches;
  * Contains a list of tags detailing the versions of various parts of
  * the event data for this match.
  */
+@Entity
+@Table(name = "metadata")
 public class Metadata
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     /**
      * Attribute -
      * The version number for the method in
      * which the data was collected.
      */
+    @Column(length = 4)
     private String data_version;
     /**
      * Attribute -
      * version of the shot fidelity
      */
+
+    @Column(length = 10)
     private String shot_fidelity_version;
     /**
      * Attribute -
      * version of the xy fidelity
      */
+
+    @Column(length = 10)
     private String xy_fidelity_version;
 
     /**

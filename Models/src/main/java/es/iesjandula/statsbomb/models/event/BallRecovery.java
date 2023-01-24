@@ -1,11 +1,18 @@
 package es.iesjandula.statsbomb.models.event;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 /**
  * @author Neil Hdez
  * @author Jesus Guerrero
+ * @author Manuel Canio Gil
  *
  * An attempt to recover a loose ball
  */
+@Entity
+@Table(name = "ball_recovery")
 public class BallRecovery
 {
     /**
@@ -13,9 +20,11 @@ public class BallRecovery
      * Ball is lost while attempting
      * to recover a loose ball
      */
+    @Column(name = "recovery_failure")
     private Boolean recovery_failure;
 
     /* Attribute - if is offensive Ball Recovery */
+    @Column(name = "offensive")
     private Boolean offensive;
 
     /**

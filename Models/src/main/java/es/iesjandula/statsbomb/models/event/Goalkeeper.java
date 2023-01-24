@@ -3,9 +3,12 @@ package es.iesjandula.statsbomb.models.event;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
+
 /**
  * @author Neil Hdez
  * @author Nacho Belda
+ * @author Manuel Canio Gil
  * This class will almacenate the information about the GoalKeepers
  */
 public class Goalkeeper
@@ -24,9 +27,11 @@ public class Goalkeeper
     private List<Integer> end_location;
 
     /* Attribute - shot_saved_to_post of Goalkeeper */
+    @Column(name = "shot_saved_to_post")
     private Boolean shot_saved_to_post;
 
     /* Attribute - shot_saved_to_post of Goalkeeper */
+    @Column(name = "shot_saved_off_target")
     private Boolean shot_saved_off_target;
 
 

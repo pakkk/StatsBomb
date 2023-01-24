@@ -1,11 +1,18 @@
 package es.iesjandula.statsbomb.models.event;
 
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * @author Neil Hdez
  * @author Nacho Belda
  * In this Class Storage the Position
  */
+@Entity
+@Table(name = "position")
 public class Position
 {
     /**
@@ -14,7 +21,10 @@ public class Position
      * player was in at the time of
      * this event..
      */
+    @Id
+    @Column(length = 10)
     private int id; // id
+    @Column(length = 25)
     private String name; // name of the Position
 
     /**
