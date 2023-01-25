@@ -1,4 +1,4 @@
-package es.iesjandula.statsbomb.models.repositories;
+package es.iesjandula.statsbomb.matches_rest.stats.utils;
 
 import es.iesjandula.statsbomb.models.matches.Match;
 import org.springframework.data.jpa.repository.JpaRepository;
