@@ -8,6 +8,7 @@ import jakarta.persistence.Table;
 /**
  * @author Neil Hdez
  * @author Nacho Belda
+ * @author Alejandro Aljarilla
  * This Class Storage the PlayPattern, Ej. Regular Play, From Corner, From Free Kick
  */
 @Entity
