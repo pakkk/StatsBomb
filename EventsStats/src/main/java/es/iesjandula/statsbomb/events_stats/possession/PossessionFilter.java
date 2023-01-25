@@ -59,73 +59,57 @@ public class PossessionFilter
 
     public String getPorcentageOfPossesion(List<Event> eventListOfMatch)  throws StatsBombException
     {
+        double primerTiempoSpain = 0;
+        double segundoTiempoSpain = 0;
+        double primerTiempoItaly = 0;
+        double segundoTiempoItaly = 0;
+        double total = 0;
         String jsonListPosesionOfMatch = "";
         ResultadoPorcentajesPossesion resultado = new ResultadoPorcentajesPossesion();
 
-        double primerTiempoSpain = 0.0;
-        double segundoTiempoSpain = 0.0;
-        double primerTiempoItaly = 0.0;
-        double segundoTiempoItaly = 0.0;
-
-        for(int i = 0; i < eventListOfMatch.size(); i++)
+        for (Event event: eventListOfMatch)
         {
-            if(eventListOfMatch.get(i).getTeam().getName().equals("Spain"))
+            if (event.getDuration() != null)
             {
-                if(eventListOfMatch.get(i).getPeriod() == 1)
-                {
-                    if (eventListOfMatch.get(i).getDuration()!=null)
-                    {
-                        primerTiempoSpain += eventListOfMatch.get(i).getDuration();
-                    }
 
-                }
-                else if(eventListOfMatch.get(i).getPeriod() == 2)
+                total = total + event.getDuration();
+
+                if (event.getPossession_team().getName().equals("Spain"))
                 {
-                    if (eventListOfMatch.get(i).getDuration()!=null)
+                    if (event.getPeriod() == 1)
                     {
-                        segundoTiempoSpain += eventListOfMatch.get(i).getDuration();
+                        primerTiempoSpain = primerTiempoSpain + event.getDuration();
+                    } else if (event.getPeriod() == 2)
+                    {
+                        segundoTiempoSpain = segundoTiempoSpain + event.getDuration();
+                    }
+                }
+
+                if (event.getPossession_team().getName().equals("Italy"))
+                {
+                    if (event.getPeriod() == 1)
+                    {
+                        primerTiempoItaly = primerTiempoItaly + event.getDuration();
+                    } else if (event.getPeriod() == 2)
+                    {
+                        segundoTiempoItaly = segundoTiempoItaly + event.getDuration();
                     }
                 }
             }
-            else
-            {
-                if(eventListOfMatch.get(i).getPeriod() == 1)
-                {
-                    if (eventListOfMatch.get(i).getDuration()!=null)
-                    {
-                        primerTiempoItaly += eventListOfMatch.get(i).getDuration();
-                    }
-
-                }
-                else if(eventListOfMatch.get(i).getPeriod() == 2)
-                {
-                    if (eventListOfMatch.get(i).getDuration()!=null)
-                    {
-                        segundoTiempoItaly += eventListOfMatch.get(i).getDuration();
-                    }
-                }
-            }
-            PrimerTiempo primerTiempo = new PrimerTiempo();
-            primerTiempo.setEspana(100 / ((primerTiempoSpain + primerTiempoItaly) / primerTiempoSpain));
-            primerTiempo.setItalia(100 / ((primerTiempoSpain + primerTiempoItaly) / primerTiempoItaly));
-
-            resultado.setPrimer_tiempo(primerTiempo);
-
-
-            SegundoTiempo segundoTiempo = new SegundoTiempo();
-            segundoTiempo.setEspana(100 / ((segundoTiempoSpain + segundoTiempoItaly) / segundoTiempoSpain));
-            segundoTiempo.setItalia(100 / ((segundoTiempoSpain + segundoTiempoItaly) / segundoTiempoItaly));
-
-            resultado.setSegundo_tiempo(segundoTiempo);
-
-            PartidoCompleto partidoCompleto = new PartidoCompleto();
-            partidoCompleto.setEspana((primerTiempo.getEspana()+segundoTiempo.getEspana())/2);
-            partidoCompleto.setItalia((primerTiempo.getItalia()+segundoTiempo.getItalia())/2);
-
-            resultado.setPartido_completo(partidoCompleto);
-
-
         }
+
+        double porcentajeSpainPrimerTiempo = 100 / ((primerTiempoSpain + primerTiempoItaly) / primerTiempoSpain);
+        double porcentajeItalyPrimerTiempo = 100 / ((primerTiempoSpain + primerTiempoItaly) / primerTiempoItaly);
+        double porcentajeSpainSegundoTiempo = 100 / ((segundoTiempoSpain + segundoTiempoItaly) / segundoTiempoSpain);
+        double porcentajeItalySegundoTiempo = 100 / ((segundoTiempoSpain + segundoTiempoItaly) / segundoTiempoItaly);
+        double porcentajeSpainTotal = (porcentajeSpainPrimerTiempo + porcentajeSpainSegundoTiempo) / 2;
+        double porcentajeItalyTotal = (porcentajeItalyPrimerTiempo + porcentajeItalySegundoTiempo) / 2;
+
+        resultado.getPosesion().setPrimer_tiempo(new PrimerTiempo(porcentajeSpainPrimerTiempo,porcentajeItalyPrimerTiempo));
+        resultado.getPosesion().setSegundo_tiempo(new SegundoTiempo(porcentajeSpainSegundoTiempo,porcentajeItalySegundoTiempo));
+        resultado.getPosesion().setPartido_completo(new PartidoCompleto(porcentajeSpainTotal,porcentajeItalyTotal));
+
+
         JsonUtils jsonUtils = new JsonUtils();
 
         jsonListPosesionOfMatch = jsonUtils.writeObjectToJsonAsStringPretty(resultado);

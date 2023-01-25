@@ -12,6 +12,7 @@ import java.util.Date;
 
 /**
  * @author David Armijo Ramos
+ * @author Alejandro Aljarilla
  * The match information for each they collect
  */
 @Entity

@@ -24,7 +24,6 @@
       <module name="Commons" target="19" />
       <module name="CompetitionsRest" target="19" />
       <module name="CompetitionsStats" target="19" />
-      <module name="DataBaseBatch" target="19" />
       <module name="EventsRest" target="19" />
       <module name="EventsStats" target="19" />
       <module name="LineupsRest" target="19" />
@@ -40,7 +39,6 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="CompetitionsRest" options="-parameters" />
-      <module name="DataBaseBatch" options="-parameters" />
       <module name="EventsRest" options="-parameters" />
       <module name="LineupsRest" options="-parameters" />
       <module name="MatchesRest" options="-parameters" />

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StatsBomb</title>
+    <link  rel="icon"   href="img/statsbomb_positive.svg">
+    <link href="css/what_we_do.css" rel="stylesheet" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <header class="py-3 mb-3 border-bottom">
+        <div class="he">
+            <div >
+                <div class="nombreDAMBOMB" >
+                  <a href="https://statsbomb.com/es/" target="_blank">
+                    <img class="" src="img/statsbomb.svg" width="40" height="32" alt="My Happy SVG" />
+                  </a>
+                  <h4 class="titulo" id="textoTitulo">StatsBomb</h4>
+                </div>
+            </div>
+            
+    
+            <div class="botonesHeader">
+                <button type="button" class="btn btn-outline-light">About us</button>
+                <a href="what_we_do.html"><button type="button" class="btn btn-outline-light">What We Do</button></a>
+            </div>
+            
+            <div id="botonLog" class="dropdown ">
+                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu text-small shadow">
+                  <li><a class="dropdown-item" href="#">New project...</a></li>
+                  <li><a class="dropdown-item" href="#">Settings</a></li>
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+              </div>
+        </div>
+    </header>
+
+
+
+
+    <div id="contenedor">
+      <div id="resultado">
+        <div>
+          <h1 id="tituloCuerpo">
+            What We Do
+          </h1>
+        </div>
+          <form id="paper" method="get" action="">
+              <p readonly placeholder="Enter something funny." id="text" name="text" rows="4" style="overflow: scroll; word-wrap: break-word; resize: none; height: 95vh; width: 70vw; scroll-behavior: auto;">We as students take care of making a web page collecting data of the official page of statsbomb respecting all the rights of said company. We have collected all possible match filters provided by statsbomb. We have the following filters to consult on our website: <br> <br> 
+                <b>+ Percentage of Possession:</b> In this endpoint you must enter the id of the match and it will return the percentage of possession of the match. <br> <br>
+                <b>+ Matches Date:</b> In this endpoint you must enter the id of the competition, the id of the season and the date from which you want to list all the matches. <br> <br>
+                <b>+ Matches Date:</b> This endpoint is in charge of listing all the points of the manager indicated in the parameter. <br> <br>
+                <b>+ Manager with same Nationality:</b> Endpoint in charge of listing all managers with the same nationality. <br> <br>
+                <b>+ Goalkeepers:</b> Endpoint in charge of listing the goalkeepers who use their hands the most in the selected match. <br> <br>
+                <b>+ Duels:</b> Endpoint in charge of listing the best player of each team that wins the most duels. <br> <br>
+                <b>+ Scorers:</b> Endpoint in charge of listing all the people who score a goal in the match stopped by the match id parameter. <br> <br>
+                <b>+ Posession:</b> Endpoint in charge of listing the percentage of possession of each team in each half, including overtime. <br> <br>
+                <b>+ Reference Player:</b> In charge of showing the best valued player of the match. <br> <br>
+                <b>+ Order Three Sixty:</b> Endpoint that orders the three sixty by match id. <br> <br>
+                <b>+ Teammates Three Sixty:</b> Endpoint in charge of listing all the players that appear on the camera in real time at that moment. <br> <br>
+                <b>+ Order Competitions Ascent:</b> Endpoint in charge of ordering the competitions in ascending order. <br> <br>
+                <b>+ Female Competitions:</b> Endpoint in charge of listing all women's competitions. <br> <br>
+                <b>+ Male Competitions:</b> Endpoint in charge of listing all male competitions. <br> <br>
+              </p>
+          </form>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    <footer>
+      <hr>
+      <div id="listaIconos">
+        <div class="col-md-4 d-flex align-items-center">
+          <a class="text-muted m-2" href="https://statsbomb.com/es/" target="_blank"><img class="bi" width="24" height="24" src="img/statsbomb_negro.svg"></img></a>
+          <span class="mb-3 mb-md-0 text-muted">2023 2DAM, Fuente de datos obtenida en la pagina oficial de <a href="https://github.com/statsbomb/open-data" target="_blank">StatsBomb</a>.</span>
+        </div>
+    
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3"><a class="text-muted" href="https://twitter.com/?lang=es" target="_blank"><img class="bi" width="24" height="24" src="img/twittter.png"></img></a></li>
+          <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/" target="_blank"><img class="bi" width="24" height="24" src="img/instagram-logo-svgrepo-com.svg"></img></a></li>
+          <li class="ms-3"><a class="text-muted" href="https://es-es.facebook.com/" target="_blank"><img class="bi" width="24" height="24" src="img/facebook.png"></img></a></li>
+          <li class="ms-3"><a class="text-muted" href="https://github.com/pakkk/StatsBomb" target="_blank"><img class="bi" width="24" height="24" src="img/github_icon.svg"></img></a></li>
+        </ul>
+      </div>
+      
+    </footer>
+
+  </body>
+</html>
