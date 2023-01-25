@@ -1,4 +1,4 @@
-package es.iesjandula.statsbomb.competitions_stats.gender;
+package es.iesjandula.statsbomb.competitions_rest.stats.gender;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.utils.JsonUtils;

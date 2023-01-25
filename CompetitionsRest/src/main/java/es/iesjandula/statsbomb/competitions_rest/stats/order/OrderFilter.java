@@ -1,10 +1,8 @@
-package es.iesjandula.statsbomb.competitions_stats.order;
+package es.iesjandula.statsbomb.competitions_rest.stats.order;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.utils.JsonUtils;
 import es.iesjandula.statsbomb.models.competition.Competition;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Comparator;
 import java.util.List;
