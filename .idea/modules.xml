@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Commons/Commons.iml" filepath="$PROJECT_DIR$/Commons/Commons.iml" />
       <module fileurl="file://$PROJECT_DIR$/CompetitionsRest/CompetitionsRest.iml" filepath="$PROJECT_DIR$/CompetitionsRest/CompetitionsRest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CompetitionsStats/CompetitionsStats.iml" filepath="$PROJECT_DIR$/CompetitionsStats/CompetitionsStats.iml" />
       <module fileurl="file://$PROJECT_DIR$/EventsRest/EventsRest.iml" filepath="$PROJECT_DIR$/EventsRest/EventsRest.iml" />
       <module fileurl="file://$PROJECT_DIR$/EventsStats/EventsStats.iml" filepath="$PROJECT_DIR$/EventsStats/EventsStats.iml" />
       <module fileurl="file://$PROJECT_DIR$/LineupsRest/LineupsRest.iml" filepath="$PROJECT_DIR$/LineupsRest/LineupsRest.iml" />

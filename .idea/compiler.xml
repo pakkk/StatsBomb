@@ -6,19 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="CompetitionsRest" />
-        <module name="EventsRest" />
-        <module name="MatchesStats" />
-        <module name="LineupsRest" />
         <module name="WebPortal" />
         <module name="EventsStats" />
+        <module name="CompetitionsRest" />
         <module name="ThreeSixtyStats" />
         <module name="ThreeSixtyRest" />
-        <module name="Commons" />
+        <module name="MatchesStats" />
+        <module name="EventsRest" />
         <module name="MatchesRest" />
-        <module name="LineupsStats" />
+        <module name="Commons" />
         <module name="Models" />
-        <module name="CompetitionsStats" />
+        <module name="LineupsStats" />
+        <module name="LineupsRest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

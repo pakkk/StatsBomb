@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
-import es.iesjandula.statsbomb.matches_stats.MatchesStats;
-import es.iesjandula.statsbomb.matches_stats.manager_filters.ManagerNationalityFilter;
-import es.iesjandula.statsbomb.matches_stats.manager_filters.ManagerScoreFilter;
+import es.iesjandula.statsbomb.matches_rest.stats.MatchesStats;
+import es.iesjandula.statsbomb.matches_rest.stats.manager_filters.ManagerNationalityFilter;
+import es.iesjandula.statsbomb.matches_rest.stats.manager_filters.ManagerScoreFilter;
 
 /**
  * ------------------------------------------------

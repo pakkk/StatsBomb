@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration ;
  */
 @SpringBootApplication
 @Configuration
-@ComponentScan(basePackageClasses = {RestHandlerMatches.class})
 public class Launcher
 {
     /**

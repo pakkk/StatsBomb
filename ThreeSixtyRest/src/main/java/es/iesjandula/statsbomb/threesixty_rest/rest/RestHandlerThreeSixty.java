@@ -1,7 +1,7 @@
 package es.iesjandula.statsbomb.threesixty_rest.rest;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
-import es.iesjandula.statsbomb.threesixty_stats.ThreeSixtyStats;
+import es.iesjandula.statsbomb.threesixty_rest.stats.ThreeSixtyStats;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Bean;
