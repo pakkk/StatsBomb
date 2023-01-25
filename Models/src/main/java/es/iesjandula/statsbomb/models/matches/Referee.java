@@ -8,6 +8,7 @@ import jakarta.persistence.Table;
 
 /**
  * @author Nacho Belda
+ * @author Alejandro Aljarilla
  */
 @Entity
 @Table(name = "referee")

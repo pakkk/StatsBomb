@@ -16,6 +16,7 @@ import java.util.List;
  * @author Neil Hdez
  * @author Jesus Guerrero
  * @author Manuel Martín
+ * @author Alejandro Aljarilla
  *
  * When using passes it is important to look at the pass
  * type and the pass outcome to see what occurred.

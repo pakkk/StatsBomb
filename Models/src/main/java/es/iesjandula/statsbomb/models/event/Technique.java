@@ -5,11 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import java.lang.invoke.LambdaConversionException;
-
 /**
  * @author Neil Hdez
  * @author Nacho Belda
+ * @author Alejandro Aljarilla
  * This class almacenates the technique
  */
 @Entity

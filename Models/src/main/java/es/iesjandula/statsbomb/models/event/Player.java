@@ -8,6 +8,7 @@ import jakarta.persistence.Table;
 /**
  * @author Neil Hdez
  * @author Nacho Belda
+ * @author Alejandro Aljarilla
  * In this Class Storage the Player
  */
 @Entity
