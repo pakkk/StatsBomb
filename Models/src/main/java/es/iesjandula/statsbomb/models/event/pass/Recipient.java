@@ -8,6 +8,7 @@ import jakarta.persistence.Table;
 /**
  * @author Neil Hdez
  * @author Jesus Guerrero
+ * @author Alejandro Aljarilla
  *
  * specifying the player id of the recipient of
  * the pass, or for whom an incomplete pass was intended.

@@ -79,7 +79,7 @@ public class FreezeFrame
 	}
 	
 	/**
-	 * @param the setter of the attribute location
+	 * @param location the setter of the attribute location
 	 */
 	public void setLocation(List<Double> location) 
 	{
@@ -95,7 +95,7 @@ public class FreezeFrame
 	}
 	
 	/**
-	 * @param the setter of the attribute teammate
+	 * @param teammate the setter of the attribute teammate
 	 */
 	public void setTeammate(Boolean teammate) 
 	{
@@ -111,7 +111,7 @@ public class FreezeFrame
 	}
 	
 	/**
-	 * @param the setter of the attribute actor
+	 * @param actor the setter of the attribute actor
 	 */
 	public void setActor(Boolean actor) 
 	{
@@ -127,7 +127,7 @@ public class FreezeFrame
 	}
 	
 	/**
-	 * @param the setter of the attribute keeper
+	 * @param keeper the setter of the attribute keeper
 	 */
 	public void setKeeper(Boolean keeper) 
 	{

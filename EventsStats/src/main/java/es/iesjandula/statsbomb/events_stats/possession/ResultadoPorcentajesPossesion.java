@@ -2,54 +2,28 @@ package es.iesjandula.statsbomb.events_stats.possession;
 
 public class ResultadoPorcentajesPossesion
 {
-    private PrimerTiempo primer_tiempo;
-    private SegundoTiempo segundo_tiempo;
-    private PartidoCompleto partido_completo;
+    private Posesion posesion;
+
 
     public ResultadoPorcentajesPossesion()
     {
-        this.primer_tiempo = new PrimerTiempo();
-        this.segundo_tiempo = new SegundoTiempo();
-        this.partido_completo = new PartidoCompleto();
+        this.posesion = new Posesion();
     }
 
-    public PrimerTiempo getPrimer_tiempo()
+    public Posesion getPosesion()
     {
-        return primer_tiempo;
+        return posesion;
     }
 
-    public void setPrimer_tiempo(PrimerTiempo primer_tiempo)
+    public void setPosesion(Posesion posesion)
     {
-        this.primer_tiempo = primer_tiempo;
-    }
-
-    public SegundoTiempo getSegundo_tiempo()
-    {
-        return segundo_tiempo;
-    }
-
-    public void setSegundo_tiempo(SegundoTiempo segundo_tiempo)
-    {
-        this.segundo_tiempo = segundo_tiempo;
-    }
-
-    public PartidoCompleto getPartido_completo()
-    {
-        return partido_completo;
-    }
-
-    public void setPartido_completo(PartidoCompleto partido_completo)
-    {
-        this.partido_completo = partido_completo;
+        this.posesion = posesion;
     }
 
     @Override
-    public String toString()
-    {
-        return "PorcentajesPosesion{" +
-                "primer_tiempo=" + primer_tiempo +
-                ", segundo_tiempo=" + segundo_tiempo +
-                ", partido_completo=" + partido_completo +
+    public String toString() {
+        return "ResultadoPorcentajesPossesion{" +
+                "posesion=" + posesion +
                 '}';
     }
 }
