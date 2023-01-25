@@ -1,4 +1,4 @@
-package es.iesjandula.statsbomb.threesixty_stats.teammate.result;
+package es.iesjandula.statsbomb.threesixty_rest.stats.teammate.result;
 
 public class ResultTeammate 
 {

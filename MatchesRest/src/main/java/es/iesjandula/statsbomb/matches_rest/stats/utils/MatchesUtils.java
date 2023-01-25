@@ -1,4 +1,4 @@
-package es.iesjandula.statsbomb.matches_stats;
+package es.iesjandula.statsbomb.matches_rest.stats.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -7,25 +7,22 @@ import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.load_json.Json;
 import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
 import es.iesjandula.statsbomb.common.utils.Constants;
-import es.iesjandula.statsbomb.matches_stats.date.DateFilter;
+
 import es.iesjandula.statsbomb.models.matches.Match;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Neil Hdez
- * @author Aljarilla11
+ * @author Joaquin Moreno
  */
-public class MatchesStats
+@Service
+public class MatchesUtils
 {
-
     /* Attribute - Logger */
     private final Logger LOGGER = LogManager.getLogger();
-
-
 
     /**
      * Search all Matches of a Competition and Season
@@ -54,20 +51,4 @@ public class MatchesStats
 
         return matchesList;
     }
-
-    /**
-     * Call of Filter
-     * @param competitionId Competition
-     * @param seasonId Season
-     * @return a list of Matches
-     * @throws StatsBombException
-     */
-    public String getListOfMatchesByDate(int competitionId,int seasonId,String dateStart) throws StatsBombException
-    {
-        DateFilter dateFilter = new DateFilter();
-        return dateFilter.getListMatchesByDate(getMatches(competitionId,seasonId), dateStart);
-    }
-    
-
-
 }

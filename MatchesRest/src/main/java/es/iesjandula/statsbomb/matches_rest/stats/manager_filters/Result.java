@@ -1,4 +1,4 @@
-package es.iesjandula.statsbomb.matches_stats.manager_filters;
+package es.iesjandula.statsbomb.matches_rest.stats.manager_filters;
 
 /**
  * @author Jesus Garcia Puerto

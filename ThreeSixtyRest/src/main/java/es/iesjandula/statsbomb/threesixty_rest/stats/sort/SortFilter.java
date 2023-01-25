@@ -1,4 +1,4 @@
-package es.iesjandula.statsbomb.threesixty_stats.sort;
+package es.iesjandula.statsbomb.threesixty_rest.stats.sort;
 
 import java.util.Comparator;
 import java.util.List;

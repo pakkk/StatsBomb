@@ -1,4 +1,4 @@
-package es.iesjandula.statsbomb.threesixty_stats.teammate;
+package es.iesjandula.statsbomb.threesixty_rest.stats.teammate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.utils.JsonUtils;
 import es.iesjandula.statsbomb.models.three_sixty.ThreeSixty;
-import es.iesjandula.statsbomb.threesixty_stats.teammate.result.ResultTeammate;
+import es.iesjandula.statsbomb.threesixty_rest.stats.teammate.result.ResultTeammate;
 
 /**
  * @author Manuel Canio Gil

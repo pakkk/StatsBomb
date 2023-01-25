@@ -1,4 +1,4 @@
-package es.iesjandula.statsbomb.matches_stats.date;
+package es.iesjandula.statsbomb.matches_rest.stats.date;
 
 import java.util.Date;
 import java.util.HashMap;
