@@ -106,6 +106,28 @@ public class RestHandlerMatches
 			return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
 		}
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/list_matches/")
+	public ResponseEntity<?> getListMatches(
+			@RequestParam(value = "competitionId", required = true) final Integer competitionId,
+			@RequestParam(value = "seasonId", required = true) final Integer seasonId)
+	{
+		try
+		{
+			String resultJson = this.matchesStats.getResultsMatches(competitionId, seasonId);
+			return ResponseEntity.ok().body(resultJson);
+		}
+		catch (StatsBombException statsBombException)
+		{
+			return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
+		}
+		catch (Exception exception)
+		{
+			StatsBombException statsBombException = new StatsBombException(exception);
+			LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
+			return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
+		}
+	}
 
 	@Bean
 	private MatchesStats getMatchesStats()
