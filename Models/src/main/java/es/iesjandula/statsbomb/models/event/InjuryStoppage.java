@@ -8,6 +8,7 @@ import jakarta.persistence.Table;
  * @author Neil Hdez
  * @author Nacho Belda
  * @author Manuel Canio Gil
+ * @author Alejandro Aljarilla
  * This class almacenates the InjuriesStoppage
  */
 @Entity
