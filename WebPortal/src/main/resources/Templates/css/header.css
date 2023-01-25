@@ -1,0 +1,61 @@
+s.logged{
+    float: right;
+    margin-left: 30%;
+}
+
+#botonLog{
+    margin-left: 30%;
+    width: 3vw;
+    height: 2vh;
+    float: right;
+}
+
+.he{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nombreDAMBOMB{
+    margin-left: 5%;
+    display: flex;
+    color: white;
+}
+
+.titulo{
+    margin-left: 2%;
+}
+header{
+    background: linear-gradient(to left, rgb(0, 0, 0) 28px, rgb(59, 59, 59) 70%, rgb(0, 0, 0));
+}
+
+footer{
+    padding: 2%;
+    
+}
+
+#listaIconos{
+    display: flex;
+
+    justify-content: space-between;
+}
+
+#tituloCuerpo
+{
+    text-align: center;
+    font-family: serif;
+    font-size: 50pt;
+    font-weight: 900;
+}
+
+h1 {
+  margin: 0;
+  padding-top: 3rem;
+  padding-left: 2rem;
+}
+h2 {
+  margin: 0;
+  padding-top: 3rem;
+  padding-left: 2rem;
+}
+
+
