@@ -3,6 +3,7 @@ package es.iesjandula.statsbomb.models.matches;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -28,6 +29,7 @@ public class Referee
      * The ID is the unique identifier for the country and the name is
      * the name of the country
      */
+    @OneToOne(mappedBy = "referee")
     private Country country;
 
     /**

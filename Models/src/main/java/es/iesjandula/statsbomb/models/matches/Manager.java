@@ -5,6 +5,7 @@ import es.iesjandula.statsbomb.common.utils.DateUtils;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 import java.util.Date;
@@ -61,6 +62,7 @@ public class Manager
      * Attribute -
      * The managers country origin
      */
+    @OneToOne(mappedBy = "manager")
     private Country country;
     
     /**

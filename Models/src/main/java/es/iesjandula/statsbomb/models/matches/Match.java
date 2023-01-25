@@ -6,6 +6,7 @@ import es.iesjandula.statsbomb.common.utils.DateUtils;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 import java.util.Date;
@@ -34,6 +35,7 @@ public class Match
      * The ID is the unique identifier for the competition and the
      * name is the name of the competition
      */
+    @OneToOne(mappedBy = "match")
     private Competition competition;
 
 
@@ -42,6 +44,7 @@ public class Match
      * The ID is the unique identifier for the season and the name is
      * the name of the season
      */
+    @OneToOne(mappedBy = "match")
     private Season season;
 
     /** Attribute - The date of the Match in type String*/
@@ -65,24 +68,28 @@ public class Match
      * The ID is the unique identifier for the stadium and the name is
      * the name of the stadium
      */
+    @OneToOne(mappedBy = "match")
     private Stadium stadium;
 
     /** Attribute -
      * The ID is the unique identifier for the referee and the name is
      * the name of the referee
      */
+    @OneToOne(mappedBy = "match")
     private Referee referee;
 
     /** Attribute -
      * The unique identifier integer and the name for the home team
      * in this match
      */
+    @OneToOne(mappedBy = "match")
     private HomeTeam home_team;
 
     /** Attribute -
      * The unique identifier integer and the name for the away team
      * in this match
      */
+    @OneToOne(mappedBy = "match")
     private AwayTeam away_team;
 
     /** Attribute - The final score of the home team */
@@ -111,6 +118,7 @@ public class Match
     private int match_week;
 
     /** Attribute - id/name pair of the phase of the competition this match is in  */
+    @OneToOne(mappedBy = "match")
     private CompetitionStage competition_stage;
 
     /** Attribute -
@@ -137,6 +145,7 @@ public class Match
      * Contains a list of tags detailing the versions of various parts of
      * the event data for this match
      */
+    @OneToOne(mappedBy = "match")
     private Metadata metadata;
 
     /** Attribute -
