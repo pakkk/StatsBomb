@@ -2,10 +2,10 @@ package es.iesjandula.statsbomb.competitions_rest.rest;
 
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
-import es.iesjandula.statsbomb.competitions_stats.CompetitionsStats;
+import es.iesjandula.statsbomb.competitions_rest.stats.CompetitionsStats;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +30,8 @@ public class RestHandlerCompetition
     private final Logger LOGGER = LogManager.getLogger();
 
     // New Instance of CompetitionStats
-    private final CompetitionsStats competitionsStats = this.getCompetitionsStats();
+    @Autowired
+    private CompetitionsStats competitionsStats ;
 
     /**
      * This endPoint return all the competitions
@@ -133,16 +134,5 @@ public class RestHandlerCompetition
             LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
-    }
-
-    /**
-     * Method return Instance of CompetitionsStats
-     *
-     * @return Instance of CompetitionsStats
-     */
-    @Bean
-    private CompetitionsStats getCompetitionsStats()
-    {
-        return new CompetitionsStats();
     }
 }

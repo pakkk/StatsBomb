@@ -1,5 +1,7 @@
 package es.iesjandula.statsbomb.models.competition;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.Embeddable;
 
 import java.io.Serial;

@@ -13,7 +13,6 @@
         <option value="$PROJECT_DIR$/LineupsRest/pom.xml" />
         <option value="$PROJECT_DIR$/EventsStats/pom.xml" />
         <option value="$PROJECT_DIR$/EventsRest/pom.xml" />
-        <option value="$PROJECT_DIR$/CompetitionsStats/pom.xml" />
         <option value="$PROJECT_DIR$/CompetitionsRest/pom.xml" />
         <option value="$PROJECT_DIR$/Commons/pom.xml" />
       </list>

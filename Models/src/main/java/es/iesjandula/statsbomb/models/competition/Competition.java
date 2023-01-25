@@ -2,6 +2,9 @@ package es.iesjandula.statsbomb.models.competition;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import jakarta.annotation.PostConstruct;
 import jakarta.persistence.*;
 
 /**
@@ -17,15 +20,16 @@ import jakarta.persistence.*;
 public class Competition
 {
 
+
     @EmbeddedId
     private CompetitionId competitionId;
 
     /** Attribute - The unique identifier for the competition. */
-    @Column(length = 10)
+    @Column(length = 10, insertable=false, updatable=false)
     private Integer competition_id;
 
     /** Attribute - The unique identifier for the season. */
-    @Column(length = 10)
+    @Column(length = 10, insertable=false, updatable=false)
     private Integer season_id;
 
     /** Attribute - The name of the competition. */
@@ -80,7 +84,7 @@ public class Competition
      * The date and time at which a match within this competition
      * and season was last updated from three-sixty
      */
-    @Column(name = "match_updated_360", nullable = false)
+    @Column(name = "match_updated_360")
     private String match_updated_360;
 
     /**
@@ -155,6 +159,13 @@ public class Competition
     public void setCompetition_id(Integer competition_id)
     {
         this.competition_id = competition_id;
+
+        if (this.competitionId == null)
+        {
+            this.competitionId = new CompetitionId();
+        }
+
+        this.competitionId.setCompetition_id(competition_id) ;
     }
 
     /**
@@ -171,6 +182,13 @@ public class Competition
     public void setSeason_id(Integer season_id)
     {
         this.season_id = season_id;
+
+        if (this.competitionId == null)
+        {
+            this.competitionId = new CompetitionId();
+        }
+
+        this.competitionId.setSeason_id(season_id) ;
     }
 
     /**
