@@ -2,35 +2,47 @@ package es.iesjandula.statsbomb.events_stats.possession;
 
 public class SegundoTiempo
 {
-    private double espana;
-    private double italia;
+    double spain;
+    double italy;
 
-    public double getEspana()
+    public SegundoTiempo(double spain, double italy)
     {
-        return espana;
+        this.spain = spain;
+        this.italy = italy;
     }
 
-    public void setEspana(double espana)
+    public SegundoTiempo()
     {
-        this.espana = espana;
+        this.spain = -1;
+        this.italy = -1;
     }
 
-    public double getItalia()
+    public double getSpain()
     {
-        return italia;
+        return spain;
     }
 
-    public void setItalia(double italia)
+    public void setSpain(double spain)
     {
-        this.italia = italia;
+        this.spain = spain;
+    }
+
+    public double getItaly()
+    {
+        return italy;
+    }
+
+    public void setItaly(double italy)
+    {
+        this.italy = italy;
     }
 
     @Override
     public String toString()
     {
         return "SegundoTiempo{" +
-                "espana=" + espana +
-                ", italia=" + italia +
+                "spain=" + spain +
+                ", italy=" + italy +
                 '}';
     }
 }

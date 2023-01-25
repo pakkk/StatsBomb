@@ -7,8 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="CompetitionsRest" />
-        <module name="MatchesStats" />
         <module name="EventsRest" />
+        <module name="MatchesStats" />
         <module name="LineupsRest" />
         <module name="WebPortal" />
         <module name="EventsStats" />
@@ -16,8 +16,8 @@
         <module name="ThreeSixtyRest" />
         <module name="MatchesRest" />
         <module name="Commons" />
-        <module name="Models" />
         <module name="LineupsStats" />
+        <module name="Models" />
         <module name="CompetitionsStats" />
       </profile>
     </annotationProcessing>
