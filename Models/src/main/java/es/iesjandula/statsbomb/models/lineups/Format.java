@@ -4,9 +4,11 @@ import es.iesjandula.statsbomb.models.event.tactics.Lineup;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  *@author Manuel Martin Murillo
@@ -37,7 +39,8 @@ public class Format
      * Attribute
      * An array of players on the team sheet for this team.
      */
-    private Lineup[] lineup;
+    @ManyToOne
+    private List <Lineup> lineup;
     /**
      * Default constructor
      */
@@ -85,7 +88,7 @@ public class Format
      * @return the object Lineup
      */
 
-    public Lineup[] getLineup()
+    public List <Lineup> getLineup()
     {
         return lineup;
     }
@@ -94,15 +97,17 @@ public class Format
      * @param lineup, with the object lineup
      */
 
-    public void setLineup(Lineup[] lineup)
+    public void setLineup(List <Lineup> lineup)
     {
         this.lineup = lineup;
     }
 
-    @Override
-    public String toString()
-    {
-        return "Format [team_id=" + team_id + ", team_name=" + team_name + ", lineup=" + Arrays.toString(lineup) + "]";
-    }
+	@Override
+	public String toString()
+	{
+		return "Format [team_id=" + team_id + ", team_name=" + team_name + ", lineup=" + lineup + "]";
+	}
+
+    
 
 }

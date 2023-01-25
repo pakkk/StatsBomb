@@ -4,7 +4,8 @@ import es.iesjandula.statsbomb.models.event.Player;
 import es.iesjandula.statsbomb.models.event.Position;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 import java.util.List;
@@ -34,12 +35,15 @@ public class FreezeFrame
     /** Attribute - With coordinate of player */
 
     @Column(length = 20)
+    @ManyToOne
     private List<Integer> location;
 
     /** Attribute - With Information about Player */
+    @OneToOne(mappedBy = "freeze_frame")
     private Player player;
 
     /** Attribute - With information about position */
+    @OneToOne(mappedBy = "freeze_frame")
     private Position position;
 
     /** Attribute - With information about teammate */

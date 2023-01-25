@@ -6,6 +6,8 @@ import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -42,12 +44,14 @@ public class AwayTeam
      * ID number and name corresponding to the origin country for
      * the home team in the match
      */
+    @OneToOne(mappedBy = "away_team")
     private Country country;
 
     /** Attribute -
      * Data frame of the manager for the home team with information
      * about the manager described with the variables listed below
      */
+    @ManyToOne
     private List<Manager> managers;
 
     /**

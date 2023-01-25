@@ -17,6 +17,7 @@ import jakarta.persistence.*;
 public class Competition
 {
 
+	@OneToOne(mappedBy = "competition")
     @EmbeddedId
     private CompetitionId competitionId;
 

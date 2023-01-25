@@ -3,6 +3,7 @@ package es.iesjandula.statsbomb.models.matches;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -23,6 +24,7 @@ public class Stadium
     private String name;
 
     /** Attribute - The name of the country the stadium is in */
+    @OneToOne(mappedBy = "stadium")
     private Country country;
 
     /**

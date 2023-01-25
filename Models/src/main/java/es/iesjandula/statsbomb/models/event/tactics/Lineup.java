@@ -5,6 +5,7 @@ import es.iesjandula.statsbomb.models.event.Position;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -21,10 +22,12 @@ public class Lineup
 	/**
 	 * Attribute - Information of the player
 	 */
+    @OneToOne(mappedBy = "lineup")
     private Player player;
     /**
      * Attribute - Information about the position of the player
      */
+    @OneToOne(mappedBy = "lineup")
     private Position position;
     /**
      * Attribute - The number on the player's shirt for the match

@@ -6,11 +6,11 @@ import es.iesjandula.statsbomb.models.event.BodyPart;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 
 import java.util.List;
-import java.util.UUID;
 
 /**
  * @author Neil Hdez
@@ -28,6 +28,7 @@ public class Pass {
      * Recorded whenever the
      * recipient of the pass is clear.
      */
+    @OneToOne(mappedBy = "pass")
     private Recipient recipient;
 
     /**
@@ -49,6 +50,7 @@ public class Pass {
      * Attribute -
      * specifying the height of the pass.
      */
+    @OneToOne(mappedBy = "pass")
     private Heigth height;
 
     /**
@@ -139,18 +141,21 @@ public class Pass {
      * Attribute -
      * the body part used to make this pass
      */
+    @OneToOne(mappedBy = "pass")
     private BodyPart body_part;
 
     /**
      * Attribute -
      * specifying the type of pass.
      */
+    @OneToOne(mappedBy = "pass")
     private Type type;
 
     /**
      * Attribute -
      * the outcome of the pass.
      */
+    @OneToOne(mappedBy = "pass")
     private OutCome outcome;
 
 
@@ -158,6 +163,7 @@ public class Pass {
      * Attribute -
      * the technique of the pass.
      */
+    @OneToOne(mappedBy = "pass")
     private Technique technique;
 
     /**

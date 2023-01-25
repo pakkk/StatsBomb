@@ -2,6 +2,7 @@ package es.iesjandula.statsbomb.models.event.substitution;
 
 import es.iesjandula.statsbomb.models.event.OutCome;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -23,18 +24,21 @@ public class Substitution
      * Attribute -
      * Object Outcome
      */
+    @OneToOne(mappedBy = "substitution")
     private OutCome outCome;
     /**
      * Attribute -
      * Object replacement what has id and 
      * and name about replacement
      */
+    @OneToOne(mappedBy = "substitution")
     private Replacement replacement;
     /**
      * Attribute -
      * Object outcome what
      * has id and name 
      */
+    @OneToOne(mappedBy = "substitution")
     private OutCome outcome;
     /**
      * Empty Constructor

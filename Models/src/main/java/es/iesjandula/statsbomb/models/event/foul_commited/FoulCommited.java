@@ -4,6 +4,7 @@ import es.iesjandula.statsbomb.models.event.Card;
 import es.iesjandula.statsbomb.models.event.Type;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -30,6 +31,7 @@ public class FoulCommited
      * Recorded only when a card is
      * awarded. Class Card
      */
+    @OneToOne(mappedBy = "foul_commited")
     private Card card;
 
     /* Attribute - If the Foul is offensive */
@@ -37,6 +39,7 @@ public class FoulCommited
     private Boolean offensive;
 
     /* Attribute - Type of FoulCommited */
+    @OneToOne(mappedBy = "foul_commited")
     private Type type;
 
     /* Attribute - If the Foul is Penalty */

@@ -4,9 +4,11 @@ import es.iesjandula.statsbomb.models.event.Position;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
-import java.util.Arrays;
+import java.util.List;
 @Entity
 @Table(name = "lineups")
 public class Lineups
@@ -40,33 +42,26 @@ public class Lineups
      * Attribute
      * The player’s nationality, a country object with ID and name attributes.
      */
-
+    @OneToOne(mappedBy = "lineups")
     private Country country;
     /**
      * Attribute
      * An array of cards that the player has received
      */
-
-    private Cards [] cards;
+    @ManyToOne
+    private List <Cards> cards;
     /**
      * Attribute
      * An array of positions that the player had during the match
      */
-
-    private Position[] positions;
+    @ManyToOne
+    private List<Position> positions;
     /**
      * Default constructor
      */
     public Lineups()
     {
         super();
-        this.player_id = player_id;
-        this.player_name = player_name;
-        this.player_nickname = player_nickname;
-        this.jersey_number = jersey_number;
-        this.country = country;
-        this.cards = cards;
-        this.positions = positions;
     }
 
     /**
@@ -173,7 +168,7 @@ public class Lineups
      * @return the array of cards of the player
      */
 
-    public Cards[] getCards()
+    public List <Cards>  getCards()
     {
         return cards;
     }
@@ -183,7 +178,7 @@ public class Lineups
      * @param cards, with the array of cards of the player
      */
 
-    public void setCards(Cards[] cards)
+    public void setCards(List <Cards>  cards)
     {
         this.cards = cards;
     }
@@ -193,7 +188,7 @@ public class Lineups
      * @return the array of positions
      */
 
-    public Position[] getPositions()
+    public List<Position> getPositions()
     {
         return positions;
     }
@@ -203,17 +198,21 @@ public class Lineups
      * @param positions, with the array of positions
      */
 
-    public void setPositions(Position[] positions)
+    public void setPositions(List<Position>  positions)
     {
         this.positions = positions;
     }
 
-    @Override
-    public String toString()
-    {
-        return "Lineups [player_id=" + player_id + ", player_name=" + player_name + ", player_nickname="
-                + player_nickname + ", jersey_number=" + jersey_number + ", country=" + country + ", cards="
-                + Arrays.toString(cards) + ", positions=" + Arrays.toString(positions) + "]";
-    }
+	@Override
+	public String toString()
+	{
+		return "Lineups [player_id=" + player_id + ", player_name=" + player_name + ", player_nickname="
+				+ player_nickname + ", jersey_number=" + jersey_number + ", country=" + country + ", cards=" + cards
+				+ ", positions=" + positions + "]";
+	}
+
+	
+
+   
 
 }
