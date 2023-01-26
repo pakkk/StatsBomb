@@ -32,8 +32,9 @@ public class MatchesUtils
 
     /**
      * Search all Matches of a Competition and Season
+     *
      * @param competitionId Identifier unique of Competition
-     * @param seasonId Identifier unique of Season
+     * @param seasonId      Identifier unique of Season
      * @return all Matches of competition and season
      * @throws StatsBombException
      */
