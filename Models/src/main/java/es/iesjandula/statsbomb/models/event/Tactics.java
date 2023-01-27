@@ -33,7 +33,7 @@ public class Tactics
      */
     @Column(length = 20)
     public String formation;
-    @ManyToOne
+    @OneToMany
     private List<Lineup> lineup;
 
     /**
