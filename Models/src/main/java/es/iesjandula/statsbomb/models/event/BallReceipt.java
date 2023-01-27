@@ -1,6 +1,7 @@
 package es.iesjandula.statsbomb.models.event;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -19,6 +20,7 @@ public class BallReceipt
      * Options specifying the outcome
      * of the ball receipt
      */
+    @OneToOne(mappedBy = "ball_receipt")
     private OutCome outcome;
 
     /**

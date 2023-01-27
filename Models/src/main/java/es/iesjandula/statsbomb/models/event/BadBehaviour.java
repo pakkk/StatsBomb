@@ -1,6 +1,7 @@
 package es.iesjandula.statsbomb.models.event;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -13,7 +14,7 @@ import jakarta.persistence.Table;
 @Table(name = "bad_behaviour")
 public class BadBehaviour
 {
-
+    @OneToOne(mappedBy = "bad_behaviour")
     private Card card;
 
     public BadBehaviour()

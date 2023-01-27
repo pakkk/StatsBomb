@@ -10,6 +10,8 @@ import es.iesjandula.statsbomb.models.event.substitution.Substitution;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 import java.util.Date;
@@ -72,6 +74,7 @@ public class Event
     private int second;
 
     /** Attribute - The type of event the corresponds to.  */
+    @OneToOne(mappedBy = "event")
     private Type type;
 
     /**
@@ -89,9 +92,11 @@ public class Event
      * the ball. Note that this will appear even on opposition events like
      * tackles attempted during the possession.
      */
+    @OneToOne(mappedBy = "event")
     private Team possession_team;
 
     /** Attribute - Id /name of the play pattern relevant to this event. */
+    @OneToOne(mappedBy = "event")
     private PlayPattern play_pattern;
 
     /**
@@ -99,6 +104,7 @@ public class Event
      * Id / Name of the team this event relates to. Team object will only
      * display if the event is tied to a specific team.
      */
+    @OneToOne(mappedBy = "event")
     private Team team;
 
     /**
@@ -106,9 +112,11 @@ public class Event
      * Id / Name of the player this event relates to (player object will only
      * display if the event is tied to a specific player).
      */
+    @OneToOne(mappedBy = "event")
     private Player player;
 
     /** Atribute - Id / Name of the position the player was in at the time of this event. */
+    @OneToOne(mappedBy = "event")
     private Position position;
 
     /**
@@ -118,6 +126,7 @@ public class Event
      * the event (this only displays if the
      * event has pitch coordinates).
      */
+    @ManyToOne
     private List<Integer> location;
 
     /** Attribute - If relevant, the length in seconds the event lasted. */
@@ -157,68 +166,87 @@ public class Event
      * describes the formation
      * being used.
      */
+    @OneToOne(mappedBy = "event")
     private Tactics tactics;
 
     /**
      * Attribute - The receipt or intended receipt of a pass */
+    @OneToOne(mappedBy = "event")
     private BallReceipt ball_receipt;
 
     /** Attribute - An attempt to recover a loose ball  */
+    @OneToOne(mappedBy = "event")
     private BallRecovery ball_recovery;
 
     /** Attribute - A player controls the ball at their feet while moving or standing still. */
+    @OneToOne(mappedBy = "event")
     private Carry carry;
 
     /** Attribute - Action by a defending player to clear the danger without an intention to deliver it to a teammate */
+    @OneToOne(mappedBy = "event")
     private Clearance clearance;
 
     /** Attribute - An attempt by a player to beat an opponent */
+    @OneToOne(mappedBy = "event")
     private Dribble dribble;
 
     /** Attribute - A duel is an 50-50 contest between two players of opposing sides in the match. */
+    @OneToOne(mappedBy = "event")
     private Duel duel;
 
     /** Attribute - Actions that can be done by the goalkeeper. */
+    @OneToOne(mappedBy = "event")
     private Goalkeeper goalkeeper;
 
     /** Attribute - A stop in play due to an injury. */
+    @OneToOne(mappedBy = "event")
     private InjuryStoppage injury_stoppage;
 
     /** Attribute
      * Preventing an opponent's pass from reaching their teammates by moving to the passing lane/reacting to
      * intercept it.
      */
+    @OneToOne(mappedBy = "event")
     private Interception interception;
 
     /** Attribute - An intended kick from one player to his teammate */
+    @OneToOne(mappedBy = "event")
     private Pass pass;
 
     /** Attribute - An attempt to score a goal, made with any (legal) part of the body */
+    @OneToOne(mappedBy = "event")
     private Shot shot;
 
     /* Attribute - Pressing actions within 5 seconds  of an open play turnover */
     private Boolean counterpress;
 
     /* Attribute - Describe the scenario when a player wins a foul */
+    @OneToOne(mappedBy = "event")
     private FoulWon foul_won;
 
     /** Attribute - describe who committed a foul resulting in a free kick or penalty kick. */
+    @OneToOne(mappedBy = "event")
     private FoulCommited foul_committed;
 
     /** Attribute - events typically follow a pass or a shot */
+    @OneToOne(mappedBy = "event")
     private Block block;
 
     /** Attribute - describe the player coming on the pitch, the player coming off the pitch and the reason why. */
+    @OneToOne(mappedBy = "event")
     private Substitution substitution;
 
     /** Attribute - describe the bad behaviour **/
+    @OneToOne(mappedBy = "event")
     private BadBehaviour bad_behaviour;
 
     /* Attribute - misscontrol of Event */
+    @OneToOne(mappedBy = "event")
     private MisControl miscontrol;
 
     /* Attribute - 50_50 of Event */
     @JsonProperty("50_50")
+    @OneToOne(mappedBy = "event")
     private FiftyFifty fifty_fifty;
 
     /**

@@ -2,6 +2,7 @@ package es.iesjandula.statsbomb.models.event;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -26,7 +27,9 @@ public class Duel
      */
     @Column(name = "counterpress")
     private Boolean counterpress;
+    @OneToOne(mappedBy = "duel")
     private Type type;
+    @OneToOne(mappedBy = "duel")
     private OutCome outcome;
 
     /**

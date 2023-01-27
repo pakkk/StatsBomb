@@ -2,6 +2,7 @@ package es.iesjandula.statsbomb.models.event;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -36,6 +37,7 @@ public class Dribble
     private Boolean overrun;
     @Column(name = "nutmeg")
     private Boolean nutmeg;
+    @OneToOne(mappedBy = "dribble")
     private OutCome outcome;
     @Column(name = "not_touch")
     private Boolean not_touch;

@@ -23,6 +23,7 @@ public class Interception
      * option specifying the outcome
      * of the interception
      */
+    @OneToOne(mappedBy = "interception")
     private OutCome outcome;
 
     /**

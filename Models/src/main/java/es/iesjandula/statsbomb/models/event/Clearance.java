@@ -2,6 +2,7 @@ package es.iesjandula.statsbomb.models.event;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -27,11 +28,13 @@ public class Clearance
      * instance of body part to define with what part
      * of the body was won the ball
      */
+    @OneToOne(mappedBy = "clearance")
     private BodyPart body_part;
     /**
      * Attribute -
      * instance of bodyPart if the ball was clearance
      */
+    @OneToOne(mappedBy = "clearance")
     private BodyPart clearance;
     /**
      * Attribute -
