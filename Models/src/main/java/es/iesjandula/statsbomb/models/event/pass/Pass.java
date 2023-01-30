@@ -6,6 +6,7 @@ import es.iesjandula.statsbomb.models.event.BodyPart;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -29,7 +30,9 @@ public class Pass {
      * Recorded whenever the
      * recipient of the pass is clear.
      */
-    @OneToOne(mappedBy = "pass")
+	
+    @OneToOne
+    @JoinColumn(name = "assisted_shot_id", referencedColumnName = "id")
     private Recipient recipient;
 
     /**
@@ -51,7 +54,8 @@ public class Pass {
      * Attribute -
      * specifying the height of the pass.
      */
-    @OneToOne(mappedBy = "pass")
+    @OneToOne
+    @JoinColumn(name = "assisted_shot_id", referencedColumnName = "id")
     private Heigth height;
 
     /**
@@ -143,21 +147,24 @@ public class Pass {
      * Attribute -
      * the body part used to make this pass
      */
-    @OneToOne(mappedBy = "pass")
+    @OneToOne
+    @JoinColumn(name = "assisted_shot_id", referencedColumnName = "id")
     private BodyPart body_part;
 
     /**
      * Attribute -
      * specifying the type of pass.
      */
-    @OneToOne(mappedBy = "pass")
+    @OneToOne
+    @JoinColumn(name = "assisted_shot_id", referencedColumnName = "id")
     private Type type;
 
     /**
      * Attribute -
      * the outcome of the pass.
      */
-    @OneToOne(mappedBy = "pass")
+    @OneToOne
+    @JoinColumn(name = "assisted_shot_id", referencedColumnName = "id")
     private OutCome outcome;
 
 
@@ -165,7 +172,8 @@ public class Pass {
      * Attribute -
      * the technique of the pass.
      */
-    @OneToOne(mappedBy = "pass")
+    @OneToOne
+    @JoinColumn(name = "assisted_shot_id", referencedColumnName = "id")
     private Technique technique;
 
     /**
