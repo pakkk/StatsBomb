@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
-import es.iesjandula.statsbomb.events_stats.EventsStats;
+import es.iesjandula.statsbomb.events_rest.stats.EventsStats;
 
 /**
  * ------------------------------------------------
