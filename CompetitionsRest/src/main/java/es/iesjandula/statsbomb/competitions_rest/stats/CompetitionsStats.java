@@ -3,6 +3,7 @@ package es.iesjandula.statsbomb.competitions_rest.stats;
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.utils.JsonUtils;
 import es.iesjandula.statsbomb.competitions_rest.stats.gender.GenderFilter;
+import es.iesjandula.statsbomb.competitions_rest.stats.id.IdFilter;
 import es.iesjandula.statsbomb.competitions_rest.stats.order.OrderFilter;
 import es.iesjandula.statsbomb.competitions_rest.stats.utils.CompetitionUtils;
 import org.apache.logging.log4j.LogManager;
@@ -75,5 +76,16 @@ public class CompetitionsStats
         GenderFilter genderFilter = new GenderFilter();
         return genderFilter.getCompetitionsMale(competitionUtils.getListCompetitions());
     }
-
+    
+    /**
+     * This method show all competitions id
+     * 
+     * @return String in format Json Pretty with competitions id.
+     * @throws StatsBombException
+     */
+    public String getCompetitionsId() throws StatsBombException
+    {
+        IdFilter idFilter = new IdFilter();
+        return idFilter.getCompetitionsId(competitionUtils.getListCompetitions());
+    }
 }
