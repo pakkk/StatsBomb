@@ -58,9 +58,6 @@ public class CompetitionUtils
         List<Competition> competitionList = this.getListCompetitions();
         this.competitionRepository.saveAllAndFlush(competitionList);
 
-        List<Competition> competitionList2 =this.competitionRepository.findAll() ;
-        System.out.println(competitionList2);
-
     }
 
 }

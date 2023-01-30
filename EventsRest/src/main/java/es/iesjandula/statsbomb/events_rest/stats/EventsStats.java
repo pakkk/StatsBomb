@@ -79,7 +79,8 @@ public class EventsStats
         return duelFilter.getPlayersDuels(getListEvents(matchId));
     }
 
-    public String getPlayerScorers(int matchId) throws StatsBombException {
+    public String getPlayerScorers(int matchId) throws StatsBombException
+    {
         ScorerFilter scorerFilter = new ScorerFilter();
         return scorerFilter.getScorers(getListEvents(matchId));
 
@@ -87,6 +88,7 @@ public class EventsStats
 
     /**
      * Call of Filter
+     *
      * @param matchId Match
      * @return a list of Possessions
      * @throws StatsBombException
@@ -99,6 +101,7 @@ public class EventsStats
     
     /**
      * Call of Filter
+     *
      * @param matchId Match
      * @return a list of Possessions
      * @throws StatsBombException

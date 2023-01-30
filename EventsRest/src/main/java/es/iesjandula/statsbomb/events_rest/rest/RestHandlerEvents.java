@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -143,9 +142,9 @@ public class RestHandlerEvents
 	 * Method return Instance of EventStats that returns reference players
 	 * @return Instance of EventStats that returns reference players
 	 */
-	@RequestMapping(method = RequestMethod.GET, value = "/reference_player/{matchId}")
+	@RequestMapping(method = RequestMethod.GET, value = "/reference_player")
 	public ResponseEntity<?> getListOfReferencePlayer(
-			@PathVariable(value = "matchId", required = true) final Integer matchId)
+			@RequestParam(value = "matchId", required = true) final Integer matchId)
 	{
 		try
 		{

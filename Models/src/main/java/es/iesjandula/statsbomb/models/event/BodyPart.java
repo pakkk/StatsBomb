@@ -18,6 +18,7 @@ import jakarta.persistence.Table;
 public class BodyPart
 {
 
+
     /**
      * Attribute -
      * id of the body part

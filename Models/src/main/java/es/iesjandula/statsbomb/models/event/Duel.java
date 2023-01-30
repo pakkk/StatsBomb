@@ -1,8 +1,6 @@
 package es.iesjandula.statsbomb.models.event;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -13,6 +11,9 @@ import jakarta.persistence.Table;
 @Table(name = "duel")
 public class Duel
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     /**
      * Attributes -
      * Counterpass -> Pressing actions within 5
@@ -26,7 +27,9 @@ public class Duel
      */
     @Column(name = "counterpress")
     private Boolean counterpress;
+    @OneToOne(mappedBy = "duel")
     private Type type;
+    @OneToOne(mappedBy = "duel")
     private OutCome outcome;
 
     /**

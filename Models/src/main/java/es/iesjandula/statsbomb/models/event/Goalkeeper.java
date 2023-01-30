@@ -3,7 +3,7 @@ package es.iesjandula.statsbomb.models.event;
 
 import java.util.List;
 
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -13,16 +13,24 @@ import jakarta.persistence.Column;
  */
 public class Goalkeeper
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     /**
      * Attributes -
      * Id / Name for the attribute
      * option of goalkeeper’s
      * positioning before a shot.
      */
+    @OneToOne(mappedBy = "goalkeeper")
     private Position position;
+    @OneToOne(mappedBy = "goalkeeper")
     private Technique technique;
+    @OneToOne(mappedBy = "goalkeeper")
     private BodyPart body_part;
+    @OneToOne(mappedBy = "goalkeeper")
     private Type type;
+    @OneToOne(mappedBy = "goalkeeper")
     private OutCome outcome;
     private List<Integer> end_location;
 
