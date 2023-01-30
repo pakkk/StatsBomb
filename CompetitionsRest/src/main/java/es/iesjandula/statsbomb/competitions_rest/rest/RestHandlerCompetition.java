@@ -137,6 +137,11 @@ public class RestHandlerCompetition
         }
     }
     
+    /**
+     * This endpoint returns all competitions id
+     * 
+     * @return Json of competitions id
+     */
     @RequestMapping(method=RequestMethod.GET, value="/filter/id")
     public ResponseEntity<?> getCompetitionsId() 
     {

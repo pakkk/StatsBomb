@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author Neil Hdez
+ * @author Manuel Canio Gil
  *
  * In this class we create the filter and statistics for Json Competitions.
  */
