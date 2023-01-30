@@ -32,7 +32,7 @@ public class Shot
     private String key_pass_id;
 
     /* Attribute - Where the shot ends */
-
+    @Column(name = "end_location")
     private List<Integer> end_location;
 
     /**

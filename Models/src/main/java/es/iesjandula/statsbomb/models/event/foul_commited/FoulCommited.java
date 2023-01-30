@@ -2,10 +2,7 @@ package es.iesjandula.statsbomb.models.event.foul_commited;
 
 import es.iesjandula.statsbomb.models.event.Card;
 import es.iesjandula.statsbomb.models.event.Type;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -19,6 +16,9 @@ import jakarta.persistence.Table;
 @Table(name = "foul_commited")
 public class FoulCommited
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     /**
      * Attribute -
      * Added when the referee calls

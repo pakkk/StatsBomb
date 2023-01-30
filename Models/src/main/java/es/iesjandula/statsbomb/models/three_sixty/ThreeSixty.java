@@ -40,6 +40,7 @@ public class ThreeSixty
 	   not on the pitch at the time the frame was
 	   collected.
 	 */
+	@Column(name = "visible_area")
 	private List<Double> visible_area;
 	/**
 	 * Attribute

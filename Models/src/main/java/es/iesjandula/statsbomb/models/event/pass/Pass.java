@@ -61,6 +61,7 @@ public class Pass {
      * coordinates at which the pass
      * ended
      */
+    @Column(name = "end_location")
     private List<Integer> end_location;
 
     /**

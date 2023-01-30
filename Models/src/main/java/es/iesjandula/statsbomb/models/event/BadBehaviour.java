@@ -1,8 +1,6 @@
 package es.iesjandula.statsbomb.models.event;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -14,6 +12,9 @@ import jakarta.persistence.Table;
 @Table(name = "bad_behaviour")
 public class BadBehaviour
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @OneToOne(mappedBy = "bad_behaviour")
     private Card card;
 

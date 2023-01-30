@@ -3,8 +3,7 @@ package es.iesjandula.statsbomb.models.event;
 
 import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -14,6 +13,9 @@ import jakarta.persistence.OneToOne;
  */
 public class Goalkeeper
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     /**
      * Attributes -
      * Id / Name for the attribute

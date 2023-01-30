@@ -126,7 +126,7 @@ public class Event
      * the event (this only displays if the
      * event has pitch coordinates).
      */
-    @ManyToOne
+    @Column(name = "location")
     private List<Integer> location;
 
     /** Attribute - If relevant, the length in seconds the event lasted. */
@@ -155,6 +155,7 @@ public class Event
      * of the shot in their related_events
      * column.
      */
+    @Column(name = "related_events")
     private List<String> related_events;
 
     /**
