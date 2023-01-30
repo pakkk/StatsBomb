@@ -7,6 +7,7 @@ import es.iesjandula.statsbomb.models.event.Type;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -104,7 +105,8 @@ public class Shot
      * ID / Name of the technique
      * used for the shot.
      */
-    @OneToOne(mappedBy = "shot")
+    @OneToOne
+    @JoinColumn(name = "key_pass_id", referencedColumnName = "id")
     private Technique technique;
 
     /**
@@ -113,7 +115,8 @@ public class Shot
      * option specifying the outcome
      * of the shot.
      */
-    @OneToOne(mappedBy = "shot")
+    @OneToOne
+    @JoinColumn(name = "key_pass_id", referencedColumnName = "id")
     private OutCome outcome;
 
     /**
@@ -122,14 +125,16 @@ public class Shot
      * option specifying the type of
      * shot.
      */
-    @OneToOne(mappedBy = "shot")
+    @OneToOne
+    @JoinColumn(name = "key_pass_id", referencedColumnName = "id")
     private Type type;
 
     /**
      * ID / Name of the body part
      * used to shoot.
      */
-    @OneToOne(mappedBy = "shot")
+    @OneToOne
+    @JoinColumn(name = "key_pass_id", referencedColumnName = "id")
     private BodyPart body_part;
 
 

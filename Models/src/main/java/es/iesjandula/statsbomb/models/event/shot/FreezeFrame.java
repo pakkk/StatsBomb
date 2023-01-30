@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -47,11 +48,13 @@ public class FreezeFrame
     private List<Integer> location;
 
     /** Attribute - With Information about Player */
-    @OneToOne(mappedBy = "freeze_frame")
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private Player player;
 
     /** Attribute - With information about position */
-    @OneToOne(mappedBy = "freeze_frame")
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private Position position;
 
     /** Attribute - With information about teammate */

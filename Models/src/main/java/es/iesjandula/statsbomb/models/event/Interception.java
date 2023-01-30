@@ -23,7 +23,8 @@ public class Interception
      * option specifying the outcome
      * of the interception
      */
-    @OneToOne(mappedBy = "interception")
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private OutCome outcome;
 
     /**
