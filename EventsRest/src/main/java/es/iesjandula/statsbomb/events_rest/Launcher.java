@@ -14,8 +14,8 @@ import org.springframework.core.env.Environment;
 /**
  * This class starts the application
  */
-@SpringBootApplication(scanBasePackages = {"es.iesjandula"})
-@EntityScan(basePackages = {"es.iesjandula.statsbomb.models.events"})
+@SpringBootApplication
+@EntityScan(basePackages = {"es.iesjandula.statsbomb.models.event"})
 @Configuration
 public class Launcher implements CommandLineRunner
 {
