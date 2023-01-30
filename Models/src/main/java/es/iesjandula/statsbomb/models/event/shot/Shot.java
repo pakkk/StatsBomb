@@ -7,6 +7,9 @@ import es.iesjandula.statsbomb.models.event.Type;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 import java.util.List;
@@ -29,7 +32,7 @@ public class Shot
     private String key_pass_id;
 
     /* Attribute - Where the shot ends */
-
+    @Column(name = "end_location")
     private List<Integer> end_location;
 
     /**
@@ -77,6 +80,7 @@ public class Shot
      * team, id, name and position id
      * and name.
      */
+    @OneToMany
     private List<FreezeFrame> freeze_frame;
 
     /**
@@ -101,6 +105,8 @@ public class Shot
      * ID / Name of the technique
      * used for the shot.
      */
+    @OneToOne
+    @JoinColumn(name = "key_pass_id", referencedColumnName = "id")
     private Technique technique;
 
     /**
@@ -109,6 +115,8 @@ public class Shot
      * option specifying the outcome
      * of the shot.
      */
+    @OneToOne
+    @JoinColumn(name = "key_pass_id", referencedColumnName = "id")
     private OutCome outcome;
 
     /**
@@ -117,12 +125,16 @@ public class Shot
      * option specifying the type of
      * shot.
      */
+    @OneToOne
+    @JoinColumn(name = "key_pass_id", referencedColumnName = "id")
     private Type type;
 
     /**
      * ID / Name of the body part
      * used to shoot.
      */
+    @OneToOne
+    @JoinColumn(name = "key_pass_id", referencedColumnName = "id")
     private BodyPart body_part;
 
 

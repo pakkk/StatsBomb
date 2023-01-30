@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -63,9 +62,9 @@ public class RestHandlerMatches
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/list_manager_score/{competitionId}/{seasonId}")
-	public ResponseEntity<?> getManagerScoreFilter(@PathVariable(value = "competitionId") final Integer competitionId,
-			@PathVariable(value = "seasonId") final Integer seasonId)
+	@RequestMapping(method = RequestMethod.GET, value = "/list_manager_score")
+	public ResponseEntity<?> getManagerScoreFilter(@RequestParam(value = "competitionId", required = true) final Integer competitionId,
+			@RequestParam(value = "seasonId", required = true) final Integer seasonId)
 	{
 		try
 		{
@@ -84,10 +83,10 @@ public class RestHandlerMatches
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/list_manager_with_same_nationality/{competitionId}/{seasonId}")
+	@RequestMapping(method = RequestMethod.GET, value = "/list_manager_with_same_nationality")
 	public ResponseEntity<?> getManagerWithSameNationality(
-			@PathVariable(value = "competitionId") final Integer competitionId,
-			@PathVariable(value = "seasonId") final Integer seasonId)
+			@RequestParam(value = "competitionId", required = true) final Integer competitionId,
+			@RequestParam(value = "seasonId", required = true) final Integer seasonId)
 	{
 		try
 		{

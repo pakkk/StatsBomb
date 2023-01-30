@@ -1,8 +1,6 @@
 package es.iesjandula.statsbomb.models.event;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -16,6 +14,9 @@ import jakarta.persistence.Table;
 @Table(name = "clearance")
 public class Clearance
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     /**
      * Attribute -
      * if the ball was won in the air
@@ -27,11 +28,13 @@ public class Clearance
      * instance of body part to define with what part
      * of the body was won the ball
      */
+    @OneToOne(mappedBy = "clearance")
     private BodyPart body_part;
     /**
      * Attribute -
      * instance of bodyPart if the ball was clearance
      */
+    @OneToOne(mappedBy = "clearance")
     private BodyPart clearance;
     /**
      * Attribute -

@@ -1,8 +1,6 @@
 package es.iesjandula.statsbomb.models.event;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -14,6 +12,9 @@ import jakarta.persistence.Table;
 @Table(name = "dribble")
 public class Dribble
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     /**
      * Attributes -
      * Overrun -> Added when a dribble goes
@@ -36,6 +37,7 @@ public class Dribble
     private Boolean overrun;
     @Column(name = "nutmeg")
     private Boolean nutmeg;
+    @OneToOne(mappedBy = "dribble")
     private OutCome outcome;
     @Column(name = "not_touch")
     private Boolean not_touch;

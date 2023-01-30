@@ -4,13 +4,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
+import es.iesjandula.statsbomb.common.load_json.IJsonLoader;
 import es.iesjandula.statsbomb.common.load_json.Json;
 import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
 import es.iesjandula.statsbomb.common.utils.Constants;
 
+import es.iesjandula.statsbomb.models.competition.Competition;
 import es.iesjandula.statsbomb.models.matches.Match;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,10 +27,14 @@ public class MatchesUtils
     /* Attribute - Logger */
     private final Logger LOGGER = LogManager.getLogger();
 
+    @Autowired
+    private IMatchesRepository matchesRepository;
+
     /**
      * Search all Matches of a Competition and Season
+     *
      * @param competitionId Identifier unique of Competition
-     * @param seasonId Identifier unique of Season
+     * @param seasonId      Identifier unique of Season
      * @return all Matches of competition and season
      * @throws StatsBombException
      */
@@ -50,5 +57,26 @@ public class MatchesUtils
         }
 
         return matchesList;
+    }
+
+    public void insertMatchesInDataBase() throws StatsBombException, JsonProcessingException
+    {
+
+        List<Competition> competitionList = getCompetition();
+
+        for (Competition competition : competitionList)
+        {
+            this.matchesRepository.saveAllAndFlush(this.getMatches(competition.getCompetition_id(), competition.getSeason_id()));
+        }
+
+    }
+
+    public List<Competition> getCompetition() throws StatsBombException, JsonProcessingException
+    {
+        IJsonLoader jsonLoader = new JsonLoaderImpl();
+
+        ObjectMapper mapper = Json.mapper();
+
+        return mapper.readValue(jsonLoader.loadCompetitions(), new TypeReference<List<Competition>>(){});
     }
 }

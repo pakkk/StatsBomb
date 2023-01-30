@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+
 /**
  * ------------------------------------------------
  *
@@ -125,6 +126,31 @@ public class RestHandlerCompetition
             return ResponseEntity.ok().body(resultJson);
         }
         catch (StatsBombException statsBombException)
+        {
+            return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
+        }
+        catch (Exception exception)
+        {
+            StatsBombException statsBombException = new StatsBombException(exception);
+            LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
+            return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
+        }
+    }
+    
+    /**
+     * This endpoint returns all competitions id
+     * 
+     * @return Json of competitions id
+     */
+    @RequestMapping(method=RequestMethod.GET, value="/filter/id")
+    public ResponseEntity<?> getCompetitionsId() 
+    {
+        try 
+        {
+            String resultJson = this.competitionsStats.getCompetitionsId();
+            return ResponseEntity.ok().body(resultJson);    
+        } 
+        catch (StatsBombException statsBombException) 
         {
             return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
         }

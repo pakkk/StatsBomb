@@ -4,7 +4,9 @@ import es.iesjandula.statsbomb.models.event.Position;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -42,19 +44,20 @@ public class Lineups
      * Attribute
      * The player’s nationality, a country object with ID and name attributes.
      */
-    @OneToOne(mappedBy = "lineups")
+    @OneToOne
+    @JoinColumn(name = "player_id", referencedColumnName = "id")
     private Country country;
     /**
      * Attribute
      * An array of cards that the player has received
      */
-    @ManyToOne
+    @OneToMany
     private List <Cards> cards;
     /**
      * Attribute
      * An array of positions that the player had during the match
      */
-    @ManyToOne
+    @OneToMany
     private List<Position> positions;
     /**
      * Default constructor

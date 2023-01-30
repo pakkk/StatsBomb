@@ -3,9 +3,7 @@ package es.iesjandula.statsbomb.models.three_sixty;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /** 
  * @author Alejandro Aljarilla
@@ -15,6 +13,9 @@ import jakarta.persistence.Table;
 @Table(name = "freeze_frame")
 public class FreezeFrame 
 {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
    /**
     * Attribute
     * The position of the player on the field, with
@@ -22,6 +23,7 @@ public class FreezeFrame
  	  linked event (i.e. the actor's team attacking 0 to 120
       on the X axis.
     */
+   @Column(name = "location")
    private List<Double> location;
    /**
     * Attribute
