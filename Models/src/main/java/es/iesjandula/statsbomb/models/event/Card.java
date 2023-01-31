@@ -1,5 +1,6 @@
 package es.iesjandula.statsbomb.models.event;
 
+import es.iesjandula.statsbomb.models.event.foul_commited.FoulCommited;
 import jakarta.persistence.*;
 
 /**
@@ -31,7 +32,8 @@ public class Card
 
     @OneToOne
     private BadBehaviour badBehaviour;
-
+    @OneToOne
+    private FoulCommited foulCommited;
     /**
      * Default Constructor
      */

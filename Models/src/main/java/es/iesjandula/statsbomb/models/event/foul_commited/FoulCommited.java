@@ -31,7 +31,8 @@ public class FoulCommited
      * Recorded only when a card is
      * awarded. Class Card
      */
-    @OneToOne(mappedBy = "foul_commited")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Card card;
 
     /* Attribute - If the Foul is offensive */
@@ -39,7 +40,8 @@ public class FoulCommited
     private Boolean offensive;
 
     /* Attribute - Type of FoulCommited */
-    @OneToOne(mappedBy = "foul_commited")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Type type;
 
     /* Attribute - If the Foul is Penalty */
