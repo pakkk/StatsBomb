@@ -15,7 +15,8 @@ public class BadBehaviour
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne(mappedBy = "bad_behaviour")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Card card;
 
     public BadBehaviour()

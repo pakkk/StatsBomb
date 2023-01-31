@@ -1,10 +1,8 @@
 package es.iesjandula.statsbomb.models.event;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import es.iesjandula.statsbomb.models.event.shot.FreezeFrame;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -27,6 +25,9 @@ public class Position
     private int id; // id
     @Column(length = 25)
     private String name; // name of the Position
+
+    @OneToOne
+    private FreezeFrame freezeFrame;
 
     /**
      * Empty constructor

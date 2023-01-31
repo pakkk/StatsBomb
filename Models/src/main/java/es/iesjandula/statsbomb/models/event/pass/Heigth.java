@@ -1,9 +1,6 @@
 package es.iesjandula.statsbomb.models.event.pass;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -29,6 +26,9 @@ public class Heigth
      */
     @Column(length = 25)
     private String name;
+
+    @OneToOne
+    private Pass pass;
 
     /**
      * Default constructor

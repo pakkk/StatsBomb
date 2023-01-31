@@ -1,9 +1,6 @@
 package es.iesjandula.statsbomb.models.event;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -31,6 +28,9 @@ public class Card
      */
     @Column(name = "name", nullable = false, length = 50)
     private String name;
+
+    @OneToOne
+    private BadBehaviour badBehaviour;
 
     /**
      * Default Constructor

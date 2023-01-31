@@ -51,9 +51,6 @@ public class Substitution
      * Object outcome what
      * has id and name 
      */
-    @OneToOne
-    @JoinColumn(name = "id", referencedColumnName = "id")
-    private OutCome outcome;
     /**
      * Empty Constructor
      */
@@ -64,17 +61,6 @@ public class Substitution
     /**
      * @return object OutCome
      */
-    public OutCome getOutcome()
-    {
-        return outcome;
-    }
-    /**
-     * @param outcome set the object outcome
-     */
-    public void setOutcome(OutCome outcome)
-    {
-        this.outcome = outcome;
-    }
     /**
      * @return the object OutCome
      */
