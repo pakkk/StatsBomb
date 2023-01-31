@@ -1,6 +1,7 @@
 package es.iesjandula.statsbomb.models.event;
 
 import es.iesjandula.statsbomb.models.event.shot.FreezeFrame;
+import es.iesjandula.statsbomb.models.event.tactics.Lineup;
 import jakarta.persistence.*;
 
 /**
@@ -29,6 +30,8 @@ public class Player
 
     @OneToOne
     private FreezeFrame freezeFrame;
+    @OneToOne
+    private Lineup lineup;
 
     /**
      * Empty Constructor

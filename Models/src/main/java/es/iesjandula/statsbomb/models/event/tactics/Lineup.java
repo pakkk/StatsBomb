@@ -2,11 +2,7 @@ package es.iesjandula.statsbomb.models.event.tactics;
 
 import es.iesjandula.statsbomb.models.event.Player;
 import es.iesjandula.statsbomb.models.event.Position;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -22,12 +18,14 @@ public class Lineup
 	/**
 	 * Attribute - Information of the player
 	 */
-    @OneToOne(mappedBy = "lineup")
+    @OneToOne
+    @JoinColumn(name = "jersey_number",referencedColumnName = "id")
     private Player player;
     /**
      * Attribute - Information about the position of the player
      */
-    @OneToOne(mappedBy = "lineup")
+    @OneToOne
+    @JoinColumn(name = "jersey_number",referencedColumnName = "id")
     private Position position;
     /**
      * Attribute - The number on the player's shirt for the match

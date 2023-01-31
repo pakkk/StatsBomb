@@ -1,5 +1,6 @@
 package es.iesjandula.statsbomb.models.event;
 
+import es.iesjandula.statsbomb.models.event.foul_commited.FoulCommited;
 import es.iesjandula.statsbomb.models.event.pass.Pass;
 import es.iesjandula.statsbomb.models.event.shot.Shot;
 import jakarta.persistence.*;
@@ -37,6 +38,8 @@ public class Type
     @OneToOne
     private Pass pass;
 
+    @OneToOne
+    private FoulCommited foulCommited;
     /**
      * Empty constructor
      */
