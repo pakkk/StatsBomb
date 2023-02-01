@@ -28,13 +28,15 @@ public class Clearance
      * instance of body part to define with what part
      * of the body was won the ball
      */
-    @OneToOne(mappedBy = "clearance")
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private BodyPart body_part;
     /**
      * Attribute -
      * instance of bodyPart if the ball was clearance
      */
-    @OneToOne(mappedBy = "clearance")
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private BodyPart clearance;
     /**
      * Attribute -
@@ -61,6 +63,8 @@ public class Clearance
      */
     @Column(name = "other")
     private Boolean other;
+    @OneToOne(mappedBy = "clearance")
+    private Event event;
 
     /**
      * Default Constructor

@@ -1,9 +1,8 @@
 package es.iesjandula.statsbomb.models.event;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import es.iesjandula.statsbomb.models.event.shot.FreezeFrame;
+import es.iesjandula.statsbomb.models.event.tactics.Lineup;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -26,8 +25,18 @@ public class Player
     @Id
     @Column(length = 10)
     private int id; // id
+
     @Column(length = 25)
     private String name; // name of the Player
+
+    @OneToOne(mappedBy = "player")
+    private FreezeFrame freezeFrame;
+
+    @OneToOne(mappedBy = "player")
+    private Lineup lineup;
+
+    @OneToOne(mappedBy = "player")
+    private Event event;
 
     /**
      * Empty Constructor

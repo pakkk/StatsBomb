@@ -21,8 +21,12 @@ public class BallReceipt
      * Options specifying the outcome
      * of the ball receipt
      */
-    @OneToOne(mappedBy = "ball_receipt")
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private OutCome outcome;
+    @OneToOne(mappedBy = "ball_receipt")
+    private Event event;
+
 
     /**
      * Empty Constructor

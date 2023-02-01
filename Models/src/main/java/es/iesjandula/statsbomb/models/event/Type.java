@@ -1,9 +1,9 @@
 package es.iesjandula.statsbomb.models.event;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import es.iesjandula.statsbomb.models.event.foul_commited.FoulCommited;
+import es.iesjandula.statsbomb.models.event.pass.Pass;
+import es.iesjandula.statsbomb.models.event.shot.Shot;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -29,8 +29,28 @@ public class Type
     @Id
     @Column(length = 10)
     private int id; // id
+
     @Column(length = 25)
     private String name; // name of the event type
+
+    @OneToOne(mappedBy = "type")
+    private Shot shot;
+
+    @OneToOne(mappedBy = "type")
+    private Pass pass;
+
+    @OneToOne(mappedBy = "type")
+    private FoulCommited foulCommited;
+
+    
+    @OneToOne(mappedBy = "type")
+    private Goalkeeper goalkeeper;
+
+    @OneToOne(mappedBy = "type")
+    private Duel duel;
+
+    @OneToOne(mappedBy = "type")
+    private Event event;
 
     /**
      * Empty constructor

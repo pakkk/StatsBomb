@@ -36,6 +36,9 @@ public class Tactics
     @OneToMany
     private List<Lineup> lineup;
 
+    @OneToOne(mappedBy = "tactics")
+    private Event event;
+
     /**
      * Empty constructor
      */

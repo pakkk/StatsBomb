@@ -1,5 +1,6 @@
 package es.iesjandula.statsbomb.matches_rest.rest;
 
+import es.iesjandula.statsbomb.matches_rest.stats.id_filter.MatchesIdFilter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Bean;
@@ -38,6 +39,7 @@ public class RestHandlerMatches
 	private final ManagerNationalityFilter managerNationalityFilter = this.getManagerWithSameNationality();
 	// New Instance of ManagerScoreFilter
 	private final ManagerScoreFilter managerScoreFilter = this.getManagerScoreFilter();
+
 
 	@RequestMapping(method = RequestMethod.GET, value = "/list_matches_date/")
 	public ResponseEntity<?> getListOfMatchesbyDate(
@@ -114,6 +116,28 @@ public class RestHandlerMatches
 		try
 		{
 			String resultJson = this.matchesStats.getResultsMatches(competitionId, seasonId);
+			return ResponseEntity.ok().body(resultJson);
+		}
+		catch (StatsBombException statsBombException)
+		{
+			return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
+		}
+		catch (Exception exception)
+		{
+			StatsBombException statsBombException = new StatsBombException(exception);
+			LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
+			return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
+		}
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/list_matches")
+	public ResponseEntity<?> getMatchesId(
+			@RequestParam(value = "competitionId", required = true) final Integer competitionId,
+			@RequestParam(value = "seasonId", required = true) final Integer seasonId)
+	{
+		try
+		{
+			String resultJson = this.matchesStats.getMatchesId(competitionId, seasonId);
 			return ResponseEntity.ok().body(resultJson);
 		}
 		catch (StatsBombException statsBombException)

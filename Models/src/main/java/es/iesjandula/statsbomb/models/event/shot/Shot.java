@@ -1,11 +1,10 @@
 package es.iesjandula.statsbomb.models.event.shot;
 
-import es.iesjandula.statsbomb.models.event.BodyPart;
-import es.iesjandula.statsbomb.models.event.OutCome;
-import es.iesjandula.statsbomb.models.event.Technique;
-import es.iesjandula.statsbomb.models.event.Type;
+import es.iesjandula.statsbomb.models.event.*;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
@@ -32,6 +31,7 @@ public class Shot
     private String key_pass_id;
 
     /* Attribute - Where the shot ends */
+    @ElementCollection(fetch = FetchType.EAGER)
     @Column(name = "end_location")
     private List<Integer> end_location;
 
@@ -151,12 +151,16 @@ public class Shot
     private Boolean open_goal;
 
     /* Attribute - redirect of Shot */
+    @Column(length = 1)
     private Boolean redirect;
+
+    @OneToOne(mappedBy = "shot")
+    private Event event;
 
     /**
      * Default constructor
      */
-    Shot()
+    public Shot()
     {
 
     }

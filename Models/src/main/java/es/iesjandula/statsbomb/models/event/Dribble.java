@@ -37,10 +37,13 @@ public class Dribble
     private Boolean overrun;
     @Column(name = "nutmeg")
     private Boolean nutmeg;
-    @OneToOne(mappedBy = "dribble")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private OutCome outcome;
     @Column(name = "not_touch")
     private Boolean not_touch;
+    @OneToOne(mappedBy = "dribble")
+    private Event event;
 
     /**
      * Empty constructor

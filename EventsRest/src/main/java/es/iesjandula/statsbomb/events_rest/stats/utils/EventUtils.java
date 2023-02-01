@@ -16,6 +16,11 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 @Service
@@ -61,6 +66,7 @@ public class EventUtils
             {
                 this.iEventRepository.saveAllAndFlush(this.getEvents(match.getMatch_id()));
             }
+
         }
 
     }
@@ -80,7 +86,17 @@ public class EventUtils
 
         ObjectMapper mapper = Json.mapper();
 
-        return mapper.readValue(jsonLoader.loadCompetitions(), new TypeReference<List<Competition>>(){});
+        return mapper.readValue(loadCompetitionsIdSeason(), new TypeReference<List<Competition>>(){});
     }
+
+    public String loadCompetitionsIdSeason() throws StatsBombException
+    {
+        IJsonLoader jsonLoader = new JsonLoaderImpl();
+        return jsonLoader.loadJson("localhost:8082/competitions/filter/id");
+    }
+
+    // seguir con loadMatch que me tiene que pasar Manu Martin para seguir cuando suba su filtro
+
+
 
 }

@@ -1,5 +1,6 @@
 package es.iesjandula.statsbomb.models.event.substitution;
 
+import es.iesjandula.statsbomb.models.event.Event;
 import es.iesjandula.statsbomb.models.event.OutCome;
 
 import jakarta.persistence.Entity;
@@ -46,35 +47,24 @@ public class Substitution
     @OneToOne
     @JoinColumn(name = "id", referencedColumnName = "id")
     private Replacement replacement;
+
+    @OneToOne(mappedBy = "substitution")
+    private Event event;
     /**
      * Attribute -
      * Object outcome what
      * has id and name 
      */
-    @OneToOne
-    @JoinColumn(name = "id", referencedColumnName = "id")
-    private OutCome outcome;
     /**
      * Empty Constructor
      */
-    Substitution()
+    public Substitution()
     {
 
     }
     /**
      * @return object OutCome
      */
-    public OutCome getOutcome()
-    {
-        return outcome;
-    }
-    /**
-     * @param outcome set the object outcome
-     */
-    public void setOutcome(OutCome outcome)
-    {
-        this.outcome = outcome;
-    }
     /**
      * @return the object OutCome
      */

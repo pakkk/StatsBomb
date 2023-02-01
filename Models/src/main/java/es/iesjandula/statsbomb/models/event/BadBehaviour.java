@@ -15,11 +15,15 @@ public class BadBehaviour
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne(mappedBy = "bad_behaviour")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Card card;
+    @OneToOne(mappedBy = "bad_behaviour")
+    private Event event;
 
     public BadBehaviour()
     {
+
     }
 
     public Card getCard()

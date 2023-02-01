@@ -1,9 +1,6 @@
 package es.iesjandula.statsbomb.models.event;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -23,8 +20,12 @@ public class PlayPattern
     @Id
     @Column(length = 10)
     private int id; // id
+
     @Column(length = 25)
     private String name; // name of the Play Pattern
+
+    @OneToOne(mappedBy = "play_pattern")
+    private Event event;
 
     /**
      * Empty constructor

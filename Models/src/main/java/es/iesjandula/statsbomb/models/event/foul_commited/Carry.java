@@ -1,5 +1,6 @@
 package es.iesjandula.statsbomb.models.event.foul_commited;
 
+import es.iesjandula.statsbomb.models.event.Event;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -24,8 +25,11 @@ public class Carry
      * Recorded for all carry events,
      * describes where the carry ends.
      */
+    @ElementCollection(fetch = FetchType.EAGER)
     @Column(name = "end_location")
     private List<Integer> end_location;
+    @OneToOne(mappedBy = "carry")
+    private Event event;
 
     /**
      * Default constructor

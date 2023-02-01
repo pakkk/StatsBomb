@@ -1,9 +1,8 @@
 package es.iesjandula.statsbomb.models.event;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import es.iesjandula.statsbomb.models.event.pass.Pass;
+import es.iesjandula.statsbomb.models.event.shot.Shot;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -33,6 +32,18 @@ public class BodyPart
     @Column(name = "name", nullable = false)
     private String name; // name of the body part
 
+    @OneToOne(mappedBy = "body_part")
+    private Shot shot;
+    @OneToOne(mappedBy = "body_part")
+    private Pass pass;
+    
+    @OneToOne(mappedBy = "body_part")
+    private Clearance clearance;
+    
+    @OneToOne(mappedBy = "body_part")
+    private Goalkeeper goalkeeper;
+    
+    
     /**
      * Default Constructor
      */

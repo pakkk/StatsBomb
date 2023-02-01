@@ -1,9 +1,7 @@
 package es.iesjandula.statsbomb.models.event;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import es.iesjandula.statsbomb.models.event.foul_commited.FoulCommited;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -32,6 +30,11 @@ public class Card
     @Column(name = "name", nullable = false, length = 50)
     private String name;
 
+    @OneToOne(mappedBy = "card")
+    private BadBehaviour badBehaviour;
+
+    @OneToOne(mappedBy = "card")
+    private FoulCommited foulCommited;
     /**
      * Default Constructor
      */
