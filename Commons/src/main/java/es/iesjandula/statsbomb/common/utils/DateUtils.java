@@ -23,66 +23,82 @@ public class DateUtils
      */
     public Date convertStringToDateFormatHHmmssSSS(final String dateString)
     {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss.SSS");
-        Date date = null;
-        try
+        if (dateString != null)
         {
-            date = simpleDateFormat.parse(dateString);
-        }
-        catch (ParseException parseException)
-        {
-            parseException.printStackTrace();
-        }
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss.SSS");
+            Date date = null;
+            try
+            {
+                date = simpleDateFormat.parse(dateString);
+            }
+            catch (ParseException parseException)
+            {
+                parseException.printStackTrace();
+            }
 
-        return date;
+            return date;
+        }
+        return null;
     }
 
     public Date convertStringToDateFormatyyyyMMdd(final String dateString)
     {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = null;
-        try
+        if (dateString != null)
         {
-            date = simpleDateFormat.parse(dateString);
-        }
-        catch (ParseException parseException)
-        {
-            parseException.printStackTrace();
-        }
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = null;
+            try
+            {
+                date = simpleDateFormat.parse(dateString);
+            }
+            catch (ParseException parseException)
+            {
+                parseException.printStackTrace();
+            }
 
-        return date;
+            return date;
+        }
+        return null;
     }
 
     public Date convertStringToDateFormatddMMyyyy(final String dateString)
     {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = null;
-        try
+        if (dateString != null)
         {
-            date = simpleDateFormat.parse(dateString);
-        }
-        catch (ParseException parseException)
-        {
-            parseException.printStackTrace();
-        }
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = null;
+            try
+            {
+                date = simpleDateFormat.parse(dateString);
+            }
+            catch (ParseException parseException)
+            {
+                parseException.printStackTrace();
+            }
 
-        return date;
+            return date;
+        }
+        return null;
     }
 
     public Date convertStringToDateFormatddMMyyyyWithHyphen(final String dateString)
     {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        Date date = null;
-        try
+        if (dateString != null)
         {
-            date = simpleDateFormat.parse(dateString);
-        }
-        catch (ParseException parseException)
-        {
-            parseException.printStackTrace();
-        }
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            Date date = null;
+            try
+            {
+                date = simpleDateFormat.parse(dateString);
+            }
+            catch (ParseException parseException)
+            {
+                parseException.printStackTrace();
+            }
 
-        return date;
+            return date;
+        }
+        return null;
     }
 
     /**
@@ -93,19 +109,23 @@ public class DateUtils
      */
     public Date convertStringToDateFormatyyyyMMddTHHmmssSSS(String dateString)
     {
-        Date date = null;
-        try
+        if (dateString != null)
         {
-            LocalDateTime localDateTime = LocalDateTime.parse(dateString);
-            Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
-            date = Date.from(instant);
-        }
-        catch (DateTimeParseException dateTimeParseException)
-        {
-            return null;
-        }
+            Date date = null;
+            try
+            {
+                LocalDateTime localDateTime = LocalDateTime.parse(dateString);
+                Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
+                date = Date.from(instant);
+            }
+            catch (DateTimeParseException dateTimeParseException)
+            {
+                return null;
+            }
 
-        return date;
+            return date;
+        }
+        return null;
     }
 
 }

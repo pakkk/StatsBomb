@@ -25,6 +25,7 @@ public class Carry
      * Recorded for all carry events,
      * describes where the carry ends.
      */
+    @ElementCollection(fetch = FetchType.EAGER)
     @Column(name = "end_location")
     private List<Integer> end_location;
     @OneToOne

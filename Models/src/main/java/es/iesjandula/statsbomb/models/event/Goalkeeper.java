@@ -37,6 +37,8 @@ public class Goalkeeper
     @OneToOne
     @JoinColumn(name = "id", referencedColumnName = "id")
     private OutCome outcome;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Column(length = 10)
     private List<Integer> end_location;
 
     /* Attribute - shot_saved_to_post of Goalkeeper */
