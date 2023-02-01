@@ -128,6 +128,7 @@ public class Event
      * the event (this only displays if the
      * event has pitch coordinates).
      */
+    @ElementCollection(fetch = FetchType.EAGER)
     @Column(name = "location")
     private List<Integer> location;
 
@@ -157,6 +158,7 @@ public class Event
      * of the shot in their related_events
      * column.
      */
+    @ElementCollection(fetch = FetchType.EAGER)
     @Column(name = "related_events")
     private List<String> related_events;
 
