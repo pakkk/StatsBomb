@@ -28,16 +28,16 @@ public class Position
     @Column(length = 25)
     private String name; // name of the Position
 
-    @OneToOne(mappedBy = "play_pattern")
+    @OneToOne(mappedBy = "position")
     private FreezeFrame freezeFrame;
 
-    @OneToOne(mappedBy = "play_pattern")
+    @OneToOne(mappedBy = "position")
     private Lineup lineup;
 
-    @OneToOne(mappedBy = "play_pattern")
+    @OneToOne(mappedBy = "position")
     private Event event;
 
-    @OneToOne(mappedBy = "play_pattern")
+    @OneToOne(mappedBy = "position")
     private Goalkeeper goalkeeper;
     
     

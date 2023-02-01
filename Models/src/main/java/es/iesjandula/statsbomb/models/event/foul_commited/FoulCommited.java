@@ -48,6 +48,7 @@ public class FoulCommited
     /* Attribute - If the Foul is Penalty */
     @Column(name = "penalty")
     private Boolean penalty;
+
     @OneToOne(mappedBy = "foul_commited")
     private Event event;
 
@@ -55,7 +56,7 @@ public class FoulCommited
     /**
      * Default Constructor
      */
-    FoulCommited()
+    public FoulCommited()
     {
 
     }

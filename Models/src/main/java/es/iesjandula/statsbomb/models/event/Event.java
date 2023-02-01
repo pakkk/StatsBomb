@@ -24,7 +24,6 @@ import java.util.List;
 @Table(name = "event")
 public class Event
 {
-
     /** Attribute - The unique identifier for the competition. */
     @Id
     @Column(name = "id", length = 160)
@@ -246,7 +245,7 @@ public class Event
     /** Attribute - describe who committed a foul resulting in a free kick or penalty kick. */
     @OneToOne
     @JoinColumn(name = "id",referencedColumnName = "id")
-    private FoulCommited foul_committed;
+    private FoulCommited foul_commited;
 
     /** Attribute - events typically follow a pass or a shot */
     @OneToOne
@@ -266,7 +265,7 @@ public class Event
     /* Attribute - misscontrol of Event */
     @OneToOne
     @JoinColumn(name = "id",referencedColumnName = "id")
-    private MisControl miscontrol;
+    private MisControl mis_control;
 
     /* Attribute - 50_50 of Event */
     @JsonProperty("50_50")
@@ -332,19 +331,19 @@ public class Event
     }
 
     /**
-     * @return the instance of foul_committed
+     * @return the instance of foul_commited
      */
-    public FoulCommited getFoul_committed()
+    public FoulCommited getFoul_commited()
     {
-        return foul_committed;
+        return foul_commited;
     }
 
     /**
-     * @param foul_committed who committed a foul resulting in a free kick or penalty kick.
+     * @param foul_commited who committed a foul resulting in a free kick or penalty kick.
      */
-    public void setFoul_committed(FoulCommited foul_committed)
+    public void setFoul_commited(FoulCommited foul_commited)
     {
-        this.foul_committed = foul_committed;
+        this.foul_commited = foul_commited;
     }
 
     /**
@@ -913,20 +912,12 @@ public class Event
         this.foul_won = foul_won;
     }
 
-    /**
-     * @return the instance of MisControl
-     */
-    public MisControl getMiscontrol()
-    {
-        return this.miscontrol;
+    public MisControl getMis_control() {
+        return mis_control;
     }
 
-    /**
-     * @param miscontrol with the instance of MisControl
-     */
-    public void setMiscontrol(MisControl miscontrol)
-    {
-        this.miscontrol = miscontrol;
+    public void setMis_control(MisControl mis_control) {
+        this.mis_control = mis_control;
     }
 
     @JsonProperty("50_50")

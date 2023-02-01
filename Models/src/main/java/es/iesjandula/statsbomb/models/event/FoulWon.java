@@ -36,7 +36,7 @@ public class FoulWon
     /**
      * Empty Constructor
      */
-    FoulWon()
+    public FoulWon()
     {
 
     }

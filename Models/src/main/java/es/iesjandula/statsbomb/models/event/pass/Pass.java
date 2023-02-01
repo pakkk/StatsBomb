@@ -58,7 +58,7 @@ public class Pass {
      */
     @OneToOne
     @JoinColumn(name = "assisted_shot_id", referencedColumnName = "id")
-    private Heigth height;
+    private Heigth heigth;
 
     /**
      * Attribute -
@@ -340,15 +340,15 @@ public class Pass {
 
      */
 
-    public Heigth getHeight() {
-        return this.height;
+    public Heigth getHeigth() {
+        return this.heigth;
     }
 
     /**
-     * @param height, with the  Id / Name specifying the height of the pass
+     * @param heigth, with the  Id / Name specifying the height of the pass
      */
-    public void setHeight(Heigth height) {
-        this.height = height;
+    public void setHeight(Heigth heigth) {
+        this.heigth = heigth;
     }
 
     /**
@@ -590,7 +590,7 @@ public class Pass {
                 "recipient=" + recipient +
                 ", length=" + length +
                 ", angle=" + angle +
-                ", height=" + height +
+                ", heigth=" + heigth +
                 ", end_location=" + end_location +
                 ", assisted_shot_id=" + assisted_shot_id +
                 ", backheel=" + backheel +

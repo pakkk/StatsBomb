@@ -38,7 +38,7 @@ public class Substitution
      */
     @OneToOne
     @JoinColumn(name = "id", referencedColumnName = "id")
-    private OutCome outCome;
+    private OutCome outcome;
     /**
      * Attribute -
      * Object replacement what has id and 
@@ -68,16 +68,16 @@ public class Substitution
     /**
      * @return the object OutCome
      */
-    public OutCome getOutCome()
+    public OutCome getOutcome()
     {
-        return outCome;
+        return outcome;
     }
     /**
-     * @param outCome set the object outcome
+     * @param outcome set the object outcome
      */
-    public void setOutCome(OutCome outCome)
+    public void setOutcome(OutCome outcome)
     {
-        this.outCome = outCome;
+        this.outcome = outcome;
     }
     /**
      * @return the object Replacement
