@@ -1,12 +1,12 @@
 package es.iesjandula.statsbomb.models.event.shot;
 
-import es.iesjandula.statsbomb.models.event.BodyPart;
-import es.iesjandula.statsbomb.models.event.OutCome;
-import es.iesjandula.statsbomb.models.event.Technique;
-import es.iesjandula.statsbomb.models.event.Type;
+import es.iesjandula.statsbomb.models.event.*;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -31,7 +31,8 @@ public class Shot
     private String key_pass_id;
 
     /* Attribute - Where the shot ends */
-
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Column(name = "end_location")
     private List<Integer> end_location;
 
     /**
@@ -104,7 +105,8 @@ public class Shot
      * ID / Name of the technique
      * used for the shot.
      */
-    @OneToOne(mappedBy = "shot")
+    @OneToOne
+    @JoinColumn(name = "key_pass_id", referencedColumnName = "id")
     private Technique technique;
 
     /**
@@ -113,7 +115,8 @@ public class Shot
      * option specifying the outcome
      * of the shot.
      */
-    @OneToOne(mappedBy = "shot")
+    @OneToOne
+    @JoinColumn(name = "key_pass_id", referencedColumnName = "id")
     private OutCome outcome;
 
     /**
@@ -122,14 +125,16 @@ public class Shot
      * option specifying the type of
      * shot.
      */
-    @OneToOne(mappedBy = "shot")
+    @OneToOne
+    @JoinColumn(name = "key_pass_id", referencedColumnName = "id")
     private Type type;
 
     /**
      * ID / Name of the body part
      * used to shoot.
      */
-    @OneToOne(mappedBy = "shot")
+    @OneToOne
+    @JoinColumn(name = "key_pass_id", referencedColumnName = "id")
     private BodyPart body_part;
 
 
@@ -146,7 +151,11 @@ public class Shot
     private Boolean open_goal;
 
     /* Attribute - redirect of Shot */
+    @Column(length = 1)
     private Boolean redirect;
+
+    @OneToOne
+    private Event event;
 
     /**
      * Default constructor

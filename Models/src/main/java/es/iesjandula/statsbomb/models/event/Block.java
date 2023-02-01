@@ -1,8 +1,6 @@
 package es.iesjandula.statsbomb.models.event;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -15,6 +13,9 @@ import jakarta.persistence.Table;
 @Table(name = "block")
 public class Block
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     /**
      * Attribute -
      * boolean if the ball was blocked
@@ -36,6 +37,8 @@ public class Block
     /* Attribute - if the block is Save_block */
     @Column(name = "save_block")
     private Boolean save_block;
+    @OneToOne
+    private Event event;
 
     /**
      * Default Constructor

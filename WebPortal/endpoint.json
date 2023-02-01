@@ -1,0 +1,85 @@
+[
+    {
+        "name" : "Porcentage possesions",
+        "endpoint" : "/matches/porcentage_possesions/?matchId={}",
+        "description" : ""
+    },
+    
+    {
+        "name" : "Matches after of a date",
+        "endpoint" : "/matches/list_matches_date?competitionId={}&seasonId={}&dateStart={}",
+        "description" : ""
+    },
+    
+    {
+        "name" : "Evolution managers",
+        "endpoint" : "/matches/list_manager_score?competitionId={}&seasonId={}",
+        "description" : "Show the number of matches won, lost and drawed"
+    },
+    
+    {
+        "name" : "Manager with differrent nationality",
+        "endpoint" : "/matches/list_manager_with_same_nationality?competitionId={}&seasonId={}",
+        "description" : "Show a list of managers whose nationality is different to the country of the team"
+    },
+    
+    {
+        "name" : "Goalkeeper",
+        "endpoint" : "/events/goalkeeper/?matchId={}",
+        "description" : ""
+    },
+    
+    {
+        "name" : "Duels",
+        "endpoint" : "/events/duels/?matchId={}",
+        "description" : ""
+    },
+    
+    {
+        "name" : "Scorers",
+        "endpoint" : "/events/scorers/?matchId={}",
+        "description" : ""
+    },
+    
+    {
+        "name" : "List possessions",
+        "endpoint" : "/events/list_possession/?matchId={}",
+        "description" : "Show a list with all the plays of each team"
+    },
+    
+    {
+        "name" : "Reference player",
+        "endpoint" : "/events/reference_player/{}",
+        "description" : "Show the player who more pass has done of each team"
+    },
+    
+    {
+        "name" : "Order three-sixty",
+        "endpoint" : "/three_sixty/order?matchId={}",
+        "description" : ""
+    },
+    
+    {
+        "name" : "Teammates",
+        "endpoint" : "/three_sixty/teammates?matchId={}",
+        "description" : ""
+    },
+    
+    {
+        "name" : "Order competitions",
+        "endpoint" : "/competitions/order/ascent",
+        "description" : ""
+    },
+    
+    {
+        "name" : "Competitions female",
+        "endpoint" : "/competitions/female",
+        "description" : "List of the competitions females"
+    },
+    
+    {
+        "name" : "Competitions male",
+        "endpoint" : "/competitions/male",
+        "description" : "List of the competitions males"
+    }
+]

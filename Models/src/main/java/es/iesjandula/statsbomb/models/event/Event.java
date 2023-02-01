@@ -7,12 +7,8 @@ import es.iesjandula.statsbomb.models.event.foul_commited.FoulCommited;
 import es.iesjandula.statsbomb.models.event.pass.Pass;
 import es.iesjandula.statsbomb.models.event.shot.Shot;
 import es.iesjandula.statsbomb.models.event.substitution.Substitution;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import org.springframework.context.annotation.EnableMBeanExport;
 
 import java.util.Date;
 import java.util.List;
@@ -74,7 +70,8 @@ public class Event
     private int second;
 
     /** Attribute - The type of event the corresponds to.  */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Type type;
 
     /**
@@ -92,11 +89,13 @@ public class Event
      * the ball. Note that this will appear even on opposition events like
      * tackles attempted during the possession.
      */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Team possession_team;
 
     /** Attribute - Id /name of the play pattern relevant to this event. */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private PlayPattern play_pattern;
 
     /**
@@ -104,7 +103,8 @@ public class Event
      * Id / Name of the team this event relates to. Team object will only
      * display if the event is tied to a specific team.
      */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Team team;
 
     /**
@@ -112,11 +112,13 @@ public class Event
      * Id / Name of the player this event relates to (player object will only
      * display if the event is tied to a specific player).
      */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Player player;
 
     /** Atribute - Id / Name of the position the player was in at the time of this event. */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Position position;
 
     /**
@@ -126,7 +128,7 @@ public class Event
      * the event (this only displays if the
      * event has pitch coordinates).
      */
-    @ManyToOne
+    @Column(name = "location")
     private List<Integer> location;
 
     /** Attribute - If relevant, the length in seconds the event lasted. */
@@ -155,6 +157,7 @@ public class Event
      * of the shot in their related_events
      * column.
      */
+    @Column(name = "related_events")
     private List<String> related_events;
 
     /**
@@ -166,87 +169,107 @@ public class Event
      * describes the formation
      * being used.
      */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Tactics tactics;
 
     /**
      * Attribute - The receipt or intended receipt of a pass */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private BallReceipt ball_receipt;
 
     /** Attribute - An attempt to recover a loose ball  */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private BallRecovery ball_recovery;
 
     /** Attribute - A player controls the ball at their feet while moving or standing still. */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Carry carry;
 
     /** Attribute - Action by a defending player to clear the danger without an intention to deliver it to a teammate */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Clearance clearance;
 
     /** Attribute - An attempt by a player to beat an opponent */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Dribble dribble;
 
     /** Attribute - A duel is an 50-50 contest between two players of opposing sides in the match. */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Duel duel;
 
     /** Attribute - Actions that can be done by the goalkeeper. */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Goalkeeper goalkeeper;
 
     /** Attribute - A stop in play due to an injury. */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private InjuryStoppage injury_stoppage;
 
     /** Attribute
      * Preventing an opponent's pass from reaching their teammates by moving to the passing lane/reacting to
      * intercept it.
      */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Interception interception;
 
     /** Attribute - An intended kick from one player to his teammate */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "assisted_shot_id")
     private Pass pass;
 
     /** Attribute - An attempt to score a goal, made with any (legal) part of the body */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "key_pass_id")
     private Shot shot;
 
     /* Attribute - Pressing actions within 5 seconds  of an open play turnover */
+    @Column(length = 1)
     private Boolean counterpress;
 
     /* Attribute - Describe the scenario when a player wins a foul */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private FoulWon foul_won;
 
     /** Attribute - describe who committed a foul resulting in a free kick or penalty kick. */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private FoulCommited foul_committed;
 
     /** Attribute - events typically follow a pass or a shot */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Block block;
 
     /** Attribute - describe the player coming on the pitch, the player coming off the pitch and the reason why. */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Substitution substitution;
 
     /** Attribute - describe the bad behaviour **/
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private BadBehaviour bad_behaviour;
 
     /* Attribute - misscontrol of Event */
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private MisControl miscontrol;
 
     /* Attribute - 50_50 of Event */
     @JsonProperty("50_50")
-    @OneToOne(mappedBy = "event")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private FiftyFifty fifty_fifty;
 
     /**

@@ -1,9 +1,9 @@
 package es.iesjandula.statsbomb.models.event;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import es.iesjandula.statsbomb.models.event.pass.Pass;
+import es.iesjandula.statsbomb.models.event.shot.Shot;
+import es.iesjandula.statsbomb.models.event.substitution.Substitution;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -27,6 +27,29 @@ public class OutCome
     @Column(length = 25)
     private String name; // name of the Outcome
 
+    @OneToOne
+    private Shot shot;
+
+    @OneToOne
+    private Substitution substitution;
+
+    @OneToOne
+    private Pass pass;
+
+    @OneToOne
+    private Interception interception;
+    @OneToOne
+    private Dribble dribble;
+    @OneToOne
+    private Duel duel;
+    @OneToOne
+    private FiftyFifty fiftyFifty;
+
+    @OneToOne
+    private BallReceipt ballreceipt;
+    
+    @OneToOne
+    private Goalkeeper goalkeeper;
     /**
      * Empty constructor
      */

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -40,6 +42,8 @@ public class ThreeSixty
 	   not on the pitch at the time the frame was
 	   collected.
 	 */
+	@ElementCollection(fetch = FetchType.EAGER)
+	@Column(name = "visible_area")
 	private List<Double> visible_area;
 	/**
 	 * Attribute

@@ -1,5 +1,8 @@
 package es.iesjandula.statsbomb.models.event.foul_commited;
 
+import es.iesjandula.statsbomb.models.event.Event;
+import jakarta.persistence.*;
+
 import java.util.List;
 
 /**
@@ -10,15 +13,23 @@ import java.util.List;
  * describe a player possessing the ball at their feet,
  * either moving with the ball or standing still.
  */
+@Entity
+@Table(name = "carry")
 public class Carry
 {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     /**
      * Attribute -
      * Recorded for all carry events,
      * describes where the carry ends.
      */
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Column(name = "end_location")
     private List<Integer> end_location;
+    @OneToOne
+    private Event event;
 
     /**
      * Default constructor

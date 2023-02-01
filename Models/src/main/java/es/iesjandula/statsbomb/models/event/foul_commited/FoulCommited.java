@@ -1,11 +1,9 @@
 package es.iesjandula.statsbomb.models.event.foul_commited;
 
 import es.iesjandula.statsbomb.models.event.Card;
+import es.iesjandula.statsbomb.models.event.Event;
 import es.iesjandula.statsbomb.models.event.Type;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -19,6 +17,9 @@ import jakarta.persistence.Table;
 @Table(name = "foul_commited")
 public class FoulCommited
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     /**
      * Attribute -
      * Added when the referee calls
@@ -31,7 +32,8 @@ public class FoulCommited
      * Recorded only when a card is
      * awarded. Class Card
      */
-    @OneToOne(mappedBy = "foul_commited")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Card card;
 
     /* Attribute - If the Foul is offensive */
@@ -39,12 +41,16 @@ public class FoulCommited
     private Boolean offensive;
 
     /* Attribute - Type of FoulCommited */
-    @OneToOne(mappedBy = "foul_commited")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Type type;
 
     /* Attribute - If the Foul is Penalty */
     @Column(name = "penalty")
     private Boolean penalty;
+    @OneToOne
+    private Event event;
+
 
     /**
      * Default Constructor

@@ -4,6 +4,7 @@ import es.iesjandula.statsbomb.models.event.Position;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -43,7 +44,8 @@ public class Lineups
      * Attribute
      * The player’s nationality, a country object with ID and name attributes.
      */
-    @OneToOne(mappedBy = "lineups")
+    @OneToOne
+    @JoinColumn(name = "player_id", referencedColumnName = "id")
     private Country country;
     /**
      * Attribute

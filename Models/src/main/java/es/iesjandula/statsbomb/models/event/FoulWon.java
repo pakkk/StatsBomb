@@ -1,8 +1,6 @@
 package es.iesjandula.statsbomb.models.event;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -13,6 +11,9 @@ import jakarta.persistence.Table;
 @Table(name = "foul_won")
 public class FoulWon
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     /**
      * Attributes -
      * Defensive: Added if the foul was won
@@ -28,6 +29,8 @@ public class FoulWon
     /* Attribute - If the Foul is Penalty */
     @Column(name = "penalty")
     private boolean penalty;
+    @OneToOne
+    private Event event;
 
     /**
      * Empty Constructor

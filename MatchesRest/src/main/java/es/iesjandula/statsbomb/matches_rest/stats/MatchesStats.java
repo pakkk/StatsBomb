@@ -1,5 +1,6 @@
 package es.iesjandula.statsbomb.matches_rest.stats;
 
+import es.iesjandula.statsbomb.matches_rest.stats.id_filter.MatchesIdFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +39,12 @@ public class MatchesStats
     {
     	MatchesFilter matchesFilter = new MatchesFilter();
     	return matchesFilter.getResultsMatches(matchesUtils.getMatches(competitionId, seasonId));
+    }
+
+    public String getMatchesId(int competitionId,int seasonId) throws StatsBombException
+    {
+        MatchesIdFilter matchesIdFilter = new MatchesIdFilter();
+        return matchesIdFilter.getMatchesId(matchesUtils.getMatches(competitionId, seasonId));
+
     }
 }

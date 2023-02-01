@@ -1,9 +1,8 @@
 package es.iesjandula.statsbomb.models.event;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import es.iesjandula.statsbomb.models.event.pass.Pass;
+import es.iesjandula.statsbomb.models.event.shot.Shot;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -27,6 +26,13 @@ public class Technique
     @Column(length = 25)
     private String name; // name of the Technique
 
+    @OneToOne
+    private Shot shot;
+    @OneToOne
+    private Pass pass;
+    @OneToOne
+    private Goalkeeper goalkeeper;
+    
     /**
      * Empty constructor
      */

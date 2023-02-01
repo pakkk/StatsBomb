@@ -1,9 +1,6 @@
 package es.iesjandula.statsbomb.models.event.pass;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -30,6 +27,9 @@ public class Recipient
      */
     @Column(length = 25)
     private String name; // name of the Position
+
+    @OneToOne
+    private Pass pass;
 
     /**
      * Default constructor

@@ -1,11 +1,11 @@
 package es.iesjandula.statsbomb.matches_rest.rest;
 
+import es.iesjandula.statsbomb.matches_rest.stats.id_filter.MatchesIdFilter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,6 +40,7 @@ public class RestHandlerMatches
 	// New Instance of ManagerScoreFilter
 	private final ManagerScoreFilter managerScoreFilter = this.getManagerScoreFilter();
 
+
 	@RequestMapping(method = RequestMethod.GET, value = "/list_matches_date/")
 	public ResponseEntity<?> getListOfMatchesbyDate(
 			@RequestParam(value = "competitionId", required = true) final Integer competitionId,
@@ -63,9 +64,9 @@ public class RestHandlerMatches
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/list_manager_score/{competitionId}/{seasonId}")
-	public ResponseEntity<?> getManagerScoreFilter(@PathVariable(value = "competitionId") final Integer competitionId,
-			@PathVariable(value = "seasonId") final Integer seasonId)
+	@RequestMapping(method = RequestMethod.GET, value = "/list_manager_score")
+	public ResponseEntity<?> getManagerScoreFilter(@RequestParam(value = "competitionId", required = true) final Integer competitionId,
+			@RequestParam(value = "seasonId", required = true) final Integer seasonId)
 	{
 		try
 		{
@@ -84,10 +85,10 @@ public class RestHandlerMatches
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/list_manager_with_same_nationality/{competitionId}/{seasonId}")
+	@RequestMapping(method = RequestMethod.GET, value = "/list_manager_with_same_nationality")
 	public ResponseEntity<?> getManagerWithSameNationality(
-			@PathVariable(value = "competitionId") final Integer competitionId,
-			@PathVariable(value = "seasonId") final Integer seasonId)
+			@RequestParam(value = "competitionId", required = true) final Integer competitionId,
+			@RequestParam(value = "seasonId", required = true) final Integer seasonId)
 	{
 		try
 		{
@@ -115,6 +116,28 @@ public class RestHandlerMatches
 		try
 		{
 			String resultJson = this.matchesStats.getResultsMatches(competitionId, seasonId);
+			return ResponseEntity.ok().body(resultJson);
+		}
+		catch (StatsBombException statsBombException)
+		{
+			return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
+		}
+		catch (Exception exception)
+		{
+			StatsBombException statsBombException = new StatsBombException(exception);
+			LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
+			return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
+		}
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/list_matches")
+	public ResponseEntity<?> getMatchesId(
+			@RequestParam(value = "competitionId", required = true) final Integer competitionId,
+			@RequestParam(value = "seasonId", required = true) final Integer seasonId)
+	{
+		try
+		{
+			String resultJson = this.matchesStats.getMatchesId(competitionId, seasonId);
 			return ResponseEntity.ok().body(resultJson);
 		}
 		catch (StatsBombException statsBombException)

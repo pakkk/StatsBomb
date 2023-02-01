@@ -1,11 +1,13 @@
 package es.iesjandula.statsbomb.models.event.substitution;
 
+import es.iesjandula.statsbomb.models.event.Event;
 import es.iesjandula.statsbomb.models.event.OutCome;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -34,22 +36,24 @@ public class Substitution
      * Attribute -
      * Object Outcome
      */
-    @OneToOne(mappedBy = "substitution")
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private OutCome outCome;
     /**
      * Attribute -
      * Object replacement what has id and 
      * and name about replacement
      */
-    @OneToOne(mappedBy = "substitution")
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private Replacement replacement;
+    @OneToOne
+    private Event event;
     /**
      * Attribute -
      * Object outcome what
      * has id and name 
      */
-    @OneToOne(mappedBy = "substitution")
-    private OutCome outcome;
     /**
      * Empty Constructor
      */
@@ -60,17 +64,6 @@ public class Substitution
     /**
      * @return object OutCome
      */
-    public OutCome getOutcome()
-    {
-        return outcome;
-    }
-    /**
-     * @param outcome set the object outcome
-     */
-    public void setOutcome(OutCome outcome)
-    {
-        this.outcome = outcome;
-    }
     /**
      * @return the object OutCome
      */

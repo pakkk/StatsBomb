@@ -35,6 +35,8 @@ public class Tactics
     public String formation;
     @OneToMany
     private List<Lineup> lineup;
+    @OneToOne
+    private Event event;
 
     /**
      * Empty constructor

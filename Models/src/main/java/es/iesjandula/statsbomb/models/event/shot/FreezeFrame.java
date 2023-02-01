@@ -3,10 +3,13 @@ package es.iesjandula.statsbomb.models.event.shot;
 import es.iesjandula.statsbomb.models.event.Player;
 import es.iesjandula.statsbomb.models.event.Position;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -43,15 +46,18 @@ public class FreezeFrame
     private Long id;
 
     /** Attribute - With coordinate of player */
+    @ElementCollection(fetch = FetchType.EAGER)
     @Column(length = 20)
     private List<Integer> location;
 
     /** Attribute - With Information about Player */
-    @OneToOne(mappedBy = "freeze_frame")
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private Player player;
 
     /** Attribute - With information about position */
-    @OneToOne(mappedBy = "freeze_frame")
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private Position position;
 
     /** Attribute - With information about teammate */

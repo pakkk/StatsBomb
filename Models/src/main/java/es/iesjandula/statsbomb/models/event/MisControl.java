@@ -20,6 +20,9 @@ public class MisControl
     @Column(length = 1)
     private Boolean aerial_won;
 
+    @OneToOne
+    private Event event;
+
     /**
      * Default Constructor
      */
