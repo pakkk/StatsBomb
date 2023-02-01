@@ -28,7 +28,7 @@ public class Carry
     @ElementCollection(fetch = FetchType.EAGER)
     @Column(name = "end_location")
     private List<Integer> end_location;
-    @OneToOne
+    @OneToOne(mappedBy = "carry")
     private Event event;
 
     /**
