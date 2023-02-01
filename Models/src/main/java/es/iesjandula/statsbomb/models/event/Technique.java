@@ -23,14 +23,17 @@ public class Technique
     @Id
     @Column(length = 10)
     private int id; // id
+
     @Column(length = 25)
     private String name; // name of the Technique
 
-    @OneToOne
+    @OneToOne(mappedBy = "technique")
     private Shot shot;
-    @OneToOne
+
+    @OneToOne(mappedBy = "technique")
     private Pass pass;
-    @OneToOne
+
+    @OneToOne(mappedBy = "technique")
     private Goalkeeper goalkeeper;
     
     /**

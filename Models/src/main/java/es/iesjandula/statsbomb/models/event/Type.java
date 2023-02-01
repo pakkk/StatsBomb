@@ -29,25 +29,27 @@ public class Type
     @Id
     @Column(length = 10)
     private int id; // id
+
     @Column(length = 25)
     private String name; // name of the event type
 
-    @OneToOne
+    @OneToOne(mappedBy = "type")
     private Shot shot;
 
-    @OneToOne
+    @OneToOne(mappedBy = "type")
     private Pass pass;
 
-    @OneToOne
+    @OneToOne(mappedBy = "type")
     private FoulCommited foulCommited;
 
     
-    @OneToOne
+    @OneToOne(mappedBy = "type")
     private Goalkeeper goalkeeper;
 
-    @OneToOne
+    @OneToOne(mappedBy = "type")
     private Duel duel;
-    @OneToOne
+
+    @OneToOne(mappedBy = "type")
     private Event event;
 
     /**

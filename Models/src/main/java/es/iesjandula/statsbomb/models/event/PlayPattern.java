@@ -20,9 +20,11 @@ public class PlayPattern
     @Id
     @Column(length = 10)
     private int id; // id
+
     @Column(length = 25)
     private String name; // name of the Play Pattern
-    @OneToOne
+
+    @OneToOne(mappedBy = "play_pattern")
     private Event event;
 
     /**

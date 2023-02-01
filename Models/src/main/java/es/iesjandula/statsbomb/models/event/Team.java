@@ -21,11 +21,12 @@ public class Team
     @Id
     @Column(length = 10)
     private int id; // id
+
     @Column(length = 25)
     private String name;
     // name of the Team
 
-    @OneToOne
+    @OneToOne(mappedBy = "team")
     private Event event;
     /**
      * Empty constructor

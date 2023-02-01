@@ -20,7 +20,7 @@ public class MisControl
     @Column(length = 1)
     private Boolean aerial_won;
 
-    @OneToOne
+    @OneToOne(mappedBy = "mis_control")
     private Event event;
 
     /**

@@ -35,7 +35,8 @@ public class Tactics
     public String formation;
     @OneToMany
     private List<Lineup> lineup;
-    @OneToOne
+
+    @OneToOne(mappedBy = "tactics")
     private Event event;
 
     /**
