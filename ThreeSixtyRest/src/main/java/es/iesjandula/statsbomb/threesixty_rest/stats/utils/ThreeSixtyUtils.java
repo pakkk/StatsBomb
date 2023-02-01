@@ -3,13 +3,19 @@ package es.iesjandula.statsbomb.threesixty_rest.stats.utils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import es.iesjandula.statsbomb.common.dtos.CompetitionsDto;
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
+import es.iesjandula.statsbomb.common.load_json.IJsonLoader;
 import es.iesjandula.statsbomb.common.load_json.Json;
 import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
 import es.iesjandula.statsbomb.common.utils.Constants;
+import es.iesjandula.statsbomb.models.competition.Competition;
+import es.iesjandula.statsbomb.models.matches.Match;
 import es.iesjandula.statsbomb.models.three_sixty.ThreeSixty;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -23,6 +29,12 @@ public class ThreeSixtyUtils
 {
     /** Attribute - Logger */
     private static final Logger LOGGER = LogManager.getLogger();
+
+    @Autowired
+    private Environment environment;
+
+    @Autowired
+    private IThreeSixtyRepository threeSixtyRepository;
 
     /**
      * Return list with all three sixties corresponding the match id in JSON StatsBomb
@@ -48,5 +60,39 @@ public class ThreeSixtyUtils
         }
 
         return threeSixtyList;
+    }
+
+    public void insertThreeSixtyUtilsInDataBase() throws StatsBombException, JsonProcessingException {
+        List<CompetitionsDto> competitionList = this.getListCompetition();
+        for (CompetitionsDto competitionsDto : competitionList)
+        {
+            if(competitionsDto.getMatch_available_360() != null)
+            {
+                List<Match> matchList = this.getListMatch(competitionsDto.getCompetition_id(), competitionsDto.getSeason_id());
+
+                for (Match match : matchList)
+                {
+                    this.threeSixtyRepository.saveAllAndFlush((this.getListThreeSixty(match.getMatch_id())));
+                }
+            }
+        }
+    }
+
+    public List<Match> getListMatch(int competitionId, int seasonId) throws StatsBombException, JsonProcessingException
+    {
+        IJsonLoader jsonLoader = new JsonLoaderImpl();
+
+        ObjectMapper mapper = Json.mapper();
+        return mapper.readValue(jsonLoader.loadMatches(competitionId, seasonId), new TypeReference<List<Match>>(){});
+    }
+
+    public List<CompetitionsDto> getListCompetition() throws StatsBombException, JsonProcessingException
+    {
+        String competitionsUrl = this.environment.getProperty("statsbomb.competitionsUrl") ;
+        IJsonLoader jsonLoader = new JsonLoaderImpl();
+        String competitionsUrlEndpoint = competitionsUrl + "/competitions" + "/filter/id";
+
+        ObjectMapper mapper = Json.mapper();
+        return mapper.readValue(jsonLoader.loadCompetitionsByRest(competitionsUrlEndpoint), new TypeReference<List<CompetitionsDto>>(){});
     }
 }
