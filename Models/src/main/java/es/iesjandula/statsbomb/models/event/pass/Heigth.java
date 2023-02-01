@@ -27,7 +27,7 @@ public class Heigth
     @Column(length = 25)
     private String name;
 
-    @OneToOne
+    @OneToOne(mappedBy = "heigth")
     private Pass pass;
 
     /**

@@ -23,7 +23,7 @@ public class FreezeFrame
  	  linked event (i.e. the actor's team attacking 0 to 120
       on the X axis.
     */
-	@ElementCollection(fetch = FetchType.EAGER)
+   @ElementCollection
    @Column(name = "location")
    private List<Double> location;
    /**

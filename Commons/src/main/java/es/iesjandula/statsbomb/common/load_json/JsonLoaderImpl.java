@@ -155,4 +155,10 @@ public class JsonLoaderImpl implements IJsonLoader
     {
         return loadJson(Constants.THREE_SIXTY_URL + matchId + ".json");
     }
+
+    @Override
+    public String loadCompetitionsByRest(String url) throws StatsBombException
+    {
+        return this.loadJson(url);
+    }
 }
