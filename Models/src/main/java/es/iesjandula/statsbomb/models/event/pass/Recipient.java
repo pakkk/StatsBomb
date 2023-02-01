@@ -28,7 +28,7 @@ public class Recipient
     @Column(length = 25)
     private String name; // name of the Position
 
-    @OneToOne
+    @OneToOne(mappedBy = "recipient")
     private Pass pass;
 
     /**

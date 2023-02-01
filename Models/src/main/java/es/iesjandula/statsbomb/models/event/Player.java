@@ -25,14 +25,17 @@ public class Player
     @Id
     @Column(length = 10)
     private int id; // id
+
     @Column(length = 25)
     private String name; // name of the Player
 
-    @OneToOne
+    @OneToOne(mappedBy = "player")
     private FreezeFrame freezeFrame;
-    @OneToOne
+
+    @OneToOne(mappedBy = "player")
     private Lineup lineup;
-    @OneToOne
+
+    @OneToOne(mappedBy = "player")
     private Event event;
 
     /**

@@ -224,7 +224,8 @@ public class Pass {
      */
     @Column(length = 1)
     private Boolean straight;
-    @OneToOne
+
+    @OneToOne(mappedBy = "pass")
     private Event event;
 
     /**

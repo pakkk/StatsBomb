@@ -32,18 +32,15 @@ public class BodyPart
     @Column(name = "name", nullable = false)
     private String name; // name of the body part
 
-    @OneToOne
+    @OneToOne(mappedBy = "body_part")
     private Shot shot;
-    @OneToOne
+    @OneToOne(mappedBy = "body_part")
     private Pass pass;
-
-    @OneToOne
-    private Clearance body_part;
     
-    @OneToOne
+    @OneToOne(mappedBy = "body_part")
     private Clearance clearance;
     
-    @OneToOne
+    @OneToOne(mappedBy = "body_part")
     private Goalkeeper goalkeeper;
     
     

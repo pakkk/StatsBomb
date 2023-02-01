@@ -30,9 +30,10 @@ public class Card
     @Column(name = "name", nullable = false, length = 50)
     private String name;
 
-    @OneToOne
+    @OneToOne(mappedBy = "card")
     private BadBehaviour badBehaviour;
-    @OneToOne
+
+    @OneToOne(mappedBy = "card")
     private FoulCommited foulCommited;
     /**
      * Default Constructor

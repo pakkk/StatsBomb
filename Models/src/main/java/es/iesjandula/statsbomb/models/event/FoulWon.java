@@ -29,6 +29,7 @@ public class FoulWon
     /* Attribute - If the Foul is Penalty */
     @Column(name = "penalty")
     private boolean penalty;
+    
     @OneToOne(mappedBy = "foul_won")
     private Event event;
 

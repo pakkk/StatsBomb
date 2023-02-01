@@ -28,12 +28,12 @@ public class Replacement
     @Column(length = 30)
     private String name;
 
-    @OneToOne
+    @OneToOne(mappedBy = "replacement")
     private Substitution substitution;
     /**
      * Empty Constructor
      */
-    Replacement()
+    public Replacement()
     {
 
     }

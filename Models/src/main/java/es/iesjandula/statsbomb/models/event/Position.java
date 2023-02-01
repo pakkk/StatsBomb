@@ -24,17 +24,20 @@ public class Position
     @Id
     @Column(length = 10)
     private int id; // id
+
     @Column(length = 25)
     private String name; // name of the Position
 
-    @OneToOne
+    @OneToOne(mappedBy = "play_pattern")
     private FreezeFrame freezeFrame;
-    @OneToOne
+
+    @OneToOne(mappedBy = "play_pattern")
     private Lineup lineup;
-    @OneToOne
+
+    @OneToOne(mappedBy = "play_pattern")
     private Event event;
 
-    @OneToOne
+    @OneToOne(mappedBy = "play_pattern")
     private Goalkeeper goalkeeper;
     
     

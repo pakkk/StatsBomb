@@ -64,7 +64,7 @@ public class FreezeFrame
     @Column(length = 1)
     private Boolean teammate;
 
-    FreezeFrame()
+    public FreezeFrame()
     {
 
     }

@@ -154,13 +154,13 @@ public class Shot
     @Column(length = 1)
     private Boolean redirect;
 
-    @OneToOne
+    @OneToOne(mappedBy = "shot")
     private Event event;
 
     /**
      * Default constructor
      */
-    Shot()
+    public Shot()
     {
 
     }

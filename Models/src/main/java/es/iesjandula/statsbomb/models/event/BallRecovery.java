@@ -27,7 +27,7 @@ public class BallRecovery
     /* Attribute - if is offensive Ball Recovery */
     @Column(name = "offensive")
     private Boolean offensive;
-    @OneToOne
+    @OneToOne(mappedBy = "ball_recovery")
     private Event event;
 
     /**

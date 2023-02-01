@@ -11,6 +11,8 @@ import jakarta.persistence.*;
  * @author Manuel Canio Gil
  * This class will almacenate the information about the GoalKeepers
  */
+@Entity
+@Table(name = "goalkeeper")
 public class Goalkeeper
 {
     @Id
@@ -37,6 +39,8 @@ public class Goalkeeper
     @OneToOne
     @JoinColumn(name = "id", referencedColumnName = "id")
     private OutCome outcome;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Column(length = 10)
     private List<Integer> end_location;
 
     /* Attribute - shot_saved_to_post of Goalkeeper */
@@ -46,7 +50,8 @@ public class Goalkeeper
     /* Attribute - shot_saved_to_post of Goalkeeper */
     @Column(name = "shot_saved_off_target")
     private Boolean shot_saved_off_target;
-    @OneToOne
+
+    @OneToOne(mappedBy = "goalkeeper")
     private Event event;
 
 

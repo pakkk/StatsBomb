@@ -37,7 +37,7 @@ public class Block
     /* Attribute - if the block is Save_block */
     @Column(name = "save_block")
     private Boolean save_block;
-    @OneToOne
+    @OneToOne(mappedBy = "block")
     private Event event;
 
     /**

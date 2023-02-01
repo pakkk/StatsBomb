@@ -27,28 +27,31 @@ public class OutCome
     @Column(length = 25)
     private String name; // name of the Outcome
 
-    @OneToOne
+    @OneToOne(mappedBy = "outcome")
     private Shot shot;
 
-    @OneToOne
+    @OneToOne(mappedBy = "outcome")
     private Substitution substitution;
 
-    @OneToOne
+    @OneToOne(mappedBy = "outcome")
     private Pass pass;
 
-    @OneToOne
+    @OneToOne(mappedBy = "outcome")
     private Interception interception;
-    @OneToOne
+
+    @OneToOne(mappedBy = "outcome")
     private Dribble dribble;
-    @OneToOne
+
+    @OneToOne(mappedBy = "outcome")
     private Duel duel;
-    @OneToOne
+
+    @OneToOne(mappedBy = "outcome")
     private FiftyFifty fiftyFifty;
 
-    @OneToOne
+    @OneToOne(mappedBy = "outcome")
     private BallReceipt ballreceipt;
     
-    @OneToOne
+    @OneToOne(mappedBy = "outcome")
     private Goalkeeper goalkeeper;
     /**
      * Empty constructor
