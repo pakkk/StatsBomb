@@ -25,6 +25,8 @@ public class InjuryStoppage
      */
     @Column(name = "in_chain")
     private Boolean in_chain;
+    @OneToOne
+    private Event event;
 
     /**
      * Empty constructor

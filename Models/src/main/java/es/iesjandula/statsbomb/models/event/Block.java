@@ -37,6 +37,8 @@ public class Block
     /* Attribute - if the block is Save_block */
     @Column(name = "save_block")
     private Boolean save_block;
+    @OneToOne
+    private Event event;
 
     /**
      * Default Constructor

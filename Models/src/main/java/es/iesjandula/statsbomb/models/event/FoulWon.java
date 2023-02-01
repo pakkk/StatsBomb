@@ -29,6 +29,8 @@ public class FoulWon
     /* Attribute - If the Foul is Penalty */
     @Column(name = "penalty")
     private boolean penalty;
+    @OneToOne
+    private Event event;
 
     /**
      * Empty Constructor

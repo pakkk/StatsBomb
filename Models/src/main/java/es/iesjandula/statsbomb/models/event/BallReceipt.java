@@ -23,6 +23,9 @@ public class BallReceipt
      */
     @OneToOne(mappedBy = "ball_receipt")
     private OutCome outcome;
+    @OneToOne
+    private Event event;
+
 
     /**
      * Empty Constructor

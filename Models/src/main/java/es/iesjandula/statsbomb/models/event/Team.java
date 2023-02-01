@@ -1,9 +1,6 @@
 package es.iesjandula.statsbomb.models.event;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Neil Hdez
@@ -25,8 +22,11 @@ public class Team
     @Column(length = 10)
     private int id; // id
     @Column(length = 25)
-    private String name; // name of the Team
+    private String name;
+    // name of the Team
 
+    @OneToOne
+    private Event event;
     /**
      * Empty constructor
      */

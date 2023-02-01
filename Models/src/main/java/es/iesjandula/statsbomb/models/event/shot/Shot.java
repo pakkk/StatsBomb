@@ -1,9 +1,6 @@
 package es.iesjandula.statsbomb.models.event.shot;
 
-import es.iesjandula.statsbomb.models.event.BodyPart;
-import es.iesjandula.statsbomb.models.event.OutCome;
-import es.iesjandula.statsbomb.models.event.Technique;
-import es.iesjandula.statsbomb.models.event.Type;
+import es.iesjandula.statsbomb.models.event.*;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -151,7 +148,11 @@ public class Shot
     private Boolean open_goal;
 
     /* Attribute - redirect of Shot */
+    @Column(length = 1)
     private Boolean redirect;
+
+    @OneToOne
+    private Event event;
 
     /**
      * Default constructor

@@ -11,8 +11,11 @@ public class FiftyFifty
     private Long id;
 
     /* Attribute - The outcome of the 50/50 */
-    @OneToOne(mappedBy = "fifty_fifty")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private OutCome outcome;
+    @OneToOne
+    private Event event;
 
     public OutCome getOutcome()
     {

@@ -1,5 +1,6 @@
 package es.iesjandula.statsbomb.models.event.foul_commited;
 
+import es.iesjandula.statsbomb.models.event.Event;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -26,6 +27,8 @@ public class Carry
      */
     @Column(name = "end_location")
     private List<Integer> end_location;
+    @OneToOne
+    private Event event;
 
     /**
      * Default constructor

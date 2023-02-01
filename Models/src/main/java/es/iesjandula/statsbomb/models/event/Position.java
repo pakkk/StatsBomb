@@ -31,6 +31,8 @@ public class Position
     private FreezeFrame freezeFrame;
     @OneToOne
     private Lineup lineup;
+    @OneToOne
+    private Event event;
 
     /**
      * Empty constructor

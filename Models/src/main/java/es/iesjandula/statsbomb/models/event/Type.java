@@ -40,6 +40,10 @@ public class Type
 
     @OneToOne
     private FoulCommited foulCommited;
+    @OneToOne
+    private Duel duel;
+    @OneToOne
+    private Event event;
     /**
      * Empty constructor
      */

@@ -32,6 +32,8 @@ public class Player
     private FreezeFrame freezeFrame;
     @OneToOne
     private Lineup lineup;
+    @OneToOne
+    private Event event;
 
     /**
      * Empty Constructor

@@ -26,6 +26,8 @@ public class Interception
     @OneToOne
     @JoinColumn(name = "id", referencedColumnName = "id")
     private OutCome outcome;
+    @OneToOne
+    private Event event;
 
     /**
      * Empty constructor
