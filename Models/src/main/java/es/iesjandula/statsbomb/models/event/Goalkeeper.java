@@ -22,15 +22,20 @@ public class Goalkeeper
      * option of goalkeeper’s
      * positioning before a shot.
      */
-    @OneToOne(mappedBy = "goalkeeper")
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private Position position;
-    @OneToOne(mappedBy = "goalkeeper")
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private Technique technique;
-    @OneToOne(mappedBy = "goalkeeper")
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private BodyPart body_part;
-    @OneToOne(mappedBy = "goalkeeper")
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private Type type;
-    @OneToOne(mappedBy = "goalkeeper")
+    @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private OutCome outcome;
     private List<Integer> end_location;
 

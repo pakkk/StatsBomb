@@ -30,7 +30,9 @@ public class Technique
     private Shot shot;
     @OneToOne
     private Pass pass;
-
+    @OneToOne
+    private Goalkeeper goalkeeper;
+    
     /**
      * Empty constructor
      */

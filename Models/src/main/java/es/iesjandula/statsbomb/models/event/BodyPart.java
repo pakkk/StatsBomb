@@ -37,6 +37,16 @@ public class BodyPart
     @OneToOne
     private Pass pass;
 
+    @OneToOne
+    private Clearance body_part;
+    
+    @OneToOne
+    private Clearance clearance;
+    
+    @OneToOne
+    private Goalkeeper goalkeeper;
+    
+    
     /**
      * Default Constructor
      */

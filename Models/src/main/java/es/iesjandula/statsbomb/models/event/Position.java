@@ -32,6 +32,10 @@ public class Position
     @OneToOne
     private Lineup lineup;
 
+    @OneToOne
+    private Goalkeeper goalkeeper;
+    
+    
     /**
      * Empty constructor
      */

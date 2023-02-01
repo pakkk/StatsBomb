@@ -39,6 +39,11 @@ public class OutCome
     @OneToOne
     private Interception interception;
 
+    @OneToOne
+    private BallReceipt ballreceipt;
+    
+    @OneToOne
+    private Goalkeeper goalkeeper;
     /**
      * Empty constructor
      */

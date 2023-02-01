@@ -40,6 +40,9 @@ public class Type
 
     @OneToOne
     private FoulCommited foulCommited;
+    
+    @OneToOne
+    private Goalkeeper goalkeeper;
     /**
      * Empty constructor
      */
