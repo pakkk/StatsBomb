@@ -63,6 +63,8 @@ public class Clearance
      */
     @Column(name = "other")
     private Boolean other;
+    @OneToOne
+    private Event event;
 
     /**
      * Default Constructor

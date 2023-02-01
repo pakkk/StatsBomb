@@ -1,6 +1,7 @@
 package es.iesjandula.statsbomb.models.event.foul_commited;
 
 import es.iesjandula.statsbomb.models.event.Card;
+import es.iesjandula.statsbomb.models.event.Event;
 import es.iesjandula.statsbomb.models.event.Type;
 import jakarta.persistence.*;
 
@@ -47,6 +48,9 @@ public class FoulCommited
     /* Attribute - If the Foul is Penalty */
     @Column(name = "penalty")
     private Boolean penalty;
+    @OneToOne
+    private Event event;
+
 
     /**
      * Default Constructor

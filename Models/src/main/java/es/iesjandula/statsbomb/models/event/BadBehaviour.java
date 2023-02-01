@@ -18,6 +18,8 @@ public class BadBehaviour
     @OneToOne
     @JoinColumn(name = "id",referencedColumnName = "id")
     private Card card;
+    @OneToOne
+    private Event event;
 
     public BadBehaviour()
     {

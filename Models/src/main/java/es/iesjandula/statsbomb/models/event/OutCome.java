@@ -38,6 +38,12 @@ public class OutCome
 
     @OneToOne
     private Interception interception;
+    @OneToOne
+    private Dribble dribble;
+    @OneToOne
+    private Duel duel;
+    @OneToOne
+    private FiftyFifty fiftyFifty;
 
     @OneToOne
     private BallReceipt ballreceipt;

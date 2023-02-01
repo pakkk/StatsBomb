@@ -221,6 +221,8 @@ public class Pass {
      */
     @Column(length = 1)
     private Boolean straight;
+    @OneToOne
+    private Event event;
 
     /**
      * Default constructor

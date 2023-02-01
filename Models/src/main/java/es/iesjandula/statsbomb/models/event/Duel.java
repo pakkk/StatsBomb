@@ -27,10 +27,14 @@ public class Duel
      */
     @Column(name = "counterpress")
     private Boolean counterpress;
-    @OneToOne(mappedBy = "duel")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private Type type;
-    @OneToOne(mappedBy = "duel")
+    @OneToOne
+    @JoinColumn(name = "id",referencedColumnName = "id")
     private OutCome outcome;
+    @OneToOne
+    private Event event;
 
     /**
      * Empty constructor

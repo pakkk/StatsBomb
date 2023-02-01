@@ -46,6 +46,8 @@ public class Goalkeeper
     /* Attribute - shot_saved_to_post of Goalkeeper */
     @Column(name = "shot_saved_off_target")
     private Boolean shot_saved_off_target;
+    @OneToOne
+    private Event event;
 
 
     /**

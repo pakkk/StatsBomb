@@ -24,6 +24,9 @@ public class BallReceipt
     @OneToOne
     @JoinColumn(name = "id", referencedColumnName = "id")
     private OutCome outcome;
+    @OneToOne
+    private Event event;
+
 
     /**
      * Empty Constructor
