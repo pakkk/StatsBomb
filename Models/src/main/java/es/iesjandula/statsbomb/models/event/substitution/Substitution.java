@@ -47,7 +47,8 @@ public class Substitution
     @OneToOne
     @JoinColumn(name = "id", referencedColumnName = "id")
     private Replacement replacement;
-    @OneToOne
+
+    @OneToOne(mappedBy = "substitution")
     private Event event;
     /**
      * Attribute -
@@ -57,7 +58,7 @@ public class Substitution
     /**
      * Empty Constructor
      */
-    Substitution()
+    public Substitution()
     {
 
     }

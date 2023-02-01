@@ -11,6 +11,8 @@ import jakarta.persistence.*;
  * @author Manuel Canio Gil
  * This class will almacenate the information about the GoalKeepers
  */
+@Entity
+@Table(name = "goalkeeper")
 public class Goalkeeper
 {
     @Id
