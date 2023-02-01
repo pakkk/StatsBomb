@@ -18,11 +18,12 @@ public class BadBehaviour
     @OneToOne
     @JoinColumn(name = "id",referencedColumnName = "id")
     private Card card;
-    @OneToOne
+    @OneToOne(mappedBy = "bad_behaviour")
     private Event event;
 
     public BadBehaviour()
     {
+
     }
 
     public Card getCard()

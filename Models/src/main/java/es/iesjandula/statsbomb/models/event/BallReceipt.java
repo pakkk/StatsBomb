@@ -24,7 +24,7 @@ public class BallReceipt
     @OneToOne
     @JoinColumn(name = "id", referencedColumnName = "id")
     private OutCome outcome;
-    @OneToOne
+    @OneToOne(mappedBy = "ball_receipt")
     private Event event;
 
 
