@@ -14,7 +14,7 @@ public class FiftyFifty
     @OneToOne
     @JoinColumn(name = "id",referencedColumnName = "id")
     private OutCome outcome;
-    @OneToOne
+    @OneToOne(mappedBy = "fifty_fifty")
     private Event event;
 
     public OutCome getOutcome()

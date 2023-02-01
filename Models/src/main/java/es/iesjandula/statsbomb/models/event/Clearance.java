@@ -63,7 +63,7 @@ public class Clearance
      */
     @Column(name = "other")
     private Boolean other;
-    @OneToOne
+    @OneToOne(mappedBy = "clearance")
     private Event event;
 
     /**

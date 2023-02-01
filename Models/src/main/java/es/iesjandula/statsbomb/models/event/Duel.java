@@ -33,7 +33,7 @@ public class Duel
     @OneToOne
     @JoinColumn(name = "id",referencedColumnName = "id")
     private OutCome outcome;
-    @OneToOne
+    @OneToOne(mappedBy = "duel")
     private Event event;
 
     /**

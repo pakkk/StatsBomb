@@ -42,7 +42,7 @@ public class Dribble
     private OutCome outcome;
     @Column(name = "not_touch")
     private Boolean not_touch;
-    @OneToOne
+    @OneToOne(mappedBy = "dribble")
     private Event event;
 
     /**

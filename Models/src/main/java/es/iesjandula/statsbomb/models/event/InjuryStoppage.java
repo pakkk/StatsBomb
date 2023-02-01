@@ -25,7 +25,7 @@ public class InjuryStoppage
      */
     @Column(name = "in_chain")
     private Boolean in_chain;
-    @OneToOne
+    @OneToOne(mappedBy = "injury_stoppage")
     private Event event;
 
     /**

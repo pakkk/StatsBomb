@@ -26,7 +26,7 @@ public class Interception
     @OneToOne
     @JoinColumn(name = "id", referencedColumnName = "id")
     private OutCome outcome;
-    @OneToOne
+    @OneToOne(mappedBy = "interception")
     private Event event;
 
     /**

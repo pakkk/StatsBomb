@@ -22,7 +22,7 @@ public class Country
      * Attribute
      * The id of the country
      */
-	@OneToOne
+	@OneToOne(mappedBy = "country")
 	private Lineups lineups;
     @Id
     @Column(length = 10)
