@@ -1,9 +1,6 @@
 package es.iesjandula.statsbomb.models.matches;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Nacho Belda
@@ -22,6 +19,10 @@ public class Season
     private int season_id;
     @Column(length = 25)
     private String season_name;
+
+    @ManyToOne
+    @JoinColumn(name = "match_id", nullable = false)
+    private Match match;
 
     /**
      * Empty constructor

@@ -2,11 +2,7 @@ package es.iesjandula.statsbomb.models.matches;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.utils.DateUtils;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -62,7 +58,7 @@ public class Manager
      * Attribute -
      * The managers country origin
      */
-    @OneToOne(mappedBy = "manager")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Country country;
     
     /**

@@ -1,10 +1,6 @@
 package es.iesjandula.statsbomb.models.matches;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Nacho Belda
@@ -29,7 +25,7 @@ public class Referee
      * The ID is the unique identifier for the country and the name is
      * the name of the country
      */
-    @OneToOne(mappedBy = "referee")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Country country;
 
     /**

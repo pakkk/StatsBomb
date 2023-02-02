@@ -4,13 +4,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Nacho Belda
@@ -46,7 +40,7 @@ public class HomeTeam
      * ID number and name corresponding to the origin country for
      * the home team in the match
      */
-    @OneToOne(mappedBy = "home_team")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Country country;
 
     /** Attribute -

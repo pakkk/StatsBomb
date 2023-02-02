@@ -1,9 +1,6 @@
 package es.iesjandula.statsbomb.models.matches;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  * @author Oscar Herruzo
@@ -29,6 +26,14 @@ public class Country
      */
     @Column(name = "name", nullable = false, length = 20)
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
+    private Referee referee;
+
+    @ManyToOne
+    @JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
+    private Stadium stadium;
     
     /**
      * Empty constructor

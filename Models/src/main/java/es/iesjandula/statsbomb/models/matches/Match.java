@@ -3,13 +3,10 @@ package es.iesjandula.statsbomb.models.matches;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import es.iesjandula.statsbomb.common.utils.DateUtils;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author David Armijo Ramos
@@ -35,8 +32,8 @@ public class Match
      * The ID is the unique identifier for the competition and the
      * name is the name of the competition
      */
-    @OneToOne(mappedBy = "match")
-    private Competition competition;
+    @OneToMany(mappedBy = "match")
+    private List<Competition> competition;
 
 
     /**
@@ -44,8 +41,8 @@ public class Match
      * The ID is the unique identifier for the season and the name is
      * the name of the season
      */
-    @OneToOne(mappedBy = "match")
-    private Season season;
+    @OneToMany(mappedBy = "match")
+    private List<Season> season;
 
     /** Attribute - The date of the Match in type String*/
     @Column(length = 10)
@@ -68,28 +65,28 @@ public class Match
      * The ID is the unique identifier for the stadium and the name is
      * the name of the stadium
      */
-    @OneToOne(mappedBy = "match")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Stadium stadium;
 
     /** Attribute -
      * The ID is the unique identifier for the referee and the name is
      * the name of the referee
      */
-    @OneToOne(mappedBy = "match")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Referee referee;
 
     /** Attribute -
      * The unique identifier integer and the name for the home team
      * in this match
      */
-    @OneToOne(mappedBy = "match")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private HomeTeam home_team;
 
     /** Attribute -
      * The unique identifier integer and the name for the away team
      * in this match
      */
-    @OneToOne(mappedBy = "match")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private AwayTeam away_team;
 
     /** Attribute - The final score of the home team */
@@ -118,7 +115,7 @@ public class Match
     private int match_week;
 
     /** Attribute - id/name pair of the phase of the competition this match is in  */
-    @OneToOne(mappedBy = "match")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private CompetitionStage competition_stage;
 
     /** Attribute -
@@ -145,7 +142,7 @@ public class Match
      * Contains a list of tags detailing the versions of various parts of
      * the event data for this match
      */
-    @OneToOne(mappedBy = "match")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Metadata metadata;
 
     /** Attribute -
@@ -182,7 +179,7 @@ public class Match
     /**
      * @return the information about competition
      */
-    public Competition getCompetition()
+    public List<Competition> getCompetition()
     {
         return this.competition;
     }
@@ -192,13 +189,13 @@ public class Match
      */
     public void setCompetition(Competition competition)
     {
-        this.competition = competition;
+        this.competition.add(competition);
     }
 
     /**
      * @return the information about season
      */
-    public Season getSeason()
+    public List<Season> getSeason()
     {
         return this.season;
     }
@@ -208,7 +205,7 @@ public class Match
      */
     public void setSeason(Season season)
     {
-        this.season = season;
+        this.season.add(season);
     }
 
     /**
