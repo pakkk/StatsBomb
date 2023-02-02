@@ -33,8 +33,8 @@ public class Match
      * The ID is the unique identifier for the competition and the
      * name is the name of the competition
      */
-    @OneToMany(mappedBy = "match")
-    private List<Competition> competition;
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Competition competition;
 
 
     /**
@@ -42,8 +42,8 @@ public class Match
      * The ID is the unique identifier for the season and the name is
      * the name of the season
      */
-    @OneToMany(mappedBy = "match")
-    private List<Season> season;
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Season season;
 
     /** Attribute - The date of the Match in type String*/
     @Column(length = 10)
@@ -180,7 +180,7 @@ public class Match
     /**
      * @return the information about competition
      */
-    public List<Competition> getCompetition()
+    public Competition getCompetition()
     {
         return this.competition;
     }
@@ -190,20 +190,13 @@ public class Match
      */
     public void setCompetition(Competition competition)
     {
-
-        if (this.competition == null)
-        {
-            this.competition = new ArrayList<Competition>();
-        }
-
-        this.competition.add(competition);
-
+        this.competition = competition;
     }
 
     /**
      * @return the information about season
      */
-    public List<Season> getSeason()
+    public Season getSeason()
     {
         return this.season;
     }
@@ -213,11 +206,7 @@ public class Match
      */
     public void setSeason(Season season)
     {
-        if (this.season == null)
-        {
-            this.season = new ArrayList<Season>();
-        }
-        this.season.add(season);
+        this.season = season;
     }
 
     /**
