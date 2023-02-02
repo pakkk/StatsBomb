@@ -1,11 +1,15 @@
-fetch('http://localhost:8080/lista_endpoint')
-  .then(response => response.json())
-  .then(data => {
-    const select = document.getElementById("endpoints");
-    data.forEach(item => {
-      const option = document.createElement('option');
-      option.value = item.endpoint;
-      option.text = item.name;
-      select.add(option);
-    });
-  });
+import {getAllEndPoint, getAllCompetitions} from "./query.js";
+
+let competicionesDisponibles = await getAllCompetitions();
+
+let selectCompeticion = document.getElementById("selectCompetitions");
+
+console.log(competicionesDisponibles)
+
+competicionesDisponibles.forEach(competicion => {
+    let option = document.createElement("option");
+    option.value = competicion["competition_id"].competition_id + "" + competicion["competition_id"].season_id
+    option.innerHTML = competicion.competition_name + " " + competicion.season_name;
+    selectCompeticion.appendChild(option);
+})
+

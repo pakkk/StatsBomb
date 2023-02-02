@@ -161,4 +161,30 @@ public class RestHandlerCompetition
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
     }
+
+    /**
+     * This endpoint returns all competitions season and name
+     *
+     * @return Json of competitions season and name
+     */
+    @RequestMapping(method=RequestMethod.GET, value="/web")
+    public ResponseEntity<?> getCompetitionsSeasonName()
+    {
+        try
+        {
+            String resultJson = this.competitionsStats.getCompetitionsNameAndSeasonName();
+            return ResponseEntity.ok().body(resultJson);
+        }
+        catch (StatsBombException statsBombException)
+        {
+            return ResponseEntity.status(500).body(statsBombException.getBodyExceptionMessage());
+        }
+        catch (Exception exception)
+        {
+            StatsBombException statsBombException = new StatsBombException(exception);
+            LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
+            return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
+        }
+    }
+
 }

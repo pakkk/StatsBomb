@@ -6,6 +6,7 @@ import es.iesjandula.statsbomb.competitions_rest.stats.gender.GenderFilter;
 import es.iesjandula.statsbomb.competitions_rest.stats.id.IdFilter;
 import es.iesjandula.statsbomb.competitions_rest.stats.order.OrderFilter;
 import es.iesjandula.statsbomb.competitions_rest.stats.utils.CompetitionUtils;
+import es.iesjandula.statsbomb.competitions_rest.stats.web_filter.WebFilter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,5 +89,17 @@ public class CompetitionsStats
     {
         IdFilter idFilter = new IdFilter();
         return idFilter.getCompetitionsId(competitionUtils.getListCompetitions());
+    }
+
+    /**
+     * This method show all competitions name and season name
+     *
+     * @return String in format Json Pretty with competitions id.
+     * @throws StatsBombException
+     */
+    public String getCompetitionsNameAndSeasonName() throws StatsBombException
+    {
+        WebFilter webFilter = new WebFilter();
+        return webFilter.getCompetitionsNameAndSeasonName(competitionUtils.getListCompetitions());
     }
 }

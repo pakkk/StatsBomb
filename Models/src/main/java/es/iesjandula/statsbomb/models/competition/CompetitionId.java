@@ -23,6 +23,12 @@ public class CompetitionId implements Serializable
 
     }
 
+    public CompetitionId(Integer competition_id, Integer season_id)
+    {
+        this.competition_id = competition_id;
+        this.season_id = season_id;
+    }
+
     public Integer getCompetition_id()
     {
         return this.competition_id;
