@@ -1,14 +1,5 @@
 package es.iesjandula.statsbomb.webportal.rest;
 
-import java.io.IOException;
-import java.nio.file.Paths;
-import java.util.List;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DatabindException;
@@ -18,6 +9,16 @@ import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.utils.JsonUtils;
 import es.iesjandula.statsbomb.webportal.Json;
 import es.iesjandula.statsbomb.webportal.models.FilterJson;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.List;
 
 /**
  * @author Joaquin Moreno
@@ -96,7 +97,7 @@ public class WebPortalController
 		{
 			ObjectMapper mapper = Json.mapper();
 
-			filterJsons = mapper.readValue(Paths.get("endpoint.json").toFile(), new TypeReference<List<FilterJson>>()
+			filterJsons = mapper.readValue(Paths.get("WebPortal" + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "endpoint.json").toFile(), new TypeReference<List<FilterJson>>()
 			{
 			});
 		}
