@@ -30,6 +30,41 @@ public class MatchesUtils
     @Autowired
     private IMatchesRepository matchesRepository;
 
+    @Autowired
+    private IAwayTeamRepository awayTeamRepository;
+
+    @Autowired
+    private ICompetitionRepository competitionRepository;
+
+    @Autowired
+    private ICompetitionStageRepository competitionStageRepository;
+
+    @Autowired
+    private ICountryRepository countryRepository;
+
+    @Autowired
+    private IHomeTeamRepository homeTeamRepository;
+
+    @Autowired
+    private IManagerRepository managerRepository;
+
+    @Autowired
+    private IMatchRepository matchRepository;
+
+    @Autowired
+    private IMetadataRepository metadataRepository;
+
+    @Autowired
+    private IRefereeRepository refereeRepository;
+
+    @Autowired
+    private ISeasonRepository seasonRepository;
+
+    @Autowired
+    private IStadiumRepository stadiumRepository;
+
+
+
     /**
      * Search all Matches of a Competition and Season
      *
@@ -66,7 +101,20 @@ public class MatchesUtils
 
         for (Competition competition : competitionList)
         {
-            this.matchesRepository.saveAllAndFlush(this.getMatches(competition.getCompetition_id(), competition.getSeason_id()));
+            System.out.println(competition.getCompetition_id());
+            System.out.println(competition.getSeason_id());
+
+            List<Match> matchesList = this.getMatches(competition.getCompetition_id(), competition.getSeason_id());
+
+            for (Match match : matchesList)
+            {
+                if (match.getCompetition() != null)
+                {
+                    //this.competitionRepository.saveAndFlush(match.getCompetition());
+                }
+            }
+
+//            this.matchesRepository.saveAllAndFlush(this.getMatches(competition.getCompetition_id(), competition.getSeason_id()));
         }
 
     }
