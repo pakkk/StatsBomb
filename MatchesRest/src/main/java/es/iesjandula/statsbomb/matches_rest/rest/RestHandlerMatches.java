@@ -3,6 +3,7 @@ package es.iesjandula.statsbomb.matches_rest.rest;
 import es.iesjandula.statsbomb.matches_rest.stats.id_filter.MatchesIdFilter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -34,11 +35,14 @@ public class RestHandlerMatches
 	private final Logger LOGGER = LogManager.getLogger();
 
 	// New Instance of MatchesStats
-	private final MatchesStats matchesStats = this.getMatchesStats();
+	@Autowired
+	private MatchesStats matchesStats;
 	// New Instance of ManagerNationalityFilter
-	private final ManagerNationalityFilter managerNationalityFilter = this.getManagerWithSameNationality();
+	@Autowired
+	private ManagerNationalityFilter managerNationalityFilter;
 	// New Instance of ManagerScoreFilter
-	private final ManagerScoreFilter managerScoreFilter = this.getManagerScoreFilter();
+	@Autowired
+	private ManagerScoreFilter managerScoreFilter;
 
 
 	@RequestMapping(method = RequestMethod.GET, value = "/list_matches_date/")

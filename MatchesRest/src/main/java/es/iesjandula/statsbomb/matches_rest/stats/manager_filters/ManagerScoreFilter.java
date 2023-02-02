@@ -16,10 +16,12 @@ import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
 import es.iesjandula.statsbomb.common.utils.Constants;
 import es.iesjandula.statsbomb.common.utils.JsonUtils;
 import es.iesjandula.statsbomb.models.matches.Match;
+import org.springframework.stereotype.Service;
 
 /**
  * @author Jesus Garcia Puerto
  */
+@Service
 public class ManagerScoreFilter
 {
 	// Attribute - List of Result

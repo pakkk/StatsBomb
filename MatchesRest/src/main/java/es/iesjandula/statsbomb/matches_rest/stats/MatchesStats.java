@@ -2,6 +2,8 @@ package es.iesjandula.statsbomb.matches_rest.stats;
 
 import es.iesjandula.statsbomb.matches_rest.stats.id_filter.MatchesIdFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
@@ -17,6 +19,7 @@ import es.iesjandula.statsbomb.matches_rest.stats.utils.MatchesUtils;
  * @author Manuel Martin
  */
 @Service
+@Component
 public class MatchesStats
 {
     @Autowired

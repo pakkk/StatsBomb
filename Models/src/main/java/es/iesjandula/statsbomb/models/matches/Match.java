@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import es.iesjandula.statsbomb.common.utils.DateUtils;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -189,7 +190,14 @@ public class Match
      */
     public void setCompetition(Competition competition)
     {
+
+        if (this.competition == null)
+        {
+            this.competition = new ArrayList<Competition>();
+        }
+
         this.competition.add(competition);
+
     }
 
     /**
@@ -205,6 +213,10 @@ public class Match
      */
     public void setSeason(Season season)
     {
+        if (this.season == null)
+        {
+            this.season = new ArrayList<Season>();
+        }
         this.season.add(season);
     }
 

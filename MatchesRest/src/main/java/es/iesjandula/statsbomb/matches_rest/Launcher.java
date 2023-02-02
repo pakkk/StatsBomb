@@ -19,8 +19,8 @@ import org.springframework.core.env.Environment;
 public class Launcher implements CommandLineRunner
 {
 
-    @Autowired
-    private MatchesUtils matchesUtils;
+//    @Autowired
+//    private MatchesUtils matchesUtils;
 
     @Autowired
     private Environment environment;
@@ -40,7 +40,7 @@ public class Launcher implements CommandLineRunner
         String loadDatabase = this.environment.getProperty("statsbomb.loadDatabase") ;
         if (loadDatabase != null && Boolean.parseBoolean(loadDatabase))
         {
-            this.matchesUtils.insertMatchesInDataBase();
+//            this.matchesUtils.insertMatchesInDataBase();
         }
     }
 }

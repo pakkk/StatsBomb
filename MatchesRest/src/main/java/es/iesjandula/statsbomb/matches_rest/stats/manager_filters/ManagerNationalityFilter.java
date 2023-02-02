@@ -17,10 +17,12 @@ import es.iesjandula.statsbomb.common.utils.Constants;
 import es.iesjandula.statsbomb.common.utils.JsonUtils;
 import es.iesjandula.statsbomb.models.matches.Manager;
 import es.iesjandula.statsbomb.models.matches.Match;
+import org.springframework.stereotype.Service;
 
 /**
  * @author Jesus Garcia Puerto
  */
+@Service
 public class ManagerNationalityFilter
 {
 	private Logger LOGGER = LogManager.getLogger();
