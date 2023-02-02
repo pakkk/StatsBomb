@@ -19,15 +19,24 @@
                   <a href="https://statsbomb.com/es/" target="_blank">
                     <img class="" src="img/statsbomb.svg" width="40" height="32" alt="My Happy SVG" />
                   </a>
-                  <h4 class="titulo" id="textoTitulo">StatsBomb</h4>
+                  <a th:href="@{/index}" style="outline: none; text-decoration: none; color: white;">
+                    <h4 class="titulo" id="textoTitulo">StatsBomb</h4>
+                  </a>
                 </div>
             </div>
-            
-    
-            <div class="botonesHeader">
-                <button type="button" class="btn btn-outline-light">About us</button>
-                <button type="button" class="btn btn-outline-light">What We Do</button>
-            </div>
+
+
+          <div class="botonesHeader">
+            <a th:href="@{/about_us}">
+              <button type="button" class="btn btn-outline-light">About us</button>
+            </a>
+            <a th:href="@{/what_we_do}">
+              <button type="button" class="btn btn-outline-light">What We Do</button>
+            </a>
+            <a th:href="@{/statistics}">
+              <button type="button" class="btn btn-outline-light">Statistics</button>
+            </a>
+          </div>
             
             <div id="botonLog" class="dropdown ">
                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

@@ -81,6 +81,19 @@ public class WebPortalController
 	}
 
 	/**
+	 * This endPoint return the index page of the web portal.
+	 *
+	 * @return statistics page
+	 */
+	@RequestMapping(method = RequestMethod.GET, value = "/about_us")
+	public String showAboutUs()
+	{
+
+		return "about_us.html";
+
+	}
+
+	/**
 	 * Method - This EndPoint return a JSON with all the filter created
 	 * 
 	 * @return a list of with the different EndPoint in format of JSON
