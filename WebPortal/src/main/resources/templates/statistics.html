@@ -51,35 +51,33 @@
       </div>
     </header>
       <div id="contenedor">
-        <div id="filtro"> 
-          <h2 class="blanco">Competitions</h2>
-          
+        <div id="filtro">
+
+          <h2 class="blanco"><label for="selectCompetitions" style="color: white; ">Competitions</label></h2>
           <div class="select">
             <select name="slct" id="selectCompetitions">
             </select>
           </div>
-                 
-        
-          <h2 class="blanco">Matches</h2>
-       
- 
+
+          <h2 class="blanco"><label for="selectMatches">Matches</label></h2>
           <div class="select">
-            <label for="selectMatches">Matches</label>
             <select name="slct" id="selectMatches">
               <option>Choose an option</option>
-              <option value="1">Pure CSS</option>
-              <option value="2">No JS</option>
-              <option value="3">Nice!</option>
             </select>
-          </div> 
-          <h2 class="blanco">Available Statistics</h2>
+          </div>
+
+
+          <h2 class="blanco"><label for="endpoints">Available Statistics</label></h2>
            
           <div class="select">
             <select name="slct" id="endpoints">
               <option>Choose an option</option>
             </select>
           </div>
-                             
+
+          <br>
+
+          <input type="button" value="Action">
         </div>
 
         <div id="resultado">
@@ -91,7 +89,8 @@
         </div>
       </div>
 
-    <script type="module" src="js/fillComboBoxEndPoint.js"></script>
+    <script type="module" src="js/fillComboBoxCompetitions.js"></script>
+    <script type="module" src="js/fillComboBoxMatches.js"></script>
 
     <footer>
       <hr>

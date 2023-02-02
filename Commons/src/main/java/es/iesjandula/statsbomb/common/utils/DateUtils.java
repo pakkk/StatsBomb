@@ -23,6 +23,11 @@ public class DateUtils
      */
     public Date convertStringToDateFormatHHmmssSSS(final String dateString)
     {
+        if (dateString == null)
+        {
+            return null;
+        }
+
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss.SSS");
         Date date = null;
         try
@@ -39,6 +44,11 @@ public class DateUtils
 
     public Date convertStringToDateFormatyyyyMMdd(final String dateString)
     {
+        if (dateString == null)
+        {
+            return null;
+        }
+
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = null;
         try
@@ -55,6 +65,10 @@ public class DateUtils
 
     public Date convertStringToDateFormatddMMyyyy(final String dateString)
     {
+        if (dateString == null)
+        {
+            return null;
+        }
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = null;
         try
@@ -71,6 +85,10 @@ public class DateUtils
 
     public Date convertStringToDateFormatddMMyyyyWithHyphen(final String dateString)
     {
+        if (dateString == null)
+        {
+            return null;
+        }
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Date date = null;
         try
@@ -93,6 +111,10 @@ public class DateUtils
      */
     public Date convertStringToDateFormatyyyyMMddTHHmmssSSS(String dateString)
     {
+        if (dateString == null)
+        {
+            return null;
+        }
         Date date = null;
         try
         {
