@@ -300,8 +300,10 @@ public class MatchesUtils
 
                 if (match.getHome_team() != null)
                 {
-
-
+                    if(!this.homeTeamRepository.existsById(match.getHome_team().getHome_team_id()))
+                    {
+                        this.homeTeamRepository.saveAndFlush(match.getHome_team());
+                    }
                 }
 
                 // HOME TEAM FIN
@@ -313,7 +315,10 @@ public class MatchesUtils
 
                 if (match.getAway_team() != null)
                 {
-
+                    if(!this.awayTeamRepository.existsById(match.getAway_team().getAway_team_id()))
+                    {
+                        this.awayTeamRepository.saveAndFlush(match.getAway_team());
+                    }
                 }
 
 
