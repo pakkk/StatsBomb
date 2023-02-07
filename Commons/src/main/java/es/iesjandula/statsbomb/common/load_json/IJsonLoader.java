@@ -59,4 +59,6 @@ public interface IJsonLoader
      */
     String loadThreeSixty(int matchId) throws StatsBombException;
 
+    String loadCompetitionsByRest(String url) throws StatsBombException;
+
 }
