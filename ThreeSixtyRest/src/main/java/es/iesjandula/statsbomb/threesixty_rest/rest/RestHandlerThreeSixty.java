@@ -4,6 +4,7 @@ import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.threesixty_rest.stats.ThreeSixtyStats;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author API Rest Generator
  * ------------------------------------------------
  */
-@RequestMapping(value = "/three_sixty", produces = {"application/json"})
+@RequestMapping(value = "/threeSixty", produces = {"application/json"})
 @RestController
 public class RestHandlerThreeSixty 
 {
@@ -28,7 +29,8 @@ public class RestHandlerThreeSixty
     private final Logger LOGGER = LogManager.getLogger();
 
     //New Instance of the Three Sixty
-    private final ThreeSixtyStats threesixty_stats = this.getThreeSixtyStats();
+    @Autowired
+    private ThreeSixtyStats threesixty_stats;
 
     /**
      * This endpoint return the list of the three sixties in order by the event_uuid
@@ -77,11 +79,5 @@ public class RestHandlerThreeSixty
             LOGGER.error(statsBombException.getBodyExceptionMessage(), exception);
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
-    }
-
-    @Bean
-    private ThreeSixtyStats getThreeSixtyStats()
-    {
-        return new ThreeSixtyStats();
     }
 }

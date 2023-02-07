@@ -2,7 +2,7 @@ package es.iesjandula.statsbomb.events_rest.rest;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,20 +29,10 @@ public class RestHandlerEvents
 	 */
 	private final Logger LOGGER = LogManager.getLogger();
 
-	private final EventsStats eventsStats = this.getEventsStats();
+	@Autowired
+	private EventsStats eventsStats;
 
-	/**
-	 * Method return Instance of CompetitionsStats
-	 *
-	 * @return Instance of CompetitionsStats
-	 */
-	@Bean
-	private EventsStats getEventsStats()
-	{
-		return new EventsStats();
-	}
-
-	@RequestMapping(method = RequestMethod.GET, value = "/goalkeeper/")
+	@RequestMapping(method = RequestMethod.GET, value = "/goalkeeper")
 	public ResponseEntity<?> getGoalkeeperPlayer(
 			@RequestParam(value = "matchId", required = true) final Integer matchId)
 	{
@@ -69,7 +59,7 @@ public class RestHandlerEvents
 	 *
 	 * @return Instance of EventStats that returns duels
 	 */
-	@RequestMapping(method = RequestMethod.GET, value = "/duels/")
+	@RequestMapping(method = RequestMethod.GET, value = "/duels")
 	public ResponseEntity<?> getPlayerDuels(@RequestParam(value = "matchId", required = true) final Integer matchId)
 	{
 		try
@@ -95,7 +85,7 @@ public class RestHandlerEvents
 	 *
 	 * @return Instance of EventStats that returns scorers
 	 */
-	@RequestMapping(method = RequestMethod.GET, value = "/scorers/")
+	@RequestMapping(method = RequestMethod.GET, value = "/scorers")
 	public ResponseEntity<?> getScorers(@RequestParam(value = "matchId", required = true) final Integer matchId)
 	{
 		try
@@ -116,8 +106,8 @@ public class RestHandlerEvents
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/list_possession/")
-	public ResponseEntity<?> getListOfPosesionOfMatch(
+	@RequestMapping(method = RequestMethod.GET, value = "/possesion")
+	public ResponseEntity<?> getListPosesionMatch(
 			@RequestParam(value = "matchId", required = true) final Integer matchId)
 	{
 		try
@@ -143,7 +133,7 @@ public class RestHandlerEvents
 	 * @return Instance of EventStats that returns reference players
 	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/reference_player")
-	public ResponseEntity<?> getListOfReferencePlayer(
+	public ResponseEntity<?> getListReferencePlayer(
 			@RequestParam(value = "matchId", required = true) final Integer matchId)
 	{
 		try
@@ -164,8 +154,8 @@ public class RestHandlerEvents
 
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/porcentage_possesions/")
-	public ResponseEntity<?> getPorcentageOfPossesions(
+	@RequestMapping(method = RequestMethod.GET, value = "/porcentage_possesions")
+	public ResponseEntity<?> getPorcentagePossesions(
 			@RequestParam(value = "matchId", required = true) final Integer matchId)
 	{
 		try
