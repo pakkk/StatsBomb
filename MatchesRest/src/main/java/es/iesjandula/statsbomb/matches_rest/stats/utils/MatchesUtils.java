@@ -156,7 +156,17 @@ public class MatchesUtils
 
                 LOGGER.info("FIN INSERT STADIUM CHECK");
 
+                // SEASON INICIO
+
+                this.seasonRepository.saveAndFlush(match.getSeason());
+
+                // SEASON FIN
+
+                LOGGER.info("FIN INSERT SEASON CHECK");
+
+
                 // COMPETITION INICIO
+
 
                 this.competitionRepository.saveAndFlush(match.getCompetition());
 
@@ -172,13 +182,7 @@ public class MatchesUtils
 
                 LOGGER.info("FIN INSERT COMPETITION STAGE CHECK");
 
-                // SEASON INICIO
 
-                this.seasonRepository.saveAndFlush(match.getSeason());
-
-                // SEASON FIN
-
-                LOGGER.info("FIN INSERT SEASON CHECK");
 
                 // COUNTRY Y ENTRENADOR DE HOME TEAM INICIO
 
@@ -257,6 +261,7 @@ public class MatchesUtils
                 LOGGER.info("FIN INSERT MATCH CHECK");
 
                 LOGGER.info("CHECKKKKKKKKKKKKKKKKKISS MUAK");
+
 
             }
         }

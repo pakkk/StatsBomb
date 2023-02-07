@@ -33,12 +33,9 @@ public class Competition
      * The name of the country the competition relates to (or region
      * for international competitions)
      */
-    @Column(name = "country_name", length = 40)
+    @Column(name = "country_name", length = 100)
     private String country_name;
 
-    @ManyToOne
-    @JoinColumn(name = "match_id", nullable = false)
-    private Match match;
 
     /**
      * Empty Constructor

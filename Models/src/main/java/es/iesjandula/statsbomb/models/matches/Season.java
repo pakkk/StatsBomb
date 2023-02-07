@@ -17,12 +17,8 @@ public class Season
     @Id
     @Column(length = 10)
     private int season_id;
-    @Column(length = 25)
+    @Column(length = 100)
     private String season_name;
-
-    @ManyToOne
-    @JoinColumn(name = "match_id", nullable = false)
-    private Match match;
 
     /**
      * Empty constructor

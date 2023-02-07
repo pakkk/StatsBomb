@@ -161,4 +161,10 @@ public class JsonLoaderImpl implements IJsonLoader
     {
         return this.loadJson(url);
     }
+
+    @Override
+    public String loadLineUpsByRest(String url) throws StatsBombException
+    {
+        return this.loadJson(url);
+    }
 }

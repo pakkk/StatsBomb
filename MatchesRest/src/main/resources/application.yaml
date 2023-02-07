@@ -16,4 +16,4 @@ spring:
     level: debug
 
 statsbomb:
-  loadDatabase: false
+  loadDatabase: true
