@@ -52,9 +52,6 @@ public class MatchesUtils
     private IMatchRepository matchRepository;
 
     @Autowired
-    private IMetadataRepository metadataRepository;
-
-    @Autowired
     private IRefereeRepository refereeRepository;
 
     @Autowired
