@@ -10,8 +10,6 @@ selectMatches.addEventListener("change", fillComboBoxStats)
 
 async function fillComboBoxStats() {
 
-    console.log("selectCompetitions.value: " + selectCompetitions.value)
-    console.log("selectMatches.value: " + selectMatches.value)
 
     if (selectMatches.value !== "0" || selectCompetitions.value !== "0") {
 
@@ -22,7 +20,7 @@ async function fillComboBoxStats() {
             let baseUrl = endpoints.competitions.base_url;
             endpoints.competitions.endpoints.forEach(endpoint => {
                 let option = document.createElement("option");
-                option.value = baseUrl+endpoint.url;
+                option.value = baseUrl+endpoint.entrypoint;
                 option.innerHTML = endpoint.name;
                 selectEndPoint.appendChild(option);
             })
@@ -35,7 +33,7 @@ async function fillComboBoxStats() {
             let baseUrl = endpoints.matches.base_url;
             endpoints.matches.endpoints.forEach(endpoint => {
                 let option = document.createElement("option");
-                option.value = baseUrl+endpoint.url;
+                option.value = baseUrl+endpoint.entrypoint;
                 option.innerHTML = endpoint.name;
                 selectEndPoint.appendChild(option);
             })

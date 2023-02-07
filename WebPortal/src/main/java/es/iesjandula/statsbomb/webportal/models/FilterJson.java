@@ -5,7 +5,7 @@ public class FilterJson
 	/**	Attribute - ComboBox's text */
 	private String name;
 	/**	Attribute - EndPoint associate to the ComboBox */
-	private String endpoint;
+	private String entrypoint;
 	/** Attribute - EndPoint's description */
 	private String description;
 	
@@ -17,49 +17,31 @@ public class FilterJson
 		
 	}
 
-	/**
-	 * @return the ComboBox's text
-	 */
 	public String getName()
 	{
-		return this.name;
+		return name;
 	}
 
-	/**
-	 * @param name, ComboBox's text
-	 */
 	public void setName(String name)
 	{
 		this.name = name;
 	}
 
-	/**
-	 * @return EndPoint associate to the ComboBox
-	 */
-	public String getEndpoint()
+	public String getEntrypoint()
 	{
-		return this.endpoint;
+		return entrypoint;
 	}
 
-	/**
-	 * @param endpoint, EndPoint associate to the ComboBox
-	 */
-	public void setEndpoint(String endpoint)
+	public void setEntrypoint(String entrypoint)
 	{
-		this.endpoint = endpoint;
+		this.entrypoint = entrypoint;
 	}
 
-	/**
-	 * @return EndPoint's description
-	 */
 	public String getDescription()
 	{
-		return this.description;
+		return description;
 	}
 
-	/**
-	 * @param description, EndPoint's description
-	 */
 	public void setDescription(String description)
 	{
 		this.description = description;

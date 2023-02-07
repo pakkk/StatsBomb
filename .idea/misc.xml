@@ -3,6 +3,7 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+        <option value="$PROJECT_DIR$/WebPortal/pom.xml" />
         <option value="$PROJECT_DIR$/Commons/pom.xml" />
         <option value="$PROJECT_DIR$/CompetitionsRest/pom.xml" />
         <option value="$PROJECT_DIR$/EventsRest/pom.xml" />
@@ -12,7 +13,6 @@
         <option value="$PROJECT_DIR$/Models/pom.xml" />
         <option value="$PROJECT_DIR$/ThreeSixtyRest/pom.xml" />
         <option value="$PROJECT_DIR$/ThreeSixtyStats/pom.xml" />
-        <option value="$PROJECT_DIR$/WebPortal/pom.xml" />
       </list>
     </option>
   </component>
