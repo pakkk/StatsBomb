@@ -41,7 +41,7 @@ public class Format
      * An array of players on the team sheet for this team.
      */
     @OneToMany
-    private List <Lineup> lineup;
+    private List <Lineups> lineup;
     /**
      * Default constructor
      */
@@ -89,7 +89,7 @@ public class Format
      * @return the object Lineup
      */
 
-    public List <Lineup> getLineup()
+    public List <Lineups> getLineup()
     {
         return lineup;
     }
@@ -98,7 +98,7 @@ public class Format
      * @param lineup, with the object lineup
      */
 
-    public void setLineup(List <Lineup> lineup)
+    public void setLineup(List <Lineups> lineup)
     {
         this.lineup = lineup;
     }

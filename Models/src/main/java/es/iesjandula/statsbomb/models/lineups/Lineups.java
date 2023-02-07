@@ -57,8 +57,9 @@ public class Lineups
      * Attribute
      * An array of positions that the player had during the match
      */
+
     @OneToMany
-    private List<Position> positions;
+    private List<Positions> positions;
     /**
      * Default constructor
      */
@@ -191,7 +192,7 @@ public class Lineups
      * @return the array of positions
      */
 
-    public List<Position> getPositions()
+    public List<Positions> getPositions()
     {
         return positions;
     }
@@ -201,7 +202,7 @@ public class Lineups
      * @param positions, with the array of positions
      */
 
-    public void setPositions(List<Position>  positions)
+    public void setPositions(List<Positions>  positions)
     {
         this.positions = positions;
     }

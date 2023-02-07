@@ -61,4 +61,6 @@ public interface IJsonLoader
 
     String loadCompetitionsByRest(String url) throws StatsBombException;
 
+    String loadLineUpsByRest(String url) throws StatsBombException;
+
 }
