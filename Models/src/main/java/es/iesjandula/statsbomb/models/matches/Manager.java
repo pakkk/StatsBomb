@@ -25,14 +25,7 @@ public class Manager
     @Id
     @Column(length = 10)
     private int id;
-    
-	/**
-     * Attribute -
-     * The name of the country.
-     */
-    @Column(name = "name", nullable = false, length = 70)
-    private String name;
-    
+
 	/**
      * Attribute -
      * Nickname of the manager.
@@ -58,7 +51,7 @@ public class Manager
      * Attribute -
      * The managers country origin
      */
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne
     private Country country;
     
     /**
@@ -85,21 +78,6 @@ public class Manager
         this.id = id;
     }
 
-    /**
-     * @return the name of the manager.
-     */
-    public String getName()
-    {
-        return name;
-    }
-
-    /**
-     * @param name, name of the manager.
-     */
-    public void setName(String name)
-    {
-        this.name = name;
-    }
 
     /**
      * @return the nickname of the manager.

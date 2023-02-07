@@ -18,14 +18,14 @@ public class Referee
     @Id
     @Column(length = 10)
     private int id;
-    @Column(length = 25)
+    @Column(length = 100)
     private String name;
 
     /** Attribute -
      * The ID is the unique identifier for the country and the name is
      * the name of the country
      */
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne
     private Country country;
 
     /**

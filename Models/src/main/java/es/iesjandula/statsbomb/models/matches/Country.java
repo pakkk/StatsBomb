@@ -24,17 +24,10 @@ public class Country
      * Attribute -
      * The name of the country 
      */
-    @Column(name = "name", nullable = false, length = 20)
+    @Column(name = "name", nullable = false, length = 100)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
-    private Referee referee;
 
-    @ManyToOne
-    @JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
-    private Stadium stadium;
-    
     /**
      * Empty constructor
      */

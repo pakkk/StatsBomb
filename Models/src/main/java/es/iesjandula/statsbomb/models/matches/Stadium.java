@@ -17,11 +17,11 @@ public class Stadium
     @Id
     @Column(length = 10)
     private int id;
-    @Column(length = 25)
+    @Column(length = 100)
     private String name;
 
     /** Attribute - The name of the country the stadium is in */
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne
     private Country country;
 
     /**
