@@ -35,7 +35,7 @@ async function fillComboBoxMatches() {
 
         matchesDisponibles.forEach(partido => {
             let option = document.createElement("option");
-            option.value = partido.match_id;
+            option.value = selectCompetitions.value;
             option.innerHTML = partido.home_team + " - " + partido.away_team;
             selectMatches.appendChild(option);
         })
