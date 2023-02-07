@@ -96,23 +96,173 @@ public class MatchesUtils
 
         List<Competition> competitionList = getCompetition();
 
+        List<Match> matchList;
+
         for (Competition competition : competitionList)
         {
+
             System.out.println(competition.getCompetition_id());
             System.out.println(competition.getSeason_id());
+            matchList = this.getMatches(competition.getCompetition_id(), competition.getSeason_id());
 
-            List<Match> matchesList = this.getMatches(competition.getCompetition_id(), competition.getSeason_id());
-
-            for (Match match : matchesList)
+            for (Match match: matchList)
             {
-                if (match.getCompetition() != null)
+                // REFEREE COMPLETO
+                if (match.getReferee() != null)
                 {
-                    //this.competitionRepository.saveAndFlush(match.getCompetition());
+                    if (match.getReferee().getCountry() != null)
+                    {
+                        if (!this.countryRepository.existsCountryByName(match.getReferee().getCountry().getName()))
+                        {
+                            this.countryRepository.saveAndFlush(match.getReferee().getCountry());
+                        }
+                    }
                 }
-            }
 
-//            this.matchesRepository.saveAllAndFlush(this.getMatches(competition.getCompetition_id(), competition.getSeason_id()));
+                if(match.getReferee() != null)
+                {
+                    if(!this.refereeRepository.existsById(match.getReferee().getId()))
+                    {
+                        this.refereeRepository.saveAndFlush(match.getReferee());
+                    }
+                }
+
+                // REFEREE COMPLETO FIN
+
+                LOGGER.info("FIN INSERT ARBITRO CHECK");
+
+                // STADIUM COMPLETO
+
+                if (match.getStadium() != null)
+                {
+                    if (match.getStadium().getCountry() != null)
+                    {
+                        if (!this.countryRepository.existsCountryByName(match.getStadium().getCountry().getName()))
+                        {
+                            this.countryRepository.saveAndFlush(match.getStadium().getCountry());
+                        }
+                    }
+                }
+
+                if(match.getStadium() != null)
+                {
+                    if(!this.stadiumRepository.existsById(match.getStadium().getId()))
+                    {
+                        this.stadiumRepository.saveAndFlush(match.getStadium());
+                    }
+                }
+
+                // STADIUM COMPLETO FIN
+
+                LOGGER.info("FIN INSERT STADIUM CHECK");
+
+                // COMPETITION INICIO
+
+                this.competitionRepository.saveAndFlush(match.getCompetition());
+
+                // COMPETITION FIN
+
+                LOGGER.info("FIN INSERT COMPETITION CHECK");
+
+                // COMPETITION STAGE INICIO
+
+                this.competitionStageRepository.saveAndFlush(match.getCompetition_stage());
+
+                // COMPETITION STAGE FIN
+
+                LOGGER.info("FIN INSERT COMPETITION STAGE CHECK");
+
+                // SEASON INICIO
+
+                this.seasonRepository.saveAndFlush(match.getSeason());
+
+                // SEASON FIN
+
+                LOGGER.info("FIN INSERT SEASON CHECK");
+
+                // COUNTRY Y ENTRENADOR DE HOME TEAM INICIO
+
+                if(match.getHome_team() != null)
+                {
+
+
+                }
+                // COUNTRY Y ENTRENADOR DE HOME TEAM FIN
+
+                LOGGER.info("FIN INSERT COUNTRY DEL ENTRADOR Y ENTRENADOR HOME TEAM CHECK");
+
+                // COUNTRY Y ENTRENADOR DE AWAY TEAM INICIO
+
+                if (match.getAway_team() != null)
+                {
+
+                }
+
+                // COUNTRY Y ENTRENADOR DE HOME TEAM FIN
+
+                LOGGER.info("FIN INSERT COUNTRY DEL ENTRENADOR Y ENTRENADOR DE AWAY TEAM CHECK");
+
+                // COUNTRY HOME TEAM INICIO
+
+                if(match.getHome_team() != null)
+                {
+
+                }
+
+                // COUNTRY HOME TEAM FIN
+
+                LOGGER.info("FIN INSERT COUNTRY DE HOME TEAM CHECK");
+
+                // COUNTRY AWAY TEAM INICIO
+
+                if (match.getAway_team() != null)
+                {
+
+                }
+
+                // COUNTRY AWAY TEAM FIN
+
+                LOGGER.info("FIN INSERT COUNTRY DE AWAY TEAM CHECK");
+
+                // HOME TEAM INICIO
+
+                if (match.getHome_team() != null)
+                {
+
+                }
+
+                // HOME TEAM FIN
+
+
+                LOGGER.info("FIN INSERT HOME TEAM CHECK");
+
+                // AWAY TEAM INICIO
+
+                if (match.getAway_team() != null)
+                {
+
+                }
+
+
+                // AWAY TEAM FIN
+
+                LOGGER.info("FIN INSERT AWAY TEAM CHECK");
+
+                // INSERT MATCH
+
+                this.matchesRepository.saveAndFlush(match);
+
+                // INSERT MATCH FIN
+
+                LOGGER.info("FIN INSERT MATCH CHECK");
+
+                LOGGER.info("CHECKKKKKKKKKKKKKKKKKISS MUAK");
+
+            }
         }
+
+        System.out.println("He termiando");
+
 
     }
 

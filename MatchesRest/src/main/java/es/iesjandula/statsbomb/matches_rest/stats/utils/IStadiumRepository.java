@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @version 1.0.0
  * @since 02/02/2023
  */
-public interface IStadiumRepository extends JpaRepository<Stadium, Long>
+public interface IStadiumRepository extends JpaRepository<Stadium, Integer>
 {
 }
