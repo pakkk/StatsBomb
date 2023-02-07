@@ -26,11 +26,18 @@ public class Manager
     @Column(length = 10)
     private int id;
 
+    /**
+     * Attribute -
+     * Name of the manager.
+     */
+    @Column(name = "name", length = 100)
+    private String name;
+
 	/**
      * Attribute -
      * Nickname of the manager.
      */
-    @Column(name = "nickname", length = 50)
+    @Column(name = "nickname", length = 100)
     private String nickname;
     
 	/**
@@ -137,6 +144,16 @@ public class Manager
     public void setCountry(Country country)
     {
         this.country = country;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
     }
 
     /**

@@ -10,6 +10,7 @@ import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
 import es.iesjandula.statsbomb.common.utils.Constants;
 
 import es.iesjandula.statsbomb.models.competition.Competition;
+import es.iesjandula.statsbomb.models.matches.Manager;
 import es.iesjandula.statsbomb.models.matches.Match;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -188,6 +189,37 @@ public class MatchesUtils
 
                 if(match.getHome_team() != null)
                 {
+                    List<Manager> managerList = match.getHome_team().getManagers();
+                    if(match.getHome_team().getCountry()!=null)
+                    {
+                        if(match.getHome_team().getManagers()!=null)
+                        {
+                            for(Manager manager : managerList)
+                            {
+                                if(manager.getCountry()!=null)
+                                {
+                                    if (!this.countryRepository.existsCountryByName(manager.getCountry().getName()))
+                                    {
+                                        this.countryRepository.saveAndFlush(manager.getCountry());
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if(match.getHome_team().getManagers()!=null)
+                    {
+                        for(Manager manager : managerList)
+                        {
+                            if(!this.managerRepository.existsById(manager.getId()))
+                            {
+                                this.managerRepository.saveAndFlush(manager);
+
+                            }
+                        }
+
+
+                    }
 
 
                 }
@@ -200,7 +232,11 @@ public class MatchesUtils
                 if (match.getAway_team() != null)
                 {
 
+
+
+
                 }
+
 
                 // COUNTRY Y ENTRENADOR DE HOME TEAM FIN
 
@@ -232,6 +268,7 @@ public class MatchesUtils
 
                 if (match.getHome_team() != null)
                 {
+
 
                 }
 
