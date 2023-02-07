@@ -147,7 +147,6 @@ public class Manager
     {
         return "HomeTeamManager{" +
                 "id=" + id +
-                ", name='" + name +
                 ", nickname='" + nickname +
                 ", dob='" + dob +
                 ", dob__javaUtilDate=" + dob__javaUtilDate +
