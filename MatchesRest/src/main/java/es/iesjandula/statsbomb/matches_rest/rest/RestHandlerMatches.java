@@ -23,7 +23,7 @@ import es.iesjandula.statsbomb.matches_rest.stats.manager_filters.ManagerScoreFi
  * @author API Rest Generator ------------------------------------------------
  */
 @CrossOrigin(maxAge = 3600)
-@RequestMapping(value = "/matches", produces = { "application/json" })
+@RequestMapping(value = "/matches", produces = { "application/json" }) // 8084
 @RestController //
 
 public class RestHandlerMatches
@@ -45,8 +45,8 @@ public class RestHandlerMatches
 	private ManagerScoreFilter managerScoreFilter;
 
 
-	@RequestMapping(method = RequestMethod.GET, value = "/list_matches_date/")
-	public ResponseEntity<?> getListOfMatchesbyDate(
+	@RequestMapping(method = RequestMethod.GET, value = "/date")
+	public ResponseEntity<?> getListOfMatchesByDate(
 			@RequestParam(value = "competitionId", required = true) final Integer competitionId,
 			@RequestParam(value = "seasonId", required = true) final Integer seasonId,
 			@RequestParam(value = "dateStart", required = true) final String dateStart)
@@ -68,8 +68,9 @@ public class RestHandlerMatches
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/list_manager_score")
-	public ResponseEntity<?> getManagerScoreFilter(@RequestParam(value = "competitionId", required = true) final Integer competitionId,
+	@RequestMapping(method = RequestMethod.GET, value = "/score")
+	public ResponseEntity<?> getManagerScoreFilter(
+			@RequestParam(value = "competitionId", required = true) final Integer competitionId,
 			@RequestParam(value = "seasonId", required = true) final Integer seasonId)
 	{
 		try
@@ -89,10 +90,11 @@ public class RestHandlerMatches
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/list_manager_with_same_nationality")
+	@RequestMapping(method = RequestMethod.GET, value = "/managerNationality")
 	public ResponseEntity<?> getManagerWithSameNationality(
 			@RequestParam(value = "competitionId", required = true) final Integer competitionId,
-			@RequestParam(value = "seasonId", required = true) final Integer seasonId)
+			@RequestParam(value = "seasonId", required = true) final Integer seasonId
+	)
 	{
 		try
 		{
@@ -112,7 +114,7 @@ public class RestHandlerMatches
 		}
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/list_matches/")
+	@RequestMapping(method = RequestMethod.GET, value = "/matches")
 	public ResponseEntity<?> getListMatches(
 			@RequestParam(value = "competitionId", required = true) final Integer competitionId,
 			@RequestParam(value = "seasonId", required = true) final Integer seasonId)
@@ -134,7 +136,7 @@ public class RestHandlerMatches
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/list_matches")
+	@RequestMapping(method = RequestMethod.GET, value = "/matchesId")
 	public ResponseEntity<?> getMatchesId(
 			@RequestParam(value = "competitionId", required = true) final Integer competitionId,
 			@RequestParam(value = "seasonId", required = true) final Integer seasonId)

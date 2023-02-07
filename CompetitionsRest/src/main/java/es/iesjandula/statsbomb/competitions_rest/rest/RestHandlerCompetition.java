@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  * ------------------------------------------------
  */
 @CrossOrigin(maxAge = 3600)
-@RequestMapping(value = "/competitions", produces = {"application/json"})
+@RequestMapping(value = "/competitions", produces = {"application/json"}) // 8081
 @RestController //
 public class RestHandlerCompetition
 {
@@ -64,7 +64,7 @@ public class RestHandlerCompetition
      *
      * @return Json of competitions in order ascending
      */
-    @RequestMapping(method = RequestMethod.GET, value = "/order/ascent")
+    @RequestMapping(method = RequestMethod.GET, value = "/alphabeticalOrder")
     public ResponseEntity<?> getCompetitionsAlphabeticalOrder()
     {
 
@@ -90,7 +90,7 @@ public class RestHandlerCompetition
      *
      * @return Json of competitions played by women
      */
-    @RequestMapping(method = RequestMethod.GET, value = "/female")
+    @RequestMapping(method = RequestMethod.GET, value = "/gender/female")
     public ResponseEntity<?> getCompetitionsFemale()
     {
         try
@@ -112,11 +112,11 @@ public class RestHandlerCompetition
     }
 
     /**
-     * This endpoint returns competitions that are played by women.
+     * This endpoint returns competitions that are played by men.
      *
      * @return Json of competitions played by women
      */
-    @RequestMapping(method = RequestMethod.GET, value = "/male")
+    @RequestMapping(method = RequestMethod.GET, value = "/gender/male")
     public ResponseEntity<?> getCompetitionsMale()
     {
 
@@ -142,7 +142,7 @@ public class RestHandlerCompetition
      * 
      * @return Json of competitions id
      */
-    @RequestMapping(method=RequestMethod.GET, value="/filter/id")
+    @RequestMapping(method=RequestMethod.GET, value="/id")
     public ResponseEntity<?> getCompetitionsId() 
     {
         try 

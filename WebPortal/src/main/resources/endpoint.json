@@ -1,85 +1,124 @@
-[
-    {
-        "name" : "Porcentage possesions",
-        "endpoint" : "/matches/porcentage_possesions/?matchId={}",
-        "description" : ""
+
+{
+    "competitions":{
+        "baseUrl": "https://loccalhost:8081/competitions",
+        "endpoints": [
+            {
+                "name": "getCompetitions",
+                "url": "/",
+                "description": "Get all competitions"
+            },
+            {
+                "name": "getCompetitionsAlphabeticalOrder",
+                "url": "/alphabeticalOrder",
+                "description": "Get all competitions in alphabetical order"
+            },
+            {
+                "name": "getCompetitionsFemale",
+                "url": "/gender/female",
+                "description": "Get all competitions that are played by women"
+            },
+            {
+                "name": "getCompetitionsMale",
+                "url": "/gender/male",
+                "description": "Get all competitions that are played by men"
+            },
+            {
+                "name": "getCompetitionsId",
+                "url": "/id",
+                "description": "Get all competitions id"
+            },
+            {
+                "name": "getCompetitionsSeasonName",
+                "url": "/web",
+                "description": "Get all competitions season name"
+            }
+        ]
     },
-    
-    {
-        "name" : "Matches after of a date",
-        "endpoint" : "/matches/list_matches_date?competitionId={}&seasonId={}&dateStart={}",
-        "description" : ""
+    "matches": {
+        "baseUrl": "https://loccalhost:8084/matches",
+        "endpoints": [
+            {
+                "name": "getListOfMatchesByDate",
+                "url": "/date?competitionId={}&seasonId={}&dateStart={}",
+                "description": "Get list of matches by date"
+            },
+            {
+                "name": "getManagerScoreFilter",
+                "url": "/score?competitionId={}&seasonId={}",
+                "description": "Get manager score filter"
+            },
+            {
+                "name": "getManagerWithSameNationality",
+                "url": "/managerNationality?competitionId={}&seasonId={}",
+                "description": "Get list of managers with same nationality"
+            },
+            {
+                "name": "getListMatches",
+                "url": "/matches?competitionId={}&seasonId={}",
+                "description": "Get list of matches"
+            },
+            {
+                "name": "getMatchesId",
+                "url": "/matchesId?competitionId={}&seasonId={}",
+                "description": "Get list of matches id"
+            }
+        ]
     },
-    
-    {
-        "name" : "Evolution managers",
-        "endpoint" : "/matches/list_manager_score?competitionId={}&seasonId={}",
-        "description" : "Show the number of matches won, lost and drawed"
+    "lineups": {
+        "baseUrl": "https://loccalhost:8083/lineups",
+        "endpoints": [
+
+        ]
     },
-    
-    {
-        "name" : "Manager with differrent nationality",
-        "endpoint" : "/matches/list_manager_with_same_nationality?competitionId={}&seasonId={}",
-        "description" : "Show a list of managers whose nationality is different to the country of the team"
+    "events": {
+        "baseUrl": "https://loccalhost:8082/events",
+        "endpoints": [
+            {
+                "name": "getGoalkeeperPlayer",
+                "url": "/goalkeeper?matchId={}",
+                "description": "Get goalkeeper player"
+            },
+            {
+                "name": "getPlayerDuels",
+                "url": "/duels?matchId={}",
+                "description": "Get player duels"
+            },
+            {
+                "name": "getScores",
+                "url": "/scores?matchId={}",
+                "description": "Get scores"
+            },
+            {
+                "name": "getListPosesionMatch",
+                "url": "/posession?matchId={}",
+                "description": "Get list of posession match"
+            },
+            {
+                "name": "getListReferencePlayer",
+                "url": "/reference_player?matchId={}",
+                "description": "Get list of reference player"
+            },
+            {
+                "name": "getPorcentagePossession",
+                "url": "/porcentage_possession?matchId={}",
+                "description": "Get porcentage possession"
+            }
+        ]
     },
-    
-    {
-        "name" : "Goalkeeper",
-        "endpoint" : "/events/goalkeeper/?matchId={}",
-        "description" : ""
-    },
-    
-    {
-        "name" : "Duels",
-        "endpoint" : "/events/duels/?matchId={}",
-        "description" : ""
-    },
-    
-    {
-        "name" : "Scorers",
-        "endpoint" : "/events/scorers/?matchId={}",
-        "description" : ""
-    },
-    
-    {
-        "name" : "List possessions",
-        "endpoint" : "/events/list_possession/?matchId={}",
-        "description" : "Show a list with all the plays of each team"
-    },
-    
-    {
-        "name" : "Reference player",
-        "endpoint" : "/events/reference_player/{}",
-        "description" : "Show the player who more pass has done of each team"
-    },
-    
-    {
-        "name" : "Order three-sixty",
-        "endpoint" : "/three_sixty/order?matchId={}",
-        "description" : ""
-    },
-    
-    {
-        "name" : "Teammates",
-        "endpoint" : "/three_sixty/teammates?matchId={}",
-        "description" : ""
-    },
-    
-    {
-        "name" : "Order competitions",
-        "endpoint" : "/competitions/order/ascent",
-        "description" : ""
-    },
-    
-    {
-        "name" : "Competitions female",
-        "endpoint" : "/competitions/female",
-        "description" : "List of the competitions females"
-    },
-    
-    {
-        "name" : "Competitions male",
-        "endpoint" : "/competitions/male",
-        "description" : "List of the competitions males"
+    "threeSixty": {
+        "baseUrl": "https://loccalhost:8085/threeSixty",
+        "endpoints": [
+            {
+                "name": "getThreeSixtyListOrder",
+                "url": "/order?matchId={}",
+                "description": "Get three sixty list order"
+            },
+            {
+                "name": "getTeammatesOfThreeSixty",
+                "url": "/teammates?matchId={}",
+                "description": "Get teammates of three sixty"
+            }
+        ]
     }
-]
+}

@@ -15,6 +15,7 @@ import es.iesjandula.statsbomb.events_rest.stats.scorer.ScorerFilter;
 import es.iesjandula.statsbomb.models.event.Event;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ import java.util.List;
  *
  * In this class we create the filter and statistics for Json Events.
  */
+@Service
 public class EventsStats
 {
     private final Logger LOGGER = LogManager.getLogger();
