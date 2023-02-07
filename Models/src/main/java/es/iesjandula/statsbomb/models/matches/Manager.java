@@ -44,7 +44,7 @@ public class Manager
      * Attribute -
      * Date of birth
      */
-    @Column(name = "dob", nullable = false, length = 10)
+    @Column(name = "dob", length = 10)
     private String dob;
     
 	/**

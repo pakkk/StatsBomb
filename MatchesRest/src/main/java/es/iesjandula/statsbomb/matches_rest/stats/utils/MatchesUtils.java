@@ -328,7 +328,7 @@ public class MatchesUtils
 
                 // INSERT MATCH
 
-                this.matchesRepository.saveAndFlush(match);
+               // this.matchesRepository.saveAndFlush(match);
 
                 // INSERT MATCH FIN
 

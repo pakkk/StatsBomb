@@ -49,11 +49,27 @@ public class AwayTeam
     @OneToMany
     private List<Manager> managers;
 
+    @OneToMany
+    private List<Match> matches;
+
+
+
     /**
      * Constructor with new managers
      */
     public AwayTeam() {
         this.managers = new ArrayList<>();
+        this.matches = new ArrayList<>();
+    }
+
+    public List<Match> getMatches()
+    {
+        return matches;
+    }
+
+    public void setMatches(List<Match> matches)
+    {
+        this.matches = matches;
     }
 
     /**
