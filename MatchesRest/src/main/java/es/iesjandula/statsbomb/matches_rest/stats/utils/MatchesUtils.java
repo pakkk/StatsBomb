@@ -217,11 +217,7 @@ public class MatchesUtils
 
                             }
                         }
-
-
                     }
-
-
                 }
                 // COUNTRY Y ENTRENADOR DE HOME TEAM FIN
 
@@ -231,14 +227,38 @@ public class MatchesUtils
 
                 if (match.getAway_team() != null)
                 {
+                    List<Manager> managerList = match.getAway_team().getManagers();
+                    if(match.getAway_team().getCountry()!=null)
+                    {
+                        if(match.getAway_team().getManagers()!=null)
+                        {
+                            for(Manager manager : managerList)
+                            {
+                                if(manager.getCountry()!=null)
+                                {
+                                    if (!this.countryRepository.existsCountryByName(manager.getCountry().getName()))
+                                    {
+                                        this.countryRepository.saveAndFlush(manager.getCountry());
+                                    }
+                                }
+                            }
+                        }
+                    }
 
-
-
-
+                    if(match.getAway_team().getManagers()!=null)
+                    {
+                        for(Manager manager : managerList)
+                        {
+                            if(!this.managerRepository.existsById(manager.getId()))
+                            {
+                                this.managerRepository.saveAndFlush(manager);
+                            }
+                        }
+                    }
                 }
 
 
-                // COUNTRY Y ENTRENADOR DE HOME TEAM FIN
+                // COUNTRY Y ENTRENADOR DE AWAY TEAM FIN
 
                 LOGGER.info("FIN INSERT COUNTRY DEL ENTRENADOR Y ENTRENADOR DE AWAY TEAM CHECK");
 
@@ -246,7 +266,13 @@ public class MatchesUtils
 
                 if(match.getHome_team() != null)
                 {
-
+                    if(match.getHome_team().getCountry() != null)
+                    {
+                        if(!this.countryRepository.existsCountryByName(match.getHome_team().getCountry().getName()))
+                        {
+                            this.countryRepository.saveAndFlush(match.getHome_team().getCountry());
+                        }
+                    }
                 }
 
                 // COUNTRY HOME TEAM FIN
@@ -257,7 +283,13 @@ public class MatchesUtils
 
                 if (match.getAway_team() != null)
                 {
-
+                    if(match.getAway_team().getCountry() != null)
+                    {
+                        if(!this.countryRepository.existsCountryByName(match.getAway_team().getCountry().getName()))
+                        {
+                            this.countryRepository.saveAndFlush(match.getAway_team().getCountry());
+                        }
+                    }
                 }
 
                 // COUNTRY AWAY TEAM FIN
