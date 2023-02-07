@@ -56,13 +56,14 @@
           <h2 class="blanco"><label for="selectCompetitions" style="color: white; ">Competitions</label></h2>
           <div class="select">
             <select name="slct" id="selectCompetitions">
+              <option value="0">Choose an option</option>
             </select>
           </div>
 
           <h2 class="blanco"><label for="selectMatches">Matches</label></h2>
           <div class="select">
             <select name="slct" id="selectMatches">
-              <option>Choose an option</option>
+              <option value="0">Choose an option</option>
             </select>
           </div>
 
@@ -71,13 +72,13 @@
            
           <div class="select">
             <select name="slct" id="endpoints">
-              <option>Choose an option</option>
+              <option value="0">Choose an option</option>
             </select>
           </div>
 
           <br>
 
-          <input type="button" value="Action">
+          <input type="button" value="Action" id="submit">
         </div>
 
         <div id="resultado">
@@ -91,6 +92,8 @@
 
     <script type="module" src="js/fillComboBoxCompetitions.js"></script>
     <script type="module" src="js/fillComboBoxMatches.js"></script>
+    <script type="module" src="js/fillComboBoxStats.js"></script>
+    <script type="module" src="js/submitStats.js"></script>
 
     <footer>
       <hr>

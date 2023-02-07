@@ -6,7 +6,7 @@ const getAllCompetitions = async () => {
 }
 
 const getAllMatchesOfCompetition = async (competitionId, seasonId) => {
-    const respone = await fetch(`${URL_MATCH}list_matches/?competitionId=${competitionId}&seasonId=${seasonId}`)
+    const respone = await fetch(`${URL_MATCH}matches?competitionId=${competitionId}&seasonId=${seasonId}`)
     return respone.json()
 }
 
@@ -15,4 +15,9 @@ const getAllEndPoint = async () => {
     return respone.json()
 }
 
-export { getAllEndPoint, getAllCompetitions, getAllMatchesOfCompetition }
+const getEndPoint = async (urlComplete) => {
+    const respone = await fetch(urlComplete)
+    return respone.json()
+}
+
+export { getAllEndPoint, getAllCompetitions, getAllMatchesOfCompetition, getEndPoint }

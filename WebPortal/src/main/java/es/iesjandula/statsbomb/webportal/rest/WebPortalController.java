@@ -10,8 +10,10 @@ import es.iesjandula.statsbomb.common.utils.JsonUtils;
 import es.iesjandula.statsbomb.webportal.Json;
 import es.iesjandula.statsbomb.webportal.models.FilterJson;
 
+import es.iesjandula.statsbomb.webportal.models.Type;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -24,6 +26,7 @@ import java.util.List;
  * @author Joaquin Moreno
  * @author Jesus Garcia Puerto
  */
+@CrossOrigin(maxAge = 3600)
 @RequestMapping(produces = { "application/json" })
 @Controller
 public class WebPortalController
@@ -103,16 +106,21 @@ public class WebPortalController
 	public ResponseEntity<?> getFiltrosJson() throws StatsBombException
 	{
 		// instance of a List
-		List<FilterJson> filterJsons = null;
+		Type type = null;
 
 		// fill the list with the object save in the JSON indicate
 		try
 		{
 			ObjectMapper mapper = Json.mapper();
 
-			filterJsons = mapper.readValue(Paths.get("WebPortal" + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "endpoint.json").toFile(), new TypeReference<List<FilterJson>>()
+			type = mapper.readValue(Paths.get("WebPortal" + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "endpoint.json").toFile(), new TypeReference<Type>()
 			{
 			});
+
+			if (type == null)
+			{
+				throw new StatsBombException("500","Error al leer el fichero JSON");
+			}
 		}
 		catch (StreamReadException streamReadException)
 		{
@@ -122,16 +130,21 @@ public class WebPortalController
 		{
 			databindException.printStackTrace();
 		}
+		catch (StatsBombException statsBombException)
+		{
+			statsBombException.printStackTrace();
+		}
 		catch (IOException ioException)
 		{
 			ioException.printStackTrace();
 		}
 
+
 		// instance of JsonUtils
 		JsonUtils jsonUtils = new JsonUtils();
 
 		// convert the list in a String in format JSON
-		String json = jsonUtils.writeObjectToJsonAsStringPretty(filterJsons);
+		String json = jsonUtils.writeObjectToJsonAsStringPretty(type);
 
 		return ResponseEntity.ok().body(json);
 	}

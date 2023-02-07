@@ -1,7 +1,6 @@
-
 {
     "competitions":{
-        "baseUrl": "https://loccalhost:8081/competitions",
+        "base_url": "https://loccalhost:8081/competitions",
         "endpoints": [
             {
                 "name": "getCompetitions",
@@ -36,7 +35,7 @@
         ]
     },
     "matches": {
-        "baseUrl": "https://loccalhost:8084/matches",
+        "base_url": "https://loccalhost:8084/matches",
         "endpoints": [
             {
                 "name": "getListOfMatchesByDate",
@@ -66,13 +65,13 @@
         ]
     },
     "lineups": {
-        "baseUrl": "https://loccalhost:8083/lineups",
+        "base_url": "https://loccalhost:8083/lineups",
         "endpoints": [
 
         ]
     },
     "events": {
-        "baseUrl": "https://loccalhost:8082/events",
+        "base_url": "https://loccalhost:8082/events",
         "endpoints": [
             {
                 "name": "getGoalkeeperPlayer",
@@ -106,8 +105,8 @@
             }
         ]
     },
-    "threeSixty": {
-        "baseUrl": "https://loccalhost:8085/threeSixty",
+    "three_sixty": {
+        "base_url": "https://loccalhost:8085/threeSixty",
         "endpoints": [
             {
                 "name": "getThreeSixtyListOrder",
