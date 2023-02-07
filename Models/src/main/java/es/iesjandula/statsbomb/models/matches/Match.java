@@ -139,12 +139,6 @@ public class Match
     @JsonIgnore
     private Date last_updated_360_javaUtilDate;
 
-    /** Attribute -
-     * Contains a list of tags detailing the versions of various parts of
-     * the event data for this match
-     */
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Metadata metadata;
 
     /** Attribute -
      * The version number for the method in which the data was
@@ -459,21 +453,6 @@ public class Match
         return last_updated_360_javaUtilDate;
     }
 
-    /**
-     * @return the information about metadata
-     */
-    public Metadata getMetadata()
-    {
-        return this.metadata;
-    }
-
-    /**
-     * @param metadata with the information about metadata
-     */
-    public void setMetadata(Metadata metadata)
-    {
-        this.metadata = metadata;
-    }
 
     /**
      * @return the information about data_version
@@ -515,7 +494,6 @@ public class Match
                 ", competition_stage=" + competition_stage +
                 ", last_updated='" + last_updated + '\'' +
                 ", last_updated_javaUtilDate=" + last_updated_javaUtilDate +
-                ", metadata=" + metadata +
                 ", data_version='" + data_version + '\'' +
                 '}';
     }
