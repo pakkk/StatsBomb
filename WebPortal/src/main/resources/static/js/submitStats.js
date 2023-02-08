@@ -10,6 +10,9 @@ button.addEventListener("click", submitStats)
 
 async function submitStats() {
 
+    textArea.innerHTML=""
+    textArea.innerText=""
+
     if (selectEndPoint.value.includes("competitionId={}") && selectEndPoint.value.includes("seasonId={}") && (selectEndPoint.value.match(/{}/g) || []).length === 2 && selectMatches.value !== "0")
     {
         const idCompeticion = selectCompetitions.value.split("/")[0];
@@ -37,6 +40,9 @@ async function submitStats() {
         })
         const idCompeticion = selectCompetitions.value.split("/")[0];
         const idSeason = selectCompetitions.value.split("/")[1];
+
+        console.log(idCompeticion)
+        console.log(idSeason)
 
         url = url.replace("competitionId={}", "competitionId="+idCompeticion);
         url = url.replace("seasonId={}", "seasonId="+idSeason);

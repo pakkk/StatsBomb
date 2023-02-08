@@ -60,8 +60,13 @@ public class ManagerScoreFilter
 	 */
 	public String getManagerScoreFilter(int competitionId, int seasonId) throws StatsBombException
 	{
-		List<Match> matchesList= this.getListMatches(competitionId, seasonId);
+		resultsList.clear();
+
+		List<Match> matchesList= new ArrayList<>();
 		List<String> managerList = new ArrayList<String>();
+
+		matchesList = this.getListMatches(competitionId, seasonId);
+
 		// tour the list of matches
 		for (Match matches : matchesList)
 		{
