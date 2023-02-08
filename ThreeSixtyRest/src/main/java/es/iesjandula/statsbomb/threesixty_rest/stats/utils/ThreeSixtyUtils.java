@@ -90,7 +90,7 @@ public class ThreeSixtyUtils
     {
         String competitionsUrl = this.environment.getProperty("statsbomb.competitionsUrl") ;
         IJsonLoader jsonLoader = new JsonLoaderImpl();
-        String competitionsUrlEndpoint = competitionsUrl + "/competitions" + "/filter/id";
+        String competitionsUrlEndpoint = competitionsUrl + "/competitions" + "/id";
 
         ObjectMapper mapper = Json.mapper();
         return mapper.readValue(jsonLoader.loadCompetitionsByRest(competitionsUrlEndpoint), new TypeReference<List<CompetitionsDto>>(){});
