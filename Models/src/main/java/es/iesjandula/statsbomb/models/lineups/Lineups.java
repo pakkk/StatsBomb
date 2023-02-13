@@ -44,9 +44,11 @@ public class Lineups
      * Attribute
      * The player’s nationality, a country object with ID and name attributes.
      */
-    @OneToOne
-    @JoinColumn(name = "player_id", referencedColumnName = "id")
+
+    @ManyToOne
     private Country country;
+
+
     /**
      * Attribute
      * An array of cards that the player has received
