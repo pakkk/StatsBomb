@@ -1,12 +1,7 @@
 package es.iesjandula.statsbomb.models.lineups;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 /**
  *
@@ -22,11 +17,13 @@ public class Country
      * Attribute
      * The id of the country
      */
-	@OneToOne(mappedBy = "country")
-	private Lineups lineups;
+
     @Id
     @Column(length = 10)
     private Integer id;
+
+    @ManyToOne
+    private Lineups lineups;
     /**
      * Attribute
      * The name of the country
