@@ -1,0 +1,20 @@
+server:
+  port: 8090
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      routes:
+        - id: competitions
+          uri: http://localhost:8081
+          predicates:
+            - Path=/competitions/**
+
+
