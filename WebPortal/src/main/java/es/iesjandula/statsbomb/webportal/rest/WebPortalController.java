@@ -44,6 +44,14 @@ public class WebPortalController
 
 	}
 
+	@RequestMapping(method = RequestMethod.GET, value = "/login")
+	public String showLogin()
+	{
+
+		return "login.html";
+
+	}
+
 	/**
 	 * This endPoint return the Who We Are page of the web portal.
 	 *
