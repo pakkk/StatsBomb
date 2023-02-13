@@ -13,6 +13,8 @@
         <option value="$PROJECT_DIR$/ThreeSixtyRest/pom.xml" />
         <option value="$PROJECT_DIR$/ThreeSixtyStats/pom.xml" />
         <option value="$PROJECT_DIR$/WebPortal/pom.xml" />
+        <option value="$PROJECT_DIR$/EurekaServer/pom.xml" />
+        <option value="$PROJECT_DIR$/GateWay-Server/pom.xml" />
       </list>
     </option>
   </component>

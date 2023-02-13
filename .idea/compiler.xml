@@ -7,23 +7,27 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="WebPortal" />
+        <module name="EurekaServer" />
         <module name="CompetitionsRest" />
         <module name="ThreeSixtyStats" />
         <module name="ThreeSixtyRest" />
         <module name="EventsRest" />
-        <module name="Commons" />
         <module name="MatchesRest" />
-        <module name="LineupsStats" />
+        <module name="Commons" />
         <module name="Models" />
+        <module name="LineupsStats" />
         <module name="LineupsRest" />
+        <module name="GateWay-Server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Commons" target="19" />
       <module name="CompetitionsRest" target="19" />
       <module name="CompetitionsStats" target="19" />
+      <module name="EurekaServer" target="19" />
       <module name="EventsRest" target="19" />
       <module name="EventsStats" target="19" />
+      <module name="GateWay-Server" target="19" />
       <module name="LineupsRest" target="19" />
       <module name="LineupsStats" target="19" />
       <module name="MatchesRest" target="19" />
@@ -37,7 +41,9 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="CompetitionsRest" options="-parameters" />
+      <module name="EurekaServer" options="-parameters" />
       <module name="EventsRest" options="-parameters" />
+      <module name="GateWay-Server" options="-parameters" />
       <module name="LineupsRest" options="-parameters" />
       <module name="MatchesRest" options="-parameters" />
       <module name="ThreeSixtyRest" options="-parameters" />
