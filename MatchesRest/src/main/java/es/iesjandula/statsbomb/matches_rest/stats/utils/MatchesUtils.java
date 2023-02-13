@@ -108,6 +108,7 @@ public class MatchesUtils
 
             for (Match match: matchList)
             {
+                LOGGER.error("MATCH ID --->"+ match.getMatch_id());
                 // REFEREE COMPLETO
                 if (match.getReferee() != null)
                 {
@@ -328,16 +329,17 @@ public class MatchesUtils
 
                 // INSERT MATCH
 
-               // this.matchesRepository.saveAndFlush(match);
+
+                this.matchRepository.saveAndFlush(match);
+
+
 
                 // INSERT MATCH FIN
 
                 LOGGER.info("FIN INSERT MATCH CHECK");
 
-                LOGGER.info("CHECKKKKKKKKKKKKKKKKKISS MUAK");
-
-
             }
+
         }
 
         System.out.println("He termiando");

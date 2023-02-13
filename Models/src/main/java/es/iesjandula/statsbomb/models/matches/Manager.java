@@ -60,6 +60,8 @@ public class Manager
      */
     @OneToOne
     private Country country;
+
+
     
     /**
      * Empty constructor

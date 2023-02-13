@@ -47,10 +47,10 @@ public class AwayTeam
      * about the manager described with the variables listed below
      */
     @OneToMany
+    @JoinColumn(name="away_team_id")
     private List<Manager> managers;
 
-    @OneToMany
-    private List<Match> matches;
+
 
 
 
@@ -59,9 +59,10 @@ public class AwayTeam
      */
     public AwayTeam() {
         this.managers = new ArrayList<>();
-        this.matches = new ArrayList<>();
+        //this.matches = new ArrayList<>();
     }
 
+    /**
     public List<Match> getMatches()
     {
         return matches;
@@ -71,6 +72,7 @@ public class AwayTeam
     {
         this.matches = matches;
     }
+     */
 
     /**
      * @return the information about the id

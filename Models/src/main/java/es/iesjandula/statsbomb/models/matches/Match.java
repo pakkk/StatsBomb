@@ -15,7 +15,7 @@ import java.util.List;
  * The match information for each they collect
  */
 @Entity
-@Table(name = "match")
+@Table(name = "match_table")
 public class Match
 {
 
@@ -25,28 +25,11 @@ public class Match
      * events)
      */
     @Id
-    @Column(length = 10)
+    @Column(length = 100)
     private int match_id;
 
-    /**
-     * Attribute -
-     * The ID is the unique identifier for the competition and the
-     * name is the name of the competition
-     */
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Competition competition;
-
-
-    /**
-     * Attribute -
-     * The ID is the unique identifier for the season and the name is
-     * the name of the season
-     */
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Season season;
-
     /** Attribute - The date of the Match in type String*/
-    @Column(length = 10)
+    @Column(length = 100)
     private String match_date;
 
     /** Attribute - The date of the Match in type Date*/
@@ -54,7 +37,7 @@ public class Match
     private Date match_date_javaUtilDate;
 
     /** Attribute - The time of the Match in type String*/
-    @Column(length = 20)
+    @Column(length = 200)
     private String kick_off;
 
     /** Attribute - The time of the Match in type Date*/
@@ -63,67 +46,83 @@ public class Match
 
     /**
      * Attribute -
-     * The ID is the unique identifier for the stadium and the name is
-     * the name of the stadium
+     * The ID is the unique identifier for the competition and the
+     * name is the name of the competition
      */
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Stadium stadium;
+    @ManyToOne
+    private Competition competition;
 
-    /** Attribute -
-     * The ID is the unique identifier for the referee and the name is
-     * the name of the referee
+    /**
+     * Attribute -
+     * The ID is the unique identifier for the season and the name is
+     * the name of the season
      */
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Referee referee;
+    @ManyToOne
+    private Season season;
 
     /** Attribute -
      * The unique identifier integer and the name for the home team
      * in this match
      */
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     private HomeTeam home_team;
 
     /** Attribute -
      * The unique identifier integer and the name for the away team
      * in this match
      */
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     private AwayTeam away_team;
 
     /** Attribute - The final score of the home team */
-    @Column(length = 2)
+    @Column(length = 10)
     private int home_score;
 
     /** Attribute - The final score of the away team  */
-    @Column(length = 2)
+    @Column(length = 10)
     private int away_score;
 
     /** Attribute -
      * The current status of collection for this match. Only “available”
      * matches are present in the Open Data repository
      */
-    @Column(length = 20)
+    @Column(length = 200)
     private String match_status;
 
-    @Column(length = 20)
+    @Column(length = 200)
     private String match_status_360;
 
     /** Attribute -
      * Number corresponding to the weeks into the competition this
      * match is
      */
-    @Column(length = 5)
+    @Column(length = 100)
     private int match_week;
 
     /** Attribute - id/name pair of the phase of the competition this match is in  */
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     private CompetitionStage competition_stage;
+
+    /**
+     * Attribute -
+     * The ID is the unique identifier for the stadium and the name is
+     * the name of the stadium
+     */
+    @ManyToOne
+    private Stadium stadium;
+
+    /** Attribute -
+     * The ID is the unique identifier for the referee and the name is
+     * the name of the referee
+     */
+    @ManyToOne
+    private Referee referee;
 
     /** Attribute -
      * The date and time at which this match information was last
      * updated in type String
      */
-    @Column(length = 20)
+    @Column(length = 200)
     private String last_updated;
 
     /** Attribute -
@@ -133,19 +132,11 @@ public class Match
     @JsonIgnore
     private Date last_updated_javaUtilDate;
 
-    @Column(length = 20)
+    @Column(length = 200)
     private String last_updated_360;
 
     @JsonIgnore
     private Date last_updated_360_javaUtilDate;
-
-
-    /** Attribute -
-     * The version number for the method in which the data was
-     * collected
-     */
-    @Column(length = 20)
-    private String data_version;
 
     /**
      * Empty Constructor
@@ -454,21 +445,6 @@ public class Match
     }
 
 
-    /**
-     * @return the information about data_version
-     */
-    public String getData_version()
-    {
-        return this.data_version;
-    }
-
-    /**
-     * @param data_version with the information about data_version
-     */
-    public void setData_version(String data_version)
-    {
-        this.data_version = data_version;
-    }
 
     /**
      * @return the instance of Match as String
@@ -493,8 +469,8 @@ public class Match
                 ", match_week=" + match_week +
                 ", competition_stage=" + competition_stage +
                 ", last_updated='" + last_updated + '\'' +
-                ", last_updated_javaUtilDate=" + last_updated_javaUtilDate +
-                ", data_version='" + data_version + '\'' +
+                ", last_updated_javaUtilDate=" + last_updated_javaUtilDate
+                + '\'' +
                 '}';
     }
 }

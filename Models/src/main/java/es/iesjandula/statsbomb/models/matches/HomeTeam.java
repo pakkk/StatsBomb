@@ -48,6 +48,7 @@ public class HomeTeam
      * about the manager described with the variables listed below
      */
     @OneToMany
+    @JoinColumn(name = "home_team_id")
     private List<Manager> managers;
 
     /**
