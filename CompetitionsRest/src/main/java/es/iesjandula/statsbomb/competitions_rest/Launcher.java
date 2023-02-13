@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
@@ -15,6 +16,7 @@ import org.springframework.core.env.Environment;
 @SpringBootApplication // Esta anotación es para los Autowired, para que encuentre las clases
 @EntityScan(basePackages = {"es.iesjandula.statsbomb.models.competition"}) // Esta es para que encuentre los @Entity
 @Configuration
+@EnableDiscoveryClient
 public class Launcher implements CommandLineRunner
 {
     @Autowired
