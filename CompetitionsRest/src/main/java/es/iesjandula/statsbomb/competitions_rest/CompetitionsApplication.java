@@ -13,11 +13,11 @@ import org.springframework.core.env.Environment;
 /**
  * This class starts the application
  */
-@SpringBootApplication // Esta anotación es para los Autowired, para que encuentre las clases
-@EntityScan(basePackages = {"es.iesjandula.statsbomb.models.competition"}) // Esta es para que encuentre los @Entity
+@SpringBootApplication
+@EntityScan(basePackages = {"es.iesjandula.statsbomb.models.competition"})
 @Configuration
 @EnableDiscoveryClient
-public class Launcher implements CommandLineRunner
+public class CompetitionsApplication implements CommandLineRunner
 {
     @Autowired
     private Environment environment;
@@ -32,7 +32,7 @@ public class Launcher implements CommandLineRunner
      */
     public static void main(String[] args)
     {
-        SpringApplication.run(Launcher.class, args);
+        SpringApplication.run(CompetitionsApplication.class, args);
     }
 
     @Override

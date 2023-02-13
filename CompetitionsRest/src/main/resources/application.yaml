@@ -17,14 +17,10 @@ spring:
     level.org.hibernate.SQL: debug
     level: debug
 
-
-statsbomb:
-  loadDatabase: false
 eureka:
   client:
     service-url:
-        defaultZone: http://localhost:8761/eureka/
-    instance:
-      prefer-ip-address: true
-      lease-renewal-interval-in-seconds: 10
-      lease-expiration-duration-in-seconds: 30
+      defaultZone: http://localhost:8761/eureka/
+
+statsbomb:
+  loadDatabase: false
