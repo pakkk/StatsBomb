@@ -13,7 +13,7 @@ spring:
     gateway:
       routes:
         - id: competitions
-          uri: http://localhost:8081
+          uri: lb://competitions
           predicates:
             - Path=/competitions/**
 
