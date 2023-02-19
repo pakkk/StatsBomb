@@ -4,23 +4,25 @@ import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.common.utils.JsonUtils;
 import es.iesjandula.statsbomb.webportal.Json;
-import es.iesjandula.statsbomb.webportal.models.FilterJson;
-
 import es.iesjandula.statsbomb.webportal.models.Type;
+import es.iesjandula.statsbomb.webportal.models.modelsSecurity.User;
+import es.iesjandula.statsbomb.webportal.security.users.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.List;
 
 /**
  * @author Joaquin Moreno
@@ -31,25 +33,35 @@ import java.util.List;
 @Controller
 public class WebPortalController
 {
+
+	@Autowired
+	private UserService userService;
+
 	/**
 	 * This endPoint return the index page of the web portal.
 	 *
 	 * @return index page
 	 */
-	@RequestMapping(method = RequestMethod.GET, value = "/index")
-	public String showIndex()
+	@RequestMapping(method = RequestMethod.GET, value = {"/index", "/"})
+	public ModelAndView showIndex()
 	{
-
-		return "index.html";
-
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("index");
+		return modelAndView;
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/login")
-	public String showLogin()
+
+	/**
+	 * this method is used to show login.html page
+	 *
+	 * @return the login.html page
+	 */
+	@GetMapping(value =  "/login")
+	public ModelAndView login()
 	{
-
-		return "login.html";
-
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("login");
+		return modelAndView;
 	}
 
 	/**
@@ -58,11 +70,11 @@ public class WebPortalController
 	 * @return who_we_are page
 	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/who_we_are")
-	public String showWhoWeAre()
+	public ModelAndView showWhoWeAre()
 	{
-
-		return "who_we_are.html";
-
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("who_we_are");
+		return modelAndView;
 	}
 
 	/**
@@ -71,11 +83,11 @@ public class WebPortalController
 	 * @return what_we_do page
 	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/what_we_do")
-	public String showWhatWeDo()
+	public ModelAndView showWhatWeDo()
 	{
-
-		return "what_we_do.html";
-
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("what_we_do");
+		return modelAndView;
 	}
 
 	/**
@@ -84,11 +96,11 @@ public class WebPortalController
 	 * @return statistics page
 	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/statistics")
-	public String showStatistics()
+	public ModelAndView showStatistics()
 	{
-
-		return "statistics.html";
-
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("statistics");
+		return modelAndView;
 	}
 
 	/**
@@ -97,12 +109,59 @@ public class WebPortalController
 	 * @return statistics page
 	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/about_us")
-	public String showAboutUs()
+	public ModelAndView showAboutUs()
 	{
-
-		return "about_us.html";
-
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("about_us");
+		return modelAndView;
 	}
+
+
+	/**
+	 * this method is used to show registration.html page
+	 *
+	 * @return the registration.html page
+	 */
+	@GetMapping(value = "/register")
+	public ModelAndView registration()
+	{
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("user", new User());
+		modelAndView.setViewName("register");
+		return modelAndView;
+	}
+
+	/**
+	 * this method is used to create a new user
+	 *
+	 * @param user         the user to be created
+	 * @param bindingResult the result of the binding
+	 * @return the registration.html page
+	 */
+	@PostMapping(value = "/register")
+	public ModelAndView createNewUser(@Validated User user, BindingResult bindingResult)
+	{
+		ModelAndView modelAndView = new ModelAndView();
+		User userExists = userService.findUserByUserName(user.getUserName());
+		if (userExists != null)
+		{
+			bindingResult
+					.rejectValue("userName", "error.user",
+							"There is already a user registered with the user name provided");
+		}
+		if (bindingResult.hasErrors())
+		{
+			modelAndView.setViewName("register");
+		} else
+		{
+			userService.saveUser(user);
+			modelAndView.addObject("successMessage", "User has been registered successfully");
+			modelAndView.addObject("user", new User());
+			modelAndView.setViewName("register");
+		}
+		return modelAndView;
+	}
+
 
 	/**
 	 * Method - This EndPoint return a JSON with all the filter created

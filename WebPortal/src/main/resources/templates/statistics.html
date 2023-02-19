@@ -15,7 +15,7 @@
         <div >
           <div class="nombreDAMBOMB" >
             <a href="https://statsbomb.com/es/" target="_blank">
-              <img class="" src="IMG/statsbomb.svg" width="40" height="32" alt="My Happy SVG" />
+              <img class="" th:src="@{img/statsbomb.svg}" width="40" height="32" alt="My Happy SVG" />
             </a>
             <a th:href="@{/index}" style="outline: none; text-decoration: none; color: white;">
               <h4 class="titulo" id="textoTitulo">StatsBomb</h4>
@@ -103,15 +103,15 @@
       <hr>
       <div id="listaIconos">
         <div class="col-md-4 d-flex align-items-center">
-          <a class="text-muted m-2" href="https://statsbomb.com/es/" target="_blank"><img class="bi" width="24" height="24" src="IMG/statsbomb_negro.svg"></img></a>
+          <a class="text-muted m-2" href="https://statsbomb.com/es/" target="_blank"><img class="bi" width="24" height="24" th:src="@{img/statsbomb_negro.svg}"></img></a>
           <span class="mb-3 mb-md-0 text-muted">2023 2DAM, Fuente de datos obtenida en la pagina oficial de <a href="https://github.com/statsbomb/open-data" target="_blank">StatsBomb</a>.</span>
         </div>
     
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-          <li class="ms-3"><a class="text-muted" href="https://twitter.com/?lang=es" target="_blank"><img class="bi" width="24" height="24" src="IMG/twittter.png"></img></a></li>
-          <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/" target="_blank"><img class="bi" width="24" height="24" src="IMG/instagram-logo-svgrepo-com.svg"></img></a></li>
-          <li class="ms-3"><a class="text-muted" href="https://es-es.facebook.com/" target="_blank"><img class="bi" width="24" height="24" src="IMG/facebook.png"></img></a></li>
-          <li class="ms-3"><a class="text-muted" href="https://github.com/pakkk/StatsBomb" target="_blank"><img class="bi" width="24" height="24" src="IMG/github_icon.svg"></img></a></li>
+          <li class="ms-3"><a class="text-muted" href="https://twitter.com/?lang=es" target="_blank"><img class="bi" width="24" height="24" th:src="@{img/twittter.png}"></img></a></li>
+          <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/" target="_blank"><img class="bi" width="24" height="24" th:src="@{img/instagram-logo-svgrepo-com.svg}"></img></a></li>
+          <li class="ms-3"><a class="text-muted" href="https://es-es.facebook.com/" target="_blank"><img class="bi" width="24" height="24" th:src="@{img/facebook.png}"></img></a></li>
+          <li class="ms-3"><a class="text-muted" href="https://github.com/pakkk/StatsBomb" target="_blank"><img class="bi" width="24" height="24" th:src="@{img/github_icon.svg}"></img></a></li>
         </ul>
       </div>
       

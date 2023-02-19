@@ -1,2 +1,28 @@
 server:
-  port: 8080
+  port: 0
+spring:
+  jpa:
+    hibernate.ddl-auto: create
+    defer-datasource-initialization: true
+  application:
+    name: webportal
+  datasource:
+    url: jdbc:mysql://localhost:3306/webportal
+    username: root
+    password: toor
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  hikari:
+    connection-timeout: 60000
+    maximum-pool-size: 5
+  sql:
+    init:
+      mode: always
+  logging:
+    pattern.console: '%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n'
+    level.org.hibernate.SQL: debug
+    level: debug
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

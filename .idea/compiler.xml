@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -9,13 +10,11 @@
         <module name="WebPortal" />
         <module name="EurekaServer" />
         <module name="CompetitionsRest" />
-        <module name="ThreeSixtyStats" />
         <module name="ThreeSixtyRest" />
         <module name="EventsRest" />
         <module name="MatchesRest" />
         <module name="Commons" />
         <module name="Models" />
-        <module name="LineupsStats" />
         <module name="LineupsRest" />
         <module name="GateWay-Server" />
       </profile>

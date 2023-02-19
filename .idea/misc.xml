@@ -7,11 +7,9 @@
         <option value="$PROJECT_DIR$/CompetitionsRest/pom.xml" />
         <option value="$PROJECT_DIR$/EventsRest/pom.xml" />
         <option value="$PROJECT_DIR$/LineupsRest/pom.xml" />
-        <option value="$PROJECT_DIR$/LineupsStats/pom.xml" />
         <option value="$PROJECT_DIR$/MatchesRest/pom.xml" />
         <option value="$PROJECT_DIR$/Models/pom.xml" />
         <option value="$PROJECT_DIR$/ThreeSixtyRest/pom.xml" />
-        <option value="$PROJECT_DIR$/ThreeSixtyStats/pom.xml" />
         <option value="$PROJECT_DIR$/WebPortal/pom.xml" />
         <option value="$PROJECT_DIR$/EurekaServer/pom.xml" />
         <option value="$PROJECT_DIR$/GateWay-Server/pom.xml" />

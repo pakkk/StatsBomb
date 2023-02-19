@@ -6,16 +6,89 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.0.1</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>es.iesjandula.statsbomb</groupId>
 	<artifactId>WebPortal</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>WebPortal</name>
 	<description>WebPortal</description>
+
+	<contributors>
+		<contributor>
+			<name>Francisco Manuel Benitez Chico</name>
+			<email>paco.benitez.chico@gmail.com</email>
+			<url>https://www.linkedin.com/in/franciscobenitezchico/</url>
+		</contributor>
+		<contributor>
+			<name>Ignacio Belda Lupión</name>
+			<email>ignaciobeldalupion@gmail.com</email>
+			<url>https://github.com/nachoblwh</url>
+		</contributor>
+		<contributor>
+			<name>Jesús Guerrrero González</name>
+			<email>jesusguerrerogonzalez2@gmail.com</email>
+			<url>https://github.com/jguegon966</url>
+		</contributor>
+		<contributor>
+			<name>Neil Hernández Salvador</name>
+			<email>hernandezsalvadorneil@gmail.com</email>
+			<url>https://www.linkedin.com/in/neilhdez</url>
+		</contributor>
+		<contributor>
+			<name>Manuel Martín</name>
+			<email>manuelmartinmurillo@gmail.com</email>
+			<url>https://github.com/manumartin0709</url>
+		</contributor>
+		<contributor>
+			<name>David Armijo Ramos</name>
+			<email>darmijoramos@gmail.com</email>
+			<url>https://github.com/darram1</url>
+		</contributor>
+		<contributor>
+			<name>Jesús García Puerto</name>
+			<email>jesusgp888@gmail.com</email>
+			<url></url>
+		</contributor>
+		<contributor>
+			<name>Alejandro Aljarilla Castro</name>
+			<email>alexaljarilla@gmail.com</email>
+			<url>https://github.com/Aljarilla11</url>
+		</contributor>
+		<contributor>
+			<name>Manuel Caño</name>
+			<email>mcangil786@g.educaand.es</email>
+			<url></url>
+		</contributor>
+		<contributor>
+			<name>Manuel de la Rosa</name>
+			<email>mdelarosacervera2000@gmail.com</email>
+			<url>https://github.com/Manueldlrc</url>
+		</contributor>
+		<contributor>
+			<name>Joaquín Moreno Sánchez</name>
+			<email>jomorenosanchez@gmail.com</email>
+			<url>https://github.com/jmorsan</url>
+		</contributor>
+		<contributor>
+			<name>Oscar Herruzo Montoya</name>
+			<email>thelinkmeshx@gmail.com</email>
+			<url>https://github.com/oscarherruzo</url>
+		</contributor>
+	</contributors>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>19</java.version>
+		<spring-cloud.version>2022.0.1</spring-cloud.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -58,7 +131,40 @@
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity6</artifactId>
 		</dependency>
-    </dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
