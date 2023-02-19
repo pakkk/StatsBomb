@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
 import es.iesjandula.statsbomb.events_rest.stats.EventsStats;
@@ -21,6 +22,7 @@ import es.iesjandula.statsbomb.events_rest.stats.EventsStats;
 @CrossOrigin(maxAge = 3600)
 @RequestMapping(value = "/events", produces = { "application/json" })
 @RestController //
+@EnableDiscoveryClient
 public class RestHandlerEvents
 {
 

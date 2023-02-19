@@ -1,6 +1,6 @@
 {
     "competitions":{
-        "base_url": "http://localhost:8081/competitions",
+        "base_url": "http://localhost:8090/competitions",
         "endpoints": [
             {
                 "name": "getCompetitions",
@@ -35,7 +35,7 @@
         ]
     },
     "matches": {
-        "base_url": "http://localhost:8084/matches",
+        "base_url": "http://localhost:8090/matches",
         "endpoints": [
             {
                 "name": "getListOfMatchesByDate",
@@ -65,13 +65,13 @@
         ]
     },
     "lineups": {
-        "base_url": "http://localhost:8083/lineups",
+        "base_url": "http://localhost:8090/lineups",
         "endpoints": [
 
         ]
     },
     "events": {
-        "base_url": "http://localhost:8082/events",
+        "base_url": "http://localhost:8090/events",
         "endpoints": [
             {
                 "name": "getGoalkeeperPlayer",
@@ -106,7 +106,7 @@
         ]
     },
     "three_sixty": {
-        "base_url": "http://localhost:8085/threeSixty",
+        "base_url": "http://localhost:8090/threeSixty",
         "endpoints": [
             {
                 "name": "getThreeSixtyListOrder",

@@ -1,13 +1,12 @@
-package es.iesjandula.statsbomb.threesixty_rest;
+package es.iesjandula.statsbomb.lineups_rest;
 
-import es.iesjandula.statsbomb.threesixty_rest.rest.RestHandlerThreeSixty;
-import es.iesjandula.statsbomb.threesixty_rest.stats.utils.ThreeSixtyUtils;
+import es.iesjandula.statsbomb.lineups_rest.utils.LineUpsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
@@ -15,16 +14,17 @@ import org.springframework.core.env.Environment;
  * This class starts the application
  */
 @SpringBootApplication(scanBasePackages = {"es.iesjandula"})
-@EntityScan(basePackages = {"es.iesjandula.statsbomb.models.three_sixty"})
+@EntityScan(basePackages = {"es.iesjandula.statsbomb.models.lineups"})
 @Configuration
-public class Launcher implements CommandLineRunner
+@EnableDiscoveryClient
+public class LineupsApplication implements CommandLineRunner
 {
 
     @Autowired
     private Environment environment ;
 
     @Autowired
-    private ThreeSixtyUtils threeSixtyUtils;
+    private LineUpsUtils lineUpsUtils;
 
     /**
      * Main method
@@ -32,7 +32,7 @@ public class Launcher implements CommandLineRunner
      */
     public static void main(String[] args)
     {
-        SpringApplication.run(Launcher.class, args);
+        SpringApplication.run(LineupsApplication.class, args);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Launcher implements CommandLineRunner
 
         if (loadDatabase != null && Boolean.parseBoolean(loadDatabase))
         {
-            this.threeSixtyUtils.insertThreeSixtyUtilsInDataBase();
+            this.lineUpsUtils.insertLineUpsInDataBase();
         }
     }
 }

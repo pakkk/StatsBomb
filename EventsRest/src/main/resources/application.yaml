@@ -1,6 +1,8 @@
 server:
-  port: 8082
+  port: 0
 spring:
+  application:
+    name: events
   jpa.hibernate.ddl-auto: create
   datasource:
     url: jdbc:mysql://localhost:3306/events
@@ -13,4 +15,12 @@ spring:
   logging:
     pattern.console: '%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n'
     level.org.hibernate.SQL: debug
-    level: debug  
+    level: debug
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+statsbomb:
+    loadDatabase: false

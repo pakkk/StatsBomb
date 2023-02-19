@@ -1,47 +1,49 @@
-package es.iesjandula.statsbomb.lineups_rest;
+package es.iesjandula.statsbomb.matches_rest;
 
-import es.iesjandula.statsbomb.lineups_rest.utils.LineUpsUtils;
+import es.iesjandula.statsbomb.matches_rest.stats.utils.MatchesUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+
 
 /**
  * This class starts the application
  */
 @SpringBootApplication(scanBasePackages = {"es.iesjandula"})
-@EntityScan(basePackages = {"es.iesjandula.statsbomb.models.lineups"})
+@EntityScan(basePackages = {"es.iesjandula.statsbomb.models.matches"})
 @Configuration
-public class Launcher implements CommandLineRunner
+@EnableDiscoveryClient
+public class MatchesApplication implements CommandLineRunner
 {
 
     @Autowired
-    private Environment environment ;
+    private MatchesUtils matchesUtils;
 
     @Autowired
-    private LineUpsUtils lineUpsUtils;
+    private Environment environment;
 
     /**
      * Main method
-     * @param args with arguments
+     * @param args with the input arguments
      */
     public static void main(String[] args)
     {
-        SpringApplication.run(Launcher.class, args);
+        SpringApplication.run(MatchesApplication.class, args) ;
     }
 
     @Override
     public void run(String... args) throws Exception
     {
-
         String loadDatabase = this.environment.getProperty("statsbomb.loadDatabase") ;
-
         if (loadDatabase != null && Boolean.parseBoolean(loadDatabase))
         {
-            this.lineUpsUtils.insertLineUpsInDataBase();
+            System.out.println("Loading database");
+            this.matchesUtils.insertMatchesInDataBase();
         }
     }
 }

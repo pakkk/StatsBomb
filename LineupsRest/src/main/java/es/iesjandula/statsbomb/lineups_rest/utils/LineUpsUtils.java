@@ -9,7 +9,6 @@ import es.iesjandula.statsbomb.common.load_json.IJsonLoader;
 import es.iesjandula.statsbomb.common.load_json.Json;
 import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
 import es.iesjandula.statsbomb.common.utils.Constants;
-import es.iesjandula.statsbomb.models.competition.Competition;
 import es.iesjandula.statsbomb.models.lineups.Lineups;
 import es.iesjandula.statsbomb.models.matches.Match;
 import org.apache.logging.log4j.LogManager;
@@ -83,7 +82,7 @@ public class LineUpsUtils
     {
         String competitionsUrl = this.environment.getProperty("statsbomb.competitionsUrl") ;
         IJsonLoader jsonLoader = new JsonLoaderImpl();
-        String competitionsUrlEndpoint = competitionsUrl + "/competitions" + "/filter/id";
+        String competitionsUrlEndpoint = competitionsUrl + "/competitions" + "/id";
 
         ObjectMapper mapper = Json.mapper();
         return mapper.readValue(jsonLoader.loadCompetitionsByRest(competitionsUrlEndpoint), new TypeReference<List<CompetitionsDto>>(){});

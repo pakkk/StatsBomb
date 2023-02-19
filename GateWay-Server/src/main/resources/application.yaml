@@ -17,4 +17,18 @@ spring:
           predicates:
             - Path=/competitions/**
 
+        - id: events
+          uri: lb://events
+          predicates:
+            - Path=/events/**
+
+        - id: matches
+          uri: lb://matches
+          predicates:
+            - Path=/matches/**
+
+        - id: three-sixty
+          uri: lb://three-sixty
+          predicates:
+            - Path=/threeSixty/**
 

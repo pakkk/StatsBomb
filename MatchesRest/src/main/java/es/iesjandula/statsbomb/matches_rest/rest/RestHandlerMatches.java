@@ -1,21 +1,15 @@
 package es.iesjandula.statsbomb.matches_rest.rest;
 
-import es.iesjandula.statsbomb.matches_rest.stats.id_filter.MatchesIdFilter;
+import es.iesjandula.statsbomb.common.exception.StatsBombException;
+import es.iesjandula.statsbomb.matches_rest.stats.MatchesStats;
+import es.iesjandula.statsbomb.matches_rest.stats.manager_filters.ManagerNationalityFilter;
+import es.iesjandula.statsbomb.matches_rest.stats.manager_filters.ManagerScoreFilter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import es.iesjandula.statsbomb.common.exception.StatsBombException;
-import es.iesjandula.statsbomb.matches_rest.stats.MatchesStats;
-import es.iesjandula.statsbomb.matches_rest.stats.manager_filters.ManagerNationalityFilter;
-import es.iesjandula.statsbomb.matches_rest.stats.manager_filters.ManagerScoreFilter;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * ------------------------------------------------

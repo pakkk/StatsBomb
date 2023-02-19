@@ -1,13 +1,11 @@
 package es.iesjandula.statsbomb.events_rest;
 
-import es.iesjandula.statsbomb.events_rest.rest.RestHandlerEvents;
 import es.iesjandula.statsbomb.events_rest.stats.utils.EventUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication ;
 import org.springframework.boot.autoconfigure.SpringBootApplication ;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.context.annotation.ComponentScan ;
 import org.springframework.context.annotation.Configuration ;
 import org.springframework.core.env.Environment;
 
@@ -17,7 +15,7 @@ import org.springframework.core.env.Environment;
 @SpringBootApplication
 @EntityScan(basePackages = {"es.iesjandula.statsbomb.models.event"})
 @Configuration
-public class Launcher implements CommandLineRunner
+public class EventsApplication implements CommandLineRunner
 {
 
     @Autowired
@@ -32,7 +30,7 @@ public class Launcher implements CommandLineRunner
      */
     public static void main(String[] args)
     {
-        SpringApplication.run(Launcher.class, args) ;
+        SpringApplication.run(EventsApplication.class, args) ;
     }
 
     @Override
