@@ -23,4 +23,5 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 
 statsbomb:
-  loadDatabase: false
+  loadDatabase: true
+  competitionsUrl: http://localhost:8090

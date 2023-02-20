@@ -15,6 +15,7 @@ import es.iesjandula.statsbomb.models.matches.Match;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -60,6 +61,9 @@ public class MatchesUtils
 
     @Autowired
     private IStadiumRepository stadiumRepository;
+
+    @Autowired
+    private Environment environment;
 
 
 
@@ -349,10 +353,12 @@ public class MatchesUtils
 
     public List<Competition> getCompetition() throws StatsBombException, JsonProcessingException
     {
+        String competitionsUrl = this.environment.getProperty("statsbomb.competitionsUrl") ;
         IJsonLoader jsonLoader = new JsonLoaderImpl();
+        String competitionsUrlEndpoint = competitionsUrl + "/competitions" + "/id";
 
         ObjectMapper mapper = Json.mapper();
 
-        return mapper.readValue(jsonLoader.loadCompetitions(), new TypeReference<List<Competition>>(){});
+        return mapper.readValue(jsonLoader.loadCompetitionsByRest(competitionsUrlEndpoint), new TypeReference<List<Competition>>(){});
     }
 }
