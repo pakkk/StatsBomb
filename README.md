@@ -18,7 +18,7 @@ Our objective is learn how to work on a big project in a collaborative way.
 - Joaquín Moreno Sanchez
 - Manuel Caño Gil
 - [Alejandro Aljarilla Castro](www.linkedin.com/in/alejandro-aljarilla-castro-961b81265)
-- Ignacio Belda Lupión
+- [Ignacio Belda Lupión](https://www.linkedin.com/in/ignacio-belda-lupi%C3%B3n-49b149267)
 - [Jesús Guerrero González](www.linkedin.com/in/jesús-guerrero-0b503620a)
 
 ### What we do
