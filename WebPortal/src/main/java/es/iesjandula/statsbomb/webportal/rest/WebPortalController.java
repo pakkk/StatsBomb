@@ -154,6 +154,7 @@ public class WebPortalController
 			modelAndView.setViewName("register");
 		} else
 		{
+			user.setStasdistics_number(10);
 			userService.saveUser(user);
 			modelAndView.addObject("successMessage", "User has been registered successfully");
 			modelAndView.addObject("user", new User());

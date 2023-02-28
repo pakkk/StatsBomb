@@ -45,7 +45,7 @@ public class WebSecurityConfiguration
                 .requestMatchers("/", "/index").permitAll()
 
                 // AQUI DEBEN DE IR LA SEGURIDAD
-                .requestMatchers("/who_we_are", "/what_we_do", "/statistics", "/about_us", "/lista_endpoint").hasAnyAuthority("USER", "ADMIN")
+                .requestMatchers("/who_we_are", "/what_we_do", "/statistics", "/about_us", "/lista_endpoint", "/statistics_available").hasAnyAuthority("USER", "ADMIN")
                 // Y BORRAR ESTA LINEA QUE DA PERIMSOS A TODOS
 
                 .and().formLogin()
@@ -53,7 +53,8 @@ public class WebSecurityConfiguration
                 .defaultSuccessUrl("/", true)
                 .usernameParameter("user_name")
                 .passwordParameter("password")
-                .and().logout().logoutSuccessUrl("/login");
+                .and().logout().logoutSuccessUrl("/login")
+        		.and().httpBasic();
         return http.build();
     }
 
