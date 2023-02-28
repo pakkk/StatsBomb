@@ -20,7 +20,7 @@ import es.iesjandula.statsbomb.webportal.repositorySecurity.IUserRepository;
  * @author API Rest Generator ------------------------------------------------
  */
 @CrossOrigin(maxAge = 3600)
-@RequestMapping(value = "/webportal", produces = { "application/json" })
+@RequestMapping(produces = { "application/json" })
 @RestController //
 public class WebPortalRest
 {
