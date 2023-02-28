@@ -16,7 +16,7 @@ Our objective is learn how to work on a big project in a collaborative way.
 - [David Armijo Ramos](https://www.linkedin.com/in/david-armijo-ramos-56a198266)
 - [Neil Hernandez Salvador](https://www.linkedin.com/in/neilhdez)
 - [Joaquín Moreno Sanchez](https://www.linkedin.com/in/joaquín-moreno-7ab174268/)
-- Manuel Caño Gil
+- [Manuel Caño Gil](https://www.linkedin.com/in/manuel-canio-617222268/)
 - [Alejandro Aljarilla Castro](www.linkedin.com/in/alejandro-aljarilla-castro-961b81265)
 - [Ignacio Belda Lupión](https://www.linkedin.com/in/ignacio-belda-lupi%C3%B3n-49b149267)
 - [Jesús Guerrero González](www.linkedin.com/in/jesús-guerrero-0b503620a)
