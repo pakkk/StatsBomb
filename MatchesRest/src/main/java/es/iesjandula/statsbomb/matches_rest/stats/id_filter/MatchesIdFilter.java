@@ -16,7 +16,7 @@ import es.iesjandula.statsbomb.models.matches.Match;
 
 public class MatchesIdFilter
 {
-    /**
+
     public String getMatchesId(List<Match> matchs) throws StatsBombException
     {
         List<MatchesResults> matchesResultsList = new ArrayList<MatchesResults>();
@@ -31,15 +31,9 @@ public class MatchesIdFilter
 
         return jsonUtils.writeObjectToJsonAsStringPretty(matchesResultsList);
     }
-     **/
 
-    public List<Match> getListMatch(int competitionId, int seasonId) throws StatsBombException, JsonProcessingException
-    {
-        IJsonLoader jsonLoader = new JsonLoaderImpl();
 
-        ObjectMapper mapper = Json.mapper();
-        return mapper.readValue(jsonLoader.loadMatches(competitionId, seasonId), new TypeReference<List<Match>>(){});
-    }
+
 
 
 }
