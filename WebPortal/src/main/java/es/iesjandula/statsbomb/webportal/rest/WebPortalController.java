@@ -46,6 +46,8 @@ public class WebPortalController
 	public ModelAndView showIndex()
 	{
 		ModelAndView modelAndView = new ModelAndView();
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		modelAndView.addObject("userName",authentication.getName());
 		modelAndView.setViewName("index");
 		return modelAndView;
 	}
@@ -73,6 +75,8 @@ public class WebPortalController
 	public ModelAndView showWhoWeAre()
 	{
 		ModelAndView modelAndView = new ModelAndView();
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		modelAndView.addObject("userName",authentication.getName());
 		modelAndView.setViewName("who_we_are");
 		return modelAndView;
 	}
@@ -86,6 +90,8 @@ public class WebPortalController
 	public ModelAndView showWhatWeDo()
 	{
 		ModelAndView modelAndView = new ModelAndView();
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		modelAndView.addObject("userName",authentication.getName());
 		modelAndView.setViewName("what_we_do");
 		return modelAndView;
 	}
@@ -99,6 +105,8 @@ public class WebPortalController
 	public ModelAndView showStatistics()
 	{
 		ModelAndView modelAndView = new ModelAndView();
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		modelAndView.addObject("userName",authentication.getName());
 		modelAndView.setViewName("statistics");
 		return modelAndView;
 	}
@@ -112,6 +120,8 @@ public class WebPortalController
 	public ModelAndView showAboutUs()
 	{
 		ModelAndView modelAndView = new ModelAndView();
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		modelAndView.addObject("userName",authentication.getName());
 		modelAndView.setViewName("about_us");
 		return modelAndView;
 	}
@@ -154,6 +164,7 @@ public class WebPortalController
 			modelAndView.setViewName("register");
 		} else
 		{
+			user.setStasdistics_number(10);
 			userService.saveUser(user);
 			modelAndView.addObject("successMessage", "User has been registered successfully");
 			modelAndView.addObject("user", new User());

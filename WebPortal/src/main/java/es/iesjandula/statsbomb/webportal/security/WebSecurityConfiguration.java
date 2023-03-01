@@ -43,17 +43,14 @@ public class WebSecurityConfiguration
                 .requestMatchers("/login").permitAll()
                 .requestMatchers("/register").permitAll()
                 .requestMatchers("/", "/index").permitAll()
-
-                // AQUI DEBEN DE IR LA SEGURIDAD
-                .requestMatchers("/who_we_are", "/what_we_do", "/statistics", "/about_us", "/lista_endpoint").hasAnyAuthority("USER", "ADMIN")
-                // Y BORRAR ESTA LINEA QUE DA PERIMSOS A TODOS
-
+                .requestMatchers("/who_we_are", "/what_we_do", "/statistics", "/about_us", "/lista_endpoint", "/statistics_available").hasAnyAuthority("USER", "ADMIN")
                 .and().formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/", true)
                 .usernameParameter("user_name")
                 .passwordParameter("password")
-                .and().logout().logoutSuccessUrl("/login");
+                .and().logout().logoutSuccessUrl("/login")
+        		.and().httpBasic();
         return http.build();
     }
 
