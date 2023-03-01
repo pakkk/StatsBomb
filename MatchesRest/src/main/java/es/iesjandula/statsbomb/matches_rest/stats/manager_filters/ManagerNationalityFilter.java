@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import es.iesjandula.statsbomb.common.load_json.IJsonLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -26,7 +28,8 @@ import org.springframework.stereotype.Service;
 public class ManagerNationalityFilter
 {
 	private Logger LOGGER = LogManager.getLogger();
-	
+
+	/**
 	public List<Match> getListMatches(int competitionId, int seasonId) throws StatsBombException
 	{
 		JsonLoaderImpl jsonLoader = new JsonLoaderImpl();
@@ -46,15 +49,24 @@ public class ManagerNationalityFilter
 
 		return matchesList;
 	}
+	 **/
+
+	public List<Match> getListMatch(int competitionId, int seasonId) throws StatsBombException, JsonProcessingException
+	{
+		IJsonLoader jsonLoader = new JsonLoaderImpl();
+
+		ObjectMapper mapper = Json.mapper();
+		return mapper.readValue(jsonLoader.loadMatches(competitionId, seasonId), new TypeReference<List<Match>>(){});
+	}
 	
 	/**
      * Method - filter the managers whose nationality is to the country
      *
      * @return String in format JSON Pretty with the managers whose nationality is different to the country
      */
-	public String managersWithDifferentNationalityThatCountry(int competitionId, int seasonId) throws StatsBombException
+	public String managersWithDifferentNationalityThatCountry(int competitionId, int seasonId) throws StatsBombException, JsonProcessingException
 	{
-		List<Match> matchesList = getListMatches(competitionId, seasonId);
+		List<Match> matchesList = getListMatch(competitionId, seasonId);
 		List<String> nameManagersList = new ArrayList<String>();
 		List<Manager> managersList = new ArrayList<Manager>();
 		

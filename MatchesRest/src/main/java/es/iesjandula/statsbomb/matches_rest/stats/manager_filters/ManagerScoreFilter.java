@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import es.iesjandula.statsbomb.common.load_json.IJsonLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -33,7 +35,8 @@ public class ManagerScoreFilter
 	{
 		this.resultsList = new ArrayList<Result>();
 	}
-	
+
+	/**
 	public List<Match> getListMatches(int competitionId, int seasonId) throws StatsBombException
 	{
 		JsonLoaderImpl jsonLoader = new JsonLoaderImpl();
@@ -53,19 +56,28 @@ public class ManagerScoreFilter
 
 		return matchesList;
 	}
+	 **/
+
+	public List<Match> getListMatch(int competitionId, int seasonId) throws StatsBombException, JsonProcessingException
+	{
+		IJsonLoader jsonLoader = new JsonLoaderImpl();
+
+		ObjectMapper mapper = Json.mapper();
+		return mapper.readValue(jsonLoader.loadMatches(competitionId, seasonId), new TypeReference<List<Match>>(){});
+	}
 
 	/**
 	 * Method - fill the list of results
 	 * @throws StatsBombException 
 	 */
-	public String getManagerScoreFilter(int competitionId, int seasonId) throws StatsBombException
+	public String getManagerScoreFilter(int competitionId, int seasonId) throws StatsBombException, JsonProcessingException
 	{
 		resultsList.clear();
 
 		List<Match> matchesList= new ArrayList<>();
 		List<String> managerList = new ArrayList<String>();
 
-		matchesList = this.getListMatches(competitionId, seasonId);
+		matchesList = this.getListMatch(competitionId, seasonId);
 
 		// tour the list of matches
 		for (Match matches : matchesList)
