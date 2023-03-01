@@ -2,6 +2,7 @@ package es.iesjandula.statsbomb.competitions_rest;
 
 import es.iesjandula.statsbomb.competitions_rest.stats.utils.CompetitionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,6 +23,9 @@ public class CompetitionsApplication implements CommandLineRunner
     @Autowired
     private Environment environment;
 
+    @Value("${statsbomb.loadDatabase}")
+    private boolean loadDatabase;
+
     @Autowired
     private CompetitionUtils competitionUtils;
 
@@ -38,9 +42,7 @@ public class CompetitionsApplication implements CommandLineRunner
     @Override
     public void run(String... args) throws Exception
     {
-        String loadDatabase = this.environment.getProperty("statsbomb.loadDatabase");
-
-        if (loadDatabase != null && Boolean.parseBoolean(loadDatabase))
+        if (loadDatabase)
         {
             this.competitionUtils.insertCompetitionsInDataBase();
         }
