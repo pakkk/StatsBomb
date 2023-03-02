@@ -3,7 +3,7 @@ server:
 spring:
   application:
     name: competitions
-  jpa.hibernate.ddl-auto: create
+  jpa.hibernate.ddl-auto: none
   datasource:
     url: jdbc:mysql://localhost:3306/competitions
     username: root

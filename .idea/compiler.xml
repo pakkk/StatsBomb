@@ -7,13 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="WebPortal" />
         <module name="EurekaServer" />
+        <module name="WebPortal" />
         <module name="CompetitionsRest" />
         <module name="ThreeSixtyRest" />
         <module name="EventsRest" />
-        <module name="Commons" />
         <module name="MatchesRest" />
+        <module name="Commons" />
         <module name="Models" />
         <module name="LineupsRest" />
         <module name="GateWay-Server" />

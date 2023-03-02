@@ -27,7 +27,7 @@ public final class Constants
     /********************************************/
 
     /* Constants - Base Url for Stats Bombs Data */
-    private static final String BASE_URL                 = "https://raw.githubusercontent.com/statsbomb/open-data/master/data/";
+    private static final String BASE_URL                 = "";
 
     /* Constants - Base Url for Stats Bombs Data - Competitions */
     public static final String COMPETITIONS_URL         = BASE_URL + "competitions.json";

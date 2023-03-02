@@ -96,6 +96,13 @@ public class MatchesUtils
         return matchesList;
     }
 
+    public List<Match> getMatchesByDataBase(int competitionId, int seasonId) throws StatsBombException
+    {
+
+        return matchRepository.findAllByCompetitionIdAndSeasonId(competitionId, seasonId);
+    }
+
+
     public void insertMatchesInDataBase() throws StatsBombException, JsonProcessingException
     {
 

@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import es.iesjandula.statsbomb.common.load_json.IJsonLoader;
+import es.iesjandula.statsbomb.matches_rest.stats.utils.MatchesUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,6 +20,7 @@ import es.iesjandula.statsbomb.common.utils.Constants;
 import es.iesjandula.statsbomb.common.utils.JsonUtils;
 import es.iesjandula.statsbomb.models.matches.Manager;
 import es.iesjandula.statsbomb.models.matches.Match;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -27,38 +29,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class ManagerNationalityFilter
 {
+
+	@Autowired
+	private MatchesUtils matchesUtils;
+
 	private Logger LOGGER = LogManager.getLogger();
 
-	/**
-	public List<Match> getListMatches(int competitionId, int seasonId) throws StatsBombException
-	{
-		JsonLoaderImpl jsonLoader = new JsonLoaderImpl();
-		String jsonMatches = jsonLoader.loadMatches(competitionId, seasonId);
-		ObjectMapper mapper = Json.mapper();
-		List<Match> matchesList = new ArrayList<>();
 
-		try
-		{
-			matchesList = mapper.readValue(jsonMatches, new TypeReference<List<Match>>(){});
-		}
-		catch (IOException ioException)
-		{
-			this.LOGGER.error(Constants.E_PARSING_JSON_TO_OBJECT, ioException);
-			throw new StatsBombException("E_PARSING_JSON_TO_OBJECT", Constants.E_PARSING_JSON_TO_OBJECT, ioException);
-		}
-
-		return matchesList;
-	}
-	 **/
-
-	public List<Match> getListMatch(int competitionId, int seasonId) throws StatsBombException, JsonProcessingException
-	{
-		IJsonLoader jsonLoader = new JsonLoaderImpl();
-
-		ObjectMapper mapper = Json.mapper();
-		return mapper.readValue(jsonLoader.loadMatches(competitionId, seasonId), new TypeReference<List<Match>>(){});
-	}
-	
 	/**
      * Method - filter the managers whose nationality is to the country
      *
@@ -66,7 +43,8 @@ public class ManagerNationalityFilter
      */
 	public String managersWithDifferentNationalityThatCountry(int competitionId, int seasonId) throws StatsBombException, JsonProcessingException
 	{
-		List<Match> matchesList = getListMatch(competitionId, seasonId);
+
+		List<Match> matchesList = this.matchesUtils.getMatchesByDataBase(competitionId, seasonId);
 		List<String> nameManagersList = new ArrayList<String>();
 		List<Manager> managersList = new ArrayList<Manager>();
 		

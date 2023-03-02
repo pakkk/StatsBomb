@@ -6,6 +6,8 @@ import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import es.iesjandula.statsbomb.common.load_json.IJsonLoader;
+import es.iesjandula.statsbomb.matches_rest.stats.matches_result_filters.MatchesFilter;
+import es.iesjandula.statsbomb.matches_rest.stats.utils.MatchesUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,6 +20,7 @@ import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
 import es.iesjandula.statsbomb.common.utils.Constants;
 import es.iesjandula.statsbomb.common.utils.JsonUtils;
 import es.iesjandula.statsbomb.models.matches.Match;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -26,6 +29,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class ManagerScoreFilter
 {
+
+	@Autowired
+	private MatchesUtils matchesUtils;
+
 	// Attribute - List of Result
 	private List<Result> resultsList;
 	
@@ -36,35 +43,6 @@ public class ManagerScoreFilter
 		this.resultsList = new ArrayList<Result>();
 	}
 
-	/**
-	public List<Match> getListMatches(int competitionId, int seasonId) throws StatsBombException
-	{
-		JsonLoaderImpl jsonLoader = new JsonLoaderImpl();
-		String jsonMatches = jsonLoader.loadMatches(competitionId, seasonId);
-		ObjectMapper mapper = Json.mapper();
-		List<Match> matchesList = new ArrayList<>();
-
-		try
-		{
-			matchesList = mapper.readValue(jsonMatches, new TypeReference<List<Match>>(){});
-		}
-		catch (IOException ioException)
-		{
-			LOGGER.error(Constants.E_PARSING_JSON_TO_OBJECT, ioException);
-			throw new StatsBombException("E_PARSING_JSON_TO_OBJECT", Constants.E_PARSING_JSON_TO_OBJECT, ioException);
-		}
-
-		return matchesList;
-	}
-	 **/
-
-	public List<Match> getListMatch(int competitionId, int seasonId) throws StatsBombException, JsonProcessingException
-	{
-		IJsonLoader jsonLoader = new JsonLoaderImpl();
-
-		ObjectMapper mapper = Json.mapper();
-		return mapper.readValue(jsonLoader.loadMatches(competitionId, seasonId), new TypeReference<List<Match>>(){});
-	}
 
 	/**
 	 * Method - fill the list of results
@@ -77,7 +55,7 @@ public class ManagerScoreFilter
 		List<Match> matchesList= new ArrayList<>();
 		List<String> managerList = new ArrayList<String>();
 
-		matchesList = this.getListMatch(competitionId, seasonId);
+		matchesList = this.matchesUtils.getMatchesByDataBase(competitionId, seasonId);
 
 		// tour the list of matches
 		for (Match matches : matchesList)
@@ -138,13 +116,16 @@ public class ManagerScoreFilter
 				}
 			}
 
-			if (matches.getAway_team().getManagers() != null && matches.getHome_team().getManagers().size() > 0)
+			if (matches.getAway_team().getManagers() != null && matches.getHome_team().getManagers() !=  null)
 			{
-				if (matches.getAway_team().getManagers().get(0).getName().equals(managers))
+				if (matches.getAway_team().getManagers().size() > 0 && matches.getHome_team().getManagers().size() > 0)
 				{
-					if (matches.getHome_score() < matches.getAway_score())
+					if (matches.getAway_team().getManagers().get(0).getName().equals(managers))
 					{
-						won++;
+						if (matches.getHome_score() < matches.getAway_score())
+						{
+							won++;
+						}
 					}
 				}
 			}

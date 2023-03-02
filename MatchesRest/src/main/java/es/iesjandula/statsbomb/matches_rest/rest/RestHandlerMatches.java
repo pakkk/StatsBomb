@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  *
  * @author API Rest Generator ------------------------------------------------
  */
-@CrossOrigin(maxAge = 3600, origins = "http://localhost:8080")
+@CrossOrigin(maxAge = 3600)
 @RequestMapping(value = "/matches", produces = { "application/json" }) // 8084
 @RestController //
 public class RestHandlerMatches
@@ -151,21 +151,4 @@ public class RestHandlerMatches
 		}
 	}
 
-	@Bean
-	private MatchesStats getMatchesStats()
-	{
-		return new MatchesStats();
-	}
-
-	@Bean
-	private ManagerScoreFilter getManagerScoreFilter()
-	{
-		return new ManagerScoreFilter();
-	}
-
-	@Bean
-	private ManagerNationalityFilter getManagerWithSameNationality()
-	{
-		return new ManagerNationalityFilter();
-	}
 }
