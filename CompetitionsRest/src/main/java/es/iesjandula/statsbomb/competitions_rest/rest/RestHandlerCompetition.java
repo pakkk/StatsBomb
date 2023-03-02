@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author API Rest Generator
  * ------------------------------------------------
  */
-@CrossOrigin(maxAge = 3600)
+@CrossOrigin(maxAge = 3600,origins = "http://localhost:8080")
 @RequestMapping(value = "/competitions", produces = {"application/json"}) // 8081
 @RestController //
 public class RestHandlerCompetition
