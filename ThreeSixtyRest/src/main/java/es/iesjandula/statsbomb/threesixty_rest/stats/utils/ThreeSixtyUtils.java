@@ -11,6 +11,7 @@ import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
 import es.iesjandula.statsbomb.common.utils.Constants;
 import es.iesjandula.statsbomb.models.competition.Competition;
 import es.iesjandula.statsbomb.models.matches.Match;
+import es.iesjandula.statsbomb.models.three_sixty.FreezeFrame;
 import es.iesjandula.statsbomb.models.three_sixty.ThreeSixty;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -34,7 +35,12 @@ public class ThreeSixtyUtils
     private Environment environment;
 
     @Autowired
-    private IThreeSixtyRepository threeSixtyRepository;
+    private IThreeSixtyRepository iThreeSixtyRepository;
+
+    @Autowired
+    private IFreezeFrameRepository iFreezeFrameRepository;
+
+
 
     /**
      * Return list with all three sixties corresponding the match id in JSON StatsBomb
@@ -70,9 +76,31 @@ public class ThreeSixtyUtils
             {
                 List<Match> matchList = this.getListMatch(competitionsDto.getCompetition_id(), competitionsDto.getSeason_id());
 
+                LOGGER.warn(competitionsDto.getCompetition_id() + " <- CompetitionsId");
+
                 for (Match match : matchList)
                 {
-                    this.threeSixtyRepository.saveAllAndFlush((this.getListThreeSixty(match.getMatch_id())));
+
+                    LOGGER.warn(match.getMatch_id() + " <- MatchId");
+
+                    List<ThreeSixty> threeSixtyList = this.getListThreeSixty(match.getMatch_id());
+
+                    for (ThreeSixty threeSixtyItem : threeSixtyList)
+                    {
+
+                        LOGGER.warn(threeSixtyItem.getEvent_uuid() + " <- threeSixty UUID");
+                        List<FreezeFrame> freezeFrameList = threeSixtyItem.getFreeze_frame();
+
+                        for (FreezeFrame freezeFrameItem : freezeFrameList)
+                        {
+                            LOGGER.warn(freezeFrameItem.getActor() + " <- Actor");
+                            iFreezeFrameRepository.saveAndFlush(freezeFrameItem);
+                        }
+
+                        iThreeSixtyRepository.saveAndFlush(threeSixtyItem);
+                    }
+
+
                 }
             }
         }
