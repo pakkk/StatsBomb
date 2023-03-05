@@ -17,4 +17,4 @@ spring:
 
 statsbomb:
   loadDatabase: true
-  competitionsUrl: http://localhost:8090
+  competitionsUrl: http://localhost:8081

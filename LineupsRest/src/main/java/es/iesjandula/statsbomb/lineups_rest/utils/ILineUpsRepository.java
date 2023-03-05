@@ -1,10 +1,11 @@
 package es.iesjandula.statsbomb.lineups_rest.utils;
 
-import es.iesjandula.statsbomb.models.lineups.Lineups;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import es.iesjandula.statsbomb.models.lineups.Lineups;
 
-public interface ILineUpsRepository extends JpaRepository<Lineups, Integer>
+
+public interface ILineUpsRepository extends JpaRepository<Lineups, Long>
 {
 
 }

@@ -9,6 +9,7 @@ import es.iesjandula.statsbomb.common.load_json.IJsonLoader;
 import es.iesjandula.statsbomb.common.load_json.Json;
 import es.iesjandula.statsbomb.common.load_json.JsonLoaderImpl;
 import es.iesjandula.statsbomb.common.utils.Constants;
+import es.iesjandula.statsbomb.models.lineups.Lineup;
 import es.iesjandula.statsbomb.models.lineups.Lineups;
 import es.iesjandula.statsbomb.models.matches.Match;
 import org.apache.logging.log4j.LogManager;
@@ -27,6 +28,25 @@ public class LineUpsUtils
     private final Logger LOGGER = LogManager.getLogger();
     @Autowired
     private ILineUpsRepository lineUpsRepository;
+    @Autowired
+    private ILineupRepository lineupRepository;
+
+    @Autowired
+    private ICountryRepository iCountryRepository;
+
+    @Autowired
+    private ICardsRepository iCardsRepository;
+
+    @Autowired
+    private IPositionsRepository iPositionsRepository;
+
+
+
+
+
+
+
+
 
     @Autowired
     private Environment environment;
@@ -63,7 +83,29 @@ public class LineUpsUtils
 
                 for (Match match : matchList)
                 {
-                    this.lineUpsRepository.saveAllAndFlush((this.getListLineUps(match.getMatch_id())));
+
+                    LOGGER.warn(match.getMatch_id() + " <- matchId");
+
+                    List<Lineups> lineups = this.getListLineUps(match.getMatch_id());
+
+                    for (Lineups lineupsItem : lineups)
+                    {
+                        for (Lineup lineupItem : lineupsItem.getLineup())
+                        {
+                            this.iCountryRepository.saveAndFlush(lineupItem.getCountry());
+
+                            this.iCardsRepository.saveAllAndFlush(lineupItem.getCards());
+
+                            this.iPositionsRepository.saveAllAndFlush(lineupItem.getPositions());
+
+                        }
+
+                        this.lineupRepository.saveAllAndFlush(lineupsItem.getLineup());
+
+                        LOGGER.warn(lineupsItem.getTeam_id() + " <- teamId");
+
+                        this.lineUpsRepository.saveAndFlush(lineupsItem);
+                    }
                 }
             }
         }
