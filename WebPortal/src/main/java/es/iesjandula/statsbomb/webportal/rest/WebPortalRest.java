@@ -1,5 +1,7 @@
 package es.iesjandula.statsbomb.webportal.rest;
 
+import es.iesjandula.statsbomb.webportal.models.modelsSecurity.JwtToken;
+import jakarta.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +49,13 @@ public class WebPortalRest
 		Integer availableStatistics = userRepository.findByUserName(userName).getStasdistics_number();
 		// RETURN STATEMENT
 		return ResponseEntity.ok(availableStatistics);
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/token")
+	public ResponseEntity<?> getToken(HttpSession session) throws StatsBombException
+	{
+
+
+		return ResponseEntity.ok(new JwtToken((String)session.getAttribute("token")));
 	}
 }

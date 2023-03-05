@@ -1,13 +1,13 @@
 server:
-  port: 0
+  port: 8085
 spring:
   application:
     name: three-sixty
-  jpa.hibernate.ddl-auto: create
+  jpa.hibernate.ddl-auto: none
   datasource:
     url: jdbc:mysql://localhost:3306/three_sixty
     username: root
-    password: toor
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   hikari:
     connection-timeout: 60000
@@ -24,5 +24,5 @@ eureka:
 
 
 statsbomb:
-  loadDatabase: true
-  competitionsUrl: http://localhost:8090
+  loadDatabase: false
+  competitionsUrl: http://localhost:8081
