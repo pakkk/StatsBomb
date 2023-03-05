@@ -9,7 +9,9 @@ import es.iesjandula.statsbomb.common.utils.JsonUtils;
 import es.iesjandula.statsbomb.webportal.Json;
 import es.iesjandula.statsbomb.webportal.models.Type;
 import es.iesjandula.statsbomb.webportal.models.modelsSecurity.User;
+import es.iesjandula.statsbomb.webportal.security.JwtCongif;
 import es.iesjandula.statsbomb.webportal.security.users.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -36,6 +38,9 @@ public class WebPortalController
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private JwtCongif jwtCongif;
 
 	/**
 	 * This endPoint return the index page of the web portal.
@@ -149,7 +154,7 @@ public class WebPortalController
 	 * @return the registration.html page
 	 */
 	@PostMapping(value = "/register")
-	public ModelAndView createNewUser(@Validated User user, BindingResult bindingResult)
+	public ModelAndView createNewUser(@Validated User user, BindingResult bindingResult, HttpSession session)
 	{
 		ModelAndView modelAndView = new ModelAndView();
 		User userExists = userService.findUserByUserName(user.getUserName());
@@ -161,15 +166,17 @@ public class WebPortalController
 		}
 		if (bindingResult.hasErrors())
 		{
-			modelAndView.setViewName("register");
+			modelAndView.setViewName("register"); // if there is an error return the register page
 		} else
 		{
-			user.setStasdistics_number(10);
-			userService.saveUser(user);
+			session.setAttribute("token", jwtCongif.getJWTToken(user.getUserName())); // set the token in the session
+			user.setStasdistics_number(10); // set the number of statistics to show
+			userService.saveUser(user); // save the user
 			modelAndView.addObject("successMessage", "User has been registered successfully");
 			modelAndView.addObject("user", new User());
 			modelAndView.setViewName("register");
 		}
+
 		return modelAndView;
 	}
 

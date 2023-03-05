@@ -12,8 +12,8 @@
         <module name="CompetitionsRest" />
         <module name="ThreeSixtyRest" />
         <module name="EventsRest" />
-        <module name="MatchesRest" />
         <module name="Commons" />
+        <module name="MatchesRest" />
         <module name="Models" />
         <module name="LineupsRest" />
         <module name="GateWay-Server" />

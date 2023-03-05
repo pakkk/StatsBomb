@@ -19,7 +19,6 @@ import es.iesjandula.statsbomb.events_rest.stats.EventsStats;
  *
  * @author API Rest Generator ------------------------------------------------
  */
-@CrossOrigin(maxAge = 3600)
 @RequestMapping(value = "/events", produces = { "application/json" })
 @RestController //
 @EnableDiscoveryClient

@@ -32,3 +32,8 @@ spring:
           predicates:
             - Path=/threeSixty/**
 
+
+
+security:
+  jwt:
+    secret-key: "G0reGEKBIzb7Vi71EwxlHAIWsmaaxSXfstzOoEJXTJJmRpWIETMHqrbYLiyEOhWasjASdsaoW"

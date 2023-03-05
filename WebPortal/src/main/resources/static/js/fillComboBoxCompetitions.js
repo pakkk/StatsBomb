@@ -1,4 +1,9 @@
-import {getAllCompetitions} from "./query.js";
+import {getAllCompetitions, getAllEndPoint, getToken} from "./query.js";
+
+let endpoints = await getAllEndPoint();
+
+console.log(endpoints)
+
 
 let competicionesDisponibles = await getAllCompetitions();
 
