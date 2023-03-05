@@ -28,6 +28,10 @@ public class ThreeSixty
 	@Id
 	@Column(name = "event_uuid", length = 120)
 	private String event_uuid;
+
+	@Column(name = "matchId", length = 25)
+	private Integer matchId;
+
 	/**
 	 * Attribute
 	 * An array of coordinates describing the polygon
@@ -73,10 +77,11 @@ public class ThreeSixty
 	 * @param visible_area
 	 * @param freeze_frame
 	 */
-	public ThreeSixty(String event_uuid, List<Double> visible_area, 
+	public ThreeSixty(String event_uuid, Integer matchId, List<Double> visible_area,
 			          List<FreezeFrame> freeze_frame) 
 	{
 		this.event_uuid = event_uuid;
+		this.matchId = matchId;
 		this.visible_area = visible_area;
 		this.freeze_frame = freeze_frame;
 	}
@@ -95,6 +100,14 @@ public class ThreeSixty
 	public void setEvent_uuid(String event_uuid) 
 	{
 		this.event_uuid = event_uuid;
+	}
+
+	public Integer getMatchId() {
+		return matchId;
+	}
+
+	public void setMatchId(Integer matchId) {
+		this.matchId = matchId;
 	}
 
 	/**

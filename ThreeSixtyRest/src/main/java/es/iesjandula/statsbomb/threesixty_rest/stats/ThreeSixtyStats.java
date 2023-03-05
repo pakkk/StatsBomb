@@ -33,7 +33,7 @@ public class ThreeSixtyStats
     public String getThreeSixtyListOrder(int matchId) throws StatsBombException
     {
         SortFilter sortFilter = new SortFilter();
-        return sortFilter.getThreeSixtySorted(threeSixtyUtils.getListThreeSixty(matchId));
+        return sortFilter.getThreeSixtySorted(threeSixtyUtils.getListThreeSixtyByDataBase(matchId));
     }
     /**
      * This method return a list of the number of the teammates corresponding of the event_uuid
@@ -44,6 +44,6 @@ public class ThreeSixtyStats
     public String getTeammatesOfThreeSixty(int matchId) throws StatsBombException
     {
         TeammateFilter teammateFilter = new TeammateFilter();
-        return teammateFilter.getTeammateThreeSixty(threeSixtyUtils.getListThreeSixty(matchId));
+        return teammateFilter.getTeammateThreeSixty(threeSixtyUtils.getListThreeSixtyByDataBase(matchId));
     }
 }

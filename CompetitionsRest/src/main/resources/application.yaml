@@ -1,5 +1,5 @@
 server:
-  port: 0
+  port: 8081
 spring:
   application:
     name: competitions
@@ -7,7 +7,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/competitions
     username: root
-    password: toor
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   hikari:
     connection-timeout: 60000

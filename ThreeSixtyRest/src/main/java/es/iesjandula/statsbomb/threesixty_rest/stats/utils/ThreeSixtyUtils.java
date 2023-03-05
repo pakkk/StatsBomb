@@ -68,6 +68,12 @@ public class ThreeSixtyUtils
         return threeSixtyList;
     }
 
+    public List<ThreeSixty> getListThreeSixtyByDataBase(int matchId) throws StatsBombException
+    {
+        List<ThreeSixty> threeSixtyList = iThreeSixtyRepository.findAllByMatchId(matchId);
+        return threeSixtyList;
+    }
+
     public void insertThreeSixtyUtilsInDataBase() throws StatsBombException, JsonProcessingException {
         List<CompetitionsDto> competitionList = this.getListCompetition();
         for (CompetitionsDto competitionsDto : competitionList)
@@ -87,6 +93,8 @@ public class ThreeSixtyUtils
 
                     for (ThreeSixty threeSixtyItem : threeSixtyList)
                     {
+
+                        threeSixtyItem.setMatchId(match.getMatch_id());
 
                         LOGGER.warn(threeSixtyItem.getEvent_uuid() + " <- threeSixty UUID");
                         List<FreezeFrame> freezeFrameList = threeSixtyItem.getFreeze_frame();

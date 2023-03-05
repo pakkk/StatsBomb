@@ -1,5 +1,5 @@
 server:
-  port: 0
+  port: 8084
 spring:
   application:
     name: matches
@@ -24,4 +24,4 @@ eureka:
 
 statsbomb:
   loadDatabase: true
-  competitionsUrl: http://localhost:8090
+  competitionsUrl: http://localhost:8081

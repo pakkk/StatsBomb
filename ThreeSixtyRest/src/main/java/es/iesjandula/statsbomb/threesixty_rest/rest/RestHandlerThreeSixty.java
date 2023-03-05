@@ -80,4 +80,6 @@ public class RestHandlerThreeSixty
             return ResponseEntity.status(590).body(statsBombException.getBodyExceptionMessage());
         }
     }
+
+
 }
