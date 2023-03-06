@@ -3,8 +3,8 @@ package es.iesjandula.statsbomb.models.lineups;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
-@Table(name = "positions")
 @Entity
+@Table(name = "positions")
 public class Positions
 {
 	@Id
