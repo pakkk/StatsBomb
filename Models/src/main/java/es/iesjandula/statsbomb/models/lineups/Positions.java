@@ -10,19 +10,19 @@ public class Positions
 	@Id
 	private Long position_id;
 
-	@Column
+	@Column(length = 15)
 	private String position;
-	@Column
+	@Column(length = 15)
 	private String from;
-	@Column
+	@Column(length = 15)
 	private String to;
-	@Column
+	@Column(length = 10)
 	private int from_period;
-	@Column
+	@Column(length = 10)
 	private int to_period;
-	@Column
+	@Column(length = 15)
 	private String start_reason;
-	@Column
+	@Column(length = 15)
 	private String end_reason;
 
 	@ManyToOne
