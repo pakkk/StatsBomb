@@ -43,7 +43,7 @@ public class WebSecurityConfiguration
                 .requestMatchers("/login").permitAll()
                 .requestMatchers("/register").permitAll()
                 .requestMatchers("/", "/index").permitAll()
-                .requestMatchers("/who_we_are", "/what_we_do", "/statistics", "/about_us", "/lista_endpoint", "/statistics_available", "/token").hasAnyAuthority("USER", "ADMIN")
+                .requestMatchers("/statistics", "/lista_endpoint", "/statistics_available", "/token").hasAnyAuthority("USER", "ADMIN")
                 .and().formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/", true)
