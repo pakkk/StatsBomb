@@ -42,7 +42,7 @@ public class WebSecurityConfiguration
                 .requestMatchers("/resources/**", "/audio/**", "/bootstrap-5.3.0-alpha1-dist/**", "/css/**", "/img/**", "/js/**", "/video/**").permitAll()
                 .requestMatchers("/login").permitAll()
                 .requestMatchers("/register").permitAll()
-                .requestMatchers("/", "/index").permitAll()
+                .requestMatchers("/", "/index", "/what_we_do", "/about_us").permitAll()
                 .requestMatchers("/statistics", "/lista_endpoint", "/statistics_available", "/token").hasAnyAuthority("USER", "ADMIN")
                 .and().formLogin()
                 .loginPage("/login")

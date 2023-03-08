@@ -2,7 +2,10 @@ package es.iesjandula.statsbomb.competitions_rest.rest;
 
 
 import es.iesjandula.statsbomb.common.exception.StatsBombException;
+import es.iesjandula.statsbomb.common.utils.JsonUtils;
 import es.iesjandula.statsbomb.competitions_rest.stats.CompetitionsStats;
+import es.iesjandula.statsbomb.competitions_rest.stats.utils.CompetitionUtils;
+import es.iesjandula.statsbomb.models.competition.Competition;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 
 /**
@@ -41,9 +46,17 @@ public class RestHandlerCompetition
     @RequestMapping(method = RequestMethod.GET, value = "/")
     public ResponseEntity<?> getCompetitions()
     {
+
+        JsonUtils jsonUtils;
+
         try
         {
-            String resultJson = this.competitionsStats.getCompetitions();
+            jsonUtils = new JsonUtils();
+
+            List<Competition> competitionList = this.competitionsStats.getCompetitionsOfDataBase();
+
+            String resultJson = jsonUtils.writeObjectToJsonAsStringPretty(competitionList);
+
             return ResponseEntity.ok().body(resultJson);
         }
         catch (StatsBombException statsBombException)

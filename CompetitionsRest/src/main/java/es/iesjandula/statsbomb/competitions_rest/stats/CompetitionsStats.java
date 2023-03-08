@@ -6,11 +6,15 @@ import es.iesjandula.statsbomb.competitions_rest.stats.gender.GenderFilter;
 import es.iesjandula.statsbomb.competitions_rest.stats.id.IdFilter;
 import es.iesjandula.statsbomb.competitions_rest.stats.order.OrderFilter;
 import es.iesjandula.statsbomb.competitions_rest.stats.utils.CompetitionUtils;
+import es.iesjandula.statsbomb.competitions_rest.stats.utils.ICompetitionRepository;
 import es.iesjandula.statsbomb.competitions_rest.stats.web_filter.WebFilter;
+import es.iesjandula.statsbomb.models.competition.Competition;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author Neil Hdez
@@ -27,6 +31,9 @@ public class CompetitionsStats
     @Autowired
     private CompetitionUtils competitionUtils;
 
+    @Autowired
+    private ICompetitionRepository iCompetitionRepository;
+
 
     /**
      * This method return All Competitions
@@ -42,6 +49,17 @@ public class CompetitionsStats
         return jsonUtils.writeObjectToJsonAsStringPretty(competitionUtils.getListCompetitions());
     }
 
+    public Competition getCompetitionsOfDataBaseById(int competitionId) throws StatsBombException
+    {
+        return iCompetitionRepository.findByCompetition_id(competitionId);
+    }
+
+    public List<Competition> getCompetitionsOfDataBase() throws StatsBombException
+    {
+        return iCompetitionRepository.findAll();
+    }
+
+
     /**
      * This method sorts the competitions in ascending alphabetical order by name.
      *
@@ -51,7 +69,7 @@ public class CompetitionsStats
     public String getCompetitionsAlphabeticalOrder() throws StatsBombException
     {
         OrderFilter orderFilter = new OrderFilter();
-        return orderFilter.getCompetitionsAlphabeticalOrder(competitionUtils.getListCompetitions());
+        return orderFilter.getCompetitionsAlphabeticalOrder(getCompetitionsOfDataBase());
     }
 
 
@@ -64,7 +82,7 @@ public class CompetitionsStats
     public String getCompetitionsFemale() throws StatsBombException
     {
         GenderFilter genderFilter = new GenderFilter();
-        return genderFilter.getCompetitionsFemale(competitionUtils.getListCompetitions());
+        return genderFilter.getCompetitionsFemale(getCompetitionsOfDataBase());
     }
 
     /**
@@ -76,7 +94,7 @@ public class CompetitionsStats
     public String getCompetitionsMale() throws StatsBombException
     {
         GenderFilter genderFilter = new GenderFilter();
-        return genderFilter.getCompetitionsMale(competitionUtils.getListCompetitions());
+        return genderFilter.getCompetitionsMale(getCompetitionsOfDataBase());
     }
     
     /**
@@ -88,7 +106,7 @@ public class CompetitionsStats
     public String getCompetitionsId() throws StatsBombException
     {
         IdFilter idFilter = new IdFilter();
-        return idFilter.getCompetitionsId(competitionUtils.getListCompetitions());
+        return idFilter.getCompetitionsId(getCompetitionsOfDataBase());
     }
 
     /**
@@ -100,6 +118,6 @@ public class CompetitionsStats
     public String getCompetitionsNameAndSeasonName() throws StatsBombException
     {
         WebFilter webFilter = new WebFilter();
-        return webFilter.getCompetitionsNameAndSeasonName(competitionUtils.getListCompetitions());
+        return webFilter.getCompetitionsNameAndSeasonName(getCompetitionsOfDataBase());
     }
 }
