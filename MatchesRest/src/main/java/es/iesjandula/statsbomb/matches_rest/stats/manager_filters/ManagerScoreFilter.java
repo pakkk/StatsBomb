@@ -52,7 +52,7 @@ public class ManagerScoreFilter
 	{
 		resultsList.clear();
 
-		List<Match> matchesList= new ArrayList<>();
+		List<Match> matchesList;
 		List<String> managerList = new ArrayList<String>();
 
 		matchesList = this.matchesUtils.getMatchesByDataBase(competitionId, seasonId);
@@ -63,25 +63,57 @@ public class ManagerScoreFilter
 			if (matches.getHome_team() != null)
 			{
 				// check if the matches has managers
-				if (matches.getHome_team().getManagers() != null && matches.getHome_team().getManagers().size() > 0)
+				if (matches.getHome_team().getManagers() != null)
 				{
-					// save the return of saveWin
-					int won = saveWin(matches.getHome_team().getManagers().get(0).getName(), matchesList);
-					// save the return of saveLost
-					int lost = saveLost(matches.getHome_team().getManagers().get(0).getName(), matchesList);
-					// save the return of saveTied
-					int tied = saveTied(matches.getHome_team().getManagers().get(0).getName(), matchesList);
-	
-					// instance of ResultMatch with won, lost, tied
-					ResultMatches resultMatch = new ResultMatches(won, lost, tied);
-	
-					// instance of Result with name Manager and resultMatch
-					Result result = new Result(matches.getHome_team().getManagers().get(0).getName(), resultMatch);
-	
-					if (!managerList.contains(matches.getHome_team().getManagers().get(0).getName()))
+					if (matches.getHome_team().getManagers().size() > 0)
 					{
-						this.resultsList.add(result);
-						managerList.add(matches.getHome_team().getManagers().get(0).getName());
+						// save the return of saveWin
+						int won = saveWin(matches.getHome_team().getManagers().get(0).getName(), matchesList);
+						// save the return of saveLost
+						int lost = saveLost(matches.getHome_team().getManagers().get(0).getName(), matchesList);
+						// save the return of saveTied
+						int tied = saveTied(matches.getHome_team().getManagers().get(0).getName(), matchesList);
+
+						// instance of ResultMatch with won, lost, tied
+						ResultMatches resultMatch = new ResultMatches(won, lost, tied);
+
+						// instance of Result with name Manager and resultMatch
+						Result result = new Result(matches.getHome_team().getManagers().get(0).getName(), resultMatch);
+
+						if (!managerList.contains(matches.getHome_team().getManagers().get(0).getName()))
+						{
+							this.resultsList.add(result);
+							managerList.add(matches.getHome_team().getManagers().get(0).getName());
+						}
+					}
+				}
+			}
+
+			if (matches.getAway_team() != null)
+			{
+				// check if the matches has managers
+				if (matches.getAway_team().getManagers() != null)
+				{
+					if (matches.getAway_team().getManagers().size() > 0)
+					{
+						// save the return of saveWin
+						int won = saveWin(matches.getAway_team().getManagers().get(0).getName(), matchesList);
+						// save the return of saveLost
+						int lost = saveLost(matches.getAway_team().getManagers().get(0).getName(), matchesList);
+						// save the return of saveTied
+						int tied = saveTied(matches.getAway_team().getManagers().get(0).getName(), matchesList);
+
+						// instance of ResultMatch with won, lost, tied
+						ResultMatches resultMatch = new ResultMatches(won, lost, tied);
+
+						// instance of Result with name Manager and resultMatch
+						Result result = new Result(matches.getAway_team().getManagers().get(0).getName(), resultMatch);
+
+						if (!managerList.contains(matches.getAway_team().getManagers().get(0).getName()))
+						{
+							this.resultsList.add(result);
+							managerList.add(matches.getAway_team().getManagers().get(0).getName());
+						}
 					}
 				}
 			}
@@ -105,20 +137,23 @@ public class ManagerScoreFilter
 
 		for (Match matches : matchesList)
 		{
-			if (matches.getHome_team().getManagers() != null && matches.getHome_team().getManagers().size() > 0)
+			if (matches.getHome_team().getManagers() != null)
 			{
-				if (matches.getHome_team().getManagers().get(0).getName().equals(managers))
+				if (matches.getHome_team().getManagers().size() > 0)
 				{
-					if (matches.getHome_score() > matches.getAway_score())
+					if (matches.getHome_team().getManagers().get(0).getName().equals(managers))
 					{
-						won++;
+						if (matches.getHome_score() > matches.getAway_score())
+						{
+							won++;
+						}
 					}
 				}
 			}
 
-			if (matches.getAway_team().getManagers() != null && matches.getHome_team().getManagers() !=  null)
+			if (matches.getAway_team().getManagers() != null)
 			{
-				if (matches.getAway_team().getManagers().size() > 0 && matches.getHome_team().getManagers().size() > 0)
+				if (matches.getAway_team().getManagers().size() > 0)
 				{
 					if (matches.getAway_team().getManagers().get(0).getName().equals(managers))
 					{
@@ -144,24 +179,30 @@ public class ManagerScoreFilter
 
 		for (Match matches : matchesList)
 		{
-			if (matches.getHome_team().getManagers() != null && matches.getHome_team().getManagers().size() > 0)
+			if (matches.getHome_team().getManagers() != null)
 			{
-				if (matches.getHome_team().getManagers().get(0).getName().equals(managers))
+				if (matches.getHome_team().getManagers().size() > 0)
 				{
-					if (matches.getHome_score() < matches.getAway_score())
+					if (matches.getHome_team().getManagers().get(0).getName().equals(managers))
 					{
-						lost++;
+						if (matches.getHome_score() < matches.getAway_score())
+						{
+							lost++;
+						}
 					}
 				}
 			}
 
-			if (matches.getAway_team().getManagers() != null && matches.getHome_team().getManagers().size() > 0)
+			if (matches.getAway_team().getManagers() != null)
 			{
-				if (matches.getAway_team().getManagers().get(0).getName().equals(managers))
+				if (matches.getAway_team().getManagers().size() > 0)
 				{
-					if (matches.getHome_score() > matches.getAway_score())
+					if (matches.getAway_team().getManagers().get(0).getName().equals(managers))
 					{
-						lost++;
+						if (matches.getHome_score() > matches.getAway_score())
+						{
+							lost++;
+						}
 					}
 				}
 			}
@@ -180,24 +221,30 @@ public class ManagerScoreFilter
 
 		for (Match matches : matchesList)
 		{
-			if (matches.getHome_team().getManagers() != null && matches.getHome_team().getManagers().size() > 0)
+			if (matches.getHome_team().getManagers() != null)
 			{
-				if (matches.getHome_team().getManagers().get(0).getName().equals(managers))
+				if (matches.getHome_team().getManagers().size() > 0)
 				{
-					if (matches.getHome_score() == matches.getAway_score())
+					if (matches.getHome_team().getManagers().get(0).getName().equals(managers))
 					{
-						tied++;
+						if (matches.getHome_score() == matches.getAway_score())
+						{
+							tied++;
+						}
 					}
 				}
 			}
 
-			if (matches.getAway_team().getManagers() != null && matches.getHome_team().getManagers().size() > 0)
+			if (matches.getAway_team().getManagers() != null)
 			{
-				if (matches.getAway_team().getManagers().get(0).getName().equals(managers))
+				if (matches.getAway_team().getManagers().size() > 0)
 				{
-					if (matches.getHome_score() == matches.getAway_score())
+					if (matches.getAway_team().getManagers().get(0).getName().equals(managers))
 					{
-						tied++;
+						if (matches.getHome_score() == matches.getAway_score())
+						{
+							tied++;
+						}
 					}
 				}
 			}
